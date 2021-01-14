@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FQN-X0-2kL">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="sGd-3i-M0L">
+            <objects>
+                <navigationController storyboardIdentifier="offersNVC" navigationBarHidden="YES" id="FQN-X0-2kL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Vq-Yp-u4n">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2eu-eC-9L4" kind="relationship" relationship="rootViewController" id="RBQ-wR-Pcv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="po0-hc-7GH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3" y="210"/>
+        </scene>
+        <!--OffersVC-->
+        <scene sceneID="aFl-By-mwr">
+            <objects>
+                <viewController storyboardIdentifier="offersVC" id="2eu-eC-9L4" customClass="OffersVC" customModule="ListNBuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h0p-3Z-e1j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_strip" translatesAutoresizingMaskIntoConstraints="NO" id="a7a-CV-UkZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iTp-5P-09e"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHh-SL-E9A">
+                                <rect key="frame" x="10" y="54" width="30" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="SAZ-eq-0n9"/>
+                                    <constraint firstAttribute="width" constant="30" id="lLj-Ms-EDp"/>
+                                </constraints>
+                                <state key="normal" image="menu"/>
+                                <connections>
+                                    <action selector="showLeftView:" destination="2eu-eC-9L4" eventType="touchUpInside" id="PCB-OE-nIp"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Offers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztI-MZ-I6K">
+                                <rect key="frame" x="50" y="56" width="70" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="a3b-9g-wua"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="nvE-3f-zrG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a0t-jV-BUY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a0t-jV-BUY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ztI-MZ-I6K" secondAttribute="trailing" symbolic="YES" id="CeL-Im-Arh"/>
+                            <constraint firstItem="a7a-CV-UkZ" firstAttribute="trailing" secondItem="a0t-jV-BUY" secondAttribute="trailing" id="S8O-io-gpU"/>
+                            <constraint firstItem="ztI-MZ-I6K" firstAttribute="leading" secondItem="vHh-SL-E9A" secondAttribute="trailing" constant="10" id="VsH-cP-0kU"/>
+                            <constraint firstItem="a7a-CV-UkZ" firstAttribute="leading" secondItem="a0t-jV-BUY" secondAttribute="leading" id="fR0-JT-eSr"/>
+                            <constraint firstItem="vHh-SL-E9A" firstAttribute="leading" secondItem="a0t-jV-BUY" secondAttribute="leading" constant="10" id="iSZ-3P-srZ"/>
+                            <constraint firstItem="vHh-SL-E9A" firstAttribute="top" secondItem="a0t-jV-BUY" secondAttribute="top" constant="10" id="kyz-6f-6Sr"/>
+                            <constraint firstItem="ztI-MZ-I6K" firstAttribute="top" secondItem="a0t-jV-BUY" secondAttribute="top" constant="12" id="lxf-Dr-5YM"/>
+                            <constraint firstItem="a7a-CV-UkZ" firstAttribute="top" secondItem="a0t-jV-BUY" secondAttribute="top" id="uQr-sH-wsE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z4f-c3-cxl">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" style="plain" id="lb0-fU-MuE">
+                            <connections>
+                                <action selector="showLeftViewAnimated:" destination="2eu-eC-9L4" id="fkj-Ym-Prb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ukj-iH-2wz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="690" y="210"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="header_strip" width="1080" height="134"/>
+        <image name="menu" width="26" height="26"/>
+    </resources>
+</document>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ys-PD-j3Q">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ANw-5d-9iJ">
+            <objects>
+                <navigationController storyboardIdentifier="myOrdersNVC" navigationBarHidden="YES" id="0Ys-PD-j3Q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Lf-iY-5dZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EQn-kN-auW" kind="relationship" relationship="rootViewController" id="qcQ-m8-uT3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="er9-Kd-UHd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125" y="761"/>
+        </scene>
+        <!--My OrdersVC-->
+        <scene sceneID="0Ty-Hz-jWK">
+            <objects>
+                <viewController storyboardIdentifier="myOrdersVC" id="EQn-kN-auW" customClass="MyOrdersVC" customModule="ListNBuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gmi-YM-asB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_strip" translatesAutoresizingMaskIntoConstraints="NO" id="pY0-U9-fZa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DEG-gq-KRR"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKu-Vi-Ki7">
+                                <rect key="frame" x="10" y="54" width="30" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Job-HK-46J"/>
+                                    <constraint firstAttribute="width" constant="30" id="e3Y-pm-jx3"/>
+                                </constraints>
+                                <state key="normal" image="menu"/>
+                                <connections>
+                                    <action selector="showLeftView:" destination="EQn-kN-auW" eventType="touchUpInside" id="3vp-kw-lG7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="My Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXf-ay-JDu">
+                                <rect key="frame" x="50" y="56" width="98" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="HfI-5L-vvw"/>
+                                    <constraint firstAttribute="height" constant="27" id="rdw-6J-S9o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WOj-mw-COU"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WOj-mw-COU" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HXf-ay-JDu" secondAttribute="trailing" symbolic="YES" id="5ke-CE-Ytm"/>
+                            <constraint firstItem="HXf-ay-JDu" firstAttribute="leading" secondItem="QKu-Vi-Ki7" secondAttribute="trailing" constant="10" id="G2m-H6-fuJ"/>
+                            <constraint firstItem="QKu-Vi-Ki7" firstAttribute="top" secondItem="WOj-mw-COU" secondAttribute="top" constant="10" id="H3U-Fc-ClR"/>
+                            <constraint firstItem="pY0-U9-fZa" firstAttribute="top" secondItem="WOj-mw-COU" secondAttribute="top" id="Wco-tB-bHU"/>
+                            <constraint firstItem="pY0-U9-fZa" firstAttribute="leading" secondItem="WOj-mw-COU" secondAttribute="leading" id="dlR-Br-fCC"/>
+                            <constraint firstItem="QKu-Vi-Ki7" firstAttribute="leading" secondItem="WOj-mw-COU" secondAttribute="leading" constant="10" id="fOR-rz-nJY"/>
+                            <constraint firstItem="HXf-ay-JDu" firstAttribute="top" secondItem="WOj-mw-COU" secondAttribute="top" constant="12" id="lVL-Re-bdk"/>
+                            <constraint firstItem="pY0-U9-fZa" firstAttribute="trailing" secondItem="WOj-mw-COU" secondAttribute="trailing" id="vxe-sd-WQN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SoU-pF-pyJ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" style="plain" id="jtq-tD-L13">
+                            <connections>
+                                <action selector="showLeftViewAnimated:" destination="EQn-kN-auW" id="JfN-uT-Dhj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOe-xH-wTV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="761"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="header_strip" width="1080" height="134"/>
+        <image name="menu" width="26" height="26"/>
+    </resources>
+</document>

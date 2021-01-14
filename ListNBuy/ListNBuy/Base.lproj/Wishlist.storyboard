@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1uT-TD-Dks">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="H8S-Zo-FJw">
+            <objects>
+                <navigationController storyboardIdentifier="wishlistNVC" navigationBarHidden="YES" id="1uT-TD-Dks" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ftf-D3-ESu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bzO-vl-eXt" kind="relationship" relationship="rootViewController" id="CJX-ZK-vQY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="US2-ai-E3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-248" y="676"/>
+        </scene>
+        <!--WishlistVC-->
+        <scene sceneID="vvI-D5-Lxa">
+            <objects>
+                <viewController storyboardIdentifier="wishlistVC" id="bzO-vl-eXt" customClass="WishlistVC" customModule="ListNBuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wD7-bl-av5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_strip" translatesAutoresizingMaskIntoConstraints="NO" id="VSk-5U-FAi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IrJ-sN-wPu"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eb-Ix-mtu">
+                                <rect key="frame" x="10" y="54" width="30" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="OX0-yK-Q8J"/>
+                                    <constraint firstAttribute="width" constant="30" id="sxb-hd-Fyh"/>
+                                </constraints>
+                                <state key="normal" image="menu"/>
+                                <connections>
+                                    <action selector="showLeftView:" destination="bzO-vl-eXt" eventType="touchUpInside" id="3Di-xL-2r2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Wish List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INU-bP-TYE">
+                                <rect key="frame" x="50" y="56" width="82.5" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="Nie-Nh-hNj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="bke-RM-mi1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uql-HD-b1k"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2eb-Ix-mtu" firstAttribute="top" secondItem="Uql-HD-b1k" secondAttribute="top" constant="10" id="7B5-iv-S9q"/>
+                            <constraint firstItem="Uql-HD-b1k" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="INU-bP-TYE" secondAttribute="trailing" symbolic="YES" id="BF6-k9-rIn"/>
+                            <constraint firstItem="VSk-5U-FAi" firstAttribute="top" secondItem="Uql-HD-b1k" secondAttribute="top" id="H48-pP-u7L"/>
+                            <constraint firstItem="VSk-5U-FAi" firstAttribute="leading" secondItem="Uql-HD-b1k" secondAttribute="leading" id="Iqj-8I-HGn"/>
+                            <constraint firstItem="INU-bP-TYE" firstAttribute="top" secondItem="Uql-HD-b1k" secondAttribute="top" constant="12" id="Kvp-d6-NYw"/>
+                            <constraint firstItem="INU-bP-TYE" firstAttribute="leading" secondItem="2eb-Ix-mtu" secondAttribute="trailing" constant="10" id="Nw0-bc-5aA"/>
+                            <constraint firstItem="2eb-Ix-mtu" firstAttribute="leading" secondItem="Uql-HD-b1k" secondAttribute="leading" constant="10" id="aPV-Rj-SLw"/>
+                            <constraint firstItem="VSk-5U-FAi" firstAttribute="trailing" secondItem="Uql-HD-b1k" secondAttribute="trailing" id="mWG-OY-uMd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BgD-9B-v61">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" style="plain" id="DRc-Mv-hD6">
+                            <connections>
+                                <action selector="showLeftViewAnimated:" destination="bzO-vl-eXt" id="Z0Q-C0-rur"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UJz-qb-PyT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="458" y="676"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="header_strip" width="1080" height="134"/>
+        <image name="menu" width="26" height="26"/>
+    </resources>
+</document>

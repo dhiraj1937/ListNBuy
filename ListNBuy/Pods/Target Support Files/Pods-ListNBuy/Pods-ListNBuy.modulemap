@@ -1,0 +1,6 @@
+framework module Pods_ListNBuy {
+  umbrella header "Pods-ListNBuy-umbrella.h"
+
+  export *
+  module * { export * }
+}

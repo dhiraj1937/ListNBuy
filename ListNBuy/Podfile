@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'ListNBuy' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ListNBuy
+  pod 'ReachabilitySwift'
+  pod 'PKHUD'
+  pod 'Alamofire'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'FontAwesome'
+  pod 'SDWebImage'
+  pod 'WebBrowser'
+  pod 'RSSelectionMenu'
+  pod 'LGSideMenuController'
+  pod 'IQKeyboardManagerSwift'
+  pod 'LPSnackbar'
+  
+end
