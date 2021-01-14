@@ -20,17 +20,31 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         
         let homeNVC = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "homeNVC") as! UINavigationController
+        let homeIcon = UITabBarItem(title: "Home", image: UIImage(named: "i_home.png"), selectedImage: UIImage(named: "i_home.png"))
+        homeNVC.tabBarItem = homeIcon
+        
         let myOrdersNVC = KMYORDERSSTORYBOARD.instantiateViewController(withIdentifier: "myOrdersNVC") as! UINavigationController
+        let orderIcon = UITabBarItem(title: "My Orders", image: UIImage(named: "i_order.png"), selectedImage: UIImage(named: "i_order.png"))
+        myOrdersNVC.tabBarItem = orderIcon
+        
         let offersNVC = KOFFERSSTORYBOARD.instantiateViewController(withIdentifier: "offersNVC") as! UINavigationController
+        let offerIcon = UITabBarItem(title: "Offers", image: UIImage(named: "i_offer.png"), selectedImage: UIImage(named: "i_offer.png"))
+        offersNVC.tabBarItem = offerIcon
+        
         let wishlistNVC = KWISHLISTSTORYBOARD.instantiateViewController(withIdentifier: "wishlistNVC") as! UINavigationController
+        let wishIcon = UITabBarItem(title: "Wishlist", image: UIImage(named: "i_wishlist.png"), selectedImage: UIImage(named: "i_wishlist.png"))
+        wishlistNVC.tabBarItem = wishIcon
+        
         let myAccountNVC = KMYACCOUNTSTORYBOARD.instantiateViewController(withIdentifier: "myAccountNVC") as! UINavigationController
+        let accIcon = UITabBarItem(title: "My Account", image: UIImage(named: "i_profile.png"), selectedImage: UIImage(named: "i_profile.png"))
+        myAccountNVC.tabBarItem = accIcon
         
         self.viewControllers = [homeNVC , myOrdersNVC , offersNVC , wishlistNVC, myAccountNVC]
         self.selectedIndex = 0
         self.item0.isSelected = true
-        
+        self.view.tintColor = UIColor.init(hexString: "#953A9D", alpha: 1)
         self.tabbarView.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.size.height - 94, width: UIScreen.main.bounds.size.width, height: 94)
-        self.view.addSubview(self.tabbarView)
+        //self.view.addSubview(self.tabbarView)
         Constant.globalTabbar = self
     }
     
