@@ -37,12 +37,9 @@ public class Constant {
     
     public static var sendLoginOTPUrl:String = Constant.serverURL+"/sendLoginOTP";
     public static var loginUrl:String = Constant.serverURL+"/userLogin";
-    
-    
     public static var slugUrl:String = Constant.serverURL+"/getPages";
     public static var socialSettingsUrl:String = Constant.serverURL+"/getSocialSettingsData";
-    
-    
+    public static var faqUrl:String = Constant.serverURL+"/getFaqData";
     public static var  globalTabbar:UITabBarController?
 
 

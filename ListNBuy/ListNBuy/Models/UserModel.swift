@@ -74,3 +74,22 @@ public class ContactUsModel:Codable{
     }
 }
 
+public class FAQModel:Codable{
+    var Id:String?
+    var Title:String?
+    var Content:String?
+    var EntDt:String?
+    var IsShow:Bool = false
+    var Direction:String = "ic_expand_more_black"
+    var Answer:String = ""
+    enum CodingKeys:String,CodingKey {
+            case Id, Title,Content,EntDt
+        }
+    init(Id: String, Title: String, Content: String, EntDt: String) {
+        self.Id = Id
+        self.Title = Title
+        self.Content = Content
+        self.EntDt = EntDt
+    }
+}
+
