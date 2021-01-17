@@ -23,7 +23,7 @@ class MembershipPlanCollectionViewCell: UICollectionViewCell {
         lblTitle.text = mPlan.Title;
         lblPrice.text = "Rs " + mPlan.Price;
         lblDuration.text = mPlan.Duration + " Days";
-        lblSubTitle.text = mPlan.SubTitle;
+        lblSubTitle.text = "   "+mPlan.SubTitle+"   ";
         txtVContent.attributedText = mPlan.Content.htmlToAttributedString;
     }
     

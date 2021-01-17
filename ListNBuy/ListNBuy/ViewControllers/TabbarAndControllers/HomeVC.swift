@@ -15,5 +15,10 @@ class HomeVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func btnWhatsAppAvailabitliy(){
+        let vc = WhatsAppOrderViewController.init(nibName: "WhatsAppOrderViewController", bundle: nil)
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
 }
 

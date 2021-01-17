@@ -41,6 +41,7 @@ public class Constant {
     public static var socialSettingsUrl:String = Constant.serverURL+"/getSocialSettingsData";
     public static var faqUrl:String = Constant.serverURL+"/getFaqData";
     public static var membershipPlanUrl:String = Constant.serverURL+"/getMembershipPlan";
+    public static var getWhatsAppAvailibilityURL:String = Constant.serverURL+"/getWhatsAppAvailibility";
     public static var  globalTabbar:UITabBarController?
 
 

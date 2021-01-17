@@ -47,6 +47,28 @@
                                     <action selector="showLeftView:" destination="aAa-ZE-sY8" eventType="touchUpInside" id="ecR-fA-Efn"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGK-zP-gXf">
+                                <rect key="frame" x="0.0" y="91" width="414" height="805"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsW-CH-cKU">
+                                        <rect key="frame" x="335" y="620" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" red="0.99276465179999995" green="0.82444578410000002" blue="0.48177999259999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="whatsapp"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnWhatsAppAvailabitliy" destination="aAa-ZE-sY8" eventType="touchUpInside" id="L0E-Ai-vu7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="796-Nf-Maw"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Ra0-VB-e7h"/>
+                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="LISTNBUY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyw-Bl-G5r">
                                 <rect key="frame" x="50" y="56" width="94" height="27"/>
                                 <constraints>
@@ -87,5 +109,6 @@
     <resources>
         <image name="header_strip" width="1080" height="134"/>
         <image name="menu" width="26" height="26"/>
+        <image name="whatsapp" width="30" height="30"/>
     </resources>
 </document>

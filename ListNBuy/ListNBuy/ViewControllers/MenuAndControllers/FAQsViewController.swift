@@ -65,8 +65,8 @@ class FAQsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
-                faqList = try! JSONDecoder().decode([FAQModel].self, from: jsonData!)
-                tblFAQ.reloadData()
+                 faqList = try! JSONDecoder().decode([FAQModel].self, from: jsonData!)
+                 tblFAQ.reloadData()
                  HUD.flash(.progress)
                }
                else{

@@ -27,6 +27,8 @@
 		180A88CB25A77A7800462CB7 /* OffersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A88C725A77A7800462CB7 /* OffersVC.swift */; };
 		180A88CC25A77A7800462CB7 /* MyOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A88C825A77A7800462CB7 /* MyOrdersVC.swift */; };
 		180A88D025A79CAB00462CB7 /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A88CF25A79CAB00462CB7 /* SignUP.swift */; };
+		1823735025B451AE009106E5 /* WhatsAppOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */; };
+		1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */; };
 		1872460D25B3604600A336D0 /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872460C25B3604600A336D0 /* FaqCell.swift */; };
 		18895D2725AB23AE007AA0B0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18895D2625AB23AE007AA0B0 /* Alert.swift */; };
 		18895D3925AB312D007AA0B0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18895D3825AB312D007AA0B0 /* ApiManager.swift */; };
@@ -66,6 +68,8 @@
 		180A88C725A77A7800462CB7 /* OffersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersVC.swift; sourceTree = "<group>"; };
 		180A88C825A77A7800462CB7 /* MyOrdersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrdersVC.swift; sourceTree = "<group>"; };
 		180A88CF25A79CAB00462CB7 /* SignUP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
+		1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsAppOrderViewController.swift; sourceTree = "<group>"; };
+		1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhatsAppOrderViewController.xib; sourceTree = "<group>"; };
 		1872460C25B3604600A336D0 /* FaqCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqCell.swift; sourceTree = "<group>"; };
 		18895D2625AB23AE007AA0B0 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		18895D3825AB312D007AA0B0 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 		180A885425A7566F00462CB7 /* ListNBuy */ = {
 			isa = PBXGroup;
 			children = (
+				1823734D25B44C37009106E5 /* CustomControl */,
 				18D5F66325ACBF8F007DABFF /* AppDelegate */,
 				18D5F65E25ACBE5A007DABFF /* Global */,
 				18D5F65C25ACBDB6007DABFF /* Service */,
@@ -128,6 +133,15 @@
 				180A886325A7567000462CB7 /* Info.plist */,
 			);
 			path = ListNBuy;
+			sourceTree = "<group>";
+		};
+		1823734D25B44C37009106E5 /* CustomControl */ = {
+			isa = PBXGroup;
+			children = (
+				1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */,
+				1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */,
+			);
+			path = CustomControl;
 			sourceTree = "<group>";
 		};
 		18D5F65C25ACBDB6007DABFF /* Service */ = {
@@ -306,6 +320,7 @@
 				180A88BE25A7770200462CB7 /* MyAccount.storyboard in Resources */,
 				180A88BF25A7770200462CB7 /* Wishlist.storyboard in Resources */,
 				180A886225A7567000462CB7 /* LaunchScreen.storyboard in Resources */,
+				1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */,
 				180A88BC25A7770200462CB7 /* Home.storyboard in Resources */,
 				180A885F25A7567000462CB7 /* Assets.xcassets in Resources */,
 				180A88BD25A7770200462CB7 /* Offers.storyboard in Resources */,
@@ -388,6 +403,7 @@
 				180A88CC25A77A7800462CB7 /* MyOrdersVC.swift in Sources */,
 				C33E2AB125AF635E0056EFA6 /* FAQsViewController.swift in Sources */,
 				C32EEA1025B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift in Sources */,
+				1823735025B451AE009106E5 /* WhatsAppOrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
