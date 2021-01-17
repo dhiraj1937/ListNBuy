@@ -93,3 +93,20 @@ public class FAQModel:Codable{
     }
 }
 
+    public class MembershipPlanData:NSObject, Codable{
+    var Id:String;
+    var Title:String;
+    var SubTitle:String
+    var Content:String
+    var Price:String
+    var Duration:String
+    init(Id: String, Title: String,SubTitle: String, Content: String,Price:String,Duration:String) {
+        self.Id = Id
+        self.Title = Title
+        self.SubTitle = SubTitle
+        self.Content = Content
+        self.Price = Price
+        self.Duration = Duration
+    }
+}
+
