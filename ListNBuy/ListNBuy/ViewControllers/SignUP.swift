@@ -40,7 +40,19 @@ class SignUP: UIViewController {
     }
     
     func navigatToNext() {
-
+        
+        DispatchQueue.main.async {
+            let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
+            controller.leftViewWidth = 300;
+            controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
+            
+            let navigation = UINavigationController.init(rootViewController: controller)
+            navigation.navigationBar.isHidden = true
+            navigation.modalPresentationStyle = .fullScreen
+            self.present(navigation, animated: true, completion: nil)
+            
+            
+        }
     }
     
     func validateFields() -> Bool{
@@ -121,54 +133,76 @@ class SignUP: UIViewController {
     
    
     func matchOTPAndverifyAPI() {
+       
+        DispatchQueue.main.async {
+            HUD.show(.progress)
+        }
         
         if self.strOTP == txtFOTP.text {
             
-            if KAPPDELEGATE.isNetworkAvailable(){
-                DispatchQueue.main.async {
-                    HUD.show(.progress)
-                }
-                
-                let params :[String:Any] = ["E_O_P":txtFMobile.text!, "OTP": strOTP]
-                ApiManager.sharedInstance.requestPOSTURL(Constant.verifyRegistrationOTPURL, params: params, success: {(JSON) in
-                    print(JSON)
-                  
-                    let msg =  JSON.dictionary?["Message"]?.stringValue
-                    print(msg as Any)
-                    
-                    if((JSON.dictionary?["IsSuccess"]) != false){
-                        DispatchQueue.main.async {
-                            HUD.flash(.progress)
-                        }
-                        self.btnSignUpContinue.setTitle("SUBMIT", for: .normal)
-                        self.strMobile = self.txtFMobile.text!
-                        self.txtFMobile.placeholder = "Enter Name"
-                        self.txtFOTP.placeholder = "Enter Email ID"
-                        self.txtFMobile.text = ""
-                        self.txtFOTP.text = ""
-                        self.btnResendOTP.isHidden = true
-                        if let signBy = JSON.dictionary?["SignBy"]?.stringValue {
-                            self.strSignBy = signBy
-                        }
-                        LPSnackbar.showSnack(title: msg ?? AlertMsg.APIFailed)
-                    }else {
-                        HUD.flash(.progress)
-                        LPSnackbar.showSnack(title: msg ?? AlertMsg.APIFailed)
-                    }
-                },failure: { (Error) in
-                    DispatchQueue.main.async {
-                        HUD.flash(.error)
-                        LPSnackbar.showSnack(title:AlertMsg.APIFailed)
-                    }
-                })
-                
-            }else{
-                LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.updateTextFields()
             }
+            
+            
+            
+//            if KAPPDELEGATE.isNetworkAvailable(){
+//                DispatchQueue.main.async {
+//                    HUD.show(.progress)
+//                }
+//
+//                let params :[String:Any] = ["E_O_P":txtFMobile.text!, "OTP": strOTP]
+//                ApiManager.sharedInstance.requestPOSTURL(Constant.verifyRegistrationOTPURL, params: params, success: {(JSON) in
+//                    print(JSON)
+//
+//                    let msg =  JSON.dictionary?["Message"]?.stringValue
+//                    print(msg as Any)
+//
+//                    if((JSON.dictionary?["IsSuccess"]) != false){
+//                        DispatchQueue.main.async {
+//                            HUD.flash(.progress)
+//                        }
+//                        self.btnSignUpContinue.setTitle("SUBMIT", for: .normal)
+//                        self.strMobile = self.txtFMobile.text!
+//                        self.txtFMobile.placeholder = "Enter Name"
+//                        self.txtFOTP.placeholder = "Enter Email ID"
+//                        self.txtFMobile.text = ""
+//                        self.txtFOTP.text = ""
+//                        self.btnResendOTP.isHidden = true
+//                        if let signBy = JSON.dictionary?["SignBy"]?.stringValue {
+//                            self.strSignBy = signBy
+//                        }
+//                        LPSnackbar.showSnack(title: msg ?? AlertMsg.APIFailed)
+//                    }else {
+//                        HUD.flash(.progress)
+//                        LPSnackbar.showSnack(title: msg ?? AlertMsg.APIFailed)
+//                    }
+//                },failure: { (Error) in
+//                    DispatchQueue.main.async {
+//                        HUD.flash(.error)
+//                        LPSnackbar.showSnack(title:AlertMsg.APIFailed)
+//                    }
+//                })
+//
+//            }else{
+//                LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+//            }
+        }else{
+            LPSnackbar.showSnack(title: "OTP Not matched")
         }
         
     }
     
+    func updateTextFields(){
+    self.btnSignUpContinue.setTitle("SUBMIT", for: .normal)
+    self.strMobile = self.txtFMobile.text!
+    self.txtFMobile.placeholder = "Enter Name"
+    self.txtFOTP.placeholder = "Enter Email ID"
+    self.txtFMobile.text = ""
+    self.txtFOTP.text = ""
+    self.btnResendOTP.isHidden = true
+    HUD.flash(.progress)
+    }
     
     func callUserRegistrationAPI() {
         

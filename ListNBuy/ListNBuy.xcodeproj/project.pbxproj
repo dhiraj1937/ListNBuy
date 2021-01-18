@@ -48,6 +48,8 @@
 		C33E2AA625AF62520056EFA6 /* MembershipPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E2AA525AF62520056EFA6 /* MembershipPlansViewController.swift */; };
 		C33E2AB125AF635E0056EFA6 /* FAQsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E2AAC25AF635E0056EFA6 /* FAQsViewController.swift */; };
 		C382385D25AE067100737307 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C382385C25AE067100737307 /* UserModel.swift */; };
+		C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */; };
+		C3A55D4E25B5D7070079592E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4D25B5D7070079592E /* ProfileViewController.swift */; };
 		C3F4B17125AF005D005467F5 /* SocialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F4B17025AF005D005467F5 /* SocialCollectionViewCell.swift */; };
 		C3F4B17425AF016F005467F5 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F4B17325AF016F005467F5 /* SocialViewController.swift */; };
 		C3F4B17725AF06D7005467F5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F4B17625AF06D7005467F5 /* Helper.swift */; };
@@ -98,6 +100,8 @@
 		C33E2AA525AF62520056EFA6 /* MembershipPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipPlansViewController.swift; sourceTree = "<group>"; };
 		C33E2AAC25AF635E0056EFA6 /* FAQsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQsViewController.swift; sourceTree = "<group>"; };
 		C382385C25AE067100737307 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountTableViewCell.swift; sourceTree = "<group>"; };
+		C3A55D4D25B5D7070079592E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C3F4B17025AF005D005467F5 /* SocialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3F4B17325AF016F005467F5 /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
 		C3F4B17625AF06D7005467F5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				180A885925A7566F00462CB7 /* LoginVC.swift */,
 				180A88CF25A79CAB00462CB7 /* SignUP.swift */,
 				180A888525A767B800462CB7 /* LeftMenuVC.swift */,
+				C3A55D4D25B5D7070079592E /* ProfileViewController.swift */,
 				18D5F66025ACBECD007DABFF /* MenuAndControllers */,
 				18D5F65F25ACBE84007DABFF /* TabbarAndControllers */,
 			);
@@ -254,6 +259,7 @@
 		18D5F66525ACBFED007DABFF /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */,
 				C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */,
 				C3F4B17025AF005D005467F5 /* SocialCollectionViewCell.swift */,
 				1872460C25B3604600A336D0 /* FaqCell.swift */,
@@ -419,6 +425,7 @@
 				18F20CD925B5B8EF003CEF11 /* TrendingCollectionCell.swift in Sources */,
 				180A885A25A7566F00462CB7 /* LoginVC.swift in Sources */,
 				C3F4B17125AF005D005467F5 /* SocialCollectionViewCell.swift in Sources */,
+				C3A55D4E25B5D7070079592E /* ProfileViewController.swift in Sources */,
 				180A888725A767B800462CB7 /* LeftMenuVC.swift in Sources */,
 				180A88CB25A77A7800462CB7 /* OffersVC.swift in Sources */,
 				18895D2725AB23AE007AA0B0 /* Alert.swift in Sources */,
@@ -426,6 +433,7 @@
 				180A88AF25A7754700462CB7 /* TabbarViewController.swift in Sources */,
 				180A888625A767B800462CB7 /* HomeVC.swift in Sources */,
 				C382385D25AE067100737307 /* UserModel.swift in Sources */,
+				C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */,
 				180A88CA25A77A7800462CB7 /* WishlistVC.swift in Sources */,
 				18F20CD425B5B76D003CEF11 /* ShopCategoryCell.swift in Sources */,
 				180A88C325A777CF00462CB7 /* Constants.swift in Sources */,

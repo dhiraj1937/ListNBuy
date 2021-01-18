@@ -20,5 +20,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "554F38F6-CBEF-4954-A372-80EAC03265F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/SignUP.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "callUserRegistrationAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F01FC379-0D11-4CBA-83D0-7F21C77DEEF3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/SignUP.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "callUserRegistrationAPI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F01FC379-0D11-4CBA-83D0-7F21C77DEEF3 - bace49f039da344e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ListNBuy.SignUP.callUserRegistrationAPI() -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshjayaswaal/Documents/GitHub/ListNBuy/ListNBuy/ListNBuy/ViewControllers/SignUP.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "215"
+                  endingLineNumber = "215"
+                  offsetFromSymbolStart = "2154">
+               </Location>
+               <Location
+                  uuid = "F01FC379-0D11-4CBA-83D0-7F21C77DEEF3 - 8d15f033dadd422b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (SwiftyJSON.JSON) -&gt; () in ListNBuy.SignUP.callUserRegistrationAPI() -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshjayaswaal/Documents/GitHub/ListNBuy/ListNBuy/ListNBuy/ViewControllers/SignUP.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "216"
+                  endingLineNumber = "216"
+                  offsetFromSymbolStart = "223">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D68547E-ECC7-4474-83DD-C39CF6A788AE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/SignUP.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "callUserRegistrationAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
