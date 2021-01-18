@@ -12,7 +12,8 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let homeNVC = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "homeNVC") as! UINavigationController
+        //let homeNVC = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "homeNVC") as! UINavigationController
+        let homeNVC = HomeViewController.init(nibName: "HomeViewController", bundle: nil)
         let homeIcon = UITabBarItem(title: "Home", image: UIImage(named: "i_home.png"), selectedImage: UIImage(named: "i_home.png"))
         homeNVC.tabBarItem = homeIcon
         

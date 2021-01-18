@@ -33,7 +33,15 @@
 		18895D2725AB23AE007AA0B0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18895D2625AB23AE007AA0B0 /* Alert.swift */; };
 		18895D3925AB312D007AA0B0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18895D3825AB312D007AA0B0 /* ApiManager.swift */; };
 		18A40E0625AC5E9D008F3B3C /* OtherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A40E0525AC5E9D008F3B3C /* OtherInfoViewController.swift */; };
+		18CAF13225B57E4400C4499C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CAF13025B57E4400C4499C /* HomeViewController.swift */; };
+		18CAF13325B57E4400C4499C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CAF13125B57E4400C4499C /* HomeViewController.xib */; };
+		18CAF13725B5855500C4499C /* ViewBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CAF13625B5855500C4499C /* ViewBanner.swift */; };
+		18CAF13B25B5935D00C4499C /* ViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CAF13A25B5935D00C4499C /* ViewSection.swift */; };
 		18D5F65A25ACB3FC007DABFF /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5F65925ACB3FC007DABFF /* ContactUsViewController.swift */; };
+		18F20CD425B5B76D003CEF11 /* ShopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F20CD225B5B76D003CEF11 /* ShopCategoryCell.swift */; };
+		18F20CD525B5B76D003CEF11 /* ShopCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F20CD325B5B76D003CEF11 /* ShopCategoryCell.xib */; };
+		18F20CD925B5B8EF003CEF11 /* TrendingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F20CD725B5B8EF003CEF11 /* TrendingCollectionCell.swift */; };
+		18F20CDA25B5B8EF003CEF11 /* TrendingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F20CD825B5B8EF003CEF11 /* TrendingCollectionCell.xib */; };
 		54861F1CB793E9805F744395 /* Pods_ListNBuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88195CA2939D080E8EC1CBA8 /* Pods_ListNBuy.framework */; };
 		C30A12B725B0AAA2004C639C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A12B625B0AAA2004C639C /* WebViewController.swift */; };
 		C32EEA1025B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */; };
@@ -74,7 +82,15 @@
 		18895D2625AB23AE007AA0B0 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		18895D3825AB312D007AA0B0 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		18A40E0525AC5E9D008F3B3C /* OtherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInfoViewController.swift; sourceTree = "<group>"; };
+		18CAF13025B57E4400C4499C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		18CAF13125B57E4400C4499C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		18CAF13625B5855500C4499C /* ViewBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBanner.swift; sourceTree = "<group>"; };
+		18CAF13A25B5935D00C4499C /* ViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSection.swift; sourceTree = "<group>"; };
 		18D5F65925ACB3FC007DABFF /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		18F20CD225B5B76D003CEF11 /* ShopCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryCell.swift; sourceTree = "<group>"; };
+		18F20CD325B5B76D003CEF11 /* ShopCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCategoryCell.xib; sourceTree = "<group>"; };
+		18F20CD725B5B8EF003CEF11 /* TrendingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionCell.swift; sourceTree = "<group>"; };
+		18F20CD825B5B8EF003CEF11 /* TrendingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCollectionCell.xib; sourceTree = "<group>"; };
 		52E0CDFC04AACEB34ACB138B /* Pods-ListNBuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListNBuy.debug.xcconfig"; path = "Target Support Files/Pods-ListNBuy/Pods-ListNBuy.debug.xcconfig"; sourceTree = "<group>"; };
 		88195CA2939D080E8EC1CBA8 /* Pods_ListNBuy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListNBuy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30A12B625B0AAA2004C639C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -138,10 +154,22 @@
 		1823734D25B44C37009106E5 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				18CAF13525B584FF00C4499C /* HomeCategoryViews */,
 				1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */,
 				1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */,
+				18CAF13025B57E4400C4499C /* HomeViewController.swift */,
+				18CAF13125B57E4400C4499C /* HomeViewController.xib */,
 			);
 			path = CustomControl;
+			sourceTree = "<group>";
+		};
+		18CAF13525B584FF00C4499C /* HomeCategoryViews */ = {
+			isa = PBXGroup;
+			children = (
+				18CAF13625B5855500C4499C /* ViewBanner.swift */,
+				18CAF13A25B5935D00C4499C /* ViewSection.swift */,
+			);
+			path = HomeCategoryViews;
 			sourceTree = "<group>";
 		};
 		18D5F65C25ACBDB6007DABFF /* Service */ = {
@@ -229,6 +257,10 @@
 				C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */,
 				C3F4B17025AF005D005467F5 /* SocialCollectionViewCell.swift */,
 				1872460C25B3604600A336D0 /* FaqCell.swift */,
+				18F20CD225B5B76D003CEF11 /* ShopCategoryCell.swift */,
+				18F20CD325B5B76D003CEF11 /* ShopCategoryCell.xib */,
+				18F20CD725B5B8EF003CEF11 /* TrendingCollectionCell.swift */,
+				18F20CD825B5B8EF003CEF11 /* TrendingCollectionCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -323,8 +355,11 @@
 				1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */,
 				180A88BC25A7770200462CB7 /* Home.storyboard in Resources */,
 				180A885F25A7567000462CB7 /* Assets.xcassets in Resources */,
+				18F20CD525B5B76D003CEF11 /* ShopCategoryCell.xib in Resources */,
 				180A88BD25A7770200462CB7 /* Offers.storyboard in Resources */,
+				18CAF13325B57E4400C4499C /* HomeViewController.xib in Resources */,
 				180A885D25A7566F00462CB7 /* Main.storyboard in Resources */,
+				18F20CDA25B5B8EF003CEF11 /* TrendingCollectionCell.xib in Resources */,
 				180A88BB25A7770200462CB7 /* MyOrders.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,7 +414,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				180A88C925A77A7800462CB7 /* MyAccountVC.swift in Sources */,
+				18CAF13B25B5935D00C4499C /* ViewSection.swift in Sources */,
 				180A88D025A79CAB00462CB7 /* SignUP.swift in Sources */,
+				18F20CD925B5B8EF003CEF11 /* TrendingCollectionCell.swift in Sources */,
 				180A885A25A7566F00462CB7 /* LoginVC.swift in Sources */,
 				C3F4B17125AF005D005467F5 /* SocialCollectionViewCell.swift in Sources */,
 				180A888725A767B800462CB7 /* LeftMenuVC.swift in Sources */,
@@ -390,8 +427,10 @@
 				180A888625A767B800462CB7 /* HomeVC.swift in Sources */,
 				C382385D25AE067100737307 /* UserModel.swift in Sources */,
 				180A88CA25A77A7800462CB7 /* WishlistVC.swift in Sources */,
+				18F20CD425B5B76D003CEF11 /* ShopCategoryCell.swift in Sources */,
 				180A88C325A777CF00462CB7 /* Constants.swift in Sources */,
 				18895D3925AB312D007AA0B0 /* ApiManager.swift in Sources */,
+				18CAF13225B57E4400C4499C /* HomeViewController.swift in Sources */,
 				C30A12B725B0AAA2004C639C /* WebViewController.swift in Sources */,
 				C3F4B17425AF016F005467F5 /* SocialViewController.swift in Sources */,
 				1872460D25B3604600A336D0 /* FaqCell.swift in Sources */,
@@ -401,6 +440,7 @@
 				180A885825A7566F00462CB7 /* SceneDelegate.swift in Sources */,
 				C33E2AA625AF62520056EFA6 /* MembershipPlansViewController.swift in Sources */,
 				180A88CC25A77A7800462CB7 /* MyOrdersVC.swift in Sources */,
+				18CAF13725B5855500C4499C /* ViewBanner.swift in Sources */,
 				C33E2AB125AF635E0056EFA6 /* FAQsViewController.swift in Sources */,
 				C32EEA1025B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift in Sources */,
 				1823735025B451AE009106E5 /* WhatsAppOrderViewController.swift in Sources */,

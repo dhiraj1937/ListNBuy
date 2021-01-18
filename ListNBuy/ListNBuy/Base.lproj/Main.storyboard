@@ -1749,7 +1749,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-EN-Lfk">
-                                <rect key="frame" x="20" y="54" width="26" height="35"/>
+                                <rect key="frame" x="20" y="54" width="25" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="tyb-u2-6Fd"/>
                                 </constraints>
@@ -1759,7 +1759,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Membership Plans" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jv4-dB-lpy">
-                                <rect key="frame" x="73" y="56" width="172" height="27"/>
+                                <rect key="frame" x="72" y="56" width="172" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="01j-Gv-c7t"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="172" id="yuG-Fg-MaU"/>
@@ -2154,7 +2154,7 @@
         <image name="ic_expand_more_black" width="64" height="64"/>
         <image name="login_bg" width="1080" height="1923"/>
         <image name="logo" width="512" height="512"/>
-        <image name="menu" width="26" height="26"/>
+        <image name="menu" width="25" height="25"/>
         <image name="regsiter_bg" width="1080" height="1923"/>
         <image name="texture_bg" width="1080" height="1923"/>
         <image name="wallet_bg" width="1080" height="466"/>
