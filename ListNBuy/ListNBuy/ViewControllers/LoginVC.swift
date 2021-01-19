@@ -168,8 +168,12 @@ class LoginVC: UIViewController {
                     if((JSON.dictionary?["IsSuccess"]) != false){
                         
                         let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
-                        let userData : LoginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: jsonData!)
-                        self.ArchivedUserDefaultObject(obj:userData, key: "LoginUserData")
+                       
+                        self.ArchivedUserDefaultObject(obj:jsonData as Any, key: "LoginUserData")
+                        
+//                        let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
+//
+//                        let loginUserData : LoginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
                         
                         DispatchQueue.main.async {
                             HUD.flash(.progress)
