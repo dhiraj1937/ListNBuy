@@ -72,7 +72,8 @@ class FAQsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                else{
                 HUD.flash(.progress)
                }
-           }, failure: { [self] (Error) in
+           }, failure: {
+            [self] (Error) in
             DispatchQueue.main.async {
                 HUD.flash(.error)
             }

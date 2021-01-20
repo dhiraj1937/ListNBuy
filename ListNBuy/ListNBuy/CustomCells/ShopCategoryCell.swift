@@ -15,5 +15,10 @@ class ShopCategoryCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    public func SetData(homeCategory:HomeProductCategory){
+        lblTitle.text = homeCategory.title;
+        img.imageFromServerURL(urlString: homeCategory.icon)
+    }
 
 }
