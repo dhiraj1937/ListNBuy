@@ -69,7 +69,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Ob-aZ-xZl">
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyAccountTableViewCell" id="fkF-Hr-GtG" customClass="MyAccountTableViewCell" customModule="TestNavDrawerAndSetting" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyAccountTableViewCell" id="fkF-Hr-GtG" customClass="MyAccountTableViewCell" customModule="ListNBuy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fkF-Hr-GtG" id="WLn-lQ-x5r">
@@ -200,7 +200,7 @@
                                     <constraint firstAttribute="height" constant="45" id="9lA-ol-gie"/>
                                     <constraint firstAttribute="width" constant="50" id="HQ7-az-S4y"/>
                                 </constraints>
-                                <state key="normal" image="ic_back"/>
+                                <state key="normal" image="backArrow"/>
                                 <connections>
                                     <action selector="btnBack" destination="Slo-Z8-7OJ" eventType="touchUpInside" id="BQz-f6-OkB"/>
                                 </connections>
@@ -383,10 +383,10 @@
     </designables>
     <resources>
         <image name="MobileNoIcon" width="94" height="91"/>
+        <image name="backArrow" width="18.5" height="14"/>
         <image name="face" width="100" height="100"/>
         <image name="header_strip" width="1080" height="134"/>
         <image name="i_profile" width="30" height="25"/>
-        <image name="ic_back" width="92" height="92"/>
         <image name="login_bg" width="1080" height="1923"/>
         <image name="logo" width="512" height="512"/>
         <image name="menu" width="25" height="25"/>
