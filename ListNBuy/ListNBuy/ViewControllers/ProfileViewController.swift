@@ -16,10 +16,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var txtFName:UITextField!
     @IBOutlet weak var txtFEmail:UITextField!
     @IBOutlet weak var txtFPhone:UITextField!
-    
+    var loginUserData : LoginUserData?
+    var userid : String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUserData()
+        
+        let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
+        loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
+        if let loggedInUser = loginUserData{
+            userid = loggedInUser.Id
+            getUserData()
+        }else{
+            
+        }
     }
     @IBAction func btnBack(){
         self.navigationController?.popViewController(animated: true)
@@ -31,7 +41,7 @@ class ProfileViewController: UIViewController {
             DispatchQueue.main.async {
                 HUD.show(.progress)
             }
-           ApiManager.sharedInstance.requestGETURL(Constant.userByUserIdURL+"/"+"16", success: { [self]
+           ApiManager.sharedInstance.requestGETURL(Constant.userByUserIdURL+"/"+userid!, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)

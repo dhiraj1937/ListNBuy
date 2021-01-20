@@ -82,7 +82,23 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
             let vc = KMYACCOUNTSTORYBOARD.instantiateViewController(identifier: "profileViewController") as ProfileViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
-        } else if dict["Title"] == "Logout" {
+        }else if dict["Title"] == "My Orders" {
+            
+            
+        }
+        else if dict["Title"] == "Save Address" {
+
+            
+        }
+        else if dict["Title"] == "My Plan" {
+
+            
+        }else if dict["Title"] == "My Wallet" {
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WalletViewController") as WalletViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        else if dict["Title"] == "Logout" {
 //                       guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
 //                           let delegate = windowScene.delegate as? SceneDelegate, let window = delegate.window else { return  }
 //                    self.navigationController?.popToViewController(window.rootViewController!, animated: true)
