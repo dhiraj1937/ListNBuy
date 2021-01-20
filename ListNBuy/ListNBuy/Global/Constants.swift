@@ -45,9 +45,12 @@ public class Constant {
     public static var userByUserIdURL:String = Constant.serverURL+"/getUserByUserId";
     public static var getWalletURL:String = Constant.serverURL+"/getWallet";
     public static var getWalletTransactionURL:String = Constant.serverURL+"/getWalletTransaction";
+    
+    public static var getBannerURL:String = Constant.serverURL+"/getBanner";
+    public static var getHomeBannerURL:String = Constant.serverURL+"/getHomeBanner";
+    public static var getHomeParentCategoryWithProductURL:String = Constant.serverURL+"/getHomeParentCategoryWithProduct";
     public static var  globalTabbar:UITabBarController?
-
-
+    
 }
 
 

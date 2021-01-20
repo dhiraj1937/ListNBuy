@@ -202,3 +202,145 @@ public class WalletTransaction: Codable{
              "Status": "1"
          },
  */
+
+public class Banner:NSObject, Codable{
+    var Id:String;
+    var BannerImg:String;
+    var CategoryId:String
+    var CategoryName:String
+    init(Id: String, BannerImg: String,CategoryId: String, CategoryName: String,Price:String,Duration:String) {
+        self.Id = Id
+        self.BannerImg = BannerImg
+        self.CategoryId = CategoryId
+        self.CategoryName = CategoryName
+    }
+}
+
+public class HomeBanner:NSObject, Codable{
+    var Id:String;
+    var BannerImg:String;
+    init(Id: String, BannerImg: String) {
+        self.Id = Id
+        self.BannerImg = BannerImg
+    }
+}
+
+
+// MARK: - WelcomeElement
+class HomeProductCategory: Codable {
+    let id, title: String
+    let image, icon: String
+    let product: [Product]
+
+    enum CodingKeys: String, CodingKey {
+        case id = "Id"
+        case title = "Title"
+        case image = "Image"
+        case icon = "Icon"
+        case product
+    }
+
+    init(id: String, title: String, image: String, icon: String, product: [Product]) {
+        self.id = id
+        self.title = title
+        self.image = image
+        self.icon = icon
+        self.product = product
+    }
+}
+
+// MARK: - Product
+class Product: Codable {
+    let wishlist: Int
+    let id, name: String
+    let image: String
+    let tax, veg, isVariable, brand: String
+    let productDescription, avgRating: String
+    let variation: [Variation]
+
+    enum CodingKeys: String, CodingKey {
+        case wishlist, id, name
+        case image = "Image"
+        case tax, veg, isVariable, brand
+        case productDescription = "description"
+        case avgRating = "AvgRating"
+        case variation
+    }
+
+    init(wishlist: Int, id: String, name: String, image: String, tax: String, veg: String, isVariable: String, brand: String, productDescription: String, avgRating: String, variation: [Variation]) {
+        self.wishlist = wishlist
+        self.id = id
+        self.name = name
+        self.image = image
+        self.tax = tax
+        self.veg = veg
+        self.isVariable = isVariable
+        self.brand = brand
+        self.productDescription = productDescription
+        self.avgRating = avgRating
+        self.variation = variation
+    }
+}
+
+// MARK: - Variation
+class Variation: Codable {
+    let varID, attrID, attributeName, attrId1: String
+    let attributeName1, sku: String
+    let offerTag: JSONNull?
+    let stock, pack: String
+    let image: String
+    let regularPrice: Int
+    let salePrice, memberPrice: Double
+
+    enum CodingKeys: String, CodingKey {
+        case varID = "varId"
+        case attrID = "attrId"
+        case attributeName, attrId1, attributeName1
+        case sku = "SKU"
+        case offerTag, stock, pack, image
+        case regularPrice = "regular_price"
+        case salePrice = "sale_price"
+        case memberPrice = "member_price"
+    }
+
+    init(varID: String, attrID: String, attributeName: String, attrId1: String, attributeName1: String, sku: String, offerTag: JSONNull?, stock: String, pack: String, image: String, regularPrice: Int, salePrice: Double, memberPrice: Double) {
+        self.varID = varID
+        self.attrID = attrID
+        self.attributeName = attributeName
+        self.attrId1 = attrId1
+        self.attributeName1 = attributeName1
+        self.sku = sku
+        self.offerTag = offerTag
+        self.stock = stock
+        self.pack = pack
+        self.image = image
+        self.regularPrice = regularPrice
+        self.salePrice = salePrice
+        self.memberPrice = memberPrice
+    }
+}
+
+class JSONNull: Codable, Hashable {
+
+    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+        return true
+    }
+
+    public var hashValue: Int {
+        return 0
+    }
+
+    public init() {}
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if !container.decodeNil() {
+            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+        }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encodeNil()
+    }
+}

@@ -128,12 +128,11 @@ class HomeViewController: UIViewController {
                }
            
            }, failure: { [self] (Error) in
-//            DispatchQueue.main.async {
-//                HUD.flash(.error)
-//            }
-//            LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+
            })
-          
+            let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: 570, width: Int(sv.frame.size.width), height: 50))
+            viewSection.lblTitle.text = "Trending Product";
+            sv.addSubview(viewSection)
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)

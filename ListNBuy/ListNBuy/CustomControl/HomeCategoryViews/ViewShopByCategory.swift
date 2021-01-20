@@ -46,13 +46,14 @@ class ViewShopByCategory: UIView,UICollectionViewDelegate,UICollectionViewDataSo
         let screenWidth = collectionView!.frame.size.height
         let screenheight = collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 5, bottom: 10, right: 5)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: 100, height: screenWidth)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 20
         collectionView!.collectionViewLayout = layout
         listHomeCategory = _listHomeCategory;
-        
+        let nib = UINib(nibName: "ShopCategoryCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "ShopCategoryCell")
         collectionView.reloadData();
     }
     
