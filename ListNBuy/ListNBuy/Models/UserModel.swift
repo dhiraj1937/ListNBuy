@@ -203,6 +203,21 @@ public class WalletTransaction: Codable{
          },
  */
 
+public class PromoCode: Codable{
+    var Id:String;
+    var CODE:String;
+    var Content:String
+    init(Id: String, CODE: String, Content: String) {
+        self.Id = Id
+        self.CODE = CODE
+        self.Content = Content
+    }
+}
+/*
+ "Id": "1",
+ "CODE": "FIRST",
+ "Content": "fdsdfsdf"
+ */
 public class Banner:NSObject, Codable{
     var Id:String;
     var BannerImg:String;

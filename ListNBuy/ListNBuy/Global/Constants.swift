@@ -46,6 +46,10 @@ public class Constant {
     public static var getWalletURL:String = Constant.serverURL+"/getWallet";
     public static var getWalletTransactionURL:String = Constant.serverURL+"/getWalletTransaction";
     
+    public static var getWalletPromoCodeURL:String = Constant.serverURL+"/getWalletPromoCode";
+    public static var addToWalletURL:String = Constant.serverURL+"/addToWallet";
+    public static var applyWalletPromoCodeURL:String = Constant.serverURL+"/applyWalletPromoCode";//"UserId","CODE"
+    
     public static var getBannerURL:String = Constant.serverURL+"/getBanner";
     public static var getHomeBannerURL:String = Constant.serverURL+"/getHomeBanner";
     public static var getHomeParentCategoryWithProductURL:String = Constant.serverURL+"/getHomeParentCategoryWithProduct";
