@@ -58,6 +58,7 @@ public class Constant {
     
     
     public static var  globalTabbar:UITabBarController?
+    public static var  walletCash:String?
     
 }
 

@@ -20,11 +20,11 @@ class AddToWalletViewController: UIViewController {
     @IBOutlet weak var btnAddMoney:UIButton!
     @IBOutlet var tblPromoCodes:UITableView!
     
+    @IBOutlet weak var lblAppliedCode:UILabel!
     @IBOutlet weak var viewApplyCode:UIView!
     @IBOutlet weak var txtFEnterCode:UITextField!
     @IBOutlet weak var btnApplycode:UIButton!
 
-    public let strCashAmount:String? = nil
     var loginUserData : LoginUserData?
     var userid : String?
     
@@ -32,11 +32,11 @@ class AddToWalletViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        lblAppliedCode.text = ""
         let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
         loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
         userid = loginUserData?.Id
-        lblCashWallet.text = strCashAmount  ?? "0"
+        lblCashWallet.text = Constant.walletCash  ?? "0"
         getWalletPromoCodes()
     }
     
@@ -45,18 +45,19 @@ class AddToWalletViewController: UIViewController {
     }
     
     @IBAction func btnHavePromocodeAction(){
-        
+        viewApplyCode.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        self.view.addSubview(viewApplyCode);
     }
     
     @IBAction func btnAddMoneyAction(){
-        
+        addToWalletAPI()
     }
     
     @IBAction func btnApplyPromocodeAction(){
-        
+        applyWalletPromoCodeAPI()
     }
     @IBAction func btnClosePromocodeViewAction(){
-        
+        viewApplyCode.removeFromSuperview()
     }
 }
 
@@ -101,5 +102,139 @@ extension AddToWalletViewController : UITableViewDelegate, UITableViewDataSource
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
+    }
+    
+    func validateFields(field:String) -> Bool{
+        
+        if field == "Amount"{
+            
+            if txtFEnterAmount.text!.count == 0 {
+                LPSnackbar.showSnack(title: "Please enter valid amount.")
+                return false
+            }else{
+                let strUserDeta = txtFEnterAmount.text;
+                let isNotDigits = strUserDeta!.isNumeric
+                    if isNotDigits {
+                        LPSnackbar.showSnack(title: AlertMsg.PCheckInput)
+                        return false
+                    }
+                let myAmount = Int(strUserDeta!) ?? 0
+
+                if myAmount == 0 {
+                    LPSnackbar.showSnack(title: AlertMsg.PCheckInput)
+                    return false
+                }
+            }
+        }
+        else {
+            if txtFEnterCode.text!.count == 0 {
+                LPSnackbar.showSnack(title: "Please enter code.")
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func applyWalletPromoCodeAPI() {
+        //Validate Fileds
+        if !validateFields(field: "CODE") { return }
+        
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            
+            lblAppliedCode.text = ""
+            let params :[String:Any] = ["CODE":txtFEnterCode.text!,"UserId":userid!]
+            
+            ApiManager.sharedInstance.requestPOSTURL(Constant.applyWalletPromoCodeURL, params: params, success: {(JSON) in
+                print(JSON)
+                /*
+                 {
+                   "ResponseData" : [
+
+                   ],
+                   "Message" : "Promocode Applyed Successfully",
+                   "IsSuccess" : true
+                 }
+                 */
+                let msg =  JSON.dictionary?["Message"]?.stringValue
+                print(msg as Any)
+                if((JSON.dictionary?["IsSuccess"]) != false){
+                    DispatchQueue.main.async {
+                        HUD.flash(.progress)
+                    }
+                    self.lblAppliedCode.text = self.txtFEnterCode.text!
+                    self.txtFEnterCode.text = ""
+                    LPSnackbar.showSnack(title: msg!)
+                    self.btnClosePromocodeViewAction()
+                }else {
+                    HUD.flash(.progress)
+                    LPSnackbar.showSnack(title: msg!)
+                }
+            },failure: { (Error) in
+                DispatchQueue.main.async {
+                    HUD.flash(.error)
+                    LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                }
+            })
+            
+        }else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+
+    }
+    
+    func addToWalletAPI() {
+        //Validate Fileds
+        if !validateFields(field: "Amount") { return }
+        
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            //UserId
+            //Role
+            //Amount
+            //TransactionId
+            //payMethod
+            //payStatus
+            //CODE
+            let params :[String:Any] = ["UserId":userid!,"Role":loginUserData?.Role,"Amount":txtFEnterAmount.text!,"TransactionId":"","payMethod":"","payStatus":"","CODE":lblAppliedCode.text!]
+            
+            ApiManager.sharedInstance.requestPOSTURL(Constant.addToWalletURL, params: params, success: {(JSON) in
+                print(JSON)
+                /*
+                 {
+                   "IsSuccess" : false,
+                   "ResponseData" : [
+
+                   ],
+                   "Message" : "Missing Params"
+                 }
+                 */
+                let msg =  JSON.dictionary?["Message"]?.stringValue
+                print(msg as Any)
+                if((JSON.dictionary?["IsSuccess"]) != false){
+                    DispatchQueue.main.async {
+                        HUD.flash(.progress)
+                    }
+                    LPSnackbar.showSnack(title: msg!)
+                }else {
+                    HUD.flash(.progress)
+                    LPSnackbar.showSnack(title: msg!)
+                }
+            },failure: { (Error) in
+                DispatchQueue.main.async {
+                    HUD.flash(.error)
+                    LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                }
+            })
+            
+        }else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+
     }
 }

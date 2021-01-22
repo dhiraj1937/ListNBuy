@@ -24,7 +24,9 @@ class WalletViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
         loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
         if let loggedInUser = loginUserData{
@@ -34,10 +36,15 @@ class WalletViewController: UIViewController {
         }else{
             
         }
-       
     }
+    
     @IBAction func btnBack(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnAddAction(){
+        let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddToWalletViewController") as AddToWalletViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -72,6 +79,7 @@ extension WalletViewController : UITableViewDelegate, UITableViewDataSource
                 print(wallet.walletAmount)
                 print(wallet.superCashWalletAmount)
                 lblCashWallet.text = "Rs " + wallet.walletAmount
+                Constant.walletCash = "Rs " + wallet.walletAmount
                 lblSuperCashWallet.text = "Rs " + wallet.superCashWalletAmount
                  HUD.flash(.progress)
                }
