@@ -54,6 +54,7 @@ public class Constant {
     public static var getHomeBannerURL:String = Constant.serverURL+"/getHomeBanner";
     public static var getHomeParentCategoryWithProductURL:String = Constant.serverURL+"/getHomeParentCategoryWithProduct";
     public static var  globalTabbar:UITabBarController?
+    public static var  walletCash:String?
     
 }
 
