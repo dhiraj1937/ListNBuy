@@ -49,6 +49,7 @@ public class Constant {
     public static var getBannerURL:String = Constant.serverURL+"/getBanner";
     public static var getHomeBannerURL:String = Constant.serverURL+"/getHomeBanner";
     public static var getHomeParentCategoryWithProductURL:String = Constant.serverURL+"/getHomeParentCategoryWithProduct";
+    public static var getRandomProductURL:String = Constant.serverURL+"/GetRandomProduct";
     public static var  globalTabbar:UITabBarController?
     
 }

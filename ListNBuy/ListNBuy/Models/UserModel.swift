@@ -320,6 +320,59 @@ class Variation: Codable {
     }
 }
 
+
+class TredningProduct: Codable {
+    let id, name: String
+    let image: String
+    let veg, tax, isVariable, brand: String
+    let welcomeDescription, avgRating: String
+    let variation: [Variation]
+
+    enum CodingKeys: String, CodingKey {
+        case id, name
+        case image = "Image"
+        case veg, tax, isVariable, brand
+        case welcomeDescription = "description"
+        case avgRating = "AvgRating"
+        case variation
+    }
+
+    init(id: String, name: String, image: String, veg: String, tax: String, isVariable: String, brand: String, welcomeDescription: String, avgRating: String, variation: [Variation]) {
+        self.id = id
+        self.name = name
+        self.image = image
+        self.veg = veg
+        self.tax = tax
+        self.isVariable = isVariable
+        self.brand = brand
+        self.welcomeDescription = welcomeDescription
+        self.avgRating = avgRating
+        self.variation = variation
+    }
+}
+
+class HomeCategoryProduct: Codable {
+    let id, title: String
+    let image, icon: String
+    let product: [Product]
+
+    enum CodingKeys: String, CodingKey {
+        case id = "Id"
+        case title = "Title"
+        case image = "Image"
+        case icon = "Icon"
+        case product
+    }
+
+    init(id: String, title: String, image: String, icon: String, product: [Product]) {
+        self.id = id
+        self.title = title
+        self.image = image
+        self.icon = icon
+        self.product = product
+    }
+}
+
 class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
