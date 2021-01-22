@@ -36,6 +36,8 @@
 		18804FAB25B757D8005BDF36 /* ViewShopByCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18804FAA25B757D8005BDF36 /* ViewShopByCategory.swift */; };
 		18895D2725AB23AE007AA0B0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18895D2625AB23AE007AA0B0 /* Alert.swift */; };
 		18895D3925AB312D007AA0B0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18895D3825AB312D007AA0B0 /* ApiManager.swift */; };
+		18A3973D25B9FBE9007038DD /* ViewTrending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3973C25B9FBE9007038DD /* ViewTrending.swift */; };
+		18A3974025B9FBFA007038DD /* ViewTrending.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A3973F25B9FBFA007038DD /* ViewTrending.xib */; };
 		18A40E0625AC5E9D008F3B3C /* OtherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A40E0525AC5E9D008F3B3C /* OtherInfoViewController.swift */; };
 		18CAF13225B57E4400C4499C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CAF13025B57E4400C4499C /* HomeViewController.swift */; };
 		18CAF13325B57E4400C4499C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CAF13125B57E4400C4499C /* HomeViewController.xib */; };
@@ -95,6 +97,8 @@
 		18804FAA25B757D8005BDF36 /* ViewShopByCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewShopByCategory.swift; sourceTree = "<group>"; };
 		18895D2625AB23AE007AA0B0 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		18895D3825AB312D007AA0B0 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		18A3973C25B9FBE9007038DD /* ViewTrending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTrending.swift; sourceTree = "<group>"; };
+		18A3973F25B9FBFA007038DD /* ViewTrending.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewTrending.xib; sourceTree = "<group>"; };
 		18A40E0525AC5E9D008F3B3C /* OtherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInfoViewController.swift; sourceTree = "<group>"; };
 		18CAF13025B57E4400C4499C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		18CAF13125B57E4400C4499C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				18CC468E25B8445F00FD3BC1 /* ViewBannerScrollView.xib */,
 				187004B525B862BE001871B8 /* ViewSection.xib */,
 				187004B825B86C15001871B8 /* ViewShopByCategory.xib */,
+				18A3973C25B9FBE9007038DD /* ViewTrending.swift */,
+				18A3973F25B9FBFA007038DD /* ViewTrending.xib */,
 			);
 			path = HomeCategoryViews;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 				180A886225A7567000462CB7 /* LaunchScreen.storyboard in Resources */,
 				187004B925B86C15001871B8 /* ViewShopByCategory.xib in Resources */,
 				1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */,
+				18A3974025B9FBFA007038DD /* ViewTrending.xib in Resources */,
 				180A88BC25A7770200462CB7 /* Home.storyboard in Resources */,
 				180A885F25A7567000462CB7 /* Assets.xcassets in Resources */,
 				18F20CD525B5B76D003CEF11 /* ShopCategoryCell.xib in Resources */,
@@ -456,6 +463,7 @@
 				C3F4B17125AF005D005467F5 /* SocialCollectionViewCell.swift in Sources */,
 				C3A55D4E25B5D7070079592E /* ProfileViewController.swift in Sources */,
 				180A888725A767B800462CB7 /* LeftMenuVC.swift in Sources */,
+				18A3973D25B9FBE9007038DD /* ViewTrending.swift in Sources */,
 				180A88CB25A77A7800462CB7 /* OffersVC.swift in Sources */,
 				18895D2725AB23AE007AA0B0 /* Alert.swift in Sources */,
 				C3F4B17725AF06D7005467F5 /* Helper.swift in Sources */,
