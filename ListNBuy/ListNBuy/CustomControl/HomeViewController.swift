@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var sv:UIScrollView!
     var listBanner:[Banner] = [Banner]()
     var listHomeBanner:[HomeBanner] = [HomeBanner]()
-    var listHomeCategory:[HomeProductCategory] = [HomeProductCategory]()
+    var listHomeCategory:[HomeParentCategoryModel] = [HomeParentCategoryModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         GetHomeBannerData();
@@ -113,14 +113,92 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 HUD.show(.progress)
             }
+           ApiManager.sharedInstance.requestGETURL(Constant.getHomeParentCategoryURL, success: { [self]
+               (JSON) in
+               if((JSON.dictionary?["IsSuccess"]) != false){
+                let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                listHomeCategory = try! JSONDecoder().decode([HomeParentCategoryModel].self, from: jsonData!)
+                let viewBanner = ViewShopByCategory.init(frame: CGRect.init(x: 0, y: 470, width: Int(sv.frame.size.width), height: 100))
+                sv.addSubview(viewBanner)
+                viewBanner.RefreshData(_listHomeCategory: listHomeCategory);
+               
+               }
+               else{
+               
+               }
+           }, failure: { [self] (Error) in
+
+           })
+            let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: 570, width: Int(sv.frame.size.width), height: 50))
+            viewSection.lblTitle.text = "Trending Product";
+            sv.addSubview(viewSection)
+            GetTrendingData();
+       }
+        else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
+    
+    func GetTrendingData(){
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+           ApiManager.sharedInstance.requestGETURL(Constant.getRandomProductURL, success: { [self]
+               (JSON) in
+               if((JSON.dictionary?["IsSuccess"]) != false){
+                let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                let listtrending = try! JSONDecoder().decode([TredningProduct].self, from: jsonData!)
+                let viewBanner = ViewTrending.init(frame: CGRect.init(x: 0, y: 630, width: Int(sv.frame.size.width), height: 300))
+                sv.addSubview(viewBanner)
+                viewBanner.RefreshData(_listTrending: listtrending)
+                
+               }
+               else{
+               
+               }
+           
+           }, failure: { [self] (Error) in
+
+           })
+           // sv.contentSize = CGSize.init(width: 0, height: 970)
+            GetHomeCategoryWithProductData();
+       }
+        else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
+    
+    func GetHomeCategoryWithProductData(){
+        if KAPPDELEGATE.isNetworkAvailable(){
+           
            ApiManager.sharedInstance.requestGETURL(Constant.getHomeParentCategoryWithProductURL, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
-                listHomeCategory = try! JSONDecoder().decode([HomeProductCategory].self, from: jsonData!)
-                let viewBanner = ViewShopByCategory.init(frame: CGRect.init(x: 0, y: 470, width: Int(sv.frame.size.width), height: 100))
-                sv.addSubview(viewBanner)
-                viewBanner.RefreshData(_listHomeCategory: listHomeCategory);
+                
+                let listHomeCategory = try! JSONDecoder().decode([HomeCategoryProduct].self, from: jsonData!)
+                var yXs:Int = 930;
+                for homecat in listHomeCategory {
+                    //Add Section
+                    let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 50))
+                    viewSection.lblTitle.text = homecat.title;
+                    sv.addSubview(viewSection)
+                    yXs=yXs+50;
+                    
+                    //Add Products
+                    let viewProduct = ProductCategoryView.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 400))
+                    viewProduct.RefreshData(_listProduct: homecat.product)
+                    sv.addSubview(viewProduct)
+                    yXs=yXs+400;
+                    
+                    //Add Banner
+                    let viewBanner = ViewBanner.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 200))
+                    viewBanner.imgBanner.imageFromServerURL(urlString: homecat.image)
+                    yXs=yXs+200;
+                    sv.addSubview(viewBanner)
+                }
+                sv.contentSize = CGSize.init(width: 0, height: yXs)
                 HUD.flash(.progress)
                }
                else{
@@ -130,9 +208,8 @@ class HomeViewController: UIViewController {
            }, failure: { [self] (Error) in
 
            })
-            let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: 570, width: Int(sv.frame.size.width), height: 50))
-            viewSection.lblTitle.text = "Trending Product";
-            sv.addSubview(viewSection)
+            sv.contentSize = CGSize.init(width: 0, height: 970)
+
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)

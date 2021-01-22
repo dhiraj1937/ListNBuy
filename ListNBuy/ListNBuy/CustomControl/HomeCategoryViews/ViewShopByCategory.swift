@@ -18,7 +18,7 @@ class ViewShopByCategory: UIView,UICollectionViewDelegate,UICollectionViewDataSo
         return cell;
     }
     
-     private var listHomeCategory:[HomeProductCategory] = [HomeProductCategory]()
+     private var listHomeCategory:[HomeParentCategoryModel] = [HomeParentCategoryModel]()
      @IBOutlet private var collectionView:UICollectionView!
      @IBOutlet private var contentView:UIView!
     
@@ -41,7 +41,7 @@ class ViewShopByCategory: UIView,UICollectionViewDelegate,UICollectionViewDataSo
             
         }
     
-    public func RefreshData(_listHomeCategory:[HomeProductCategory]){
+    public func RefreshData(_listHomeCategory:[HomeParentCategoryModel]){
         
         let screenWidth = collectionView!.frame.size.height
         let screenheight = collectionView!.frame.size.width

@@ -15,5 +15,10 @@ class TrendingCollectionCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    public func SetData(tredningProduct:TredningProduct){
+        img.imageFromServerURL(urlString: tredningProduct.image)
+        lblTitle.text = tredningProduct.name;
+    }
 
 }

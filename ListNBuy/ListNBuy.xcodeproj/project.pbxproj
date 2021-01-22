@@ -30,6 +30,10 @@
 		180AED7625B815FB00124AED /* ViewBannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AED7525B815FB00124AED /* ViewBannerScrollView.swift */; };
 		1823735025B451AE009106E5 /* WhatsAppOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */; };
 		1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */; };
+		1837092025BB5050008697E1 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837091E25BB5050008697E1 /* ProductCell.swift */; };
+		1837092125BB5050008697E1 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1837091F25BB5050008697E1 /* ProductCell.xib */; };
+		1837092525BB593A008697E1 /* ProductCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837092425BB593A008697E1 /* ProductCategoryView.swift */; };
+		1837092825BB5945008697E1 /* ProductCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1837092725BB5945008697E1 /* ProductCategoryView.xib */; };
 		187004B625B862BE001871B8 /* ViewSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187004B525B862BE001871B8 /* ViewSection.xib */; };
 		187004B925B86C15001871B8 /* ViewShopByCategory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187004B825B86C15001871B8 /* ViewShopByCategory.xib */; };
 		1872460D25B3604600A336D0 /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872460C25B3604600A336D0 /* FaqCell.swift */; };
@@ -93,6 +97,10 @@
 		180AED7525B815FB00124AED /* ViewBannerScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBannerScrollView.swift; sourceTree = "<group>"; };
 		1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsAppOrderViewController.swift; sourceTree = "<group>"; };
 		1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhatsAppOrderViewController.xib; sourceTree = "<group>"; };
+		1837091E25BB5050008697E1 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		1837091F25BB5050008697E1 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		1837092425BB593A008697E1 /* ProductCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryView.swift; sourceTree = "<group>"; };
+		1837092725BB5945008697E1 /* ProductCategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCategoryView.xib; sourceTree = "<group>"; };
 		187004B525B862BE001871B8 /* ViewSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewSection.xib; sourceTree = "<group>"; };
 		187004B825B86C15001871B8 /* ViewShopByCategory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewShopByCategory.xib; sourceTree = "<group>"; };
 		1872460C25B3604600A336D0 /* FaqCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqCell.swift; sourceTree = "<group>"; };
@@ -204,6 +212,8 @@
 				187004B825B86C15001871B8 /* ViewShopByCategory.xib */,
 				18A3973C25B9FBE9007038DD /* ViewTrending.swift */,
 				18A3973F25B9FBFA007038DD /* ViewTrending.xib */,
+				1837092425BB593A008697E1 /* ProductCategoryView.swift */,
+				1837092725BB5945008697E1 /* ProductCategoryView.xib */,
 			);
 			path = HomeCategoryViews;
 			sourceTree = "<group>";
@@ -303,6 +313,8 @@
 				18F20CD325B5B76D003CEF11 /* ShopCategoryCell.xib */,
 				18F20CD725B5B8EF003CEF11 /* TrendingCollectionCell.swift */,
 				18F20CD825B5B8EF003CEF11 /* TrendingCollectionCell.xib */,
+				1837091E25BB5050008697E1 /* ProductCell.swift */,
+				1837091F25BB5050008697E1 /* ProductCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -400,11 +412,13 @@
 				1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */,
 				18A3974025B9FBFA007038DD /* ViewTrending.xib in Resources */,
 				180A88BC25A7770200462CB7 /* Home.storyboard in Resources */,
+				1837092125BB5050008697E1 /* ProductCell.xib in Resources */,
 				180A885F25A7567000462CB7 /* Assets.xcassets in Resources */,
 				18F20CD525B5B76D003CEF11 /* ShopCategoryCell.xib in Resources */,
 				187004B625B862BE001871B8 /* ViewSection.xib in Resources */,
 				180A88BD25A7770200462CB7 /* Offers.storyboard in Resources */,
 				18CAF13325B57E4400C4499C /* HomeViewController.xib in Resources */,
+				1837092825BB5945008697E1 /* ProductCategoryView.xib in Resources */,
 				180A885D25A7566F00462CB7 /* Main.storyboard in Resources */,
 				18F20CDA25B5B8EF003CEF11 /* TrendingCollectionCell.xib in Resources */,
 				180A88BB25A7770200462CB7 /* MyOrders.storyboard in Resources */,
@@ -473,10 +487,12 @@
 				180A88CB25A77A7800462CB7 /* OffersVC.swift in Sources */,
 				18895D2725AB23AE007AA0B0 /* Alert.swift in Sources */,
 				C3F4B17725AF06D7005467F5 /* Helper.swift in Sources */,
+				1837092025BB5050008697E1 /* ProductCell.swift in Sources */,
 				C3448C0C25B75D0C00A44493 /* WalletTransactionCell.swift in Sources */,
 				180A88AF25A7754700462CB7 /* TabbarViewController.swift in Sources */,
 				180A888625A767B800462CB7 /* HomeVC.swift in Sources */,
 				C3448C0925B7479500A44493 /* WalletViewController.swift in Sources */,
+				1837092525BB593A008697E1 /* ProductCategoryView.swift in Sources */,
 				C3D3BF0925B9F7F5006C4AA7 /* AddToWalletViewController.swift in Sources */,
 				C382385D25AE067100737307 /* UserModel.swift in Sources */,
 				C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */,

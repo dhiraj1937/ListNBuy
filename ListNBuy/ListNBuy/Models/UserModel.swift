@@ -388,6 +388,31 @@ class HomeCategoryProduct: Codable {
     }
 }
 
+
+class HomeParentCategoryModel: Codable {
+    let id, title: String
+    let image, icon: String
+    let entDt, status: String
+
+    enum CodingKeys: String, CodingKey {
+        case id = "Id"
+        case title = "Title"
+        case image = "Image"
+        case icon = "Icon"
+        case entDt = "EntDt"
+        case status = "Status"
+    }
+
+    init(id: String, title: String, image: String, icon: String, entDt: String, status: String) {
+        self.id = id
+        self.title = title
+        self.image = image
+        self.icon = icon
+        self.entDt = entDt
+        self.status = status
+    }
+}
+
 class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {

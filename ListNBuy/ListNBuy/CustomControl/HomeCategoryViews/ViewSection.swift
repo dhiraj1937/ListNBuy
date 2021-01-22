@@ -28,4 +28,6 @@ class ViewSection: UIView {
             contentView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
             
         }
+    
+    
 }

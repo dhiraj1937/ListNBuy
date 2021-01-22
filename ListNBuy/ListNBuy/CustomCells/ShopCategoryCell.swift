@@ -16,7 +16,7 @@ class ShopCategoryCell: UICollectionViewCell {
         // Initialization code
     }
     
-    public func SetData(homeCategory:HomeProductCategory){
+    public func SetData(homeCategory:HomeParentCategoryModel){
         lblTitle.text = homeCategory.title;
         img.imageFromServerURL(urlString: homeCategory.icon)
     }
