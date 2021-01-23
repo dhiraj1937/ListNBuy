@@ -157,7 +157,36 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         return nil
     }
     
-    
+    func AddWalletButton(vc:UIViewController,amount:String){
+        let mainView:UIView = UIView.init(frame: CGRect.init(x: self.view.frame.size.width-100, y: 50, width: 100, height: 48))
+        let btn:UIButton = UIButton.init(type: UIButton.ButtonType.custom, primaryAction: nil)
+        btn.setImage(UIImage.init(named: "Wallet"), for: UIControl.State.normal)
+        //btn.setTitle(amount, for: UIControl.State.normal)
+        btn.titleLabel?.textColor = UIColor.white;
+        btn.backgroundColor = UIColor.clear
+        btn.frame = CGRect.init(x: 40, y: 0, width: 60, height: 50)
+        btn.addTarget(self, action: #selector(ShowWallet), for: UIControl.Event.touchUpInside)
+        let lblAMT = UILabel.init(frame: CGRect.init(x: 70, y: 0, width: 30, height: 20))
+        lblAMT.text = "0.0";
+        lblAMT.textColor = UIColor.white;
+        lblAMT.font = UIFont.boldSystemFont(ofSize: 12)
+        lblAMT.textAlignment = NSTextAlignment.center
+        lblAMT.backgroundColor = UIColor.red;
+        lblAMT.layer.cornerRadius=10;
+        lblAMT.clipsToBounds = true;
+        lblAMT.numberOfLines=0;
+        lblAMT.adjustsFontSizeToFitWidth = true;
+        mainView.addSubview(btn);
+        mainView.addSubview(lblAMT);
+        let tapgesture = UITapGestureRecognizer.init(target: self, action: #selector(ShowWallet))
+        mainView.gestureRecognizers?.append(tapgesture)
+        self.view.addSubview(mainView)
+    }
+
+    @objc func ShowWallet(){
+        let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WalletViewController") as WalletViewController
+        self.navigationController?.pushViewController(vc, animated: true);
+    }
 
 }
 

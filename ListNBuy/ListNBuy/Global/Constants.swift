@@ -55,8 +55,9 @@ public class Constant {
     public static var getHomeParentCategoryWithProductURL:String = Constant.serverURL+"/getHomeParentCategoryWithProduct";
     public static var getRandomProductURL:String = Constant.serverURL+"/GetRandomProduct";
     public static var getHomeParentCategoryURL:String = Constant.serverURL+"/getHomeParentCategory";
-    
-    
+    public static var GetNewArrivalProductURL:String = Constant.serverURL+"/GetNewArrivalProduct";
+    public static var GetMostProductURL:String = Constant.serverURL+"/GetMostProduct";
+    public static var GetBrandProductURL:String = Constant.serverURL+"/getHomeBrand";
     public static var  globalTabbar:UITabBarController?
     public static var  walletCash:String?
     

@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         GetHomeBannerData();
+        self.AddWalletButton(vc: self, amount: "0.0")
     }
     
     @IBAction func btnWhatsAppAvailabitliy(){
@@ -53,21 +54,12 @@ class HomeViewController: UIViewController {
                 }
                 viewBanner.pageController.numberOfPages = listBanner.count;
                 sv.addSubview(viewBanner)
-                
                 let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: 420, width: Int(sv.frame.size.width), height: 50))
                 viewSection.lblTitle.text = "Shop By Category";
                 sv.addSubview(viewSection)
-                
-               }
-               else{
-               
-               }
+               }else{}
             GetHomeCategoryData();
            }, failure: { [self] (Error) in
-            DispatchQueue.main.async {
-                //HUD.flash(.error)
-            }
-           
             GetHomeCategoryData()
         })
        }
@@ -81,7 +73,7 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 HUD.show(.progress)
             }
-           ApiManager.sharedInstance.requestGETURL(Constant.getHomeBannerURL, success: { [self]
+            ApiManager.sharedInstance.requestGETURL(Constant.getHomeBannerURL, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
@@ -97,9 +89,9 @@ class HomeViewController: UIViewController {
                else{
                 HUD.flash(.progress)
                }
-                GetBannerData()
+               GetBannerData()
            }, failure: { [self] (Error) in
-                GetBannerData()
+               GetBannerData()
            })
            
        }
@@ -121,11 +113,8 @@ class HomeViewController: UIViewController {
                 let viewBanner = ViewShopByCategory.init(frame: CGRect.init(x: 0, y: 470, width: Int(sv.frame.size.width), height: 100))
                 sv.addSubview(viewBanner)
                 viewBanner.RefreshData(_listHomeCategory: listHomeCategory);
-               
                }
-               else{
-               
-               }
+               else{}
            }, failure: { [self] (Error) in
 
            })
@@ -153,10 +142,7 @@ class HomeViewController: UIViewController {
                 sv.addSubview(viewBanner)
                 viewBanner.RefreshData(_listTrending: listtrending)
                 
-               }
-               else{
-               
-               }
+               }else{}
            
            }, failure: { [self] (Error) in
 
@@ -171,14 +157,14 @@ class HomeViewController: UIViewController {
     
     func GetHomeCategoryWithProductData(){
         if KAPPDELEGATE.isNetworkAvailable(){
-           
+        var yXs:Int = 930;
            ApiManager.sharedInstance.requestGETURL(Constant.getHomeParentCategoryWithProductURL, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                 
                 let listHomeCategory = try! JSONDecoder().decode([HomeCategoryProduct].self, from: jsonData!)
-                var yXs:Int = 930;
+                
                 for homecat in listHomeCategory {
                     //Add Section
                     let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 50))
@@ -190,7 +176,7 @@ class HomeViewController: UIViewController {
                     let viewProduct = ProductCategoryView.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 400))
                     viewProduct.RefreshData(_listProduct: homecat.product)
                     sv.addSubview(viewProduct)
-                    yXs=yXs+400;
+                    yXs=yXs+410;
                     
                     //Add Banner
                     let viewBanner = ViewBanner.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 200))
@@ -198,25 +184,118 @@ class HomeViewController: UIViewController {
                     yXs=yXs+200;
                     sv.addSubview(viewBanner)
                 }
-                sv.contentSize = CGSize.init(width: 0, height: yXs)
-                HUD.flash(.progress)
+                let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 50))
+                viewSection.lblTitle.text = "Shop By Brand";
+                sv.addSubview(viewSection)
+                yXs=yXs+50;
                }
-               else{
-                HUD.flash(.progress)
-               }
-           
+               else{}
+            GetBrandProductData(yx: yXs)
            }, failure: { [self] (Error) in
-
+            GetBrandProductData(yx: yXs)
            })
-            sv.contentSize = CGSize.init(width: 0, height: 970)
-
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
     }
     
+    func GetNewArriavalData(yx:Int){
+        if KAPPDELEGATE.isNetworkAvailable(){
+           ApiManager.sharedInstance.requestGETURL(Constant.GetNewArrivalProductURL, success: { [self]
+               (JSON) in
+               if((JSON.dictionary?["IsSuccess"]) != false){
+                let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                let listNewArriaval = try! JSONDecoder().decode([NewArrivalModel].self, from: jsonData!)
+                let viewBanner = NewArriaval.init(frame: CGRect.init(x: 0, y: yx, width: Int(sv.frame.size.width), height: 200))
+                sv.addSubview(viewBanner)
+                viewBanner.RefreshData(_listProduct: listNewArriaval)
+                
+                if(listHomeBanner.count>0){
+                    let banner = listHomeBanner[listHomeBanner.count-1];
+                    let viewBanner = ViewBanner.init(frame: CGRect.init(x: 0, y: yx+200, width: Int(sv.frame.size.width), height: 200))
+                    viewBanner.imgBanner.imageFromServerURL(urlString: banner.BannerImg)
+                    sv.addSubview(viewBanner)
+                }
+                
+                let viewMember = MemberShipView.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 100))
+                sv.addSubview(viewMember)
+                
+                let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+500, width: Int(sv.frame.size.width), height: 200))
+                sv.addSubview(viewSubscription)
+                sv.contentSize = CGSize.init(width: 0, height: yx+700)
+                
+               }else{}
+            HUD.flash(.progress)
+           }, failure: { [self] (Error) in
+                HUD.flash(.progress)
+           })
+       }
+        else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
+    
+    func GetMostProductData(yx:Int){
+        if KAPPDELEGATE.isNetworkAvailable(){
+        var yXs:Int = yx;
+           ApiManager.sharedInstance.requestGETURL(Constant.GetMostProductURL, success: { [self]
+               (JSON) in
+               if((JSON.dictionary?["IsSuccess"]) != false){
+                let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                
+                let listHomeCategory = try! JSONDecoder().decode([NewArrivalModel].self, from: jsonData!)
+                let viewProduct = BestSelling.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 400))
+                    viewProduct.RefreshData(_listProduct: listHomeCategory)
+                sv.addSubview(viewProduct)
+                yXs=yXs+410;
+                let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 50))
+                viewSection.lblTitle.text = "New Arrival";
+                sv.addSubview(viewSection)
+                yXs=yXs+50;
+               }
+               else{}
+            GetNewArriavalData(yx: yXs)
+           }, failure: { [self] (Error) in
+            GetNewArriavalData(yx: yXs)
+           })
+       }
+        else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
 
+    
+    func GetBrandProductData(yx:Int){
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            var yXs:Int = yx;
+           ApiManager.sharedInstance.requestGETURL(Constant.GetBrandProductURL, success: { [self]
+               (JSON) in
+               if((JSON.dictionary?["IsSuccess"]) != false){
+                let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                let listHomeCategory = try! JSONDecoder().decode([BrandModel].self, from: jsonData!)
+                let viewBanner = BrandProduct.init(frame: CGRect.init(x: 0, y: yx, width: Int(sv.frame.size.width), height: 100))
+                sv.addSubview(viewBanner)
+                viewBanner.RefreshData(_listHomeCategory: listHomeCategory);
+                yXs=yXs+110;
+                let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 50))
+                viewSection.lblTitle.text = "Best Selling";
+                sv.addSubview(viewSection)
+                yXs=yXs+50;
+                GetMostProductData(yx: yXs);
+               }
+               else{}
+           }, failure: { [self] (Error) in
+            GetMostProductData(yx: yXs);
+           })
+       }
+        else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
 }
 
 

@@ -413,6 +413,58 @@ class HomeParentCategoryModel: Codable {
     }
 }
 
+class NewArrivalModel: Codable {
+    let wishlist: Int
+    let id, name: String
+    let image: String
+    let veg, tax, isVariable, brand: String
+    let welcomeDescription, avgRating: String
+    let variation: [Variation]
+
+    enum CodingKeys: String, CodingKey {
+        case wishlist, id, name
+        case image = "Image"
+        case veg, tax, isVariable, brand
+        case welcomeDescription = "description"
+        case avgRating = "AvgRating"
+        case variation
+    }
+
+    init(wishlist: Int, id: String, name: String, image: String, veg: String, tax: String, isVariable: String, brand: String, welcomeDescription: String, avgRating: String, variation: [Variation]) {
+        self.wishlist = wishlist
+        self.id = id
+        self.name = name
+        self.image = image
+        self.veg = veg
+        self.tax = tax
+        self.isVariable = isVariable
+        self.brand = brand
+        self.welcomeDescription = welcomeDescription
+        self.avgRating = avgRating
+        self.variation = variation
+    }
+}
+
+class BrandModel: Codable {
+    let id, title: String
+    let image: String
+    let status: String
+
+    enum CodingKeys: String, CodingKey {
+        case id = "Id"
+        case title = "Title"
+        case image = "Image"
+        case status = "Status"
+    }
+
+    init(id: String, title: String, image: String, status: String) {
+        self.id = id
+        self.title = title
+        self.image = image
+        self.status = status
+    }
+}
+
 class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
