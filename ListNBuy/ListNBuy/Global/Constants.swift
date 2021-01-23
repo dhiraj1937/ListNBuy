@@ -61,6 +61,14 @@ public class Constant {
     public static var  globalTabbar:UITabBarController?
     public static var  walletCash:String?
     
+    
+    
+    public static var getAddreesByIDURL:String = Constant.serverURL+"/getHomeBrand";
+    public static var searchAddressURL:String = Constant.serverURL+"/getHomeBrand";
+    public static var addAddressURL:String = Constant.serverURL+"/getHomeBrand";
+    public static var deleteAddressById:String = Constant.serverURL+"/getHomeBrand";
+    public static var editAddressURL:String = Constant.serverURL+"/getHomeBrand";
+    
 }
 
 

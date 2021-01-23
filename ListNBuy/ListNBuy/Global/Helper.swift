@@ -164,9 +164,9 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         //btn.setTitle(amount, for: UIControl.State.normal)
         btn.titleLabel?.textColor = UIColor.white;
         btn.backgroundColor = UIColor.clear
-        btn.frame = CGRect.init(x: 40, y: 0, width: 60, height: 50)
+        btn.frame = CGRect.init(x: 0, y: 0, width: 60, height: 50)
         btn.addTarget(self, action: #selector(ShowWallet), for: UIControl.Event.touchUpInside)
-        let lblAMT = UILabel.init(frame: CGRect.init(x: 70, y: 0, width: 30, height: 20))
+        let lblAMT = UILabel.init(frame: CGRect.init(x: 30, y: 0, width: 30, height: 20))
         lblAMT.text = "0.0";
         lblAMT.textColor = UIColor.white;
         lblAMT.font = UIFont.boldSystemFont(ofSize: 12)
