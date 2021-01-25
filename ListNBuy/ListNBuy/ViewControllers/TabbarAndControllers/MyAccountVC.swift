@@ -87,7 +87,7 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
             
         }
         else if dict["Title"] == "Edit Address" {
-            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddAddressViewController") as AddAddressViewController
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
         }

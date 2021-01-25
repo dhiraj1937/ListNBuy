@@ -71,11 +71,14 @@
 		C32EEA1025B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */; };
 		C335A2E325BC75A300C4705E /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A2E025BC75A200C4705E /* AddAddressViewController.swift */; };
 		C335A2E425BC75A300C4705E /* AddressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A2E125BC75A200C4705E /* AddressController.swift */; };
+		C335A2E925BCA0C200C4705E /* AddressListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A2E825BCA0C200C4705E /* AddressListViewController.swift */; };
+		C335A2F125BD4E3F00C4705E /* AddressTableCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A2F025BD4E3F00C4705E /* AddressTableCustomCell.swift */; };
 		C33E2AA625AF62520056EFA6 /* MembershipPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E2AA525AF62520056EFA6 /* MembershipPlansViewController.swift */; };
 		C33E2AB125AF635E0056EFA6 /* FAQsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E2AAC25AF635E0056EFA6 /* FAQsViewController.swift */; };
 		C3448C0925B7479500A44493 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3448C0825B7479500A44493 /* WalletViewController.swift */; };
 		C3448C0C25B75D0C00A44493 /* WalletTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3448C0B25B75D0C00A44493 /* WalletTransactionCell.swift */; };
 		C382385D25AE067100737307 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C382385C25AE067100737307 /* UserModel.swift */; };
+		C38A102125BF360C00E7BAEC /* SearchAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */; };
 		C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */; };
 		C3A55D4E25B5D7070079592E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4D25B5D7070079592E /* ProfileViewController.swift */; };
 		C3D3BF0925B9F7F5006C4AA7 /* AddToWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3BF0825B9F7F5006C4AA7 /* AddToWalletViewController.swift */; };
@@ -153,11 +156,14 @@
 		C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembershipPlanCollectionViewCell.swift; sourceTree = "<group>"; };
 		C335A2E025BC75A200C4705E /* AddAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		C335A2E125BC75A200C4705E /* AddressController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressController.swift; sourceTree = "<group>"; };
+		C335A2E825BCA0C200C4705E /* AddressListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListViewController.swift; sourceTree = "<group>"; };
+		C335A2F025BD4E3F00C4705E /* AddressTableCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableCustomCell.swift; sourceTree = "<group>"; };
 		C33E2AA525AF62520056EFA6 /* MembershipPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipPlansViewController.swift; sourceTree = "<group>"; };
 		C33E2AAC25AF635E0056EFA6 /* FAQsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQsViewController.swift; sourceTree = "<group>"; };
 		C3448C0825B7479500A44493 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		C3448C0B25B75D0C00A44493 /* WalletTransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTransactionCell.swift; sourceTree = "<group>"; };
 		C382385C25AE067100737307 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAreaTableViewCell.swift; sourceTree = "<group>"; };
 		C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountTableViewCell.swift; sourceTree = "<group>"; };
 		C3A55D4D25B5D7070079592E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C3D3BF0825B9F7F5006C4AA7 /* AddToWalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToWalletViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +279,7 @@
 				C3A55D4D25B5D7070079592E /* ProfileViewController.swift */,
 				C3448C0825B7479500A44493 /* WalletViewController.swift */,
 				C3D3BF0825B9F7F5006C4AA7 /* AddToWalletViewController.swift */,
+				C335A2E825BCA0C200C4705E /* AddressListViewController.swift */,
 				C335A2E025BC75A200C4705E /* AddAddressViewController.swift */,
 				C335A2E125BC75A200C4705E /* AddressController.swift */,
 				18D5F66025ACBECD007DABFF /* MenuAndControllers */,
@@ -357,6 +364,8 @@
 				1837091F25BB5050008697E1 /* ProductCell.xib */,
 				186E2BE925BC5162001CFEE4 /* BrandCollectionCell.swift */,
 				186E2BEA25BC5162001CFEE4 /* BrandCollectionCell.xib */,
+				C335A2F025BD4E3F00C4705E /* AddressTableCustomCell.swift */,
+				C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -530,6 +539,7 @@
 				186E2BF225BC536F001CFEE4 /* BrandProduct.swift in Sources */,
 				C335A2E325BC75A300C4705E /* AddAddressViewController.swift in Sources */,
 				180A885A25A7566F00462CB7 /* LoginVC.swift in Sources */,
+				C38A102125BF360C00E7BAEC /* SearchAreaTableViewCell.swift in Sources */,
 				C3F4B17125AF005D005467F5 /* SocialCollectionViewCell.swift in Sources */,
 				C3A55D4E25B5D7070079592E /* ProfileViewController.swift in Sources */,
 				180A888725A767B800462CB7 /* LeftMenuVC.swift in Sources */,
@@ -549,6 +559,8 @@
 				C335A2E425BC75A300C4705E /* AddressController.swift in Sources */,
 				C3D3BF0925B9F7F5006C4AA7 /* AddToWalletViewController.swift in Sources */,
 				C382385D25AE067100737307 /* UserModel.swift in Sources */,
+				C335A2F125BD4E3F00C4705E /* AddressTableCustomCell.swift in Sources */,
+				C335A2E925BCA0C200C4705E /* AddressListViewController.swift in Sources */,
 				C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */,
 				186E2BE425BC4D82001CFEE4 /* BestSelling.swift in Sources */,
 				186E2BE125BC45EF001CFEE4 /* Subscription.swift in Sources */,

@@ -2,7 +2,7 @@
 //  AddToWalletViewController.swift
 //  ListNBuy
 //
-//  Created by Rajesh Jayaswal on 21/01/21.
+//  Created by Team A on 21/01/21.
 //
 
 import UIKit

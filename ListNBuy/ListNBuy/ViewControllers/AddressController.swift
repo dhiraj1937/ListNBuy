@@ -1,9 +1,8 @@
 //
 //  AddressController.swift
-//  POD
+//  ListNBuy
 //
-//  Created by Apple on 17/12/19.
-//  Copyright © 2019 Apple. All rights reserved.
+//  Created by Team A on 23/01/21.
 //
 
 import UIKit
@@ -16,6 +15,33 @@ class AddressController: NSObject {
     public static var listAddress:[[String:Any]]?
     public static var listSearchAddress:[[String:Any]]?
 
+    static func GetAddressList(userID:String,vc:AddressListViewController){
+        do{
+            try
+                HUD.show(.progress)
+            listAddress = []; ApiManager.sharedInstance.requestGETURL(Constant.getAddreesByIDURL+""+userID, success: { (JSON) in
+                let msg =  JSON.dictionary?["Message"]
+                if((JSON.dictionary?["IsSuccess"]) != false){
+                    listAddress = (JSON.dictionaryObject!["ResponseData"]) as? [[String:Any]];
+                }
+                else{
+                    DispatchQueue.main.async {
+                        HUD.flash(.progress)
+                        LPSnackbar.showSnack(title: msg?.stringValue ?? AlertMsg.APIFailed)
+                    }
+                }
+                HUD.flash(.progress)
+                vc.tblAdd?.reloadData()
+                vc.refreshControl.endRefreshing()
+            }) { (Error) in
+                DispatchQueue.main.async {
+                    HUD.flash(.error)
+                    LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                }
+                vc.refreshControl.endRefreshing()
+            }
+        }
+    }
     
     static func GetAddressAutoList(searchText:String,vc:AddAddressViewController){
         DispatchQueue.global(qos: .background).async {
@@ -45,8 +71,9 @@ class AddressController: NSObject {
                     (JSON) in
                     let msg =  JSON.dictionary?["Message"]!
                     if((JSON.dictionary?["IsSuccess"]) != false){
-                     
-                        
+                        HUD.flash(.progress)
+                        LPSnackbar.showSnack(title:msg!.description)
+                        vc.navigationController?.popViewController(animated: true)
                     }
                     else{
                         DispatchQueue.main.async {
@@ -78,8 +105,9 @@ class AddressController: NSObject {
                     (JSON) in
                     let msg =  JSON.dictionary?["Message"]!
                     if((JSON.dictionary?["IsSuccess"]) != false){
+                        HUD.flash(.progress)
                         LPSnackbar.showSnack(title:msg!.description)
-                        
+                        AddressController.GetAddressList(userID:  dicObj!["UserId"] as! String, vc: vc as! AddressListViewController)
                     }
                     else{
                         DispatchQueue.main.async {
@@ -112,9 +140,9 @@ class AddressController: NSObject {
                     let msg =  JSON.dictionary?["Message"]!
                     if((JSON.dictionary?["IsSuccess"]) != false){
                         
-                        
-                      
-                        
+                        HUD.flash(.progress)
+                        LPSnackbar.showSnack(title: msg!.description)
+                        vc.navigationController?.popViewController(animated: true)
                         
                     }
                     else{
@@ -122,10 +150,7 @@ class AddressController: NSObject {
                             HUD.flash(.error)
                             LPSnackbar.showSnack(title: AlertMsg.APIFailed)
                         }
-                        
-                        
                     }
-                HUD.flash(.progress)
                 }, failure: { (Error) in
                     DispatchQueue.main.async {
                         HUD.flash(.error)

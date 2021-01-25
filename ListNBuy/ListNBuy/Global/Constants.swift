@@ -25,6 +25,10 @@ let KMYACCOUNTSTORYBOARD = UIStoryboard(name: "MyAccount", bundle: nil)
 
 
 public class Constant {
+    
+    public static var currLat: Double = 0.0
+    public static var currLng: Double = 0.0
+
     public static var APIKey:String = "123456789123456789"
     private static var serverURL:String = "https://projects.seawindsolution.com/YOGDEV/360/Webservices"
 
@@ -61,13 +65,17 @@ public class Constant {
     public static var  globalTabbar:UITabBarController?
     public static var  walletCash:String?
     
+    public static var getAddressList:String = Constant.serverURL+"/getAllUserAddressByUserId/";
+    public static var getAddreesByIDURL:String = Constant.serverURL+"/getAllUserAddressByUserId/";///{id}
+    public static var getAddreesByIDForMapURL:String = Constant.serverURL+"/getAllUserAddressByUserIdForMap/";///{id}
+    public static var searchAddressURL:String = Constant.serverURL+"/getMapArea";
+    public static var addAddressURL:String = Constant.serverURL+"/addNewUserAddress";
+    public static var deleteAddressById:String = Constant.serverURL+"/deleteUserAddress";
+    public static var editAddressURL:String = Constant.serverURL+"/editUserAddress";
     
-    
-    public static var getAddreesByIDURL:String = Constant.serverURL+"/getHomeBrand";
-    public static var searchAddressURL:String = Constant.serverURL+"/getHomeBrand";
-    public static var addAddressURL:String = Constant.serverURL+"/getHomeBrand";
-    public static var deleteAddressById:String = Constant.serverURL+"/getHomeBrand";
-    public static var editAddressURL:String = Constant.serverURL+"/getHomeBrand";
+    //getUserMembershipPlan
+    public static var addMembershipURL:String = Constant.serverURL+"/addMembership";
+    public static var getUserMembershipPlan:String = Constant.serverURL+"/getUserMembershipPlan";//id
     
 }
 
