@@ -58,9 +58,12 @@ public class Constant {
     public static var GetNewArrivalProductURL:String = Constant.serverURL+"/GetNewArrivalProduct";
     public static var GetMostProductURL:String = Constant.serverURL+"/GetMostProduct";
     public static var GetBrandProductURL:String = Constant.serverURL+"/getHomeBrand";
+    public static var sendNewsLatterURL:String = Constant.serverURL+"/sendNewsLatter";
+    public static var GetAutoSearchProductListURL:String = Constant.serverURL+"/GetAutoSearchProductList";
+    
     public static var  globalTabbar:UITabBarController?
     public static var  walletCash:String?
-    
+    public static var  homeVC:UIViewController?;
 }
 
 
