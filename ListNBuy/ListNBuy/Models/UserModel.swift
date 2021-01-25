@@ -465,6 +465,16 @@ class BrandModel: Codable {
     }
 }
 
+class SearchModel: Codable {
+    let id: String
+    let name: String
+   
+    init(id: String, name: String) {
+        self.id = id
+        self.name = name
+    }
+}
+
 class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {

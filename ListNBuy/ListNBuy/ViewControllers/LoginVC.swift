@@ -47,8 +47,6 @@ class LoginVC: UIViewController {
             navigation.navigationBar.isHidden = true
             navigation.modalPresentationStyle = .fullScreen
             self.present(navigation, animated: true, completion: nil)
-            
-            
         }
     }
     

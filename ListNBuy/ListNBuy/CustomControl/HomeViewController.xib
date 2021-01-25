@@ -9,7 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ListNBuy" customModuleProvider="target">
             <connections>
+                <outlet property="searchView" destination="wj0-0r-gQ0" id="VK8-oi-p7a"/>
                 <outlet property="sv" destination="yag-NK-5eL" id="iMC-Bd-bYl"/>
+                <outlet property="tblSearch" destination="Ddd-us-x2c" id="G5T-EB-CKv"/>
                 <outlet property="txtSearch" destination="JDm-1y-ss9" id="dBt-Fj-AX7"/>
                 <outlet property="view" destination="1Jc-4m-o9i" id="e2i-G4-yPg"/>
             </connections>
@@ -84,6 +86,9 @@
                             <real key="value" value="30"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnWhatsAppAvailabitliy" destination="-1" eventType="touchUpInside" id="yji-UD-2Ni"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="LISTNBUY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6h7-W6-sqT">
                     <rect key="frame" x="50" y="56" width="94" height="27"/>
@@ -110,6 +115,16 @@
             </constraints>
             <point key="canvasLocation" x="-787" y="-700"/>
         </view>
+        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ddd-us-x2c">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.35431827910958902" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="TED-Gg-ViR"/>
+                <outlet property="delegate" destination="-1" id="tIY-6x-roU"/>
+            </connections>
+            <point key="canvasLocation" x="420" y="-687"/>
+        </tableView>
     </objects>
     <resources>
         <image name="header_strip" width="1080" height="134"/>

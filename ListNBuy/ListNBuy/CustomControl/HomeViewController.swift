@@ -11,17 +11,25 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class HomeViewController: UIViewController {
-
+class HomeViewController: UIViewController,MyTextFieldDelegateProtocol {
+    
+    @IBOutlet var tblSearch:UITableView!
     @IBOutlet var txtSearch:UITextField!
     @IBOutlet var viewBanner:UIView!
+    @IBOutlet var searchView:UIView!
     @IBOutlet var sv:UIScrollView!
     var listBanner:[Banner] = [Banner]()
     var listHomeBanner:[HomeBanner] = [HomeBanner]()
+    var listSearch:[SearchModel] = [SearchModel]()
+    var listTempSearch:[SearchModel] = [SearchModel]()
     var listHomeCategory:[HomeParentCategoryModel] = [HomeParentCategoryModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        GetSearchData();
         GetHomeBannerData();
+        tblSearch.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
+        Constant.homeVC = self;
+        txtSearch.delegate = self as MyTextFieldDelegateProtocol
         self.AddWalletButton(vc: self, amount: "0.0")
     }
     
@@ -295,6 +303,82 @@ class HomeViewController: UIViewController {
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
+    }
+    
+    
+    func GetSearchData(){
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            ApiManager.sharedInstance.requestGETURL(Constant.GetAutoSearchProductListURL, success: { [self]
+               (JSON) in
+               if((JSON.dictionary?["IsSuccess"]) != false){
+                let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                listSearch = try! JSONDecoder().decode([SearchModel].self, from: jsonData!)
+                
+                HUD.flash(.progress)
+               }
+               else{
+                HUD.flash(.progress)
+               }
+               GetBannerData()
+           }, failure: { [self] (Error) in
+               GetBannerData()
+           })
+           
+       }
+        else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
+    
+    func SearchProduct(str:String){
+        listTempSearch.removeAll();
+        if(listSearch.count>0){
+            let list3 = listSearch.filter{ ($0.name.contains(str)) }
+            listTempSearch.append(contentsOf: list3)
+            tblSearch.reloadData();
+        }
+        if(listTempSearch.count>0){
+            tblSearch.frame = CGRect.init(x: searchView.frame.origin.x, y: searchView.frame.origin.y+searchView.frame.size.height, width: searchView.frame.size.width, height: searchView.frame.size.height)
+            self.view.addSubview(tblSearch);
+            self.tblSearch.isHidden = false;
+        }
+        else{
+            self.tblSearch.removeFromSuperview();
+            self.tblSearch.isHidden = true;
+        }
+    }
+   
+    
+}
+
+extension HomeViewController:UITableViewDataSource,UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listTempSearch.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell")!
+        cell.textLabel?.text = listTempSearch[indexPath.row].name;
+        return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        txtSearch.text =  listTempSearch[indexPath.row].name;
+        tblSearch.isHidden = true;
+    }
+   
+}
+
+@objc protocol MyTextFieldDelegateProtocol: UITextFieldDelegate {
+    
+}
+extension MyTextFieldDelegateProtocol {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        (Constant.homeVC as! HomeViewController).SearchProduct(str: string)
+        return true;
     }
 }
 
