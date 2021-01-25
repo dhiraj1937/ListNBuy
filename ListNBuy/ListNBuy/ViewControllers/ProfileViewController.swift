@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  ListNBuy
 //
-//  Created by Rajesh Jayaswal on 18/01/21.
+//  Created by Team A on 18/01/21.
 //
 
 import UIKit
