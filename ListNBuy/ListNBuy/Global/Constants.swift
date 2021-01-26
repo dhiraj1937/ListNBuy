@@ -73,7 +73,7 @@ public class Constant {
     
     //getUserMembershipPlan
     public static var addMembershipURL:String = Constant.serverURL+"/addMembership";
-    public static var getUserMembershipPlan:String = Constant.serverURL+"/getUserMembershipPlan";//id
+    public static var getUserMembershipPlan:String = Constant.serverURL+"/getUserMembershipPlan/";//id
     
     public static var sendNewsLatterURL:String = Constant.serverURL+"/sendNewsLatter";
     public static var GetAutoSearchProductListURL:String = Constant.serverURL+"/GetAutoSearchProductList";

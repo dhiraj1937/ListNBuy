@@ -67,9 +67,9 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 3 {
-            return 0
-        }
+//        if indexPath.row == 3 {
+//            return 0
+//        }
         return tableView.rowHeight
     }
     
@@ -92,7 +92,8 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
             
         }
         else if dict["Title"] == "My Plan" {
-
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "CurrentActivePlansViewController") as CurrentActivePlansViewController
+            self.navigationController?.pushViewController(vc, animated: true)
             
         }else if dict["Title"] == "My Wallet" {
             let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WalletViewController") as WalletViewController
