@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		180A885625A7566F00462CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A885525A7566F00462CB7 /* AppDelegate.swift */; };
-		180A885825A7566F00462CB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A885725A7566F00462CB7 /* SceneDelegate.swift */; };
 		180A885A25A7566F00462CB7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A885925A7566F00462CB7 /* LoginVC.swift */; };
 		180A885D25A7566F00462CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180A885B25A7566F00462CB7 /* Main.storyboard */; };
 		180A885F25A7567000462CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180A885E25A7567000462CB7 /* Assets.xcassets */; };
@@ -91,7 +90,6 @@
 /* Begin PBXFileReference section */
 		180A885225A7566F00462CB7 /* ListNBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListNBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		180A885525A7566F00462CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		180A885725A7566F00462CB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		180A885925A7566F00462CB7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		180A885C25A7566F00462CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		180A885E25A7567000462CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				180A885525A7566F00462CB7 /* AppDelegate.swift */,
-				180A885725A7566F00462CB7 /* SceneDelegate.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -576,7 +573,6 @@
 				18D5F65A25ACB3FC007DABFF /* ContactUsViewController.swift in Sources */,
 				180A885625A7566F00462CB7 /* AppDelegate.swift in Sources */,
 				18A40E0625AC5E9D008F3B3C /* OtherInfoViewController.swift in Sources */,
-				180A885825A7566F00462CB7 /* SceneDelegate.swift in Sources */,
 				C33E2AA625AF62520056EFA6 /* MembershipPlansViewController.swift in Sources */,
 				180A88CC25A77A7800462CB7 /* MyOrdersVC.swift in Sources */,
 				18CAF13725B5855500C4499C /* ViewBanner.swift in Sources */,

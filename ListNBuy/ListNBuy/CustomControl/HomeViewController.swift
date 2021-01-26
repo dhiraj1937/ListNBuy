@@ -11,7 +11,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class HomeViewController: UIViewController,MyTextFieldDelegateProtocol {
+class HomeViewController: UIViewController {
     
     @IBOutlet var tblSearch:UITableView!
     @IBOutlet var txtSearch:UITextField!
@@ -29,13 +29,29 @@ class HomeViewController: UIViewController,MyTextFieldDelegateProtocol {
         GetHomeBannerData();
         tblSearch.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         Constant.homeVC = self;
-        txtSearch.delegate = self as MyTextFieldDelegateProtocol
         self.AddWalletButton(vc: self, amount: "0.0")
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchFilter), name:  Notification.Name(rawValue: "search"), object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func btnWhatsAppAvailabitliy(){
         let vc = WhatsAppOrderViewController.init(nibName: "WhatsAppOrderViewController", bundle: nil)
         self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func SearchFilter(_ notification: Notification) {
+      if let target = notification.userInfo?["item"] as? String {
+        SearchProduct(str: target)
+      }
     }
     
     func GetBannerData(){
@@ -334,14 +350,15 @@ class HomeViewController: UIViewController,MyTextFieldDelegateProtocol {
     }
     
     func SearchProduct(str:String){
+        print(str)
         listTempSearch.removeAll();
         if(listSearch.count>0){
-            let list3 = listSearch.filter{ ($0.name.contains(str)) }
+            let list3 = listSearch.filter{ ($0.name.lowercased().contains(str.lowercased())) }
             listTempSearch.append(contentsOf: list3)
             tblSearch.reloadData();
         }
         if(listTempSearch.count>0){
-            tblSearch.frame = CGRect.init(x: searchView.frame.origin.x, y: searchView.frame.origin.y+searchView.frame.size.height, width: searchView.frame.size.width, height: searchView.frame.size.height)
+            tblSearch.frame = CGRect.init(x: searchView.frame.origin.x, y: searchView.frame.origin.y+searchView.frame.size.height+10, width: searchView.frame.size.width, height: 200)
             self.view.addSubview(tblSearch);
             self.tblSearch.isHidden = false;
         }
@@ -362,6 +379,7 @@ extension HomeViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell")!
         cell.textLabel?.text = listTempSearch[indexPath.row].name;
+        cell.selectionStyle=UITableViewCell.SelectionStyle.none;
         return cell;
     }
     
@@ -372,14 +390,5 @@ extension HomeViewController:UITableViewDataSource,UITableViewDelegate{
    
 }
 
-@objc protocol MyTextFieldDelegateProtocol: UITextFieldDelegate {
-    
-}
-extension MyTextFieldDelegateProtocol {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        (Constant.homeVC as! HomeViewController).SearchProduct(str: string)
-        return true;
-    }
-}
 
 

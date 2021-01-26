@@ -168,6 +168,19 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         }
     }
     
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if(string=="" && textField.text?.count==1){
+            let userInfo = ["item": ""]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "search"), object: nil, userInfo: userInfo)
+        }
+        else{
+            let userInfo = ["item": textField.text]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "search"), object: nil, userInfo: userInfo)
+        }
+        return true;
+    }
+    
     func ArchivedUserDefaultObject(obj:Any,key:String){
         do{
             let encodedData = try NSKeyedArchiver.archivedData(withRootObject: obj, requiringSecureCoding: true)
@@ -204,15 +217,15 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
     }
     
     func AddWalletButton(vc:UIViewController,amount:String){
-        let mainView:UIView = UIView.init(frame: CGRect.init(x: self.view.frame.size.width-100, y: 50, width: 100, height: 48))
+        let mainView:UIView = UIView.init(frame: CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 50, width: 100, height: 48))
         let btn:UIButton = UIButton.init(type: UIButton.ButtonType.custom, primaryAction: nil)
         btn.setImage(UIImage.init(named: "Wallet"), for: UIControl.State.normal)
         //btn.setTitle(amount, for: UIControl.State.normal)
         btn.titleLabel?.textColor = UIColor.white;
         btn.backgroundColor = UIColor.clear
-        btn.frame = CGRect.init(x: 0, y: 0, width: 60, height: 50)
+        btn.frame = CGRect.init(x: 30, y: 0, width: 60, height: 50)
         btn.addTarget(self, action: #selector(ShowWallet), for: UIControl.Event.touchUpInside)
-        let lblAMT = UILabel.init(frame: CGRect.init(x: 30, y: 0, width: 30, height: 20))
+        let lblAMT = UILabel.init(frame: CGRect.init(x: 60, y: 0, width: 30, height: 20))
         lblAMT.text = "0.0";
         lblAMT.textColor = UIColor.white;
         lblAMT.font = UIFont.boldSystemFont(ofSize: 12)

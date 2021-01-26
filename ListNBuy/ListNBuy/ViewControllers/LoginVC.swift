@@ -43,10 +43,11 @@ class LoginVC: UIViewController {
             controller.leftViewWidth = 300;
             controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
             
-            let navigation = UINavigationController.init(rootViewController: controller)
-            navigation.navigationBar.isHidden = true
-            navigation.modalPresentationStyle = .fullScreen
-            self.present(navigation, animated: true, completion: nil)
+            //let navigation = UINavigationController.init(rootViewController: controller)
+            //navigation.navigationBar.isHidden = true
+            //navigation.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(controller, animated: true)
+            //self.present(navigation, animated: true, completion: nil)
         }
     }
     
