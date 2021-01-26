@@ -29,7 +29,7 @@
         <!--LoginVC-->
         <scene sceneID="fvT-5v-sHL">
             <objects>
-                <viewController id="rL9-RT-QZi" customClass="LoginVC" customModule="ListNBuy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="rL9-RT-QZi" customClass="LoginVC" customModule="ListNBuy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O5a-hx-Hzw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

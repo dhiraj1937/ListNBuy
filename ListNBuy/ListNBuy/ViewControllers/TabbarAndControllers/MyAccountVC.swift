@@ -101,9 +101,7 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
             
         }
         else if dict["Title"] == "Logout" {
-//                       guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//                           let delegate = windowScene.delegate as? SceneDelegate, let window = delegate.window else { return  }
-//                    self.navigationController?.popToViewController(window.rootViewController!, animated: true)
+            (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
             }
     }
     
