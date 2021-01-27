@@ -69,6 +69,7 @@
 		C3078EE225C05C0500A2F3FF /* CurrentActivePlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3078EE125C05C0500A2F3FF /* CurrentActivePlansViewController.swift */; };
 		C3078EE525C0622200A2F3FF /* MyPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3078EE425C0622200A2F3FF /* MyPlanTableViewCell.swift */; };
 		C30A12B725B0AAA2004C639C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A12B625B0AAA2004C639C /* WebViewController.swift */; };
+		C32C11DD25C16FE000EC7B3B /* WishListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C11DC25C16FE000EC7B3B /* WishListCollectionViewCell.swift */; };
 		C32EEA1025B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */; };
 		C335A2E325BC75A300C4705E /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A2E025BC75A200C4705E /* AddAddressViewController.swift */; };
 		C335A2E425BC75A300C4705E /* AddressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A2E125BC75A200C4705E /* AddressController.swift */; };
@@ -155,6 +156,7 @@
 		C3078EE125C05C0500A2F3FF /* CurrentActivePlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentActivePlansViewController.swift; sourceTree = "<group>"; };
 		C3078EE425C0622200A2F3FF /* MyPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanTableViewCell.swift; sourceTree = "<group>"; };
 		C30A12B625B0AAA2004C639C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		C32C11DC25C16FE000EC7B3B /* WishListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembershipPlanCollectionViewCell.swift; sourceTree = "<group>"; };
 		C335A2E025BC75A200C4705E /* AddAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		C335A2E125BC75A200C4705E /* AddressController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				C335A2F025BD4E3F00C4705E /* AddressTableCustomCell.swift */,
 				C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */,
 				C3078EE425C0622200A2F3FF /* MyPlanTableViewCell.swift */,
+				C32C11DC25C16FE000EC7B3B /* WishListCollectionViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				C3F4B17725AF06D7005467F5 /* Helper.swift in Sources */,
 				186E2BD525BC32FF001CFEE4 /* NewArriaval.swift in Sources */,
 				186E2BD825BC4305001CFEE4 /* MemberShipView.swift in Sources */,
+				C32C11DD25C16FE000EC7B3B /* WishListCollectionViewCell.swift in Sources */,
 				1837092025BB5050008697E1 /* ProductCell.swift in Sources */,
 				C3448C0C25B75D0C00A44493 /* WalletTransactionCell.swift in Sources */,
 				180A88AF25A7754700462CB7 /* TabbarViewController.swift in Sources */,

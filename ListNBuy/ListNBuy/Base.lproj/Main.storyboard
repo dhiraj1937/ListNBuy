@@ -3471,15 +3471,15 @@
                                     <action selector="btnBack" destination="U0Q-Dt-kBA" eventType="touchUpInside" id="p4n-dK-OCb"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-h2-8xs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="210" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-h2-8xs">
                                 <rect key="frame" x="5" y="99" width="365" height="674"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyPlanTableViewCell" id="RBY-yz-eMp" customClass="MyPlanTableViewCell" customModule="ListNBuy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="365" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="365" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RBY-yz-eMp" id="jdj-fs-wGQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="365" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="365" height="210"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TeG-Sb-HeD" userLabel="ViewBackground">
@@ -3807,7 +3807,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TeG-Sb-HeD" firstAttribute="top" secondItem="jdj-fs-wGQ" secondAttribute="top" id="Uxv-t7-Zrn"/>
-                                                <constraint firstAttribute="bottom" secondItem="TeG-Sb-HeD" secondAttribute="bottom" id="WXX-RY-6vp"/>
+                                                <constraint firstAttribute="bottom" secondItem="TeG-Sb-HeD" secondAttribute="bottom" constant="10" id="WXX-RY-6vp"/>
                                                 <constraint firstAttribute="trailing" secondItem="TeG-Sb-HeD" secondAttribute="trailing" id="pjU-ln-1K0"/>
                                                 <constraint firstItem="TeG-Sb-HeD" firstAttribute="leading" secondItem="jdj-fs-wGQ" secondAttribute="leading" id="qOH-hK-8BX"/>
                                             </constraints>

@@ -57,8 +57,12 @@ extension MembershipPlansViewController:UICollectionViewDelegate,UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MembershipPlanCollectionViewCell", for: indexPath) as! MembershipPlanCollectionViewCell
         let mplan = listMPlan[indexPath.section]
         cell.SetData(mPlan: mplan)
+        cell.btnBuyNow.tag = indexPath.section
+        cell.btnBuyNow.addTarget(self, action:#selector(btnBuyNowAction(sender:)),
+                                 for: UIControl.Event.touchUpInside)
         return cell
     }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mp = listMPlan[indexPath.row]
@@ -93,6 +97,55 @@ extension MembershipPlansViewController:UICollectionViewDelegate,UICollectionVie
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
+    }
+     
+    @objc func btnBuyNowAction(sender: UIButton) {
+         print(sender.tag)
+        let mp = listMPlan[sender.tag]
+            
+            if KAPPDELEGATE.isNetworkAvailable(){
+                DispatchQueue.main.async {
+                    HUD.show(.progress)
+                }
+                
+                let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
+                 let loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
+            
+                let params :[String:Any] = ["planId":mp.Id,
+                                            "customerId":loginUserData.Id,
+                                            "payMethod":"COD",
+                                            "price":mp.Price,
+                                            "duration":mp.Duration,
+                                            "transactionId":"abs"]
+                print(params)
+                ApiManager.sharedInstance.requestPOSTURL(Constant.addMembershipURL, params: params, success: {(JSON) in
+                    print(JSON)
+                    
+                    let msg =  JSON.dictionary?["Message"]?.stringValue
+                    print(msg as Any)
+                    
+                    if((JSON.dictionary?["IsSuccess"]) != false){
+        
+                        DispatchQueue.main.async {
+                            HUD.flash(.progress)
+                            LPSnackbar.showSnack(title: msg!)
+                        }
+                                    
+                    }else {
+                        HUD.flash(.progress)
+                        LPSnackbar.showSnack(title: msg!)
+                    }
+                    
+                },failure: { (Error) in
+                    DispatchQueue.main.async {
+                        HUD.flash(.error)
+                        LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                    }
+                })
+                
+            }else{
+                LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            }
     }
     
 }

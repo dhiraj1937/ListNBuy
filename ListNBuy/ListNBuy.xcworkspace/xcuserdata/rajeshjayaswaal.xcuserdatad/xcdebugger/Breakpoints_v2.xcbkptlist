@@ -3,4 +3,70 @@
    uuid = "CE76DBB3-BC88-4D94-BFC7-E1C9B10575A3"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A9B68C4-B921-4B14-9287-E5A9A90B2757"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "addToWalletAPI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5A9B68C4-B921-4B14-9287-E5A9A90B2757 - 6f15fe77bde490e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ListNBuy.AddToWalletViewController.addToWalletAPI() -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshjayaswaal/Documents/GitHub/ListNBuy/ListNBuy/ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "3073">
+               </Location>
+               <Location
+                  uuid = "5A9B68C4-B921-4B14-9287-E5A9A90B2757 - 886112c769637eba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (SwiftyJSON.JSON) -&gt; () in ListNBuy.AddToWalletViewController.addToWalletAPI() -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rajeshjayaswaal/Documents/GitHub/ListNBuy/ListNBuy/ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "223">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B1C6986-9292-4AF5-8D72-A4BAB92C002D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "addToWalletAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

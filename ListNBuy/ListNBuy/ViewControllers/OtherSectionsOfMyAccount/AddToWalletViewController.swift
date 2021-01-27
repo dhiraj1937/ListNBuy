@@ -201,8 +201,8 @@ extension AddToWalletViewController : UITableViewDelegate, UITableViewDataSource
             //payMethod
             //payStatus
             //CODE
-            let params :[String:Any] = ["UserId":userid!,"Role":loginUserData?.Role,"Amount":txtFEnterAmount.text!,"TransactionId":"","payMethod":"","payStatus":"","CODE":lblAppliedCode.text!]
-            
+            let params :[String:Any] = ["UserId":userid!,"Role":(loginUserData?.Role)!,"Amount":txtFEnterAmount.text!,"TransactionId":"abs","payMethod":"COD","payStatus":"success","CODE":lblAppliedCode.text!]
+            print(params)
             ApiManager.sharedInstance.requestPOSTURL(Constant.addToWalletURL, params: params, success: {(JSON) in
                 print(JSON)
                 /*
@@ -221,6 +221,7 @@ extension AddToWalletViewController : UITableViewDelegate, UITableViewDataSource
                         HUD.flash(.progress)
                     }
                     LPSnackbar.showSnack(title: msg!)
+                    self.btnBack()
                 }else {
                     HUD.flash(.progress)
                     LPSnackbar.showSnack(title: msg!)

@@ -78,6 +78,9 @@ public class Constant {
     public static var sendNewsLatterURL:String = Constant.serverURL+"/sendNewsLatter";
     public static var GetAutoSearchProductListURL:String = Constant.serverURL+"/GetAutoSearchProductList";
     
+    public static var getWishlistURL:String = Constant.serverURL+"/getWishlist/";
+    public static var removeWishlistURL:String = Constant.serverURL+"/removeWishlist";
+    
     
     public static var  globalTabbar:UITabBarController?
     public static var  walletCash:String?
