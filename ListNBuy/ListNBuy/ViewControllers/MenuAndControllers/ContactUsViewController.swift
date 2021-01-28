@@ -13,7 +13,7 @@ import PKHUD
 import SwiftyJSON
 
 
-class ContactUsViewController: UIViewController {
+class ContactUsViewController: BaseViewController {
     @IBOutlet var lblTitle:UILabel!
     @IBOutlet var btnMobile:UIButton!
     @IBOutlet var btnWeb:UIButton!

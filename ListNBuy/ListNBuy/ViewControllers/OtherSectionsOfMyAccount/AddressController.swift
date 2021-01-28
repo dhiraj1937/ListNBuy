@@ -165,4 +165,36 @@ class AddressController: NSObject {
             }
         }
     }
+    
+    static func getWalletCash(userid:String) {
+        
+        if userid == "" {
+            Constant.walletCash = "0.0"
+            return
+        }
+        
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            
+            ApiManager.sharedInstance.requestGETURL(Constant.getWalletURL+"/"+userid, success: { [self]
+               (JSON) in
+               if((JSON.dictionary?["IsSuccess"]) != false){
+                let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                let wallet:WalletAmount  = try! JSONDecoder().decode(WalletAmount.self, from: jsonData!)
+                Constant.walletCash = wallet.walletAmount
+               }
+                HUD.flash(.progress)
+           }, failure: { [self] (Error) in
+            DispatchQueue.main.async {
+                HUD.flash(.error)
+            }
+            LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+           })
+       }
+        else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
 }

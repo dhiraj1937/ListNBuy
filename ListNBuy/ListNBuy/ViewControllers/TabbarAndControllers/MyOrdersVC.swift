@@ -8,7 +8,7 @@
 import UIKit
 
 
-class MyOrdersVC: UIViewController {
+class MyOrdersVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

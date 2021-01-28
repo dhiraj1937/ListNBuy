@@ -11,7 +11,7 @@ import Alamofire
 import LPSnackbar
 import PKHUD
 
-class OtherInfoViewController: UIViewController {
+class OtherInfoViewController: BaseViewController {
     @IBOutlet var lblTitle:UILabel!
     @IBOutlet var txtView:UITextView!
     public var slug:String!;

@@ -12,7 +12,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class MembershipPlansViewController: UIViewController {
+class MembershipPlansViewController: BaseViewController {
     @IBOutlet var lblTitle:UILabel!
     @IBOutlet var collectionView:UICollectionView!
     var listMPlan:[MembershipPlanData] = [MembershipPlanData]()
@@ -100,7 +100,7 @@ extension MembershipPlansViewController:UICollectionViewDelegate,UICollectionVie
     }
      
     @objc func btnBuyNowAction(sender: UIButton) {
-         print(sender.tag)
+         //print(sender.tag)
         let mp = listMPlan[sender.tag]
             
             if KAPPDELEGATE.isNetworkAvailable(){
@@ -108,21 +108,20 @@ extension MembershipPlansViewController:UICollectionViewDelegate,UICollectionVie
                     HUD.show(.progress)
                 }
                 
-                let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
-                 let loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
+                let userID = UserDefaults.standard.getUserID()
             
                 let params :[String:Any] = ["planId":mp.Id,
-                                            "customerId":loginUserData.Id,
+                                            "customerId":userID,
                                             "payMethod":"COD",
                                             "price":mp.Price,
                                             "duration":mp.Duration,
                                             "transactionId":"abs"]
-                print(params)
+                //print(params)
                 ApiManager.sharedInstance.requestPOSTURL(Constant.addMembershipURL, params: params, success: {(JSON) in
-                    print(JSON)
+                    //print(JSON)
                     
                     let msg =  JSON.dictionary?["Message"]?.stringValue
-                    print(msg as Any)
+                    //print(msg as Any)
                     
                     if((JSON.dictionary?["IsSuccess"]) != false){
         

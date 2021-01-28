@@ -67,6 +67,13 @@ class RoundedCornerView: UIView {
     }
     
 }
+class BaseViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.AddWalletButton(vc: self, amount: Constant.walletCash)
+    }
+}
 
 extension UIColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
@@ -226,7 +233,7 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         btn.frame = CGRect.init(x: 30, y: 0, width: 60, height: 50)
         btn.addTarget(self, action: #selector(ShowWallet), for: UIControl.Event.touchUpInside)
         let lblAMT = UILabel.init(frame: CGRect.init(x: 60, y: 0, width: 30, height: 20))
-        lblAMT.text = "0.0";
+        lblAMT.text = amount;
         lblAMT.textColor = UIColor.white;
         lblAMT.font = UIFont.boldSystemFont(ofSize: 12)
         lblAMT.textAlignment = NSTextAlignment.center

@@ -12,19 +12,22 @@ import PKHUD
 import SwiftyJSON
 
 
-class WishlistVC: UIViewController {
+class WishlistVC: BaseViewController {
     
     @IBOutlet var collectionView:UICollectionView!
     var listWish:[[String:Any]]?
 
-    var loginUserData : LoginUserData?
     var userid : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
-        loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
-        userid = loginUserData?.Id
+        let userID = UserDefaults.standard.getUserID()
+        if userID == "" {
+            (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
+            return
+        }else {
+            userid = userID
+        }
         getWishlList()
     }
     
@@ -72,13 +75,13 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = listWish?[indexPath.row]
-        print(product as Any)
+        //print(product as Any)
     }
     
     @objc func btnRemoveAction(sender: UIButton) {
-        print(sender.tag)
+        //print(sender.tag)
         let product = listWish?[sender.tag]
-        print(product as Any)
+        //print(product as Any)
         //removeWishlistURL
         var wl_id = "" as String
         if let wid = product?["wishlistId"] {
@@ -92,7 +95,7 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
             
             let params :[String:Any] = ["Id":wl_id]
             ApiManager.sharedInstance.requestPOSTURL(Constant.removeWishlistURL, params: params, success: {(JSON) in
-                print(JSON)
+                //print(JSON)
                 
                 let msg =  JSON.dictionary?["Message"]
                 if((JSON.dictionary?["IsSuccess"]) != false){
@@ -122,8 +125,7 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
             DispatchQueue.main.async {
                 HUD.show(.progress)
             }
-            let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
-            loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
+
            ApiManager.sharedInstance.requestGETURL(Constant.getWishlistURL+""+userid!, success: { [self]
                (JSON) in
             let msg =  JSON.dictionary?["Message"]

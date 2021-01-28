@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddressListViewController: UIViewController, ActionButtonDelegate {
+class AddressListViewController: BaseViewController, ActionButtonDelegate {
 
     @IBOutlet var tblAdd:UITableView!
     public let refreshControl = UIRefreshControl()
@@ -46,9 +46,8 @@ class AddressListViewController: UIViewController, ActionButtonDelegate {
     }
     
     func getAddressList(){
-        let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
-        let loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
-        AddressController.GetAddressList(userID: loginUserData.Id as! String, vc: self)
+        let userID = UserDefaults.standard.getUserID()
+        AddressController.GetAddressList(userID: userID, vc: self)
     }
 
 }
@@ -97,7 +96,7 @@ extension AddressListViewController :
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dicAddObj = AddressController.listAddress![indexPath.row];
-        print(dicAddObj)
+        //print(dicAddObj)
     }
     
     @IBAction func btnAddNewAddress_Click(){

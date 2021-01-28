@@ -12,7 +12,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class SocialViewController: UIViewController {
+class SocialViewController: BaseViewController {
     public var headertitle:String!;
     @IBOutlet var lblTitle:UILabel!
 
@@ -58,7 +58,7 @@ extension SocialViewController:UICollectionViewDelegate,UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sm = listSM[indexPath.row]
-        print(sm.Link)
+        //print(sm.Link)
         let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WebViewController") as WebViewController
         vc.urlString = sm.Link
         self.navigationController?.pushViewController(vc, animated: true)

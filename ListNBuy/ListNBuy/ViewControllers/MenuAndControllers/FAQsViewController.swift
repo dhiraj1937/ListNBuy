@@ -12,7 +12,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class FAQsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class FAQsViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return faqList.count;
     }

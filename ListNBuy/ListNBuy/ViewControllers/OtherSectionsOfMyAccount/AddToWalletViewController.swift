@@ -12,7 +12,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class AddToWalletViewController: UIViewController {
+class AddToWalletViewController: BaseViewController {
     
     @IBOutlet weak var lblCashWallet:UILabel!
     @IBOutlet weak var txtFEnterAmount:UITextField!
@@ -36,7 +36,7 @@ class AddToWalletViewController: UIViewController {
         let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
         loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
         userid = loginUserData?.Id
-        lblCashWallet.text = Constant.walletCash  ?? "0"
+        lblCashWallet.text = "Rs " + Constant.walletCash  
         getWalletPromoCodes()
     }
     
@@ -149,18 +149,10 @@ extension AddToWalletViewController : UITableViewDelegate, UITableViewDataSource
             let params :[String:Any] = ["CODE":txtFEnterCode.text!,"UserId":userid!]
             
             ApiManager.sharedInstance.requestPOSTURL(Constant.applyWalletPromoCodeURL, params: params, success: {(JSON) in
-                print(JSON)
-                /*
-                 {
-                   "ResponseData" : [
-
-                   ],
-                   "Message" : "Promocode Applyed Successfully",
-                   "IsSuccess" : true
-                 }
-                 */
+                //print(JSON)
+             
                 let msg =  JSON.dictionary?["Message"]?.stringValue
-                print(msg as Any)
+                //print(msg as Any)
                 if((JSON.dictionary?["IsSuccess"]) != false){
                     DispatchQueue.main.async {
                         HUD.flash(.progress)
@@ -202,20 +194,12 @@ extension AddToWalletViewController : UITableViewDelegate, UITableViewDataSource
             //payStatus
             //CODE
             let params :[String:Any] = ["UserId":userid!,"Role":(loginUserData?.Role)!,"Amount":txtFEnterAmount.text!,"TransactionId":"abs","payMethod":"COD","payStatus":"success","CODE":lblAppliedCode.text!]
-            print(params)
+            //print(params)
             ApiManager.sharedInstance.requestPOSTURL(Constant.addToWalletURL, params: params, success: {(JSON) in
-                print(JSON)
-                /*
-                 {
-                   "IsSuccess" : false,
-                   "ResponseData" : [
+                //print(JSON)
 
-                   ],
-                   "Message" : "Missing Params"
-                 }
-                 */
                 let msg =  JSON.dictionary?["Message"]?.stringValue
-                print(msg as Any)
+                //print(msg as Any)
                 if((JSON.dictionary?["IsSuccess"]) != false){
                     DispatchQueue.main.async {
                         HUD.flash(.progress)

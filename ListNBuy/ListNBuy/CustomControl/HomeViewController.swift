@@ -29,13 +29,17 @@ class HomeViewController: UIViewController {
         GetHomeBannerData();
         tblSearch.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         Constant.homeVC = self;
-        self.AddWalletButton(vc: self, amount: "0.0")
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(SearchFilter), name:  Notification.Name(rawValue: "search"), object: nil)
+        //print("USER_ID : \(UserDefaults.standard.getUserID())")
+        //print("isloggedin : \(UserDefaults.standard.isLoggedIn())")
+        let userID = UserDefaults.standard.getUserID()
+        AddressController.getWalletCash(userid: userID)
+        self.AddWalletButton(vc: self, amount: Constant.walletCash)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

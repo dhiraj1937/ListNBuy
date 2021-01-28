@@ -8,7 +8,7 @@
 import UIKit
 
 
-class OffersVC: UIViewController {
+class OffersVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

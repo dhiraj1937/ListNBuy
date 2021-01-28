@@ -46,10 +46,7 @@ class SignUP: UIViewController {
             controller.leftViewWidth = 300;
             controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
             
-            let navigation = UINavigationController.init(rootViewController: controller)
-            navigation.navigationBar.isHidden = true
-            navigation.modalPresentationStyle = .fullScreen
-            self.present(navigation, animated: true, completion: nil)
+            self.navigationController?.pushViewController(controller, animated: true)
             
             
         }
@@ -99,10 +96,10 @@ class SignUP: UIViewController {
             ApiManager.sharedInstance.requestPOSTURL(strURL, params: params, success: {(JSON) in
                 
                 let msg =  JSON.dictionary?["Message"]?.stringValue
-                print(msg as Any)
+                //print(msg as Any)
                 
                 if((JSON.dictionary?["IsSuccess"]) != false){
-                    print(JSON)
+                   // print(JSON)
                     DispatchQueue.main.async {
                         HUD.flash(.progress)
                     }
@@ -213,12 +210,24 @@ class SignUP: UIViewController {
             
             let params :[String:Any] = ["SignBy": strSignBy, "Name": txtFMobile.text!, "Email": txtFOTP.text!, "Phone": strMobile]
             ApiManager.sharedInstance.requestPOSTURL(Constant.registrationUrl, params: params, success: {(JSON) in
-                print(JSON)
+                //print(JSON)
                 
                 let msg =  JSON.dictionary?["Message"]?.stringValue
-                print(msg as Any)
+                //print(msg as Any)
                 
                 if((JSON.dictionary?["IsSuccess"]) != false){
+                    
+                    let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                    self.ArchivedUserDefaultObject(obj:jsonData as Any, key: "LoginUserData")
+                    
+                    UserDefaults.standard.setLoggedIn(value: true)
+                    let dicUserInfo = (JSON.dictionaryObject!["ResponseData"]) as? [String:Any];
+                    //print(dicUserInfo!["Id"] as Any)
+                    if let userid = dicUserInfo!["Id"]{
+                        UserDefaults.standard.setUserID(value:userid as! String)
+
+                    }
+
                     DispatchQueue.main.async {
                         HUD.flash(.progress)
                     }

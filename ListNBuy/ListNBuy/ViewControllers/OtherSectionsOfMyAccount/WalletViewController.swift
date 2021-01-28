@@ -12,12 +12,11 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class WalletViewController: UIViewController {
+class WalletViewController: BaseViewController {
     @IBOutlet weak var lblCashWallet:UILabel!
     @IBOutlet weak var lblSuperCashWallet:UILabel!
     @IBOutlet weak var btnAddAmountWallet:UIButton!
     @IBOutlet var tblWalletTransaction:UITableView!
-    var loginUserData : LoginUserData?
     var userid : String?
     
     var listWTransaction:[WalletTransaction] = [WalletTransaction]()
@@ -27,15 +26,15 @@ class WalletViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
-        loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
-        if let loggedInUser = loginUserData{
-            userid = loggedInUser.Id
-            getWalletData()
-            getWalletTran()
-        }else{
-            
+        let userID = UserDefaults.standard.getUserID()
+        if userID == "" {
+            (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
+            return
+        }else {
+            userid = userID
         }
+        getWalletData()
+        getWalletTran()
     }
     
     @IBAction func btnBack(){
@@ -76,10 +75,10 @@ extension WalletViewController : UITableViewDelegate, UITableViewDataSource
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                 let wallet:WalletAmount  = try! JSONDecoder().decode(WalletAmount.self, from: jsonData!)
-                print(wallet.walletAmount)
-                print(wallet.superCashWalletAmount)
+                //print(wallet.walletAmount)
+                //print(wallet.superCashWalletAmount)
                 lblCashWallet.text = "Rs " + wallet.walletAmount
-                Constant.walletCash = "Rs " + wallet.walletAmount
+                Constant.walletCash = wallet.walletAmount
                 lblSuperCashWallet.text = "Rs " + wallet.superCashWalletAmount
                  HUD.flash(.progress)
                }

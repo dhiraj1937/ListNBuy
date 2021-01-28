@@ -12,7 +12,7 @@ import Alamofire
 import LPSnackbar
 import PKHUD
 
-class AddAddressViewController: UIViewController,MKMapViewDelegate {
+class AddAddressViewController: BaseViewController,MKMapViewDelegate {
     @IBOutlet var txtQuery:UITextView!
     @IBOutlet var mapContainerView:UIView!
     @IBOutlet var btnHome:UIButton!
@@ -116,11 +116,10 @@ class AddAddressViewController: UIViewController,MKMapViewDelegate {
     }
     
     func AddAddress(){
-        let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
-         let loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
-         
+        
+        let userID = UserDefaults.standard.getUserID()
         var otpDic = [String:AnyObject]()
-        otpDic["UserId"] = loginUserData.Id as AnyObject
+        otpDic["UserId"] = userID as AnyObject
 
         otpDic["Type"] = selectedType.description as AnyObject
         if(selectedType == 3){

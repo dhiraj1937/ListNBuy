@@ -11,7 +11,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class CurrentActivePlansViewController: UIViewController {
+class CurrentActivePlansViewController: BaseViewController {
     
     @IBOutlet var tblPlan:UITableView!
     var listPlan:[[String:Any]]?
@@ -31,10 +31,9 @@ class CurrentActivePlansViewController: UIViewController {
                 HUD.show(.progress)
             }
             
-            let userData:Data = self.UnArchivedUserDefaultObject(key: "LoginUserData") as! Data;
-            let loginUserData =  try! JSONDecoder().decode(LoginUserData.self, from: userData)
+            let userID = UserDefaults.standard.getUserID()
             
-            ApiManager.sharedInstance.requestGETURL(Constant.getUserMembershipPlan+""+loginUserData.Id, success: { [self]
+            ApiManager.sharedInstance.requestGETURL(Constant.getUserMembershipPlan+""+userID, success: { [self]
                (JSON) in
             let msg =  JSON.dictionary?["Message"]
                 if((JSON.dictionary?["IsSuccess"]) != false){
