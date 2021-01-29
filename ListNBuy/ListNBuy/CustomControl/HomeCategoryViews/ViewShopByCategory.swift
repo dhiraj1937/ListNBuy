@@ -50,6 +50,8 @@ class ViewShopByCategory: UIView,UICollectionViewDelegate,UICollectionViewDataSo
         layout.itemSize = CGSize(width: 100, height: screenWidth)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 20
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal;
+        
         collectionView!.collectionViewLayout = layout
         listHomeCategory = _listHomeCategory;
         let nib = UINib(nibName: "ShopCategoryCell", bundle: nil)

@@ -224,6 +224,12 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
     }
     
     func AddWalletButton(vc:UIViewController,amount:String){
+        var v = vc.view.viewWithTag(-1000)
+        if(v != nil)
+        {
+            v?.removeFromSuperview();
+            v=nil;
+        }
         let mainView:UIView = UIView.init(frame: CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 50, width: 100, height: 48))
         let btn:UIButton = UIButton.init(type: UIButton.ButtonType.custom, primaryAction: nil)
         btn.setImage(UIImage.init(named: "Wallet"), for: UIControl.State.normal)
@@ -246,6 +252,7 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         mainView.addSubview(lblAMT);
         let tapgesture = UITapGestureRecognizer.init(target: self, action: #selector(ShowWallet))
         mainView.gestureRecognizers?.append(tapgesture)
+        mainView.tag = -1000;
         self.view.addSubview(mainView)
     }
 
@@ -387,6 +394,27 @@ extension UICollectionView {
     
     func restore() {
         self.backgroundView = nil
+    }
+}
+
+extension UINavigationController
+{
+    /// Given the kind of a (UIViewController subclass),
+    /// removes any matching instances from self's
+    /// viewControllers array.
+
+    func removeAnyViewControllers(ofKind kind: AnyClass)
+    {
+        self.viewControllers = self.viewControllers.filter { !$0.isKind(of: kind)}
+    }
+
+    /// Given the kind of a (UIViewController subclass),
+    /// returns true if self's viewControllers array contains at
+    /// least one matching instance.
+
+    func containsViewController(ofKind kind: AnyClass) -> Bool
+    {
+        return self.viewControllers.contains(where: { $0.isKind(of: kind) })
     }
 }
 

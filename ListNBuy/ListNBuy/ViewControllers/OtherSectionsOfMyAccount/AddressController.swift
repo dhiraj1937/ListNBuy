@@ -166,7 +166,7 @@ class AddressController: NSObject {
         }
     }
     
-    static func getWalletCash(userid:String) {
+    static func getWalletCash(userid:String,response:@escaping (String) -> Void) {
         
         if userid == "" {
             Constant.walletCash = "0.0"
@@ -185,15 +185,18 @@ class AddressController: NSObject {
                 let wallet:WalletAmount  = try! JSONDecoder().decode(WalletAmount.self, from: jsonData!)
                 Constant.walletCash = wallet.walletAmount
                }
+                response(Constant.walletCash);
                 HUD.flash(.progress)
            }, failure: { [self] (Error) in
             DispatchQueue.main.async {
                 HUD.flash(.error)
             }
+            response(Constant.walletCash);
             LPSnackbar.showSnack(title: AlertMsg.APIFailed)
            })
        }
         else{
+            response(Constant.walletCash);
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
     }

@@ -38,8 +38,11 @@ class HomeViewController: UIViewController {
         //print("USER_ID : \(UserDefaults.standard.getUserID())")
         //print("isloggedin : \(UserDefaults.standard.isLoggedIn())")
         let userID = UserDefaults.standard.getUserID()
-        AddressController.getWalletCash(userid: userID)
-        self.AddWalletButton(vc: self, amount: Constant.walletCash)
+        if(userID != ""){
+            AddressController.getWalletCash(userid: userID) { (response) in
+                self.AddWalletButton(vc: self, amount: Constant.walletCash)
+            }
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -186,7 +189,7 @@ class HomeViewController: UIViewController {
     func GetHomeCategoryWithProductData(){
         if KAPPDELEGATE.isNetworkAvailable(){
         var yXs:Int = 930;
-           ApiManager.sharedInstance.requestGETURL(Constant.getHomeParentCategoryWithProductURL, success: { [self]
+           ApiManager.sharedInstance.requestGETURL(Constant.getHomeParentCategoryWithProductURL+"/"+UserDefaults.standard.getUserID(), success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
@@ -230,7 +233,7 @@ class HomeViewController: UIViewController {
     
     func GetNewArriavalData(yx:Int){
         if KAPPDELEGATE.isNetworkAvailable(){
-           ApiManager.sharedInstance.requestGETURL(Constant.GetNewArrivalProductURL, success: { [self]
+           ApiManager.sharedInstance.requestGETURL(Constant.GetNewArrivalProductURL+"/"+UserDefaults.standard.getUserID(), success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
@@ -267,7 +270,7 @@ class HomeViewController: UIViewController {
     func GetMostProductData(yx:Int){
         if KAPPDELEGATE.isNetworkAvailable(){
         var yXs:Int = yx;
-           ApiManager.sharedInstance.requestGETURL(Constant.GetMostProductURL, success: { [self]
+           ApiManager.sharedInstance.requestGETURL(Constant.GetMostProductURL+"/"+UserDefaults.standard.getUserID(), success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)

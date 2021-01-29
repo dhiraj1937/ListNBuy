@@ -31,6 +31,13 @@ class LoginVC: UIViewController {
         if isUserLoggedIN == true {
             self.navigatToHome()
         }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        txtFOTP.text = "";
+        txtFMobileOrEmail.text = "";
         viewOTPSection.isHidden = true
         cnstOTPSection.constant = 0
         cnstContainerView.constant = 355

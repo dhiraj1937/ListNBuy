@@ -8,6 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import Reachability
+import LGSideMenuController
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,10 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
-        let controller = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        let nav = UINavigationController.init(rootViewController: controller)
-        nav.setNavigationBarHidden(true, animated: true)
-        window?.rootViewController = nav;
+        let isUserLoggedIN = UserDefaults.standard.isLoggedIn()
+        if isUserLoggedIN == true {
+            
+                let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
+                controller.leftViewWidth = 300;
+                controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
+                let nav = UINavigationController.init(rootViewController:controller)
+                nav.setNavigationBarHidden(true, animated: true)
+                window?.rootViewController = nav;
+            
+        }
+        else{
+            let controller = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            let nav = UINavigationController.init(rootViewController: controller)
+            nav.setNavigationBarHidden(true, animated: true)
+            window?.rootViewController = nav;
+        }
         UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
         return true
     }

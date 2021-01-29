@@ -117,8 +117,15 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
             UserDefaults.standard.setLoggedIn(value: false)
             UserDefaults.standard.setUserID(value: "")
             UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.userID.rawValue)
-
-            (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
+            if((KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.containsViewController(ofKind: LoginVC.self)){
+                (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
+            }
+            else{
+                let controller = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)?.viewControllers.insert(controller, at: 0)
+                (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
+            }
+            //(KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
             }
     }
     
