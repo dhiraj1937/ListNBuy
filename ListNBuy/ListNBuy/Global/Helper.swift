@@ -162,6 +162,7 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         } else {
             textField.resignFirstResponder()
         }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ClickSearch"), object: nil, userInfo: nil)
         return true;
     }
     
@@ -411,7 +412,7 @@ extension UINavigationController
     /// Given the kind of a (UIViewController subclass),
     /// returns true if self's viewControllers array contains at
     /// least one matching instance.
-
+    
     func containsViewController(ofKind kind: AnyClass) -> Bool
     {
         return self.viewControllers.contains(where: { $0.isKind(of: kind) })

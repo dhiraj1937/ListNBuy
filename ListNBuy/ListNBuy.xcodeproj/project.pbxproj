@@ -54,6 +54,7 @@
 		18A3973D25B9FBE9007038DD /* ViewTrending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3973C25B9FBE9007038DD /* ViewTrending.swift */; };
 		18A3974025B9FBFA007038DD /* ViewTrending.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A3973F25B9FBFA007038DD /* ViewTrending.xib */; };
 		18A40E0625AC5E9D008F3B3C /* OtherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A40E0525AC5E9D008F3B3C /* OtherInfoViewController.swift */; };
+		18BBC53F25C48A1A0052670B /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBC53E25C48A1A0052670B /* SearchListViewController.swift */; };
 		18CAF13225B57E4400C4499C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CAF13025B57E4400C4499C /* HomeViewController.swift */; };
 		18CAF13325B57E4400C4499C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CAF13125B57E4400C4499C /* HomeViewController.xib */; };
 		18CAF13725B5855500C4499C /* ViewBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CAF13625B5855500C4499C /* ViewBanner.swift */; };
@@ -140,6 +141,7 @@
 		18A3973C25B9FBE9007038DD /* ViewTrending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTrending.swift; sourceTree = "<group>"; };
 		18A3973F25B9FBFA007038DD /* ViewTrending.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewTrending.xib; sourceTree = "<group>"; };
 		18A40E0525AC5E9D008F3B3C /* OtherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInfoViewController.swift; sourceTree = "<group>"; };
+		18BBC53E25C48A1A0052670B /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		18CAF13025B57E4400C4499C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		18CAF13125B57E4400C4499C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		18CAF13625B5855500C4499C /* ViewBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBanner.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				18D5F66025ACBECD007DABFF /* MenuAndControllers */,
 				18D5F65F25ACBE84007DABFF /* TabbarAndControllers */,
 				C3078EDF25C0595400A2F3FF /* OtherSectionsOfMyAccount */,
+				18BBC53E25C48A1A0052670B /* SearchListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				C335A2E925BCA0C200C4705E /* AddressListViewController.swift in Sources */,
 				C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */,
 				186E2BE425BC4D82001CFEE4 /* BestSelling.swift in Sources */,
+				18BBC53F25C48A1A0052670B /* SearchListViewController.swift in Sources */,
 				186E2BE125BC45EF001CFEE4 /* Subscription.swift in Sources */,
 				180A88CA25A77A7800462CB7 /* WishlistVC.swift in Sources */,
 				C3D3BF0C25BA0446006C4AA7 /* PromocodeCell.swift in Sources */,

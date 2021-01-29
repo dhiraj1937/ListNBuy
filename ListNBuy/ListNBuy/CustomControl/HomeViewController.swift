@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(SearchFilter), name:  Notification.Name(rawValue: "search"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchProdcut), name:  Notification.Name(rawValue: "ClickSearch"), object: nil)
         //print("USER_ID : \(UserDefaults.standard.getUserID())")
         //print("isloggedin : \(UserDefaults.standard.isLoggedIn())")
         let userID = UserDefaults.standard.getUserID()
@@ -59,6 +60,14 @@ class HomeViewController: UIViewController {
       if let target = notification.userInfo?["item"] as? String {
         SearchProduct(str: target)
       }
+    }
+    
+    @objc func SearchProdcut(){
+        if(txtSearch.text!.count>0){
+        let vcSearch = KHOMESTORYBOARD.instantiateViewController(identifier: "SearchListViewController") as SearchListViewController
+        vcSearch.searchText = txtSearch.text;
+        self.navigationController?.pushViewController(vcSearch, animated: true);
+        }
     }
     
     func GetBannerData(){
