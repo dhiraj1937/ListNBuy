@@ -12,7 +12,11 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class WalletViewController: BaseViewController {
+class WalletViewController: UIViewController {
+    @IBOutlet weak var viewAccordingToPlan:UIView!
+    @IBOutlet weak var lblMemberNo:UILabel!
+    @IBOutlet weak var lblValidThrough:UILabel!
+    @IBOutlet weak var cnstViewPlanHeight: NSLayoutConstraint!
     @IBOutlet weak var lblCashWallet:UILabel!
     @IBOutlet weak var lblSuperCashWallet:UILabel!
     @IBOutlet weak var btnAddAmountWallet:UIButton!
@@ -23,6 +27,9 @@ class WalletViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cnstViewPlanHeight.constant = 0
+        viewAccordingToPlan.isHidden = true
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,9 +39,25 @@ class WalletViewController: BaseViewController {
             return
         }else {
             userid = userID
+            
+            let strformat = "0000000000"
+            let final = strformat.substring(to:strformat.count - userid!.count) + userid!
+            lblMemberNo.text = final
+            AddressController.getPlanData { [self] (response) in
+                if Constant.isPlanHidden == true {
+                    lblValidThrough.text = ""
+                    cnstViewPlanHeight.constant = 0
+                    viewAccordingToPlan.isHidden = true
+                }else{
+                    lblValidThrough.text = response
+                    cnstViewPlanHeight.constant = 150
+                    viewAccordingToPlan.isHidden = false
+                }
+                getWalletData()
+                getWalletTran()
+            }
+            
         }
-        getWalletData()
-        getWalletTran()
     }
     
     @IBAction func btnBack(){

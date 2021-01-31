@@ -12,7 +12,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class AddToWalletViewController: BaseViewController {
+class AddToWalletViewController: UIViewController {
     
     @IBOutlet weak var lblCashWallet:UILabel!
     @IBOutlet weak var txtFEnterAmount:UITextField!

@@ -178,7 +178,7 @@ class AddressController: NSObject {
                 HUD.show(.progress)
             }
             
-            ApiManager.sharedInstance.requestGETURL(Constant.getWalletURL+"/"+userid, success: { [self]
+            ApiManager.sharedInstance.requestGETURL(Constant.getWalletURL+"/"+userid, success: { 
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
@@ -187,7 +187,7 @@ class AddressController: NSObject {
                }
                 response(Constant.walletCash);
                 HUD.flash(.progress)
-           }, failure: { [self] (Error) in
+           }, failure: {  (Error) in
             DispatchQueue.main.async {
                 HUD.flash(.error)
             }
@@ -197,6 +197,52 @@ class AddressController: NSObject {
        }
         else{
             response(Constant.walletCash);
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
+    
+    static func getPlanData(response:@escaping (String) -> Void) {
+        
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            
+            let userID = UserDefaults.standard.getUserID()
+            
+            ApiManager.sharedInstance.requestGETURL(Constant.getUserMembershipPlan+""+userID, success: {
+                (JSON) in
+                let msg =  JSON.dictionary?["Message"]
+                print(msg as Any)
+                if((JSON.dictionary?["IsSuccess"]) != false){
+                    var listPlan:[[String:Any]]? = (JSON.dictionaryObject!["ResponseData"]) as? [[String:Any]];
+                    if listPlan!.count > 0 {
+                        Constant.listPlan = listPlan
+                        Constant.isPlanHidden = false
+
+                        let sortedList = listPlan?.sorted(by: { (($0 as Dictionary<String, AnyObject>)["expiryDate"] as? String)! > (($1 as Dictionary<String, AnyObject>)["expiryDate"] as? String)!})
+                        print(sortedList as Any)
+                        
+                        let validthru = sortedList![0]["expiryDate"] as! String
+                        Constant.latestPlanValidThru = validthru.substring(to: 10)
+
+                    }
+                    HUD.flash(.progress)
+                }
+                response(Constant.latestPlanValidThru);
+                DispatchQueue.main.async {
+                    HUD.flash(.progress)
+                }
+            }, failure: { (Error) in
+            DispatchQueue.main.async {
+                HUD.flash(.error)
+                response(Constant.latestPlanValidThru);
+                LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+            }
+           })
+       }
+        else{
+            response(Constant.latestPlanValidThru);
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
     }

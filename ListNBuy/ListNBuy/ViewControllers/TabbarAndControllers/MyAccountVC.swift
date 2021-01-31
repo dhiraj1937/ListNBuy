@@ -14,7 +14,6 @@ import SwiftyJSON
 class MyAccountVC: BaseViewController {
     @IBOutlet weak var tblSetting: UITableView!
     var ListArray = NSMutableArray()
-    var isHidePlan: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,11 @@ class MyAccountVC: BaseViewController {
         let dic5:[String: String] = ["Head" : "","Title" : "Logout","Img" : "logout","Showline":"0"]
         ListArray.add(dic5)
         
-        getPlanData()
+        AddressController.getPlanData { (response) in
+            if Constant.isPlanHidden == false{
+                self.tblSetting.reloadData()
+            }
+        }
     }
 
 }
@@ -80,7 +83,7 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 3 && isHidePlan == true {
+        if indexPath.row == 3 && Constant.isPlanHidden == true {
             return 0
         }
         return tableView.rowHeight
@@ -125,44 +128,6 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
                 (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)?.viewControllers.insert(controller, at: 0)
                 (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
             }
-            //(KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
-            }
-    }
-    
-    func getPlanData(){
-           
-        if KAPPDELEGATE.isNetworkAvailable(){
-            DispatchQueue.main.async {
-                HUD.show(.progress)
-            }
-            
-            let userID = UserDefaults.standard.getUserID()
-            
-            ApiManager.sharedInstance.requestGETURL(Constant.getUserMembershipPlan+""+userID, success: { [self]
-               (JSON) in
-            let msg =  JSON.dictionary?["Message"]
-                if((JSON.dictionary?["IsSuccess"]) != false){
-                  let listPlan:[[String:Any]]? = (JSON.dictionaryObject!["ResponseData"]) as? [[String:Any]];
-                    if listPlan!.count > 0 {
-                        self.isHidePlan = false
-                    }
-                    tblSetting.reloadData()
-                    HUD.flash(.progress)
-                }
-                else{
-                    DispatchQueue.main.async {
-                        HUD.flash(.progress)
-                    }
-                }
-           }, failure: { [self] (Error) in
-            DispatchQueue.main.async {
-                HUD.flash(.error)
-                LPSnackbar.showSnack(title: AlertMsg.APIFailed)
-            }
-           })
-       }
-        else{
-            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
     }
     
