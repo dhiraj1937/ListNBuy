@@ -52,8 +52,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func btnWhatsAppAvailabitliy(){
-        let vc = WhatsAppOrderViewController.init(nibName: "WhatsAppOrderViewController", bundle: nil)
-        self.navigationController?.present(vc, animated: true, completion: nil)
+//        let vc = WhatsAppOrderViewController.init(nibName: "WhatsAppOrderViewController", bundle: nil)
+//        self.navigationController?.present(vc, animated: true, completion: nil)
+        let product = "183"
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
+        vc.productId = product
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     @objc func SearchFilter(_ notification: Notification) {

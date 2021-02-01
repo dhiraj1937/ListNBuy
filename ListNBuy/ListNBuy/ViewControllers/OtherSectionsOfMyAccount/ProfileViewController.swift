@@ -12,7 +12,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class ProfileViewController: BaseViewController {
+class ProfileViewController: UIViewController {
     @IBOutlet weak var txtFName:UITextField!
     @IBOutlet weak var txtFEmail:UITextField!
     @IBOutlet weak var txtFPhone:UITextField!

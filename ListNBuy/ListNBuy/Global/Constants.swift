@@ -88,7 +88,8 @@ public class Constant {
     public static var  isPlanHidden = true
     public static var  latestPlanValidThru = ""
     public static var  listPlan:[[String:Any]]?
-
+    
+    public static var getProductDetailsURL:String = Constant.serverURL+"/GetProductDetails/";
 }
 
 enum UserDefaultsKeys : String {
