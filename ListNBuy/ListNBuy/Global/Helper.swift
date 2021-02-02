@@ -52,6 +52,11 @@ class Helper: NSObject {
                 }
         })
     }
+    
+    static func GetStrikeTextAttribute(txt:String) -> NSAttributedString{
+        let attrString = NSAttributedString(string: txt, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+        return attrString
+    }
 }
 
 class RoundedCornerView: UIView {

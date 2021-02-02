@@ -20,13 +20,14 @@ class NewArriaval: UIView ,UICollectionViewDelegate,UICollectionViewDataSource  
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
+        vc.product = listProduct[indexPath.row];
         vc.productId = listProduct[indexPath.row].id
         Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBOutlet private var collectionView:UICollectionView!
     @IBOutlet private var contentView:UIView!
-    private var listProduct:[NewArrivalModel] = [NewArrivalModel]()
+    private var listProduct:[Product] = [Product]()
     override init(frame: CGRect) {
             super.init(frame: frame)
             commonInit()
@@ -45,7 +46,7 @@ class NewArriaval: UIView ,UICollectionViewDelegate,UICollectionViewDataSource  
            
         }
     
-    public func RefreshData(_listProduct:[NewArrivalModel]){
+    public func RefreshData(_listProduct:[Product]){
         
         let screenWidth = collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()

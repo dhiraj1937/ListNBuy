@@ -251,7 +251,7 @@ class HomeViewController: UIViewController {
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
-                let listNewArriaval = try! JSONDecoder().decode([NewArrivalModel].self, from: jsonData!)
+                let listNewArriaval = try! JSONDecoder().decode([Product].self, from: jsonData!)
                 let viewBanner = NewArriaval.init(frame: CGRect.init(x: 0, y: yx, width: Int(sv.frame.size.width), height: 200))
                 sv.addSubview(viewBanner)
                 viewBanner.RefreshData(_listProduct: listNewArriaval)
@@ -289,7 +289,7 @@ class HomeViewController: UIViewController {
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                 
-                let listHomeCategory = try! JSONDecoder().decode([NewArrivalModel].self, from: jsonData!)
+                let listHomeCategory = try! JSONDecoder().decode([Product].self, from: jsonData!)
                 let viewProduct = BestSelling.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 400))
                     viewProduct.RefreshData(_listProduct: listHomeCategory)
                 sv.addSubview(viewProduct)

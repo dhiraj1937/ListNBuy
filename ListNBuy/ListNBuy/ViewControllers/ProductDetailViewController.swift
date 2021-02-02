@@ -13,12 +13,13 @@ import SwiftyJSON
 
 class ProductDetailViewController: UIViewController {
     public var productId:String!
+    public var product:Product!;
     var selectedMou: String?
     var selectedVariant: String?
     var selectedPicker:Int = 0
     var arrPicker:[String] = [String]()
-    var arrMous:[String] = ["testmou1","testmou2"]
-    var arrVariants:[String] = ["testVar1","testVar2"]
+    var arrMous:[String] = []
+    var arrVariants:[String] = []
     
     @IBOutlet weak var btnShowCart:UIButton!
     @IBOutlet weak var imgProductImage:UIImageView!
@@ -40,7 +41,24 @@ class ProductDetailViewController: UIViewController {
         pickerView.dataSource = self
         btnDropDownMou.setTitle("Select", for: .normal)
         btnDropDownVariant.setTitle("Select", for: .normal)
-        getProductDetails()
+        for objP in product.variation {
+            arrMous.append(objP.attributeName)
+            arrVariants.append(objP.attributeName1)
+        }
+        imgProductImage.imageFromServerURL(urlString: product.image);
+        lblDesc.text = product.productDescription;
+        lblProductName.text = product.name;
+        if(product.variation.count>0){
+            lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[0].regularPrice.description);
+            lblRate.text = "RS."+product.variation[0].memberPrice.description;
+        }
+        if(product.wishlist==0){
+            
+        }
+        else{
+            
+        }
+        //getProductDetails()
     }
     
     @IBAction func btnBack(){

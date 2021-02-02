@@ -88,7 +88,7 @@ extension SearchListViewController : UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
-        vc.productId = listProducts[indexPath.row].id
+        vc.product = listProducts[indexPath.row];
         Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
     }
 }

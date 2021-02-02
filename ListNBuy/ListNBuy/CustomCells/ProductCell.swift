@@ -27,20 +27,8 @@ class ProductCell: UICollectionViewCell {
         lblRating.text = product.avgRating;
         lblTitle.text = product.name;
         lblDisPrice.text = "Rs:"+product.variation[0].salePrice.description
-        let attrString = NSAttributedString(string: product.variation[0].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
-        lblRealPrice.attributedText = attrString
-        lblRealPrice.text = "Rs:"+lblRealPrice.text!;
-        lblVaiant.text = product.variation[0].attributeName;
-    }
-    
-    public func SetData(product:NewArrivalModel) {
-        img.imageFromServerURL(urlString: product.image)
-        lblRating.text = product.avgRating;
-        lblTitle.text = product.name;
-        lblDisPrice.text = "Rs:"+product.variation[0].salePrice.description
-        let attrString = NSAttributedString(string: product.variation[0].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
-        lblRealPrice.attributedText = attrString
-        lblRealPrice.text = "Rs:"+lblRealPrice.text!;
+        lblRealPrice.attributedText = Helper.GetStrikeTextAttribute(txt: "Rs:"+product.variation[0].regularPrice.description);
+        //lblRealPrice.text = "Rs:"+lblRealPrice.text!;
         lblVaiant.text = product.variation[0].attributeName;
     }
 }
