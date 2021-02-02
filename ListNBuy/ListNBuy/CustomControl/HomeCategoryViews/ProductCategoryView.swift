@@ -18,6 +18,12 @@ class ProductCategoryView: UIView,UICollectionViewDelegate,UICollectionViewDataS
         return cell;
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
+        vc.productId = listProduct[indexPath.row].id
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBOutlet private var collectionView:UICollectionView!
     @IBOutlet private var contentView:UIView!
     private var listProduct:[Product] = [Product]()

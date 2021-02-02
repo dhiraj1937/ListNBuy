@@ -45,7 +45,7 @@ class SearchListViewController: UIViewController {
                 DispatchQueue.main.async {
                     HUD.show(.progress)
                 }
-                let params :[String:Any] = ["userid":UserDefaults.standard.getUserID(), "q":searchText as Any]
+                let params :[String:Any] = ["userid":UserDefaults.standard.getUserID(), "q":searchText! as Any]
                 ApiManager.sharedInstance.requestPOSTURL(Constant.GetSearchProductURL, params: params, success: { [self](JSON) in
                    
                     let msg =  JSON.dictionary?["Message"]?.stringValue
@@ -57,8 +57,6 @@ class SearchListViewController: UIViewController {
                         DispatchQueue.main.async {
                             HUD.flash(.progress)
                         }
-                        LPSnackbar.showSnack(title:  msg ?? AlertMsg.LoginSuccess)
-                        
                     }else {
                         HUD.flash(.progress)
                         LPSnackbar.showSnack(title: msg!)
@@ -88,5 +86,9 @@ extension SearchListViewController : UICollectionViewDelegate,UICollectionViewDa
         return cell;
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
+        vc.productId = listProducts[indexPath.row].id
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+    }
 }

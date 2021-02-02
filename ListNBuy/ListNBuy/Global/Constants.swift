@@ -90,6 +90,18 @@ public class Constant {
     public static var  listPlan:[[String:Any]]?
     
     public static var getProductDetailsURL:String = Constant.serverURL+"/GetProductDetails/";
+    
+    
+    static func GetCurrentVC()->UIViewController{
+        guard let wd = UIApplication.shared.delegate?.window else {
+            return UIViewController.init();
+        }
+        var vc = wd!.rootViewController
+        if(vc is UINavigationController){
+            vc = (vc as! UINavigationController).visibleViewController
+        }
+        return vc!;
+    }
 }
 
 enum UserDefaultsKeys : String {

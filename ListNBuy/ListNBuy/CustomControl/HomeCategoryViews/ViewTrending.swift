@@ -18,6 +18,12 @@ class ViewTrending: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         return cell;
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
+        vc.productId = listTrending[indexPath.row].id
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+    }
+    
     private var listTrending:[TredningProduct] = [TredningProduct]()
     @IBOutlet private var collectionView:UICollectionView!
     @IBOutlet private var contentView:UIView!
