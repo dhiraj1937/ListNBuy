@@ -123,6 +123,7 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" image="heart" catalog="system"/>
+                                        <state key="selected" image="heart.fill" catalog="system"/>
                                         <connections>
                                             <action selector="btnAddToWishlistAction" destination="IJI-mA-o9v" eventType="touchUpInside" id="qRQ-tI-aSh"/>
                                         </connections>
@@ -683,6 +684,7 @@
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="header_strip" width="1080" height="134"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="menu" width="25" height="25"/>
         <image name="star.leadinghalf.fill" catalog="system" width="128" height="116"/>

@@ -81,6 +81,7 @@
 		C342635525C726E000DAA27A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C342635425C726DF00DAA27A /* ProductDetailViewController.swift */; };
 		C3448C0925B7479500A44493 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3448C0825B7479500A44493 /* WalletViewController.swift */; };
 		C3448C0C25B75D0C00A44493 /* WalletTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3448C0B25B75D0C00A44493 /* WalletTransactionCell.swift */; };
+		C37D8F3A25C9B508004010EF /* WishListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D8F3925C9B508004010EF /* WishListController.swift */; };
 		C382385D25AE067100737307 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C382385C25AE067100737307 /* UserModel.swift */; };
 		C38A102125BF360C00E7BAEC /* SearchAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */; };
 		C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */; };
@@ -170,6 +171,7 @@
 		C342635425C726DF00DAA27A /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		C3448C0825B7479500A44493 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		C3448C0B25B75D0C00A44493 /* WalletTransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTransactionCell.swift; sourceTree = "<group>"; };
+		C37D8F3925C9B508004010EF /* WishListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListController.swift; sourceTree = "<group>"; };
 		C382385C25AE067100737307 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAreaTableViewCell.swift; sourceTree = "<group>"; };
 		C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountTableViewCell.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		1823734D25B44C37009106E5 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				C37D8F3925C9B508004010EF /* WishListController.swift */,
 				18CAF13525B584FF00C4499C /* HomeCategoryViews */,
 				1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */,
 				1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */,
@@ -555,6 +558,7 @@
 				18CAF13B25B5935D00C4499C /* ViewSection.swift in Sources */,
 				180A88D025A79CAB00462CB7 /* SignUP.swift in Sources */,
 				18804FAB25B757D8005BDF36 /* ViewShopByCategory.swift in Sources */,
+				C37D8F3A25C9B508004010EF /* WishListController.swift in Sources */,
 				18F20CD925B5B8EF003CEF11 /* TrendingCollectionCell.swift in Sources */,
 				186E2BF225BC536F001CFEE4 /* BrandProduct.swift in Sources */,
 				C335A2E325BC75A300C4705E /* AddAddressViewController.swift in Sources */,

@@ -74,10 +74,23 @@ class ProductDetailViewController: UIViewController {
         dismissPickerView()
     }
     @IBAction func btnAddToCartAction(){
+        /*let userID = UserDefaults.standard.getUserID()
+        var dicObj = [String:AnyObject]()
+        dicObj["userId"] = userID as AnyObject
+        dicObj["productId"] = product.id as AnyObject
+        dicObj["variationId"] = product.id as AnyObject
+        dicObj["quantity"] = product.id as AnyObject
+        //call api and show animated view with "no. of item | total amount view card " >
+        }*/
     }
     @IBAction func btnShowCartAction(){
     }
     @IBAction func btnAddToWishlistAction(){
+        WishListController.addWishlistAPI(productID: product.id, vc: self) { [self] (response) in
+            if response == "Success"{
+                btnAddToWishlist.isSelected = true
+            }
+        }
     }
 
     

@@ -79,10 +79,7 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     @objc func btnRemoveAction(sender: UIButton) {
-        //print(sender.tag)
         let product = listWish?[sender.tag]
-        //print(product as Any)
-        //removeWishlistURL
         var wl_id = "" as String
         if let wid = product?["wishlistId"] {
             wl_id = (wid as? String)!

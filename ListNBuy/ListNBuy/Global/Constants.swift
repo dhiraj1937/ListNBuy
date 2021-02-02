@@ -78,7 +78,8 @@ public class Constant {
     public static var GetAutoSearchProductListURL:String = Constant.serverURL+"/GetAutoSearchProductList";
     public static var getWishlistURL:String = Constant.serverURL+"/getWishlist/";
     public static var removeWishlistURL:String = Constant.serverURL+"/removeWishlist";
-    
+    public static var addWishlistURL:String = Constant.serverURL+"/addWishlist";
+    public static var addCartURL:String = Constant.serverURL+"/addCart";
     public static var GetSearchProductURL:String = Constant.serverURL+"/GetSearchProduct";
 
     public static var  globalTabbar:UITabBarController?
