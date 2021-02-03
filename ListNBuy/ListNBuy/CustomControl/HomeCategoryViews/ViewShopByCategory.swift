@@ -18,6 +18,14 @@ class ViewShopByCategory: UIView,UICollectionViewDelegate,UICollectionViewDataSo
         return cell;
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let homeCategory:HomeParentCategoryModel = listHomeCategory[indexPath.row]
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductListViewController") as ProductListViewController
+        vc.parentCategoryId = homeCategory.id
+        vc.strImgBanner = homeCategory.image
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+    }
+    
      private var listHomeCategory:[HomeParentCategoryModel] = [HomeParentCategoryModel]()
      @IBOutlet private var collectionView:UICollectionView!
      @IBOutlet private var contentView:UIView!

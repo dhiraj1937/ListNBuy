@@ -92,6 +92,9 @@ public class Constant {
     
     public static var getProductDetailsURL:String = Constant.serverURL+"/GetProductDetails/";
     
+    public static var getAllChildCategoryByParentIdURL:String = Constant.serverURL+"/getAllChildCategoryByParentId/";
+    public static var GetProductsByCatIdURL:String = Constant.serverURL+"/GetProductsByCatId/";
+    
     
     static func GetCurrentVC()->UIViewController{
         guard let wd = UIApplication.shared.delegate?.window else {
