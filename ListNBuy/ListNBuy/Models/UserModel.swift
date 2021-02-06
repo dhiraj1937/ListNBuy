@@ -502,3 +502,36 @@ class JSONNull: Codable, Hashable {
         try container.encodeNil()
     }
 }
+
+// MARK: - Products
+class Products: Codable {
+    let wishlist: Int
+    let id, name: String
+    let image: String
+    let tax, veg, isVariable, brand: String
+    let productDescription, avgRating: String
+    let variation: [Variation]
+
+    enum CodingKeys: String, CodingKey {
+        case wishlist,id, name
+        case image = "image"
+        case tax, veg, isVariable, brand
+        case productDescription = "description"
+        case avgRating = "AvgRating"
+        case variation
+    }
+
+    init(wishlist: Int, id: String, name: String, image: String, tax: String, veg: String, isVariable: String, brand: String, productDescription: String, avgRating: String, variation: [Variation]) {
+        self.wishlist = wishlist
+        self.id = id
+        self.name = name
+        self.image = image
+        self.tax = tax
+        self.veg = veg
+        self.isVariable = isVariable
+        self.brand = brand
+        self.productDescription = productDescription
+        self.avgRating = avgRating
+        self.variation = variation
+    }
+}

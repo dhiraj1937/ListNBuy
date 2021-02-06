@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewBanner" customModule="ListNBuy" customModuleProvider="target">
             <connections>
+                <outlet property="btnBanner" destination="1dg-Mk-GhC" id="5E4-16-9p1"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="bl5-Qk-X4e"/>
                 <outlet property="imgBanner" destination="woa-RT-h5w" id="yVz-Y1-JEP"/>
             </connections>
@@ -22,6 +23,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1dg-Mk-GhC">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

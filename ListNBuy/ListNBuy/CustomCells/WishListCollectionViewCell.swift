@@ -2,7 +2,7 @@
 //  WishListCollectionViewCell.swift
 //  ListNBuy
 //
-//  Created by Rajesh Jayaswal on 27/01/21.
+//  Created by Team A on 27/01/21.
 //
 
 import UIKit

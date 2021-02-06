@@ -106,6 +106,15 @@ public class Constant {
         }
         return vc!;
     }
+    
+    static func getProductModelFromProductSModel(prod:Products)->Product{
+        let newProduct:Product = Product.init(wishlist: prod.wishlist, id: prod.id, name: prod.name, image: prod.image, tax: prod.tax, veg: prod.veg, isVariable: prod.isVariable, brand: prod.brand, productDescription: prod.productDescription, avgRating: prod.avgRating, variation: prod.variation)
+        return newProduct
+    }
+    
+    public static var  itemCount:String = "0"
+    public static var  totalAmount:String = "0"   
+ 
 }
 
 enum UserDefaultsKeys : String {

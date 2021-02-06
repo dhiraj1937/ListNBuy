@@ -23,15 +23,28 @@ class HomeViewController: UIViewController {
     var listSearch:[SearchModel] = [SearchModel]()
     var listTempSearch:[SearchModel] = [SearchModel]()
     var listHomeCategory:[HomeParentCategoryModel] = [HomeParentCategoryModel]()
+    var tapGesture = UITapGestureRecognizer()
     override func viewDidLoad() {
         super.viewDidLoad()
         GetSearchData();
         GetHomeBannerData();
         tblSearch.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         Constant.homeVC = self;
+        // TAP Gesture
+         tapGesture = UITapGestureRecognizer(target: self, action: #selector(myviewTapped(sender:)))
+         tapGesture.numberOfTapsRequired = 1
+         tapGesture.numberOfTouchesRequired = 1
+         tapGesture.cancelsTouchesInView = false
+        
        
     }
-    
+    @objc func myviewTapped(sender: UITapGestureRecognizer) {
+        let tag = sender.view?.tag
+        print("tag=\(tag)");
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductCollectionViewController") as ProductCollectionViewController
+        vc.parentCategoryId = String(tag!)
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(SearchFilter), name:  Notification.Name(rawValue: "search"), object: nil)
@@ -54,10 +67,6 @@ class HomeViewController: UIViewController {
     @IBAction func btnWhatsAppAvailabitliy(){
         let vc = WhatsAppOrderViewController.init(nibName: "WhatsAppOrderViewController", bundle: nil)
         self.navigationController?.present(vc, animated: true, completion: nil)
-//        let product = "183"
-//        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
-//        vc.productId = product
-//        self.navigationController?.pushViewController(vc, animated: true)
 
     }
     
@@ -95,6 +104,13 @@ class HomeViewController: UIViewController {
                     let imgView:UIImageView = UIImageView.init(frame: CGRect.init(x: x, y: 0, width: Int(sv.frame.size.width), height: 200))
                     imgView.imageFromServerURL(urlString: banner.BannerImg)
                     viewBanner.sv.addSubview(imgView)
+                    //R0123
+                    let gestureView:UIView = UIView.init(frame: imgView.frame)
+                    gestureView.backgroundColor = .clear
+                    gestureView.addGestureRecognizer(tapGesture)
+                    gestureView.isUserInteractionEnabled = true
+                    gestureView.tag = Int(banner.Id)!
+                    viewBanner.sv.addSubview(gestureView)
                     x=x+Int(sv.frame.size.width);
                 }
                 viewBanner.pageController.numberOfPages = listBanner.count;
@@ -127,6 +143,9 @@ class HomeViewController: UIViewController {
                     let banner = listHomeBanner[0];
                     let viewBanner = ViewBanner.init(frame: CGRect.init(x: 0, y: 0, width: Int(sv.frame.size.width), height: 200))
                     viewBanner.imgBanner.imageFromServerURL(urlString: banner.BannerImg)
+                    viewBanner.btnBanner.tag = Int(banner.Id)!
+                    viewBanner.btnBanner.addTarget(self, action:#selector(btnBannerpressed(sender:)), for: .touchUpInside)//R1
+
                     sv.addSubview(viewBanner)
                 }
                 HUD.flash(.progress)
@@ -145,6 +164,13 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @objc func btnBannerpressed(sender: UIButton!) {
+        print("btnBannerpressed=\(sender.tag)")
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductCollectionViewController") as ProductCollectionViewController
+        vc.parentCategoryId = String(sender.tag)
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+    }
+
     func GetHomeCategoryData(){
         if KAPPDELEGATE.isNetworkAvailable(){
             DispatchQueue.main.async {
@@ -226,6 +252,8 @@ class HomeViewController: UIViewController {
                     //Add Banner
                     let viewBanner = ViewBanner.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 200))
                     viewBanner.imgBanner.imageFromServerURL(urlString: homecat.image)
+                    viewBanner.btnBanner.tag = Int(homecat.id)!
+                    viewBanner.btnBanner.addTarget(self, action:#selector(btnBannerpressed(sender:)), for: .touchUpInside)//R2
                     yXs=yXs+200;
                     sv.addSubview(viewBanner)
                 }
@@ -260,6 +288,8 @@ class HomeViewController: UIViewController {
                     let banner = listHomeBanner[listHomeBanner.count-1];
                     let viewBanner = ViewBanner.init(frame: CGRect.init(x: 0, y: yx+200, width: Int(sv.frame.size.width), height: 200))
                     viewBanner.imgBanner.imageFromServerURL(urlString: banner.BannerImg)
+                    viewBanner.btnBanner.tag = Int(banner.Id)!
+                    viewBanner.btnBanner.addTarget(self, action:#selector(btnBannerpressed(sender:)), for: .touchUpInside)//R3
                     sv.addSubview(viewBanner)
                 }
                 

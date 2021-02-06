@@ -10,6 +10,7 @@ import UIKit
 class ViewBanner: UIView {
     @IBOutlet var contentView:UIView!
     @IBOutlet var imgBanner:UIImageView!
+    @IBOutlet var btnBanner:UIButton!
     
     override init(frame: CGRect) {
             super.init(frame: frame)

@@ -53,10 +53,10 @@ class ProductDetailViewController: UIViewController {
             lblRate.text = "RS."+product.variation[0].memberPrice.description;
         }
         if(product.wishlist==0){
-            
+            btnAddToWishlist.isSelected = false
         }
         else{
-            
+            btnAddToWishlist.isSelected = true
         }
         //getProductDetails()
     }
@@ -74,17 +74,23 @@ class ProductDetailViewController: UIViewController {
         dismissPickerView()
     }
     @IBAction func btnAddToCartAction(){
-        /*let userID = UserDefaults.standard.getUserID()
-        var dicObj = [String:AnyObject]()
-        dicObj["userId"] = userID as AnyObject
-        dicObj["productId"] = product.id as AnyObject
-        dicObj["variationId"] = product.id as AnyObject
-        dicObj["quantity"] = product.id as AnyObject
+        let userID = UserDefaults.standard.getUserID()
+        var dic = [String:AnyObject]()
+        dic["userId"] = userID as AnyObject
+        dic["productId"] = product.id as AnyObject
+        //dic["variationId"] = product.id as AnyObject
+        //dic["quantity"] = product.id as AnyObject
         //call api and show animated view with "no. of item | total amount view card " >
-        }*/
+        WishListController.addCartAPI(vc: self, dicObj: dic) { (response) in
+            print(response)
+        }
     }
+    
     @IBAction func btnShowCartAction(){
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "CheckOutViewController") as CheckOutViewController
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBAction func btnAddToWishlistAction(){
         WishListController.addWishlistAPI(productID: product.id, vc: self) { [self] (response) in
             if response == "Success"{
@@ -94,7 +100,7 @@ class ProductDetailViewController: UIViewController {
     }
 
     
-    func getProductDetails() {
+  /*  func getProductDetails() {
 
         if KAPPDELEGATE.isNetworkAvailable(){
             DispatchQueue.main.async {
@@ -129,7 +135,7 @@ class ProductDetailViewController: UIViewController {
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
-    }
+    }*/
 }
 extension ProductDetailViewController:  UIPickerViewDelegate, UIPickerViewDataSource{
     
