@@ -41,6 +41,14 @@ class ProductDetailViewController: UIViewController {
         pickerView.dataSource = self
         btnDropDownMou.setTitle("Select", for: .normal)
         btnDropDownVariant.setTitle("Select", for: .normal)
+        
+        if productId != nil {
+            getProductDetails()
+        }else{
+            setupInitialData()
+        }
+    }
+    func setupInitialData() {
         for objP in product.variation {
             arrMous.append(objP.attributeName)
             arrVariants.append(objP.attributeName1)
@@ -58,7 +66,6 @@ class ProductDetailViewController: UIViewController {
         else{
             btnAddToWishlist.isSelected = true
         }
-        //getProductDetails()
     }
     
     @IBAction func btnBack(){
@@ -78,8 +85,8 @@ class ProductDetailViewController: UIViewController {
         var dic = [String:AnyObject]()
         dic["userId"] = userID as AnyObject
         dic["productId"] = product.id as AnyObject
-        //dic["variationId"] = product.id as AnyObject
-        //dic["quantity"] = product.id as AnyObject
+        dic["variationId"] = product.variation[0].varID as AnyObject
+        dic["quantity"] = "1" as AnyObject
         //call api and show animated view with "no. of item | total amount view card " >
         WishListController.addCartAPI(vc: self, dicObj: dic) { (response) in
             print(response)
@@ -100,7 +107,7 @@ class ProductDetailViewController: UIViewController {
     }
 
     
-  /*  func getProductDetails() {
+    func getProductDetails() {
 
         if KAPPDELEGATE.isNetworkAvailable(){
             DispatchQueue.main.async {
@@ -108,18 +115,19 @@ class ProductDetailViewController: UIViewController {
             }
             
             let userID = UserDefaults.standard.getUserID()
-            
-            ApiManager.sharedInstance.requestGETURL(Constant.getProductDetailsURL+""+"183"+""+userID, success: {
+            let strUrl = Constant.getProductDetailsURL+""+productId+"/"+userID
+            print(strUrl as Any)
+            ApiManager.sharedInstance.requestGETURL(strUrl, success: { [self]
                 (JSON) in
                 let msg =  JSON.dictionary?["Message"]
                 print(msg as Any)
                 if((JSON.dictionary?["IsSuccess"]) != false){
-               // subvarieant > "image"
-               // "name": "COLGATE TOOTH POWDER",
-               // "description": "COLGATE TOOTH POWDER 100g",
-               // "variation"> "attributeName": "No Variant",
-               // subvarieant > regular_price
-               // subvarieant > member_price
+                    
+                    let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                    let productD =  try! JSONDecoder().decode([ProductDetail].self, from: jsonData!)
+                    print(productD)
+                    product = Constant.getProductModelFromProductDetailModel(prod: productD[0])
+                    self.setupInitialData()
                     HUD.flash(.progress)
                 }
                 DispatchQueue.main.async {
@@ -135,7 +143,7 @@ class ProductDetailViewController: UIViewController {
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
-    }*/
+    }
 }
 extension ProductDetailViewController:  UIPickerViewDelegate, UIPickerViewDataSource{
     

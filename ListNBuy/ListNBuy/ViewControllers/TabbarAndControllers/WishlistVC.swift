@@ -76,7 +76,7 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = listWish?[indexPath.row]
         print(product as Any)
-        if let pid = product?["Id"]{
+        if let pid = product?["id"]{
             let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
             vc.productId = pid as? String
             self.navigationController?.pushViewController(vc, animated: true)

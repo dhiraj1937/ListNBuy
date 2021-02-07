@@ -79,7 +79,6 @@ public class Constant {
     public static var getWishlistURL:String = Constant.serverURL+"/getWishlist/";
     public static var removeWishlistURL:String = Constant.serverURL+"/removeWishlist";
     public static var addWishlistURL:String = Constant.serverURL+"/addWishlist";
-    public static var addCartURL:String = Constant.serverURL+"/addCart";
     public static var GetSearchProductURL:String = Constant.serverURL+"/GetSearchProduct";
 
     public static var  globalTabbar:UITabBarController?
@@ -94,6 +93,11 @@ public class Constant {
     
     public static var getAllChildCategoryByParentIdURL:String = Constant.serverURL+"/getAllChildCategoryByParentId/";
     public static var GetProductsByCatIdURL:String = Constant.serverURL+"/GetProductsByCatId/";
+    
+    public static var addCartURL:String = Constant.serverURL+"/addCart";
+    public static var getCartListURL:String = Constant.serverURL+"/getCartList/";
+    public static var removeCartURL:String = Constant.serverURL+"/removeCart";
+    public static var applyCouponCodeURL:String = Constant.serverURL+"/applyCouponCode";//Code , Total
     
     
     static func GetCurrentVC()->UIViewController{
@@ -112,8 +116,13 @@ public class Constant {
         return newProduct
     }
     
+    static func getProductModelFromProductDetailModel(prod:ProductDetail)->Product{
+        let newProduct:Product = Product.init(wishlist: prod.wishlist, id: prod.id, name: prod.name, image: prod.variation[0].subvarieant[0].image , tax: prod.tax, veg: prod.veg, isVariable: prod.isVariable, brand: prod.brand, productDescription: prod.productDescription, avgRating: prod.avgRating, variation: prod.variation[0].subvarieant)
+        return newProduct
+    }
+    
     public static var  itemCount:String = "0"
-    public static var  totalAmount:String = "0"   
+    public static var  totalPaybalAmount:String = "0"
  
 }
 

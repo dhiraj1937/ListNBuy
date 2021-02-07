@@ -23,6 +23,13 @@ class CheckOutCell: UITableViewCell {
         // Initialization code
     }
 
+    public func SetData(cd:CartDetail){
+        imgProduct.imageFromServerURL(urlString: cd.image)
+        lblAmount.text = String(cd.salePrice)
+        lblTitle.text = cd.name;
+        lblSubTitle.text = cd.productDescription
+        lblQuantity.text = cd.quantity
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

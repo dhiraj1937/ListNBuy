@@ -102,10 +102,11 @@
                                                                 <constraint firstAttribute="width" constant="109" id="jMW-c5-X7v"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6by-aJ-1Gl">
-                                                            <rect key="frame" x="135" y="5" width="25" height="25"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6by-aJ-1Gl">
+                                                            <rect key="frame" x="138" y="5" width="23" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" title=" - "/>
+                                                            <color key="tintColor" red="0.54117647059999996" green="0.29411764709999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" image="minus.circle" catalog="system"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qS9-Gh-69g">
                                                             <rect key="frame" x="3" y="132" width="159" height="21"/>
@@ -203,6 +204,7 @@
     <resources>
         <image name="header_strip" width="1080" height="134"/>
         <image name="menu" width="25" height="25"/>
+        <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="texture_bg" width="1080" height="1923"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

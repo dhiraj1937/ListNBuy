@@ -23,28 +23,17 @@ class HomeViewController: UIViewController {
     var listSearch:[SearchModel] = [SearchModel]()
     var listTempSearch:[SearchModel] = [SearchModel]()
     var listHomeCategory:[HomeParentCategoryModel] = [HomeParentCategoryModel]()
-    var tapGesture = UITapGestureRecognizer()
     override func viewDidLoad() {
         super.viewDidLoad()
         GetSearchData();
         GetHomeBannerData();
         tblSearch.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         Constant.homeVC = self;
-        // TAP Gesture
-         tapGesture = UITapGestureRecognizer(target: self, action: #selector(myviewTapped(sender:)))
-         tapGesture.numberOfTapsRequired = 1
-         tapGesture.numberOfTouchesRequired = 1
-         tapGesture.cancelsTouchesInView = false
+       
         
        
     }
-    @objc func myviewTapped(sender: UITapGestureRecognizer) {
-        let tag = sender.view?.tag
-        print("tag=\(tag)");
-        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductCollectionViewController") as ProductCollectionViewController
-        vc.parentCategoryId = String(tag!)
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
-    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(SearchFilter), name:  Notification.Name(rawValue: "search"), object: nil)
@@ -105,12 +94,11 @@ class HomeViewController: UIViewController {
                     imgView.imageFromServerURL(urlString: banner.BannerImg)
                     viewBanner.sv.addSubview(imgView)
                     //R0123
-                    let gestureView:UIView = UIView.init(frame: imgView.frame)
-                    gestureView.backgroundColor = .clear
-                    gestureView.addGestureRecognizer(tapGesture)
-                    gestureView.isUserInteractionEnabled = true
-                    gestureView.tag = Int(banner.Id)!
-                    viewBanner.sv.addSubview(gestureView)
+                    let btnDetail = UIButton.init(frame: imgView.frame)
+                    btnDetail.backgroundColor = .clear
+                    btnDetail.tag = Int(banner.Id)!
+                    btnDetail.addTarget(self, action:#selector(btnBannerpressed(sender:)), for: .touchUpInside)
+                    viewBanner.sv.addSubview(btnDetail)
                     x=x+Int(sv.frame.size.width);
                 }
                 viewBanner.pageController.numberOfPages = listBanner.count;

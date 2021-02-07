@@ -535,3 +535,137 @@ class Products: Codable {
         self.variation = variation
     }
 }
+
+
+// MARK: - ProductDetail
+class ProductDetail: Codable {
+    let wishlist: Int
+    let cart: Int
+    let hSNCode: String
+    let id, name: String
+    let tax, veg, isVariable, brand: String
+    let productDescription, avgRating: String
+    let category:[String]
+    let variation: [VariationInDetail]
+
+    enum CodingKeys: String, CodingKey {
+        case wishlist,id, name,cart
+        case tax, veg, isVariable, brand
+        case productDescription = "description"
+        case avgRating = "AvgRating"
+        case hSNCode = "HSNCode"
+        case variation
+        case category
+    }
+
+    init(wishlist: Int,cart: Int,hSNCode: String, id: String, name: String, tax: String, veg: String, isVariable: String, brand: String, productDescription: String, avgRating: String,category:[String], variation: [VariationInDetail]) {
+        self.wishlist = wishlist
+        self.id = id
+        self.cart = cart
+        self.hSNCode = hSNCode
+        self.name = name
+        self.tax = tax
+        self.veg = veg
+        self.isVariable = isVariable
+        self.brand = brand
+        self.productDescription = productDescription
+        self.avgRating = avgRating
+        self.category = category
+        self.variation = variation
+    }
+}
+
+// MARK: - VariationInDetail
+class VariationInDetail: Codable {
+    let varID, attrId1, sku : Int
+    let attributeName, attrID: String
+    let offerTag, stock, pack: Int
+    let image: Int
+    let regularPrice: Int
+    let salePrice, memberPrice: Double
+    let subvarieant: [Variation]
+
+
+    enum CodingKeys: String, CodingKey {
+        case varID = "varId"
+        case attrID = "attrId"
+        case attributeName, attrId1
+        case sku = "SKU"
+        case offerTag, stock, pack, image
+        case regularPrice = "regular_price"
+        case salePrice = "sale_price"
+        case memberPrice = "member_price"
+        case subvarieant
+    }
+
+    init(varID: Int, attrID: String, attributeName: String, attrId1: Int, sku: Int, offerTag: Int, stock: Int, pack: Int, image: Int, regularPrice: Int, salePrice: Double, memberPrice: Double,subvarieant: [Variation]) {
+        self.varID = varID
+        self.attrID = attrID
+        self.attributeName = attributeName
+        self.attrId1 = attrId1
+        self.sku = sku
+        self.offerTag = offerTag
+        self.stock = stock
+        self.pack = pack
+        self.image = image
+        self.regularPrice = regularPrice
+        self.salePrice = salePrice
+        self.memberPrice = memberPrice
+        self.subvarieant = subvarieant
+    }
+}
+
+// MARK: - CartDetail
+class CartDetail: Codable {
+    let id,name,veg,tax,image,quantity,brand,isVariable : String
+    let hSNCode,varID,attrID : String
+    let attributeName,attrId1,attributeName1,pack,stock :String
+    let sku :String
+    let offerTag: JSONNull?
+    let productDescription, avgRating: String
+    let regularPrice,salePrice,memberPrice :Double
+
+    enum CodingKeys: String, CodingKey {
+        case id,name,veg,tax,image,quantity,brand,isVariable
+        case hSNCode = "HSNCode"
+        case varID = "varId"
+        case attrID = "attrId"
+        case attributeName,attrId1,attributeName1,stock,pack
+        case sku = "SKU"
+        case offerTag
+        case productDescription = "description"
+        case avgRating = "AvgRating"
+        case regularPrice = "regular_price"
+        case salePrice = "sale_price"
+        case memberPrice = "member_price"
+
+    }
+    
+    init(id: String,name: String,veg: String,tax: String,image: String,quantity: String,brand: String,isVariable: String,hSNCode: String,varID: String,attrID: String,attributeName: String,attrId1: String,attributeName1: String,stock: String,pack: String,sku: String,offerTag: JSONNull?,productDescription: String,avgRating: String,regularPrice: Double,salePrice: Double,memberPrice: Double) {
+        self.id = id
+        self.name = name
+        self.veg = veg
+        self.tax = tax
+        self.image = image
+        self.quantity = quantity
+        self.isVariable = isVariable
+        self.brand = brand
+        self.hSNCode = hSNCode
+        self.varID = varID
+        self.attrID = attrID
+        self.attributeName = attributeName
+        self.attrId1 = attrId1
+        self.attributeName1 = attributeName1
+        self.stock = stock
+        self.pack = pack
+        self.sku = sku
+        self.offerTag = offerTag
+        self.productDescription = productDescription
+        self.avgRating = avgRating
+        self.regularPrice = regularPrice
+        self.salePrice = salePrice
+        self.memberPrice = memberPrice
+    }
+}
+
+
