@@ -77,7 +77,7 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="DPC-Ak-oIP"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grd-ic-Uey">
-                    <rect key="frame" x="332" y="738" width="60" height="60"/>
+                    <rect key="frame" x="332" y="698" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" red="0.99276465179999995" green="0.82444578410000002" blue="0.48177999259999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="whatsapp"/>

@@ -17,9 +17,7 @@ class Helper: NSObject {
         let ceo: CLGeocoder = CLGeocoder()
         center.latitude = lat
         center.longitude = lon
-
         let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
-
         var addressString : String = ""
         ceo.reverseGeocodeLocation(loc, completionHandler:
             {(placemarks, error) in
@@ -56,6 +54,35 @@ class Helper: NSObject {
     static func GetStrikeTextAttribute(txt:String) -> NSAttributedString{
         let attrString = NSAttributedString(string: txt, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
         return attrString
+    }
+    
+    static func getCartListAPI() {
+
+        if KAPPDELEGATE.isNetworkAvailable(){
+            let userID = UserDefaults.standard.getUserID()
+            let strUrl = Constant.getCartListURL+""+userID
+            print(strUrl as Any)
+            ApiManager.sharedInstance.requestGETURL(strUrl, success: { [self]
+                (JSON) in
+                let msg =  JSON.dictionary?["Message"]
+                print(msg as Any)
+                if((JSON.dictionary?["IsSuccess"]) != false){
+                    let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                    let listProducts =  try! JSONDecoder().decode([CartDetail].self, from: jsonData!)
+                    for p in listProducts {
+                        Constant.totalAmount =  Constant.totalAmount + p.regularPrice;
+                    }
+                    Constant.totalItemCount = listProducts.count;
+                }
+            }, failure: { (Error) in
+            DispatchQueue.main.async {
+               
+            }
+           })
+       }
+        else{
+           
+        }
     }
 }
 
@@ -266,6 +293,30 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WalletViewController") as WalletViewController
         self.navigationController?.pushViewController(vc, animated: true);
     }
+    
+    func AddCartView(view:UIView) {
+        if(Constant.totalItemCount>0){
+            let buttonHeight: CGFloat = view.safeAreaInsets.bottom
+            if(buttonHeight==0){
+                let viewBanner = ViewCartBottomView.init(frame: CGRect.init(x: 0, y: Int(view.frame.size.height)-90, width: Int(view.frame.size.width), height: 40))
+                viewBanner.tag = -200;
+                view.addSubview(viewBanner);
+                viewBanner.SetData()
+            }
+            else{
+                let viewBanner = ViewCartBottomView.init(frame: CGRect.init(x: 0, y: Int(view.frame.size.height)-Int(122), width: Int(view.frame.size.width), height: 40))
+                viewBanner.tag = -200;
+                view.addSubview(viewBanner);
+                viewBanner.SetData()
+            }
+        }
+    }
+    
+    func RemoveCart(view:UIView) {
+        let v = view.viewWithTag(-200)
+        v?.removeFromSuperview()
+    }
+    
 
 }
 

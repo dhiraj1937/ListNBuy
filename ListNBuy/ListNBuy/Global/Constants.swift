@@ -123,6 +123,8 @@ public class Constant {
     
     public static var  itemCount:String = "0"
     public static var  totalPaybalAmount:String = "0"
+    public static var  totalItemCount:Int = 0
+    public static var  totalAmount:Double = 0.0
  
 }
 

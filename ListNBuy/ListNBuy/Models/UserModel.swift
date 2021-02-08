@@ -304,7 +304,7 @@ class Variation: Codable {
     let offerTag: JSONNull?
     let stock, pack: String
     let image: String
-    let regularPrice: Int
+    let regularPrice: Double
     let salePrice, memberPrice: Double
 
     enum CodingKeys: String, CodingKey {
@@ -318,7 +318,7 @@ class Variation: Codable {
         case memberPrice = "member_price"
     }
 
-    init(varID: String, attrID: String, attributeName: String, attrId1: String, attributeName1: String, sku: String, offerTag: JSONNull?, stock: String, pack: String, image: String, regularPrice: Int, salePrice: Double, memberPrice: Double) {
+    init(varID: String, attrID: String, attributeName: String, attrId1: String, attributeName1: String, sku: String, offerTag: JSONNull?, stock: String, pack: String, image: String, regularPrice: Double, salePrice: Double, memberPrice: Double) {
         self.varID = varID
         self.attrID = attrID
         self.attributeName = attributeName

@@ -14,6 +14,7 @@ class SearchListViewController: UIViewController {
     @IBOutlet var collectionView:UICollectionView!
     var listProducts:[Product] = [Product]()
     var searchText:String!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let screenWidth = collectionView!.frame.size.width
@@ -26,7 +27,6 @@ class SearchListViewController: UIViewController {
         let nib = UINib(nibName: "ProductCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "ProductCell")
         collectionView.reloadData();
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

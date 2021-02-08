@@ -27,6 +27,8 @@
 		180A88CC25A77A7800462CB7 /* MyOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A88C825A77A7800462CB7 /* MyOrdersVC.swift */; };
 		180A88D025A79CAB00462CB7 /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A88CF25A79CAB00462CB7 /* SignUP.swift */; };
 		180AED7625B815FB00124AED /* ViewBannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AED7525B815FB00124AED /* ViewBannerScrollView.swift */; };
+		181A12CC25D18F4800E03075 /* ViewCartBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */; };
+		181A12CF25D18F6D00E03075 /* ViewCartBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */; };
 		1823735025B451AE009106E5 /* WhatsAppOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */; };
 		1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */; };
 		1837092025BB5050008697E1 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837091E25BB5050008697E1 /* ProductCell.swift */; };
@@ -120,6 +122,8 @@
 		180A88C825A77A7800462CB7 /* MyOrdersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrdersVC.swift; sourceTree = "<group>"; };
 		180A88CF25A79CAB00462CB7 /* SignUP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
 		180AED7525B815FB00124AED /* ViewBannerScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBannerScrollView.swift; sourceTree = "<group>"; };
+		181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewCartBottomView.xib; sourceTree = "<group>"; };
+		181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCartBottomView.swift; sourceTree = "<group>"; };
 		1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsAppOrderViewController.swift; sourceTree = "<group>"; };
 		1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhatsAppOrderViewController.xib; sourceTree = "<group>"; };
 		1837091E25BB5050008697E1 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 				1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */,
 				18CAF13025B57E4400C4499C /* HomeViewController.swift */,
 				18CAF13125B57E4400C4499C /* HomeViewController.xib */,
+				181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */,
+				181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */,
 			);
 			path = CustomControl;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				180A88BC25A7770200462CB7 /* Home.storyboard in Resources */,
 				1837092125BB5050008697E1 /* ProductCell.xib in Resources */,
 				180A885F25A7567000462CB7 /* Assets.xcassets in Resources */,
+				181A12CC25D18F4800E03075 /* ViewCartBottomView.xib in Resources */,
 				18F20CD525B5B76D003CEF11 /* ShopCategoryCell.xib in Resources */,
 				186E2BEF25BC534D001CFEE4 /* BrandProduct.xib in Resources */,
 				187004B625B862BE001871B8 /* ViewSection.xib in Resources */,
@@ -617,6 +624,7 @@
 				18CAF13225B57E4400C4499C /* HomeViewController.swift in Sources */,
 				C30A12B725B0AAA2004C639C /* WebViewController.swift in Sources */,
 				C3F4B17425AF016F005467F5 /* SocialViewController.swift in Sources */,
+				181A12CF25D18F6D00E03075 /* ViewCartBottomView.swift in Sources */,
 				1872460D25B3604600A336D0 /* FaqCell.swift in Sources */,
 				18D5F65A25ACB3FC007DABFF /* ContactUsViewController.swift in Sources */,
 				180A885625A7566F00462CB7 /* AppDelegate.swift in Sources */,

@@ -29,17 +29,12 @@ class HomeViewController: UIViewController {
         GetHomeBannerData();
         tblSearch.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         Constant.homeVC = self;
-       
-        
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(SearchFilter), name:  Notification.Name(rawValue: "search"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(SearchProdcut), name:  Notification.Name(rawValue: "ClickSearch"), object: nil)
-        //print("USER_ID : \(UserDefaults.standard.getUserID())")
-        //print("isloggedin : \(UserDefaults.standard.isLoggedIn())")
         let userID = UserDefaults.standard.getUserID()
         if(userID != ""){
             AddressController.getWalletCash(userid: userID) { (response) in
@@ -48,8 +43,14 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        AddCartView(view: Constant.globalTabbar!.tabBar)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        RemoveCart(view: Constant.globalTabbar!.tabBar)
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -369,19 +370,17 @@ class HomeViewController: UIViewController {
             ApiManager.sharedInstance.requestGETURL(Constant.GetAutoSearchProductListURL, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
-                let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
-                listSearch = try! JSONDecoder().decode([SearchModel].self, from: jsonData!)
-                
-                HUD.flash(.progress)
+                    let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                    listSearch = try! JSONDecoder().decode([SearchModel].self, from: jsonData!)
+                    HUD.flash(.progress)
                }
                else{
-                HUD.flash(.progress)
+                    HUD.flash(.progress)
                }
                GetBannerData()
            }, failure: { [self] (Error) in
                GetBannerData()
            })
-           
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
