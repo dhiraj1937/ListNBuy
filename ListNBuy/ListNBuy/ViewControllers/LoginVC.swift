@@ -112,9 +112,6 @@ class LoginVC: UIViewController {
             let params :[String:Any] = ["E_O_P":txtFMobileOrEmail.text!]
             ApiManager.sharedInstance.requestPOSTURL(Constant.sendLoginOTPUrl, params: params, success: {(JSON) in
                 
-               // print(JSON)
-
-                
                 let msg =  JSON.dictionary?["Message"]?.stringValue
                // print(msg as Any)
                 
@@ -174,7 +171,6 @@ class LoginVC: UIViewController {
                         //print(dicUserInfo!["Id"] as Any)
                         if let userid = dicUserInfo!["Id"]{
                             UserDefaults.standard.setUserID(value:userid as! String)
-
                         }
                         
                         DispatchQueue.main.async {

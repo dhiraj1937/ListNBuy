@@ -132,7 +132,7 @@ public class Constant {
     public static var  totalPaybalAmount:String = "0"
     public static var  totalItemCount:Int = 0
     public static var  totalAmount:Double = 0.0
- 
+    static var listCartProducts:[CartDetail] = [CartDetail]()
 }
 
 enum UserDefaultsKeys : String {

@@ -53,6 +53,20 @@ class MyOrdersVC: BaseViewController {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Helper.getCartListAPI { (res) in
+            if(res){
+                self.AddCartView(view: self.view)
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        RemoveCart(view: self.view)
+    }
+
 }
 
 extension MyOrdersVC : UITableViewDelegate,UITableViewDataSource {

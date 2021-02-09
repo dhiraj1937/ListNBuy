@@ -56,28 +56,31 @@ class Helper: NSObject {
         return attrString
     }
     
-    static func getCartListAPI() {
+    static func getCartListAPI(response:@escaping (Bool) -> Void) {
 
         if KAPPDELEGATE.isNetworkAvailable(){
             let userID = UserDefaults.standard.getUserID()
             let strUrl = Constant.getCartListURL+""+userID
             print(strUrl as Any)
+            Constant.listCartProducts.removeAll();
             ApiManager.sharedInstance.requestGETURL(strUrl, success: { [self]
                 (JSON) in
                 let msg =  JSON.dictionary?["Message"]
                 print(msg as Any)
                 if((JSON.dictionary?["IsSuccess"]) != false){
                     let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
-                    let listProducts =  try! JSONDecoder().decode([CartDetail].self, from: jsonData!)
-                    for p in listProducts {
+                    Constant.listCartProducts =  try! JSONDecoder().decode([CartDetail].self, from: jsonData!)
+                    for p in Constant.listCartProducts {
                         Constant.totalAmount =  Constant.totalAmount + p.regularPrice;
                     }
-                    Constant.totalItemCount = listProducts.count;
+                    Constant.totalItemCount = Constant.listCartProducts.count;
+                    response(true)
+                }
+                else{
+                    response(false)
                 }
             }, failure: { (Error) in
-            DispatchQueue.main.async {
-               
-            }
+                response(false)
            })
        }
         else{

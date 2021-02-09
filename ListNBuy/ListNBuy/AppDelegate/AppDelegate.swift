@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nav = UINavigationController.init(rootViewController:controller)
                 nav.setNavigationBarHidden(true, animated: true)
                 window?.rootViewController = nav;
-            Helper.getCartListAPI();
+            
         }
         else{
             let controller = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
