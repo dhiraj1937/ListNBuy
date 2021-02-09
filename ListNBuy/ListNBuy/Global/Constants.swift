@@ -100,6 +100,13 @@ public class Constant {
     public static var applyCouponCodeURL:String = Constant.serverURL+"/applyCouponCode";//Code , Total
     
     
+    //My Orders tab APIs
+    public static var getOrderByUserIdURL:String = Constant.serverURL+"/getOrderByUserId/";
+    public static var getOrderDetailsByOrderIdURL:String = Constant.serverURL+"/getOrderDetailsByOrderId/";
+    //changeOrderStatus post status orderId
+    
+    
+    
     static func GetCurrentVC()->UIViewController{
         guard let wd = UIApplication.shared.delegate?.window else {
             return UIViewController.init();

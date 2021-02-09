@@ -88,6 +88,7 @@
 		C37D8F3A25C9B508004010EF /* WishListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D8F3925C9B508004010EF /* WishListController.swift */; };
 		C382385D25AE067100737307 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C382385C25AE067100737307 /* UserModel.swift */; };
 		C38A102125BF360C00E7BAEC /* SearchAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */; };
+		C3A3A72F25D3044F00C3130F /* MyOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3A72E25D3044F00C3130F /* MyOrdersTableViewCell.swift */; };
 		C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */; };
 		C3A55D4E25B5D7070079592E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4D25B5D7070079592E /* ProfileViewController.swift */; };
 		C3D2570325CED1B500DE2E7A /* CheckOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2570225CED1B500DE2E7A /* CheckOutCell.swift */; };
@@ -184,6 +185,7 @@
 		C37D8F3925C9B508004010EF /* WishListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListController.swift; sourceTree = "<group>"; };
 		C382385C25AE067100737307 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAreaTableViewCell.swift; sourceTree = "<group>"; };
+		C3A3A72E25D3044F00C3130F /* MyOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountTableViewCell.swift; sourceTree = "<group>"; };
 		C3A55D4D25B5D7070079592E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C3D2570225CED1B500DE2E7A /* CheckOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutCell.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				C3078EE425C0622200A2F3FF /* MyPlanTableViewCell.swift */,
 				C32C11DC25C16FE000EC7B3B /* WishListCollectionViewCell.swift */,
 				C3D2570225CED1B500DE2E7A /* CheckOutCell.swift */,
+				C3A3A72E25D3044F00C3130F /* MyOrdersTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				C3078EE225C05C0500A2F3FF /* CurrentActivePlansViewController.swift in Sources */,
 				18F20CD425B5B76D003CEF11 /* ShopCategoryCell.swift in Sources */,
 				180A88C325A777CF00462CB7 /* Constants.swift in Sources */,
+				C3A3A72F25D3044F00C3130F /* MyOrdersTableViewCell.swift in Sources */,
 				18895D3925AB312D007AA0B0 /* ApiManager.swift in Sources */,
 				C336305425CC5C41003C156D /* CheckOutViewController.swift in Sources */,
 				18CAF13225B57E4400C4499C /* HomeViewController.swift in Sources */,

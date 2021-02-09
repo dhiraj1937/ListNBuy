@@ -669,3 +669,85 @@ class CartDetail: Codable {
 }
 
 
+// MARK: - Orders
+class Orders: Codable {
+    
+    let id,diductionwallet,diductionsuperwallet,total,shipping : String
+    let subTotal,couponCode,couponAmount,payMethod,placedDt :String
+    let deliveryStatus,deliveryStatusName,shippingAddress : String
+    let status,statusName :String
+    let products : [ProductInOrder]
+
+    enum CodingKeys: String, CodingKey {
+        case id,diductionwallet,diductionsuperwallet,total,shipping,status,statusName
+        case subTotal = "sub_total"
+        case couponCode = "coupon_code"
+        case couponAmount = "coupon_amount"
+        case payMethod = "pay_method"
+        case placedDt = "placed_dt"
+        case deliveryStatus = "delivery_status"
+        case deliveryStatusName = "delivery_status_name"
+        case shippingAddress = "shipping_address"
+        case products
+    }
+    
+    init(id: String,diductionwallet: String,diductionsuperwallet: String,total: String,shipping: String,status: String,statusName: String,subTotal: String,couponCode: String,couponAmount: String,payMethod: String,placedDt: String,deliveryStatus: String,deliveryStatusName: String,shippingAddress: String,products:[ProductInOrder]) {
+        self.id = id
+        self.diductionwallet = diductionwallet
+        self.diductionsuperwallet = diductionsuperwallet
+        self.total = total
+        self.shipping = shipping
+        self.status = status
+        self.statusName = statusName
+        self.subTotal = subTotal
+        self.couponCode = couponCode
+        self.couponAmount = couponAmount
+        self.payMethod = payMethod
+        self.placedDt = placedDt
+        self.deliveryStatus = deliveryStatus
+        self.deliveryStatusName = deliveryStatusName
+        self.shippingAddress = shippingAddress
+        self.products = products
+    }
+}
+
+
+// MARK: - ProductInOrder
+class ProductInOrder: Codable {
+    let productId,name,orderId,tax,image,quantity,statusDt,status : String
+    let hSNCode,varID : String
+    let attributeName,attributeName1,pack :String
+    let sku :String
+    let price :String
+
+    enum CodingKeys: String, CodingKey {
+        case productId = "product_id"
+        case name,orderId,tax,image,quantity,statusDt,status
+        case hSNCode = "HSNCode"
+        case varID = "variation_id"
+        case attributeName,attributeName1,pack
+        case sku = "SKU"
+        case price = "price"
+    }
+    
+    init(productId: String,name: String,orderId: String,tax: String,image: String,quantity: String,statusDt: String,status: String,hSNCode: String,varID: String,attributeName: String,attributeName1: String,pack: String,sku: String,price: String) {
+        self.productId = productId
+        self.name = name
+        self.orderId = orderId
+        self.tax = tax
+        self.image = image
+        self.quantity = quantity
+        self.status = status
+        self.statusDt = statusDt
+        self.hSNCode = hSNCode
+        self.varID = varID
+        self.attributeName = attributeName
+        self.attributeName1 = attributeName1
+        self.pack = pack
+        self.sku = sku
+        self.price = price
+    }
+}
+
+
+
