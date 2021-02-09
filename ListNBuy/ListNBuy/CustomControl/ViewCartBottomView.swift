@@ -33,5 +33,10 @@ class ViewCartBottomView: UIView {
         lblItems.text = Constant.totalItemCount.description+" Item";
         lblProce.text = "Rs."+Constant.totalAmount.description;
     }
+    
+    @IBAction func btn_ClickViewCart(){
+        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "CheckOutViewController") as CheckOutViewController
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+    }
 
 }

@@ -39,6 +39,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                     <state key="normal" title="View Cart &gt;"/>
+                    <connections>
+                        <action selector="btn_ClickViewCart" destination="-1" eventType="touchUpInside" id="wNa-qs-eBZ"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

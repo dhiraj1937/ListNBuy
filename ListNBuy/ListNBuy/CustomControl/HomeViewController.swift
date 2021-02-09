@@ -45,12 +45,16 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        AddCartView(view: Constant.globalTabbar!.tabBar)
+        Helper.getCartListAPI { (res) in
+            if(res){
+                self.AddCartView(view: self.view)
+            }
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        RemoveCart(view: Constant.globalTabbar!.tabBar)
+        RemoveCart(view: self.view)
         NotificationCenter.default.removeObserver(self)
     }
     

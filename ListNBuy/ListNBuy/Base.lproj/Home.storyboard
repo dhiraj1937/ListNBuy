@@ -334,7 +334,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-J5-N9Y">
                                         <rect key="frame" x="0.0" y="631" width="375" height="56"/>
-                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="4Ty-yf-sWT"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="x0A-av-Q69"/>
@@ -369,7 +369,7 @@
                                                 </connections>
                                             </pickerView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="eMn-2h-9ms" secondAttribute="trailing" id="7RN-II-Wic"/>
                                             <constraint firstItem="QYh-lt-wfK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rcZ-B8-AmQ" secondAttribute="leading" constant="20" symbolic="YES" id="J59-WH-IaQ"/>
@@ -1390,7 +1390,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Meu-OQ-bSe">
                                 <rect key="frame" x="0.0" y="722" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.54117647059999996" green="0.29411764709999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.53333333333333333" green="0.28627450980392155" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="gGk-yQ-b1J"/>
                                 </constraints>
@@ -1469,6 +1469,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

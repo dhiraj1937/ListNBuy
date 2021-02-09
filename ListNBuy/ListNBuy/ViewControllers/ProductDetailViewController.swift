@@ -41,18 +41,41 @@ class ProductDetailViewController: UIViewController {
         pickerView.dataSource = self
         btnDropDownMou.setTitle("Select", for: .normal)
         btnDropDownVariant.setTitle("Select", for: .normal)
-        
+        btnDropDownVariant.titleLabel?.textColor = UIColor.black;
+        btnDropDownMou.titleLabel?.textColor = UIColor.black;
         if productId != nil {
             getProductDetails()
         }else{
             setupInitialData()
         }
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Helper.getCartListAPI { (res) in
+            if(res){
+                self.AddCartView(view: self.view)
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        RemoveCart(view: self.view)
+    }
+    
     func setupInitialData() {
         for objP in product.variation {
             arrMous.append(objP.attributeName)
             arrVariants.append(objP.attributeName1)
         }
+        
+        if(product.variation.count>0){
+            btnDropDownMou.setTitle(product.variation[0].attributeName, for: UIControl.State.normal)
+            btnDropDownVariant.setTitle(product.variation[0].attributeName1, for: UIControl.State.normal)
+        }
+        
         imgProductImage.imageFromServerURL(urlString: product.image);
         lblDesc.text = product.productDescription;
         lblProductName.text = product.name;
@@ -65,6 +88,21 @@ class ProductDetailViewController: UIViewController {
         }
         else{
             btnAddToWishlist.isSelected = true
+        }
+        if(Constant.listCartProducts.count>0){
+            let pro = Constant.listCartProducts.filter { $0.id==product.id }.first
+            if(pro != nil){
+                btnAddToCart.backgroundColor = UIColor.init(hexString: "#008F00");
+                btnAddToCart.isUserInteractionEnabled = false;
+            }
+            else{
+                btnAddToCart.backgroundColor = UIColor.init(hexString: "#8849A0");
+                btnAddToCart.isUserInteractionEnabled = true;
+            }
+        }
+        else{
+            btnAddToCart.backgroundColor = UIColor.init(hexString: "#8849A0");
+            btnAddToCart.isUserInteractionEnabled = true;
         }
     }
     
@@ -87,9 +125,19 @@ class ProductDetailViewController: UIViewController {
         dic["productId"] = product.id as AnyObject
         dic["variationId"] = product.variation[0].varID as AnyObject
         dic["quantity"] = "1" as AnyObject
+        dic["PIN"] = "" as AnyObject
+        
         //call api and show animated view with "no. of item | total amount view card " >
         WishListController.addCartAPI(vc: self, dicObj: dic) { (response) in
             print(response)
+            if(response == "Success"){
+                self.RemoveCart(view: self.view)
+                Helper.getCartListAPI { (res) in
+                    if(res){
+                        self.AddCartView(view: self.view)
+                    }
+                }
+            }
         }
     }
     
@@ -163,6 +211,10 @@ extension ProductDetailViewController:  UIPickerViewDelegate, UIPickerViewDataSo
         }else if selectedPicker == 2 {
             selectedVariant = arrPicker[row]
             btnDropDownVariant.setTitle(selectedVariant, for: .normal)
+            if(product.variation.count>0){
+                lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[row].regularPrice.description);
+                lblRate.text = "RS."+product.variation[row].memberPrice.description;
+            }
         }
             
     }
@@ -170,7 +222,6 @@ extension ProductDetailViewController:  UIPickerViewDelegate, UIPickerViewDataSo
     func showPickerView(pickerFor:String) {
         
         arrPicker.removeAll()
-        
         if pickerFor == "MOU" {
             selectedPicker = 1
             arrPicker.append(contentsOf: arrMous)
@@ -180,10 +231,18 @@ extension ProductDetailViewController:  UIPickerViewDelegate, UIPickerViewDataSo
         }
         viewPickerContainer.isHidden = false
         pickerView.reloadAllComponents()
+        let cartView = self.view.viewWithTag(-200);
+        if(cartView != nil){
+            cartView?.isHidden = true;
+        }
     }
     
     func dismissPickerView() {
         viewPickerContainer.isHidden = true
+        let cartView = self.view.viewWithTag(-200);
+        if(cartView != nil){
+            cartView?.isHidden = false;
+        }
     }
     
 }
