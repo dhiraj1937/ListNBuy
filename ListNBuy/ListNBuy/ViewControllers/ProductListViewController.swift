@@ -25,6 +25,16 @@ class ProductListViewController: UIViewController {
         super.viewDidLoad()
         imgViewBanner.imageFromServerURL(urlString: strImgBanner);
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         let screenHeight = collectionViewCategory!.frame.size.height
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 100, height: screenHeight)
@@ -37,22 +47,16 @@ class ProductListViewController: UIViewController {
         
         let screenWidth = collectionViewProduct!.frame.size.width
         let layoutP: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layoutP.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        layoutP.itemSize = CGSize(width: screenWidth/2.0-10, height: 200)
+        //layoutP.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layoutP.itemSize = CGSize(width: screenWidth/2.0, height: 200)
         layoutP.minimumInteritemSpacing = 0
         layoutP.minimumLineSpacing = 0
         layoutP.scrollDirection = UICollectionView.ScrollDirection.vertical;
         collectionViewProduct!.collectionViewLayout = layoutP
         let nib = UINib(nibName: "ProductCell", bundle: nil)
         collectionViewProduct.register(nib, forCellWithReuseIdentifier: "ProductCell")
+        
         collectionViewProduct.reloadData();
-        
-       
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         GetAllChildCategoryByParentId();
         GetProductsByCatId()
     }

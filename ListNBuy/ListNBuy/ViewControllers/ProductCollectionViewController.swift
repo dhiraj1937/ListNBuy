@@ -18,20 +18,37 @@ class ProductCollectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        let screenWidth = collectionView!.frame.size.width
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+//        layout.itemSize = CGSize(width: screenWidth/2, height: 200)
+//        layout.minimumInteritemSpacing = 0
+//        layout.minimumLineSpacing = 0
+//        collectionView!.collectionViewLayout = layout
+//        let nib = UINib(nibName: "ProductCell", bundle: nil)
+//        collectionView.register(nib, forCellWithReuseIdentifier: "ProductCell")
+//        collectionView.reloadData();
+//        GetProductsByCatId()
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let screenWidth = collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        layout.itemSize = CGSize(width: screenWidth/2.0-10, height: 200)
+        //layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.itemSize = CGSize(width: screenWidth/2.0, height: 200)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
         let nib = UINib(nibName: "ProductCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "ProductCell")
         collectionView.reloadData();
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         GetProductsByCatId()
     }
     
