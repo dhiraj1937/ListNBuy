@@ -451,6 +451,7 @@
 				180A884F25A7566F00462CB7 /* Frameworks */,
 				180A885025A7566F00462CB7 /* Resources */,
 				7FB787626C2983B9D67E2E05 /* [CP] Embed Pods Frameworks */,
+				3573E041CE8EE03DBA211772 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -530,6 +531,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3573E041CE8EE03DBA211772 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7FB787626C2983B9D67E2E05 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
