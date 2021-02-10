@@ -37,14 +37,15 @@ class MyOrdersTableViewCell: UITableViewCell {
         lblSuperCash?.text = order.diductionsuperwallet
         
         let codAmount:Double = Double(order.total)! - ( Double(order.diductionwallet)! + Double(order.diductionsuperwallet)!)
-        if codAmount <= 0 {
+        /*if codAmount <= 0 {
             //hide cod view
             cnstViewCodPayableHeight.constant = 0
             cnstViewBGHeight.constant = cnstViewBGHeight.constant - 25
         }else{
             cnstViewCodPayableHeight.constant = 25
             lblCodPayable?.text = String(codAmount)
-        }
+        }*/
+        lblCodPayable?.text = String(codAmount)
         
         lblAddress?.text = order.shippingAddress
         lblStatus?.text = order.statusName
