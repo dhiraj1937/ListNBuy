@@ -9,7 +9,7 @@ import UIKit
 
 class OrderDetailList: UIViewController {
     @IBOutlet weak var tblItemList:UITableView!
-    var listProducts:[CartDetail] = [CartDetail]()
+    public var listProducts:[ProductInOrder] = [ProductInOrder]()
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -25,7 +25,7 @@ extension OrderDetailList: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckOutCell")  as! CheckOutCell
-        cell.SetData(cd:listProducts[indexPath.row])
+        cell.SetOrderData(cd:listProducts[indexPath.row])
         return cell;
     }
 }

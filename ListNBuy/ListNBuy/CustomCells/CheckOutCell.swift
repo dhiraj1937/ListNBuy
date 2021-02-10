@@ -26,9 +26,20 @@ class CheckOutCell: UITableViewCell {
     public func SetData(cd:CartDetail){
         imgProduct.imageFromServerURL(urlString: cd.image)
         lblAmount.text = String(cd.salePrice)
-        lblTitle.text = cd.name;
+        lblTitle.text = cd.name
         lblSubTitle.text = cd.productDescription
         lblQuantity.text = cd.quantity
+    }
+    
+    public func SetOrderData(cd:ProductInOrder){
+        imgProduct.imageFromServerURL(urlString: cd.image)
+        lblAmount.text = cd.name
+        lblTitle.text = "Rs: "+String(cd.price)
+        lblSubTitle.text = "Unit: "+cd.attributeName
+        lblQuantity.text = "Quantity: "+cd.quantity
+        btnAdd.isHidden = true
+        btnMinus.isHidden = true
+        btnDelete.isHidden = true
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

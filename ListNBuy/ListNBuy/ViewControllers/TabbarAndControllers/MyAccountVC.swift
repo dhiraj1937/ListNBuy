@@ -99,8 +99,7 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else if dict["Title"] == "My Orders" {
-            
-            
+            Constant.globalTabbar?.selectedIndex = 1
         }
         else if dict["Title"] == "Edit Address" {
             let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
