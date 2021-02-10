@@ -17,8 +17,8 @@ target 'ListNBuy' do
   pod 'LGSideMenuController'
   pod 'IQKeyboardManagerSwift'
   pod 'LPSnackbar'
-  pod 'FBSDKCoreKit'
-  pod 'FBSDKLoginKit'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
   pod 'GoogleSignIn'
   
 end
