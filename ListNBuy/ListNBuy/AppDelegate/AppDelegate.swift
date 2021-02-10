@@ -9,6 +9,8 @@ import UIKit
 import IQKeyboardManagerSwift
 import Reachability
 import LGSideMenuController
+import FBSDKCoreKit
+import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window : UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+        GIDSignIn.sharedInstance().clientID = "973257019249-o8o9ebdrephr8cn10ajicdjvr7nmhtg1.apps.googleusercontent.com"
+        
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         let isUserLoggedIN = UserDefaults.standard.isLoggedIn()
