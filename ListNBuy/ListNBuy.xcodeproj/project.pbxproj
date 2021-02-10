@@ -86,6 +86,7 @@
 		C342635525C726E000DAA27A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C342635425C726DF00DAA27A /* ProductDetailViewController.swift */; };
 		C3448C0925B7479500A44493 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3448C0825B7479500A44493 /* WalletViewController.swift */; };
 		C3448C0C25B75D0C00A44493 /* WalletTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3448C0B25B75D0C00A44493 /* WalletTransactionCell.swift */; };
+		C369174A25D43EB900EEF88D /* OrderDetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C369174925D43EB900EEF88D /* OrderDetailList.swift */; };
 		C37D8F3A25C9B508004010EF /* WishListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D8F3925C9B508004010EF /* WishListController.swift */; };
 		C382385D25AE067100737307 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C382385C25AE067100737307 /* UserModel.swift */; };
 		C38A102125BF360C00E7BAEC /* SearchAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */; };
@@ -184,6 +185,7 @@
 		C342635425C726DF00DAA27A /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		C3448C0825B7479500A44493 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		C3448C0B25B75D0C00A44493 /* WalletTransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTransactionCell.swift; sourceTree = "<group>"; };
+		C369174925D43EB900EEF88D /* OrderDetailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailList.swift; sourceTree = "<group>"; };
 		C37D8F3925C9B508004010EF /* WishListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListController.swift; sourceTree = "<group>"; };
 		C382385C25AE067100737307 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C38A102025BF360C00E7BAEC /* SearchAreaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAreaTableViewCell.swift; sourceTree = "<group>"; };
@@ -333,7 +335,7 @@
 			children = (
 				180A88AE25A7754700462CB7 /* TabbarViewController.swift */,
 				180A888425A767B800462CB7 /* HomeVC.swift */,
-				180A88C825A77A7800462CB7 /* MyOrdersVC.swift */,
+				C369174825D43D8400EEF88D /* MyOrders */,
 				180A88C725A77A7800462CB7 /* OffersVC.swift */,
 				180A88C625A77A7800462CB7 /* WishlistVC.swift */,
 				180A88C525A77A7800462CB7 /* MyAccountVC.swift */,
@@ -433,6 +435,15 @@
 			path = OtherSectionsOfMyAccount;
 			sourceTree = "<group>";
 		};
+		C369174825D43D8400EEF88D /* MyOrders */ = {
+			isa = PBXGroup;
+			children = (
+				180A88C825A77A7800462CB7 /* MyOrdersVC.swift */,
+				C369174925D43EB900EEF88D /* OrderDetailList.swift */,
+			);
+			path = MyOrders;
+			sourceTree = "<group>";
+		};
 		EE94673692306B015E3284F7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,7 +465,7 @@
 				180A884F25A7566F00462CB7 /* Frameworks */,
 				180A885025A7566F00462CB7 /* Resources */,
 				7FB787626C2983B9D67E2E05 /* [CP] Embed Pods Frameworks */,
-				3573E041CE8EE03DBA211772 /* [CP] Copy Pods Resources */,
+				925ECDBC8B5E83EB8BA198D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -534,23 +545,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3573E041CE8EE03DBA211772 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7FB787626C2983B9D67E2E05 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -566,6 +560,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		925ECDBC8B5E83EB8BA198D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ListNBuy/Pods-ListNBuy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		965A3B6D733A89F74EBA3E05 /* [CP] Check Pods Manifest.lock */ = {
@@ -620,6 +631,7 @@
 				186E2BD825BC4305001CFEE4 /* MemberShipView.swift in Sources */,
 				C32C11DD25C16FE000EC7B3B /* WishListCollectionViewCell.swift in Sources */,
 				1837092025BB5050008697E1 /* ProductCell.swift in Sources */,
+				C369174A25D43EB900EEF88D /* OrderDetailList.swift in Sources */,
 				C3448C0C25B75D0C00A44493 /* WalletTransactionCell.swift in Sources */,
 				180A88AF25A7754700462CB7 /* TabbarViewController.swift in Sources */,
 				180A888625A767B800462CB7 /* HomeVC.swift in Sources */,
