@@ -29,6 +29,7 @@
 		180AED7625B815FB00124AED /* ViewBannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AED7525B815FB00124AED /* ViewBannerScrollView.swift */; };
 		181A12CC25D18F4800E03075 /* ViewCartBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */; };
 		181A12CF25D18F6D00E03075 /* ViewCartBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */; };
+		181B802325D4454800E708B2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181B802225D4454800E708B2 /* LoginController.swift */; };
 		1823735025B451AE009106E5 /* WhatsAppOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */; };
 		1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */; };
 		1837092025BB5050008697E1 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837091E25BB5050008697E1 /* ProductCell.swift */; };
@@ -125,6 +126,7 @@
 		180AED7525B815FB00124AED /* ViewBannerScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBannerScrollView.swift; sourceTree = "<group>"; };
 		181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewCartBottomView.xib; sourceTree = "<group>"; };
 		181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCartBottomView.swift; sourceTree = "<group>"; };
+		181B802225D4454800E708B2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsAppOrderViewController.swift; sourceTree = "<group>"; };
 		1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhatsAppOrderViewController.xib; sourceTree = "<group>"; };
 		1837091E25BB5050008697E1 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				18CAF13125B57E4400C4499C /* HomeViewController.xib */,
 				181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */,
 				181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */,
+				181B802225D4454800E708B2 /* LoginController.swift */,
 			);
 			path = CustomControl;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				C3448C0925B7479500A44493 /* WalletViewController.swift in Sources */,
 				1837092525BB593A008697E1 /* ProductCategoryView.swift in Sources */,
 				186E2BEB25BC5162001CFEE4 /* BrandCollectionCell.swift in Sources */,
+				181B802325D4454800E708B2 /* LoginController.swift in Sources */,
 				C3D2570325CED1B500DE2E7A /* CheckOutCell.swift in Sources */,
 				C335A2E425BC75A300C4705E /* AddressController.swift in Sources */,
 				C3D3BF0925B9F7F5006C4AA7 /* AddToWalletViewController.swift in Sources */,
