@@ -19,6 +19,13 @@ class MyOrdersVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userID = UserDefaults.standard.getUserID()
+        if userID == "" {
+            (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
+            return
+        }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -70,6 +77,32 @@ class MyOrdersVC: BaseViewController {
         let objOrder:Orders = arrOrders[self.cancelBtnIndex];
         print(objOrder.id)
         self.cancelBtnIndex = -1
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            let params :[String:Any] = ["orderId":objOrder.id,
+                                        "status":"4"]
+            ApiManager.sharedInstance.requestPOSTURL(Constant.removeCartURL, params: params, success: {(JSON) in
+                let msg =  JSON.dictionary?["Message"]
+                if((JSON.dictionary?["IsSuccess"]) != false){
+                    HUD.flash(.progress)
+                    self.getOrderByUserIdAPI()
+                }
+                else{
+                    HUD.flash(.progress)
+                    LPSnackbar.showSnack(title: msg!.rawValue as! String)
+                }
+            }, failure: { (Error) in
+                DispatchQueue.main.async {
+                    HUD.flash(.error)
+                    LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                }
+            })
+        }
+        else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
     }
     
 
@@ -80,7 +113,14 @@ extension MyOrdersVC : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrOrders.count
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let order:Orders = arrOrders[indexPath.row]
+        let codAmount:Double = Double(order.total)! - ( Double(order.diductionwallet)! + Double(order.diductionsuperwallet)!)
+        if codAmount <= 0{
+            return 215
+        }
+          return 240
+      }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyOrdersTableViewCell", for: indexPath) as! MyOrdersTableViewCell
         let objOrders:Orders = arrOrders[indexPath.row]
@@ -95,8 +135,7 @@ extension MyOrdersVC : UITableViewDelegate,UITableViewDataSource {
             DispatchQueue.main.async {
                 HUD.show(.progress)
             }
-            //let userID = UserDefaults.standard.getUserID()
-            let userID = "16"
+            let userID = UserDefaults.standard.getUserID()
             ApiManager.sharedInstance.requestGETURL(Constant.getOrderByUserIdURL+""+userID, success: { [self]
                 (JSON) in
                 let msg =  JSON.dictionary?["Message"]

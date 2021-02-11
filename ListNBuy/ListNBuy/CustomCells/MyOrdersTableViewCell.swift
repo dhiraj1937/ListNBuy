@@ -21,7 +21,6 @@ class MyOrdersTableViewCell: UITableViewCell {
     @IBOutlet var lblStatus:UILabel?
     @IBOutlet var btnCancel:UIButton!
     @IBOutlet var btnOrderDetail:UIButton!
-    @IBOutlet var cnstViewBGHeight:NSLayoutConstraint!
 
     
     override func awakeFromNib() {
@@ -37,14 +36,12 @@ class MyOrdersTableViewCell: UITableViewCell {
         lblSuperCash?.text = order.diductionsuperwallet
         
         let codAmount:Double = Double(order.total)! - ( Double(order.diductionwallet)! + Double(order.diductionsuperwallet)!)
-        /*if codAmount <= 0 {
-            //hide cod view
+        if codAmount <= 0 {
             cnstViewCodPayableHeight.constant = 0
-            cnstViewBGHeight.constant = cnstViewBGHeight.constant - 25
         }else{
             cnstViewCodPayableHeight.constant = 25
             lblCodPayable?.text = String(codAmount)
-        }*/
+        }
         lblCodPayable?.text = String(codAmount)
         
         lblAddress?.text = order.shippingAddress

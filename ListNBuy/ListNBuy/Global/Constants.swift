@@ -103,7 +103,8 @@ public class Constant {
     //My Orders tab APIs
     public static var getOrderByUserIdURL:String = Constant.serverURL+"/getOrderByUserId/";
     public static var getOrderDetailsByOrderIdURL:String = Constant.serverURL+"/getOrderDetailsByOrderId/";
-    //changeOrderStatus post status orderId
+    public static var changeOrderStatusURL:String = Constant.serverURL+"/changeOrderStatus";
+    // post status orderId
     
     
     
