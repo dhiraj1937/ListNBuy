@@ -82,8 +82,8 @@ class MyOrdersVC: BaseViewController {
                 HUD.show(.progress)
             }
             let params :[String:Any] = ["orderId":objOrder.id,
-                                        "status":"4"]
-            ApiManager.sharedInstance.requestPOSTURL(Constant.removeCartURL, params: params, success: {(JSON) in
+                                        "status":"6"]
+            ApiManager.sharedInstance.requestPOSTURL(Constant.changeOrderStatusURL, params: params, success: {(JSON) in
                 let msg =  JSON.dictionary?["Message"]
                 if((JSON.dictionary?["IsSuccess"]) != false){
                     HUD.flash(.progress)

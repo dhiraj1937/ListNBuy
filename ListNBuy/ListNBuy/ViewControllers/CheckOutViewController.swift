@@ -178,7 +178,11 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                DispatchQueue.main.async {
                    HUD.show(.progress)
                }
+            
+            let userID = UserDefaults.standard.getUserID()
+
             let params :[String:Any] = ["Code":code,
+                                        "userId":userID,
                                         "Total":total]
                ApiManager.sharedInstance.requestPOSTURL(Constant.applyCouponCodeURL , params: params, success: {(JSON) in
                    
@@ -189,6 +193,7 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                            HUD.flash(.progress)
                            LPSnackbar.showSnack(title: msg!)
                        }
+                    //if any chage required ?? otherwise
                     self.getCartListAPI()
                    }else {
                        HUD.flash(.progress)

@@ -46,6 +46,11 @@ class MyOrdersTableViewCell: UITableViewCell {
         
         lblAddress?.text = order.shippingAddress
         lblStatus?.text = order.statusName
+        if order.status == "1" {
+            btnCancel.isHidden = false
+        }else{
+            btnCancel.isHidden = true
+        }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
