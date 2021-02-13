@@ -93,6 +93,8 @@
 		C3A3A72F25D3044F00C3130F /* MyOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3A72E25D3044F00C3130F /* MyOrdersTableViewCell.swift */; };
 		C3A55D4B25B5C4880079592E /* MyAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */; };
 		C3A55D4E25B5D7070079592E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A55D4D25B5D7070079592E /* ProfileViewController.swift */; };
+		C3C5FF9E25D8452D00B30DA1 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5FF9C25D8452D00B30DA1 /* PinViewController.swift */; };
+		C3C5FF9F25D8452D00B30DA1 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C5FF9D25D8452D00B30DA1 /* PinViewController.xib */; };
 		C3D2570325CED1B500DE2E7A /* CheckOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2570225CED1B500DE2E7A /* CheckOutCell.swift */; };
 		C3D3BF0925B9F7F5006C4AA7 /* AddToWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3BF0825B9F7F5006C4AA7 /* AddToWalletViewController.swift */; };
 		C3D3BF0C25BA0446006C4AA7 /* PromocodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3BF0B25BA0446006C4AA7 /* PromocodeCell.swift */; };
@@ -192,6 +194,8 @@
 		C3A3A72E25D3044F00C3130F /* MyOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		C3A55D4A25B5C4880079592E /* MyAccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountTableViewCell.swift; sourceTree = "<group>"; };
 		C3A55D4D25B5D7070079592E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C3C5FF9C25D8452D00B30DA1 /* PinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		C3C5FF9D25D8452D00B30DA1 /* PinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
 		C3D2570225CED1B500DE2E7A /* CheckOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutCell.swift; sourceTree = "<group>"; };
 		C3D3BF0825B9F7F5006C4AA7 /* AddToWalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToWalletViewController.swift; sourceTree = "<group>"; };
 		C3D3BF0B25BA0446006C4AA7 /* PromocodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromocodeCell.swift; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				C37D8F3925C9B508004010EF /* WishListController.swift */,
+				C3C5FF9C25D8452D00B30DA1 /* PinViewController.swift */,
+				C3C5FF9D25D8452D00B30DA1 /* PinViewController.xib */,
 				18CAF13525B584FF00C4499C /* HomeCategoryViews */,
 				1823734E25B451AE009106E5 /* WhatsAppOrderViewController.swift */,
 				1823734F25B451AE009106E5 /* WhatsAppOrderViewController.xib */,
@@ -533,6 +539,7 @@
 				187004B625B862BE001871B8 /* ViewSection.xib in Resources */,
 				180A88BD25A7770200462CB7 /* Offers.storyboard in Resources */,
 				18CAF13325B57E4400C4499C /* HomeViewController.xib in Resources */,
+				C3C5FF9F25D8452D00B30DA1 /* PinViewController.xib in Resources */,
 				186E2BDE25BC45DE001CFEE4 /* Subscription.xib in Resources */,
 				1837092825BB5945008697E1 /* ProductCategoryView.xib in Resources */,
 				186E2BD225BC32EE001CFEE4 /* NewArriaval.xib in Resources */,
@@ -631,6 +638,7 @@
 				186E2BD825BC4305001CFEE4 /* MemberShipView.swift in Sources */,
 				C32C11DD25C16FE000EC7B3B /* WishListCollectionViewCell.swift in Sources */,
 				1837092025BB5050008697E1 /* ProductCell.swift in Sources */,
+				C3C5FF9E25D8452D00B30DA1 /* PinViewController.swift in Sources */,
 				C369174A25D43EB900EEF88D /* OrderDetailList.swift in Sources */,
 				C3448C0C25B75D0C00A44493 /* WalletTransactionCell.swift in Sources */,
 				180A88AF25A7754700462CB7 /* TabbarViewController.swift in Sources */,

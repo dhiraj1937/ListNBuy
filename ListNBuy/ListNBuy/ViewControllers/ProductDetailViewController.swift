@@ -11,7 +11,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class ProductDetailViewController: UIViewController {
+class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
     public var productId:String!
     public var product:Product!;
     var selectedMou: String?
@@ -89,6 +89,9 @@ class ProductDetailViewController: UIViewController {
         else{
             btnAddToWishlist.isSelected = true
         }
+        self.changeAddToCartButton()
+    }
+    func changeAddToCartButton(){
         if(Constant.listCartProducts.count>0){
             let pro = Constant.listCartProducts.filter { $0.id==product.id }.first
             if(pro != nil){
@@ -105,7 +108,6 @@ class ProductDetailViewController: UIViewController {
             btnAddToCart.isUserInteractionEnabled = true;
         }
     }
-    
     @IBAction func btnBack(){
         self.navigationController?.popViewController(animated: true)
     }
@@ -119,15 +121,47 @@ class ProductDetailViewController: UIViewController {
         dismissPickerView()
     }
     @IBAction func btnAddToCartAction(){
+        
+        let userPin = UserDefaults.standard.getUserPin()
+        if userPin != "" {
+            //show popup
+            let vc = PinViewController.init(nibName: "PinViewController", bundle: nil)
+            vc.delegate = self
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        }else{
+            
+            let userID = UserDefaults.standard.getUserID()
+            var dic = [String:AnyObject]()
+            dic["userId"] = userID as AnyObject
+            dic["productId"] = product.id as AnyObject
+            dic["variationId"] = product.variation[0].varID as AnyObject
+            dic["quantity"] = "1" as AnyObject
+            dic["PIN"] = userPin as AnyObject
+            
+            WishListController.addCartAPI(vc: self, dicObj: dic) { (response) in
+                print(response)
+                if(response == "Success"){
+                    self.RemoveCart(view: self.view)
+                    Helper.getCartListAPI { (res) in
+                        if(res){
+                            self.AddCartView(view: self.view)
+                            self.changeAddToCartButton()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func submitPin(pin:String,responseReturn:@escaping (String) -> Void){
         let userID = UserDefaults.standard.getUserID()
         var dic = [String:AnyObject]()
         dic["userId"] = userID as AnyObject
         dic["productId"] = product.id as AnyObject
         dic["variationId"] = product.variation[0].varID as AnyObject
         dic["quantity"] = "1" as AnyObject
-        dic["PIN"] = "" as AnyObject
+        dic["PIN"] = pin as AnyObject
         
-        //call api and show animated view with "no. of item | total amount view card " >
         WishListController.addCartAPI(vc: self, dicObj: dic) { (response) in
             print(response)
             if(response == "Success"){
@@ -135,10 +169,15 @@ class ProductDetailViewController: UIViewController {
                 Helper.getCartListAPI { (res) in
                     if(res){
                         self.AddCartView(view: self.view)
+                        self.changeAddToCartButton()
                     }
                 }
+                responseReturn("PASS");
+            }else{
+                responseReturn("FAIL");
             }
         }
+        
     }
     
     @IBAction func btnShowCartAction(){

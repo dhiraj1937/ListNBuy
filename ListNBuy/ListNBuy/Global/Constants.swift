@@ -139,6 +139,7 @@ public class Constant {
 enum UserDefaultsKeys : String {
     case isLoggedIn
     case userID
+    case userPin
 }
 
 extension UserDefaults{
@@ -162,6 +163,13 @@ extension UserDefaults{
     //MARK: Retrieve User Data
     func getUserID() -> String{
         return string(forKey: UserDefaultsKeys.userID.rawValue) ?? ""
+    }
+    func setUserPin(value: String){
+        set(value, forKey: UserDefaultsKeys.userPin.rawValue)
+        //synchronize()
+    }
+    func getUserPin() -> String{
+        return string(forKey: UserDefaultsKeys.userPin.rawValue) ?? ""
     }
 }
 
