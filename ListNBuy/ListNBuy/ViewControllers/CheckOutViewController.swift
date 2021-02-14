@@ -50,7 +50,10 @@ class CheckOutViewController: UIViewController {
         
     }
     @IBAction func btnPayNow(sender:UIButton){
-        
+        let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
+        vc.headertitle = "Select Delivery Address"
+        vc.totalAmount = lblTotalVal.text
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

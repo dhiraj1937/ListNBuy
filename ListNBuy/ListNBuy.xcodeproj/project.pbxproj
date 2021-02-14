@@ -73,6 +73,8 @@
 		C3078EE225C05C0500A2F3FF /* CurrentActivePlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3078EE125C05C0500A2F3FF /* CurrentActivePlansViewController.swift */; };
 		C3078EE525C0622200A2F3FF /* MyPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3078EE425C0622200A2F3FF /* MyPlanTableViewCell.swift */; };
 		C30A12B725B0AAA2004C639C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A12B625B0AAA2004C639C /* WebViewController.swift */; };
+		C317D5F625D98C0B009B5B03 /* PaymentModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317D5F425D98C0B009B5B03 /* PaymentModeViewController.swift */; };
+		C317D5F725D98C0B009B5B03 /* PaymentModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C317D5F525D98C0B009B5B03 /* PaymentModeViewController.xib */; };
 		C32C11DD25C16FE000EC7B3B /* WishListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C11DC25C16FE000EC7B3B /* WishListCollectionViewCell.swift */; };
 		C32EEA1025B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */; };
 		C335A2E325BC75A300C4705E /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A2E025BC75A200C4705E /* AddAddressViewController.swift */; };
@@ -174,6 +176,8 @@
 		C3078EE125C05C0500A2F3FF /* CurrentActivePlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentActivePlansViewController.swift; sourceTree = "<group>"; };
 		C3078EE425C0622200A2F3FF /* MyPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanTableViewCell.swift; sourceTree = "<group>"; };
 		C30A12B625B0AAA2004C639C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		C317D5F425D98C0B009B5B03 /* PaymentModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModeViewController.swift; sourceTree = "<group>"; };
+		C317D5F525D98C0B009B5B03 /* PaymentModeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentModeViewController.xib; sourceTree = "<group>"; };
 		C32C11DC25C16FE000EC7B3B /* WishListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C32EEA0F25B2FE2C006D2118 /* MembershipPlanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembershipPlanCollectionViewCell.swift; sourceTree = "<group>"; };
 		C335A2E025BC75A200C4705E /* AddAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				C37D8F3925C9B508004010EF /* WishListController.swift */,
+				C317D5F425D98C0B009B5B03 /* PaymentModeViewController.swift */,
+				C317D5F525D98C0B009B5B03 /* PaymentModeViewController.xib */,
 				C3C5FF9C25D8452D00B30DA1 /* PinViewController.swift */,
 				C3C5FF9D25D8452D00B30DA1 /* PinViewController.xib */,
 				18CAF13525B584FF00C4499C /* HomeCategoryViews */,
@@ -527,6 +533,7 @@
 				180A886225A7567000462CB7 /* LaunchScreen.storyboard in Resources */,
 				187004B925B86C15001871B8 /* ViewShopByCategory.xib in Resources */,
 				1823735125B451AE009106E5 /* WhatsAppOrderViewController.xib in Resources */,
+				C317D5F725D98C0B009B5B03 /* PaymentModeViewController.xib in Resources */,
 				18A3974025B9FBFA007038DD /* ViewTrending.xib in Resources */,
 				186E2BE725BC4D91001CFEE4 /* BestSelling.xib in Resources */,
 				186E2BDB25BC4330001CFEE4 /* MemberShipView.xib in Resources */,
@@ -635,6 +642,7 @@
 				18895D2725AB23AE007AA0B0 /* Alert.swift in Sources */,
 				C3F4B17725AF06D7005467F5 /* Helper.swift in Sources */,
 				186E2BD525BC32FF001CFEE4 /* NewArriaval.swift in Sources */,
+				C317D5F625D98C0B009B5B03 /* PaymentModeViewController.swift in Sources */,
 				186E2BD825BC4305001CFEE4 /* MemberShipView.swift in Sources */,
 				C32C11DD25C16FE000EC7B3B /* WishListCollectionViewCell.swift in Sources */,
 				1837092025BB5050008697E1 /* ProductCell.swift in Sources */,

@@ -7,14 +7,17 @@
 
 import UIKit
 
-class AddressListViewController: BaseViewController, ActionButtonDelegate {
-
+class AddressListViewController: UIViewController, ActionButtonDelegate {
+    
+    @IBOutlet var lblTitle:UILabel!
+    public var headertitle:String!
+    public var totalAmount:String!
     @IBOutlet var tblAdd:UITableView!
     public let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lblTitle.text = headertitle;
         // Do any additional setup after loading the view.
 //        tblAdd.rowHeight = UITableView.automaticDimension
 //        tblAdd.estimatedRowHeight = 130
@@ -25,6 +28,10 @@ class AddressListViewController: BaseViewController, ActionButtonDelegate {
             tblAdd.addSubview(refreshControl)
         }
         refreshControl.addTarget(self, action: #selector(refreshAddressData(_:)), for: .valueChanged)
+
+        if headertitle == "Select Delivery Address"{
+            tblAdd.allowsSelection = true
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -53,7 +60,7 @@ class AddressListViewController: BaseViewController, ActionButtonDelegate {
 }
 
 extension AddressListViewController :
-    UITableViewDelegate,UITableViewDataSource{
+    UITableViewDelegate,UITableViewDataSource,PaymentModeButtonsDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -92,11 +99,6 @@ extension AddressListViewController :
             }
         }
         return cell;
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dicAddObj = AddressController.listAddress![indexPath.row];
-        //print(dicAddObj)
     }
     
     @IBAction func btnAddNewAddress_Click(){
@@ -141,5 +143,32 @@ extension AddressListViewController :
         present(deleteAlert, animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dicAddObj = AddressController.listAddress![indexPath.row];
+        //print(dicAddObj)
+        if headertitle == "Select Delivery Address"{
+            //??
+            openPaymentOption()
+        }
+    }
+    func openPaymentOption(){
+        let vc = PaymentModeViewController.init(nibName: "PaymentModeViewController", bundle: nil)
+        vc.delegate = self
+        vc.amount = totalAmount
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    func btnSelectedWithMode(mode:String) {
+        print("selected mode =\(mode)")
+        createOrderAPI(paymentmode:mode)
+    }
+    
+    func createOrderAPI(paymentmode:String){
+        
+        if paymentmode == "POD" {
+            //??
+        }else{
+            //??
+        }
+    }
     
 }
