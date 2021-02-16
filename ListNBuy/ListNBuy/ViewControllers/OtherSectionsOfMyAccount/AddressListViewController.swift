@@ -6,22 +6,23 @@
 //
 
 import UIKit
+import Alamofire
+import LPSnackbar
+import PKHUD
+import SwiftyJSON
 
 class AddressListViewController: UIViewController, ActionButtonDelegate {
     
     @IBOutlet var lblTitle:UILabel!
     public var headertitle:String!
     public var totalAmount:String!
+    public var productList:[CartDetail] = [CartDetail]()
     @IBOutlet var tblAdd:UITableView!
     public let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         lblTitle.text = headertitle;
-        // Do any additional setup after loading the view.
-//        tblAdd.rowHeight = UITableView.automaticDimension
-//        tblAdd.estimatedRowHeight = 130
-//        tblAdd.reloadData()
         if #available(iOS 10.0, *) {
             tblAdd.refreshControl = refreshControl
         } else {
@@ -60,7 +61,7 @@ class AddressListViewController: UIViewController, ActionButtonDelegate {
 }
 
 extension AddressListViewController :
-    UITableViewDelegate,UITableViewDataSource,PaymentModeButtonsDelegate{
+    UITableViewDelegate,UITableViewDataSource,PaymentModeButtonsDelegate,ProductUnAvailableDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -147,8 +148,21 @@ extension AddressListViewController :
         let dicAddObj = AddressController.listAddress![indexPath.row];
         //print(dicAddObj)
         if headertitle == "Select Delivery Address"{
-            //??
-            openPaymentOption()
+            
+            //Dhiraj ??
+            //?? Needs to apply any check or call api to match address
+            
+            //if address passed then show openPaymentOption
+            //openPaymentOption()
+            //else address fails then show openProductUnAvailableForSelectedArea
+            //openProductUnAvailableForSelectedArea()
+            
+            //the below 5 lines of code only for testing !!
+            if indexPath.row == 0 {
+                openProductUnAvailableForSelectedArea()
+            }else{
+                openPaymentOption()
+            }
         }
     }
     func openPaymentOption(){
@@ -162,12 +176,55 @@ extension AddressListViewController :
         createOrderAPI(paymentmode:mode)
     }
     
+    func openProductUnAvailableForSelectedArea(){
+        let vc = ProductUnAvailableViewController.init(nibName: "ProductUnAvailableViewController", bundle: nil)
+        vc.delegate = self
+        vc.listProducts = productList
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+    func btnGoBackSelected() {
+        self.btnBack()
+    }
+    
     func createOrderAPI(paymentmode:String){
         
         if paymentmode == "POD" {
-            //??
+            //POD
         }else{
-            //??
+            //Online
+        }
+        
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            let userID = UserDefaults.standard.getUserID()
+            print(userID)
+            let params :[String:Any] = ["":""] //Dhiraj ??
+            ApiManager.sharedInstance.requestPOSTURL(Constant.createOrderURL, params: params, success: {(JSON) in
+                print(JSON)
+                let msg =  JSON.dictionary?["Message"]?.stringValue
+                if((JSON.dictionary?["IsSuccess"]) != false){
+                    DispatchQueue.main.async {
+                        HUD.flash(.progress)
+                        LPSnackbar.showSnack(title: msg!)
+                        //Dhiraj ??
+                    }
+                }else {
+                    HUD.flash(.progress)
+                    LPSnackbar.showSnack(title: msg!)
+                }
+                
+            },failure: { (Error) in
+                DispatchQueue.main.async {
+                    HUD.flash(.error)
+                    LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                }
+            })
+            
+        }else{
+            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
     }
     

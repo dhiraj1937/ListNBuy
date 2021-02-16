@@ -81,7 +81,8 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
         lblProductName.text = product.name;
         if(product.variation.count>0){
             lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[0].regularPrice.description);
-            lblRate.text = "RS."+product.variation[0].memberPrice.description;
+            //lblRate.text = "RS."+product.variation[0].memberPrice.description;
+            lblRate.text = "RS."+(Constant.isPlanHidden == true ? product.variation[0].salePrice.description :product.variation[0].memberPrice.description)
         }
         if(product.wishlist==0){
             btnAddToWishlist.isSelected = false

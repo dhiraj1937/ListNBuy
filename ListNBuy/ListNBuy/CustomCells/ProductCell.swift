@@ -26,7 +26,8 @@ class ProductCell: UICollectionViewCell {
         img.imageFromServerURL(urlString: product.image)
         lblRating.text = product.avgRating;
         lblTitle.text = product.name;
-        lblDisPrice.text = "Rs:"+product.variation[0].salePrice.description
+        //lblDisPrice.text = "Rs:"+product.variation[0].salePrice.description
+        lblDisPrice.text = Constant.isPlanHidden == true ? "Rs:"+product.variation[0].salePrice.description : "Rs:"+product.variation[0].memberPrice.description
         lblRealPrice.attributedText = Helper.GetStrikeTextAttribute(txt: "Rs:"+product.variation[0].regularPrice.description);
         //lblRealPrice.text = "Rs:"+lblRealPrice.text!;
         lblVaiant.text = product.variation[0].attributeName;
@@ -35,7 +36,8 @@ class ProductCell: UICollectionViewCell {
         img.imageFromServerURL(urlString: product.image)
         lblRating.text = product.avgRating;
         lblTitle.text = product.name;
-        lblDisPrice.text = "Rs:"+product.variation[0].salePrice.description
+        //lblDisPrice.text = "Rs:"+product.variation[0].salePrice.description
+        lblDisPrice.text = Constant.isPlanHidden == true ? "Rs:"+product.variation[0].salePrice.description : "Rs:"+product.variation[0].memberPrice.description
         lblRealPrice.attributedText = Helper.GetStrikeTextAttribute(txt: "Rs:"+product.variation[0].regularPrice.description);
         //lblRealPrice.text = "Rs:"+lblRealPrice.text!;
         lblVaiant.text = product.variation[0].attributeName;

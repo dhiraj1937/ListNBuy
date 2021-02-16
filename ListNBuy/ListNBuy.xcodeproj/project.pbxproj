@@ -104,6 +104,8 @@
 		C3F4B17125AF005D005467F5 /* SocialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F4B17025AF005D005467F5 /* SocialCollectionViewCell.swift */; };
 		C3F4B17425AF016F005467F5 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F4B17325AF016F005467F5 /* SocialViewController.swift */; };
 		C3F4B17725AF06D7005467F5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F4B17625AF06D7005467F5 /* Helper.swift */; };
+		C3FC90DD25DAB9CA002F2550 /* ProductUnAvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FC90DB25DAB9CA002F2550 /* ProductUnAvailableViewController.swift */; };
+		C3FC90DE25DAB9CA002F2550 /* ProductUnAvailableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3FC90DC25DAB9CA002F2550 /* ProductUnAvailableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +209,8 @@
 		C3F4B17025AF005D005467F5 /* SocialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3F4B17325AF016F005467F5 /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
 		C3F4B17625AF06D7005467F5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		C3FC90DB25DAB9CA002F2550 /* ProductUnAvailableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductUnAvailableViewController.swift; sourceTree = "<group>"; };
+		C3FC90DC25DAB9CA002F2550 /* ProductUnAvailableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductUnAvailableViewController.xib; sourceTree = "<group>"; };
 		E19C6CCDB5450B3EBC917FF7 /* Pods-ListNBuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListNBuy.release.xcconfig"; path = "Target Support Files/Pods-ListNBuy/Pods-ListNBuy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				C37D8F3925C9B508004010EF /* WishListController.swift */,
+				C3FC90DB25DAB9CA002F2550 /* ProductUnAvailableViewController.swift */,
+				C3FC90DC25DAB9CA002F2550 /* ProductUnAvailableViewController.xib */,
 				C317D5F425D98C0B009B5B03 /* PaymentModeViewController.swift */,
 				C317D5F525D98C0B009B5B03 /* PaymentModeViewController.xib */,
 				C3C5FF9C25D8452D00B30DA1 /* PinViewController.swift */,
@@ -550,6 +556,7 @@
 				186E2BDE25BC45DE001CFEE4 /* Subscription.xib in Resources */,
 				1837092825BB5945008697E1 /* ProductCategoryView.xib in Resources */,
 				186E2BD225BC32EE001CFEE4 /* NewArriaval.xib in Resources */,
+				C3FC90DE25DAB9CA002F2550 /* ProductUnAvailableViewController.xib in Resources */,
 				180A885D25A7566F00462CB7 /* Main.storyboard in Resources */,
 				18F20CDA25B5B8EF003CEF11 /* TrendingCollectionCell.xib in Resources */,
 				180A88BB25A7770200462CB7 /* MyOrders.storyboard in Resources */,
@@ -681,6 +688,7 @@
 				181A12CF25D18F6D00E03075 /* ViewCartBottomView.swift in Sources */,
 				1872460D25B3604600A336D0 /* FaqCell.swift in Sources */,
 				18D5F65A25ACB3FC007DABFF /* ContactUsViewController.swift in Sources */,
+				C3FC90DD25DAB9CA002F2550 /* ProductUnAvailableViewController.swift in Sources */,
 				180A885625A7566F00462CB7 /* AppDelegate.swift in Sources */,
 				18A40E0625AC5E9D008F3B3C /* OtherInfoViewController.swift in Sources */,
 				C33E2AA625AF62520056EFA6 /* MembershipPlansViewController.swift in Sources */,

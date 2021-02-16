@@ -98,7 +98,8 @@ public class Constant {
     public static var getCartListURL:String = Constant.serverURL+"/getCartList/";
     public static var removeCartURL:String = Constant.serverURL+"/removeCart";
     public static var applyCouponCodeURL:String = Constant.serverURL+"/applyCouponCode";//Code , Total
-    
+    public static var createOrderURL:String = Constant.serverURL+"/createOrder";//order
+
     
     //My Orders tab APIs
     public static var getOrderByUserIdURL:String = Constant.serverURL+"/getOrderByUserId/";

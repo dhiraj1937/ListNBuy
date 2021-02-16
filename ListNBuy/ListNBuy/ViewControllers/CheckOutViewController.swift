@@ -53,6 +53,7 @@ class CheckOutViewController: UIViewController {
         let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
         vc.headertitle = "Select Delivery Address"
         vc.totalAmount = lblTotalVal.text
+        vc.productList = listProducts
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -107,7 +108,8 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                     
                     var mrp = 0.0
                     for item in listProducts {
-                        mrp = mrp + Double(item.quantity)! * Double(item.salePrice)
+                       // mrp = mrp + Double(item.quantity)! * Double(item.salePrice)
+                        mrp = mrp + Double(item.quantity)! * (Constant.isPlanHidden == true ? Double(item.salePrice) : Double(item.memberPrice))
                     }
                     lblMRPVal.text = String(format: "%.2f", mrp)
                     tblItemList.reloadData()
