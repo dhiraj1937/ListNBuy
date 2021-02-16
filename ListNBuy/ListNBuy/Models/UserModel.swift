@@ -749,5 +749,20 @@ class ProductInOrder: Codable {
     }
 }
 
+class NotAvailableProduct: Codable {
+    let id, name: String
+    let image: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, name
+        case image = "Image"
+    }
+
+    init(id: String, name: String, image: String) {
+        self.id = id
+        self.name = name
+        self.image = image
+    }
+}
 
 

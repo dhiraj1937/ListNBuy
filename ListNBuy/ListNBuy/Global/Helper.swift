@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import CoreLocation
+import PKHUD
+import LPSnackbar
 
 class Helper: NSObject {
     public static func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String,txt:UITextView) {
@@ -81,6 +83,43 @@ class Helper: NSObject {
                 }
             }, failure: { (Error) in
                 response(false)
+           })
+       }
+        else{
+           
+        }
+    }
+    
+    static func CheckAvailableProdcutAPI(pincode:String,response:@escaping ([NotAvailableProduct]) -> Void) {
+
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+            let userID = UserDefaults.standard.getUserID()
+            let params :[String:Any] = ["Pincode":pincode,"UserId":userID]
+            ApiManager.sharedInstance.requestPOSTURL(Constant.ApplyPinCodeURL, params: params, success: {(JSON) in
+                let msg =  JSON.dictionary?["Message"]
+                print(msg as Any)
+                if((JSON.dictionary?["IsSuccess"]) != false){
+                    let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
+                    let list =  try! JSONDecoder().decode([NotAvailableProduct].self, from: jsonData!)
+                    response(list)
+                }
+                else{
+                    response([])
+                }
+                DispatchQueue.main.async {
+                    HUD.flash(.progress)
+                }
+                
+            }, failure: { (Error) in
+                //response([])
+                DispatchQueue.main.async {
+                    HUD.flash(.progress)
+                }
+                LPSnackbar.showSnack(title: Error.localizedDescription)
+                
            })
        }
         else{

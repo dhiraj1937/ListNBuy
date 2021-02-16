@@ -53,7 +53,7 @@ class CheckOutViewController: UIViewController {
         let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
         vc.headertitle = "Select Delivery Address"
         vc.totalAmount = lblTotalVal.text
-        vc.productList = listProducts
+        //vc.productList = listProducts
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

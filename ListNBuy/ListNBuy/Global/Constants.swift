@@ -105,6 +105,7 @@ public class Constant {
     public static var getOrderByUserIdURL:String = Constant.serverURL+"/getOrderByUserId/";
     public static var getOrderDetailsByOrderIdURL:String = Constant.serverURL+"/getOrderDetailsByOrderId/";
     public static var changeOrderStatusURL:String = Constant.serverURL+"/changeOrderStatus";
+    public static var ApplyPinCodeURL:String = Constant.serverURL+"/applyPincode";
     // post status orderId
     
     

@@ -23,7 +23,7 @@ class ProductUnAvailableViewController: UIViewController {
     @IBOutlet var collectionView:UICollectionView!
     @IBOutlet var cnstContainerViewHeight: NSLayoutConstraint!
 
-    public var listProducts:[CartDetail] = [CartDetail]()
+    public var listProducts:[NotAvailableProduct] = [NotAvailableProduct]()
     
     var navigation:UINavigationController!
     var delegate:ProductUnAvailableDelegate!

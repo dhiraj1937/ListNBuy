@@ -16,7 +16,7 @@ class AddressListViewController: UIViewController, ActionButtonDelegate {
     @IBOutlet var lblTitle:UILabel!
     public var headertitle:String!
     public var totalAmount:String!
-    public var productList:[CartDetail] = [CartDetail]()
+    public var productList:[NotAvailableProduct] = [NotAvailableProduct]()
     @IBOutlet var tblAdd:UITableView!
     public let refreshControl = UIRefreshControl()
 
@@ -149,6 +149,15 @@ extension AddressListViewController :
         //print(dicAddObj)
         if headertitle == "Select Delivery Address"{
             
+            Helper.CheckAvailableProdcutAPI(pincode: dicAddObj["Pincode"] as! String) {(productList) in
+                if(productList.count>0){
+                    self.productList = productList;
+                    self.openProductUnAvailableForSelectedArea()
+                }
+                else{
+                    self.openPaymentOption()
+                }
+            }
             //Dhiraj ??
             //?? Needs to apply any check or call api to match address
             
@@ -158,11 +167,11 @@ extension AddressListViewController :
             //openProductUnAvailableForSelectedArea()
             
             //the below 5 lines of code only for testing !!
-            if indexPath.row == 0 {
-                openProductUnAvailableForSelectedArea()
-            }else{
-                openPaymentOption()
-            }
+//            if indexPath.row == 0 {
+//                openProductUnAvailableForSelectedArea()
+//            }else{
+//                openPaymentOption()
+//            }
         }
     }
     func openPaymentOption(){
