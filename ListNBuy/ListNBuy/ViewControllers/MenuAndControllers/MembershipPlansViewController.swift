@@ -60,6 +60,10 @@ extension MembershipPlansViewController:UICollectionViewDelegate,UICollectionVie
         cell.btnBuyNow.tag = indexPath.section
         cell.btnBuyNow.addTarget(self, action:#selector(btnBuyNowAction(sender:)),
                                  for: UIControl.Event.touchUpInside)
+        let userID = UserDefaults.standard.getUserID()
+        if(userID == ""){
+            cell.btnBuyNow.isHidden = true
+        }
         return cell
     }
 

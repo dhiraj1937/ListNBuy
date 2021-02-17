@@ -145,7 +145,10 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.AddWalletButton(vc: self, amount: Constant.walletCash)
+        let userID = UserDefaults.standard.getUserID()
+        if(userID != ""){
+            self.AddWalletButton(vc: self, amount: Constant.walletCash)
+        }
     }
 }
 

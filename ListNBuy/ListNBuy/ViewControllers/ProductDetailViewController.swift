@@ -123,6 +123,12 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
     }
     @IBAction func btnAddToCartAction(){
         
+        let userID = UserDefaults.standard.getUserID()
+        if userID == "" {
+            (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
+            return
+        }
+        
         let userPin = UserDefaults.standard.getUserPin()
         if userPin != "" {
             //show popup
@@ -182,6 +188,13 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
     }
     
     @IBAction func btnShowCartAction(){
+        
+        let userID = UserDefaults.standard.getUserID()
+        if userID == "" {
+            (KAPPDELEGATE.window!.rootViewController as! UINavigationController?)!.popToRootViewController(animated: true)
+            return
+        }
+        
         let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "CheckOutViewController") as CheckOutViewController
         Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
     }

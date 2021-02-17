@@ -20,6 +20,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddI-Pg-IVL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                 <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gMG-yd-s3B">
+                                        <rect key="frame" x="67" y="-19" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="A7R-fh-nC1"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="URQ-h2-dVJ"/>
+                                    </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqN-X3-Enf">
                                         <rect key="frame" x="6" y="48" width="70" height="43"/>
                                         <constraints>
@@ -68,14 +74,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ej3-aj-Oxy">
                                 <rect key="frame" x="0.0" y="91" width="375" height="687"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jkg-pM-wTg">
-                                        <rect key="frame" x="0.0" y="-0.3333333333333286" width="375" height="199.66666666666669"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jkg-pM-wTg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                         <color key="tintColor" red="0.54117647059999996" green="0.29411764709999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="K8s-Sx-OmR"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZANDU PANCHARISHTA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqH-Ix-TED">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqH-Ix-TED">
                                         <rect key="frame" x="10" y="205" width="355" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="iJL-Iz-fD7"/>
@@ -91,7 +97,7 @@
                                             <constraint firstAttribute="height" constant="1" id="V6d-5t-NQo"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS: 126.72" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mce-Di-ZxB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mce-Di-ZxB">
                                         <rect key="frame" x="10" y="237" width="95" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Oaz-jH-qOz"/>
@@ -101,18 +107,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlv-EV-djm">
-                                        <rect key="frame" x="105" y="237" width="85" height="26.666666666666686"/>
+                                        <rect key="frame" x="105" y="237" width="85" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="85" id="AMf-ZP-4Z0"/>
                                         </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="RS: 132">
-                                                <attributes>
-                                                    <color key="NSColor" systemColor="systemOrangeColor"/>
-                                                    <font key="NSFont" size="12" name="NotoSansMyanmar-Regular"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <attributedString key="attributedText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fth-iU-R92">
@@ -275,7 +274,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACx-es-pzS">
-                                                <rect key="frame" x="10" y="41" width="100" height="21"/>
+                                                <rect key="frame" x="10" y="74" width="100" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="4ag-IT-Sba"/>
                                                     <constraint firstAttribute="height" constant="21" id="8OK-h9-lKV"/>
@@ -285,14 +284,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FXO-4D-WuD">
-                                                <rect key="frame" x="10" y="66" width="315" height="1"/>
+                                                <rect key="frame" x="10" y="99" width="315" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="ba0-gF-o0n"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZANDU PANCHARISHTA 450 ml" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35R-Xa-URx">
-                                                <rect key="frame" x="10" y="77" width="315" height="33"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35R-Xa-URx">
+                                                <rect key="frame" x="10" y="110" width="315" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="NotoSansMyanmar-Light" family="Noto Sans Myanmar" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1455,7 +1454,6 @@
         <image name="menu" width="25" height="25"/>
         <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="star.leadinghalf.fill" catalog="system" width="128" height="116"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
         <image name="whatsapp" width="30" height="30"/>
         <systemColor name="labelColor">

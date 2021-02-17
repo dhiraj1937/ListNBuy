@@ -158,20 +158,6 @@ extension AddressListViewController :
                     self.openPaymentOption()
                 }
             }
-            //Dhiraj ??
-            //?? Needs to apply any check or call api to match address
-            
-            //if address passed then show openPaymentOption
-            //openPaymentOption()
-            //else address fails then show openProductUnAvailableForSelectedArea
-            //openProductUnAvailableForSelectedArea()
-            
-            //the below 5 lines of code only for testing !!
-//            if indexPath.row == 0 {
-//                openProductUnAvailableForSelectedArea()
-//            }else{
-//                openPaymentOption()
-//            }
         }
     }
     func openPaymentOption(){

@@ -76,10 +76,13 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="mEP-6Z-HOG"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="DPC-Ak-oIP"/>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grd-ic-Uey">
-                    <rect key="frame" x="332" y="698" width="60" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grd-ic-Uey">
+                    <rect key="frame" x="339" y="732" width="60" height="60"/>
                     <color key="backgroundColor" red="0.99276465179999995" green="0.82444578410000002" blue="0.48177999259999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="gdF-tM-Gvy"/>
+                        <constraint firstAttribute="width" constant="60" id="gzA-K4-v8n"/>
+                    </constraints>
                     <state key="normal" image="whatsapp"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -107,9 +110,11 @@
                 <constraint firstItem="6h7-W6-sqT" firstAttribute="top" secondItem="aZN-oL-nwz" secondAttribute="top" constant="12" id="3Kl-hZ-oAo"/>
                 <constraint firstItem="bYA-sv-mRz" firstAttribute="trailing" secondItem="aZN-oL-nwz" secondAttribute="trailing" id="3VZ-g0-7nS"/>
                 <constraint firstItem="bYA-sv-mRz" firstAttribute="leading" secondItem="aZN-oL-nwz" secondAttribute="leading" id="4tW-hU-VuT"/>
+                <constraint firstItem="aZN-oL-nwz" firstAttribute="trailing" secondItem="grd-ic-Uey" secondAttribute="trailing" constant="15" id="6U8-ti-vME"/>
                 <constraint firstItem="aZN-oL-nwz" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6h7-W6-sqT" secondAttribute="trailing" symbolic="YES" id="9XL-xy-cON"/>
                 <constraint firstItem="7VV-gG-t6e" firstAttribute="leading" secondItem="aZN-oL-nwz" secondAttribute="leading" constant="10" id="Gpm-x5-S5B"/>
                 <constraint firstItem="6h7-W6-sqT" firstAttribute="leading" secondItem="7VV-gG-t6e" secondAttribute="trailing" constant="10" id="MTD-tb-p9u"/>
+                <constraint firstItem="aZN-oL-nwz" firstAttribute="bottom" secondItem="grd-ic-Uey" secondAttribute="bottom" constant="70" id="UUZ-jR-QnX"/>
                 <constraint firstItem="7VV-gG-t6e" firstAttribute="top" secondItem="aZN-oL-nwz" secondAttribute="top" constant="10" id="XDv-uP-n3R"/>
                 <constraint firstItem="bYA-sv-mRz" firstAttribute="top" secondItem="aZN-oL-nwz" secondAttribute="top" id="veK-ei-owK"/>
             </constraints>
