@@ -15,9 +15,11 @@ class CheckOutViewController: UIViewController {
     
     @IBOutlet weak var lblMRPVal:UILabel!
     @IBOutlet weak var lblDeliveryChargeVal:UILabel!
-    @IBOutlet weak var lblTotalVal:UILabel!
     @IBOutlet weak var txtFPromoCode:UITextField!
     @IBOutlet weak var btnApply:UIButton!
+    @IBOutlet weak var lblApplied:UILabel!
+    @IBOutlet weak var lblAppliedAmount:UILabel!
+    @IBOutlet weak var lblTotalVal:UILabel!
     @IBOutlet weak var btnPayNow:UIButton!
     @IBOutlet weak var tblItemList:UITableView!
 
@@ -45,9 +47,55 @@ class CheckOutViewController: UIViewController {
     
     @IBAction func btnAddItemQByOne(sender:UIButton){
         
+        let userPin = UserDefaults.standard.getUserPin()
+        let product = listProducts[sender.tag]
+        let userID = UserDefaults.standard.getUserID()
+        var dic = [String:AnyObject]()
+        dic["userId"] = userID as AnyObject
+        dic["productId"] = product.id as AnyObject
+        dic["variationId"] = product.varID as AnyObject
+        let qty = Int(product.quantity)! + 1
+        dic["quantity"] = qty as AnyObject
+        dic["PIN"] = userPin as AnyObject
+        
+                   
+                if KAPPDELEGATE.isNetworkAvailable(){
+                    DispatchQueue.main.async {
+                        HUD.show(.progress)
+                    }
+                                
+                    ApiManager.sharedInstance.requestPOSTURL(Constant.addCartURL, params: dic, success: {
+                        (JSON) in
+                        print("addCartURL")
+                        print(JSON)
+                        let msg =  JSON.dictionary?["Message"]
+                        if((JSON.dictionary?["IsSuccess"]) != false){
+                            DispatchQueue.main.async {
+                                HUD.flash(.progress)
+                                LPSnackbar.showSnack(title:msg!.description)
+                                self.getCartListAPI()
+                            }
+                        }
+                        else{
+                            DispatchQueue.main.async {
+                                HUD.flash(.progress)
+                                LPSnackbar.showSnack(title: msg!.description)
+                            }
+                        }
+                    }, failure: { (Error) in
+                        DispatchQueue.main.async {
+                            HUD.flash(.error)
+                            LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                        }
+                    })
+                }else{
+                    LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+                }
+            
     }
     @IBAction func btnRemoveItemQByOne(sender:UIButton){
-        
+        let cartItem = listProducts[sender.tag]
+        removeCartItemAPI(pid: cartItem.id, vid: cartItem.varID)
     }
     @IBAction func btnPayNow(sender:UIButton){
         let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
@@ -86,6 +134,8 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
             print(strUrl as Any)
             ApiManager.sharedInstance.requestGETURL(strUrl, success: { [self]
                 (JSON) in
+                print("getCartListURL")
+                print(JSON)
                 let msg =  JSON.dictionary?["Message"]
                 print(msg as Any)
                 if((JSON.dictionary?["IsSuccess"]) != false){
@@ -108,7 +158,6 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                     
                     var mrp = 0.0
                     for item in listProducts {
-                       // mrp = mrp + Double(item.quantity)! * Double(item.salePrice)
                         mrp = mrp + Double(item.quantity)! * (Constant.isPlanHidden == true ? Double(item.salePrice) : Double(item.memberPrice))
                     }
                     lblMRPVal.text = String(format: "%.2f", mrp)
@@ -151,7 +200,8 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                                            "userId":userID,
                                            "variationId":vid]
                ApiManager.sharedInstance.requestPOSTURL(Constant.removeCartURL, params: params, success: {(JSON) in
-                   
+                print("removeCartURL")
+                print(JSON)
                    let msg =  JSON.dictionary?["Message"]?.stringValue
                    
                    if((JSON.dictionary?["IsSuccess"]) != false){
@@ -190,7 +240,8 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                                         "userId":userID,
                                         "Total":total]
                ApiManager.sharedInstance.requestPOSTURL(Constant.applyCouponCodeURL , params: params, success: {(JSON) in
-                   
+                print("applyCouponCodeURL")
+                print(JSON)
                    let msg =  JSON.dictionary?["Message"]?.stringValue
                    
                    if((JSON.dictionary?["IsSuccess"]) != false){
@@ -199,6 +250,19 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                            LPSnackbar.showSnack(title: msg!)
                        }
                     //if any chage required ?? otherwise
+                   
+                    
+                    self.txtFPromoCode.isHidden = true
+                    self.btnApply.isHidden = true
+                    
+                    self.lblApplied.text = (JSON.dictionary?["Code"]!.description)! + " Applied"
+                    self.lblApplied.isHidden = false
+                    
+                    self.lblAppliedAmount.text = "-" + (JSON.dictionary?["Amount"]!.description)!
+                    self.lblAppliedAmount.isHidden = false
+                    
+                    self.lblTotalVal.text = JSON.dictionary?["Total"]!.description
+                    
                     self.getCartListAPI()
                    }else {
                        HUD.flash(.progress)
