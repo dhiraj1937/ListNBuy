@@ -22,7 +22,7 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var lblTotalVal:UILabel!
     @IBOutlet weak var btnPayNow:UIButton!
     @IBOutlet weak var tblItemList:UITableView!
-
+    var walletJsonRes:JSON? = nil;
     var listProducts:[CartDetail] = [CartDetail]()
 
     override func viewDidLoad() {
@@ -101,7 +101,13 @@ class CheckOutViewController: UIViewController {
         let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
         vc.headertitle = "Select Delivery Address"
         vc.totalAmount = lblTotalVal.text
-        //vc.productList = listProducts
+        vc.cartList = listProducts
+        if(walletJsonRes != nil){
+            vc.ShippingAmt =  walletJsonRes?.dictionary?["Shipping"]!.rawString()!
+            vc.Wallet =  walletJsonRes?.dictionary?["Wallet"]!.rawString()!
+            vc.SuperWallet =  walletJsonRes?.dictionary?["SuperWallet"]!.rawString()!
+        }
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -139,6 +145,7 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                 let msg =  JSON.dictionary?["Message"]
                 print(msg as Any)
                 if((JSON.dictionary?["IsSuccess"]) != false){
+                    walletJsonRes = JSON;
                     let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                     listProducts.removeAll()
                     listProducts =  try! JSONDecoder().decode([CartDetail].self, from: jsonData!)

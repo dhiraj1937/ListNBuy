@@ -173,6 +173,10 @@ class LoginVC: UIViewController {
                             UserDefaults.standard.setUserID(value:userid as! String)
                         }
                         
+                        if let userRole = dicUserInfo!["Role"]{
+                            UserDefaults.standard.setUserROLE(value:userRole as! String)
+                        }
+                        
                         DispatchQueue.main.async {
                             HUD.flash(.progress)
                         }

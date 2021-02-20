@@ -126,6 +126,7 @@ class Helper: NSObject {
            
         }
     }
+    
 }
 
 class RoundedCornerView: UIView {

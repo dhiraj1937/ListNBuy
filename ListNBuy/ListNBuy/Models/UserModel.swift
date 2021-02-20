@@ -765,4 +765,41 @@ class NotAvailableProduct: Codable {
     }
 }
 
+class CreateOrder: Codable {
+    let products: [CartDetail]
+    let shippingAddress, shipping, couponCode, couponAmount: String
+    let lat, lng, payMethod, userID: String
+    let role, diductionwallet, diductionsuperwallet, dDt: String
+
+    enum CodingKeys: String, CodingKey {
+        case products
+        case shippingAddress = "shipping_address"
+        case shipping
+        case couponCode = "coupon_code"
+        case couponAmount = "coupon_amount"
+        case lat = "Lat"
+        case lng = "Lng"
+        case payMethod = "pay_method"
+        case userID = "user_id"
+        case role, diductionwallet, diductionsuperwallet
+        case dDt = "d_dt"
+    }
+
+    init(products: [CartDetail], shippingAddress: String, shipping: String, couponCode: String, couponAmount: String, lat: String, lng: String, payMethod: String, userID: String, role: String, diductionwallet: String, diductionsuperwallet: String, dDt: String) {
+        self.products = products
+        self.shippingAddress = shippingAddress
+        self.shipping = shipping
+        self.couponCode = couponCode
+        self.couponAmount = couponAmount
+        self.lat = lat
+        self.lng = lng
+        self.payMethod = payMethod
+        self.userID = userID
+        self.role = role
+        self.diductionwallet = diductionwallet
+        self.diductionsuperwallet = diductionsuperwallet
+        self.dDt = dDt
+    }
+}
+
 

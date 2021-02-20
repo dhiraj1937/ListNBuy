@@ -16,7 +16,12 @@ class AddressListViewController: UIViewController, ActionButtonDelegate {
     @IBOutlet var lblTitle:UILabel!
     public var headertitle:String!
     public var totalAmount:String!
+    public var ShippingAmt:String!
+    public var SuperWallet:String!
+    public var SelectedAdd:String!
+    public var Wallet:String!
     public var productList:[NotAvailableProduct] = [NotAvailableProduct]()
+    public var cartList:[CartDetail] = [CartDetail]()
     @IBOutlet var tblAdd:UITableView!
     public let refreshControl = UIRefreshControl()
 
@@ -147,6 +152,7 @@ extension AddressListViewController :
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dicAddObj = AddressController.listAddress![indexPath.row];
         //print(dicAddObj)
+        SelectedAdd = dicAddObj["Address"] as! String;
         if headertitle == "Select Delivery Address"{
             
             Helper.CheckAvailableProdcutAPI(pincode: dicAddObj["Pincode"] as! String) {(productList) in
@@ -183,11 +189,14 @@ extension AddressListViewController :
     }
     
     func createOrderAPI(paymentmode:String){
-        
+        let creatOrder:CreateOrder!
         if paymentmode == "POD" {
             //POD
+            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping:ShippingAmt, couponCode: "", couponAmount: "0", lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "COD", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: "0.0", diductionsuperwallet: "0.0", dDt: Date.init().description)
+            
         }else{
             //Online
+            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping: "", couponCode: "", couponAmount: "0", lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "ONLINE", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: "0.0", diductionsuperwallet: "0.0", dDt: Date.init().description)
         }
         
         if KAPPDELEGATE.isNetworkAvailable(){
@@ -195,8 +204,13 @@ extension AddressListViewController :
                 HUD.show(.progress)
             }
             let userID = UserDefaults.standard.getUserID()
-            print(userID)
-            let params :[String:Any] = ["":""] //Dhiraj ??
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let orderJsonData = try! encoder.encode(creatOrder);
+            print(String(data: orderJsonData, encoding: .utf8)!)
+            let orderJson = String(data: orderJsonData, encoding: .utf8)!
+            let params :[String:Any] = ["order":orderJson] //Dhiraj ??
             ApiManager.sharedInstance.requestPOSTURL(Constant.createOrderURL, params: params, success: {(JSON) in
                 print(JSON)
                 let msg =  JSON.dictionary?["Message"]?.stringValue

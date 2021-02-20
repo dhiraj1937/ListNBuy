@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 //Constents
 let KAPPDELEGATE = UIApplication.shared.delegate as! AppDelegate
@@ -107,7 +108,7 @@ public class Constant {
     public static var changeOrderStatusURL:String = Constant.serverURL+"/changeOrderStatus";
     public static var ApplyPinCodeURL:String = Constant.serverURL+"/applyPincode";
     // post status orderId
-    
+    public static var currentLocation: CLLocation = CLLocation.init()
     
     
     static func GetCurrentVC()->UIViewController{
@@ -142,6 +143,8 @@ enum UserDefaultsKeys : String {
     case isLoggedIn
     case userID
     case userPin
+    case userRole
+        
 }
 
 extension UserDefaults{
@@ -161,6 +164,16 @@ extension UserDefaults{
         set(value, forKey: UserDefaultsKeys.userID.rawValue)
         //synchronize()
     }
+    
+    func setUserROLE(value: String){
+        set(value, forKey: UserDefaultsKeys.userRole.rawValue)
+        //synchronize()
+    }
+    
+    func getUserROLE() -> String{
+        return string(forKey: UserDefaultsKeys.userRole.rawValue) ?? ""
+    }
+    
 
     //MARK: Retrieve User Data
     func getUserID() -> String{
