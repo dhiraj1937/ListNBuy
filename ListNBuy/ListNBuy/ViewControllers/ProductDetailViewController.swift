@@ -29,6 +29,7 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
     @IBOutlet weak var btnAddToWishlist:UIButton!
     @IBOutlet weak var lblDesc:UILabel!
     @IBOutlet weak var btnAddToCart:UIButton!
+    @IBOutlet weak var scrollview:UIScrollView!
 
     @IBOutlet weak var pickerView :UIPickerView!
     @IBOutlet weak var btnDropDownMou:UIButton!
@@ -43,6 +44,11 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
         btnDropDownVariant.setTitle("Select", for: .normal)
         btnDropDownVariant.titleLabel?.textColor = UIColor.black;
         btnDropDownMou.titleLabel?.textColor = UIColor.black;
+        
+        if self.view.frame.size.height < 500 {
+            scrollview.contentSize = CGSize(width:self.scrollview.frame.size.width,height:688)
+        }
+        
         if productId != nil {
             getProductDetails()
         }else{
@@ -113,12 +119,15 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func btnDropDownMouAction(){
+        scrollview.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
         showPickerView(pickerFor:"MOU")
     }
     @IBAction func btnDropDownVariantAction(){
+        scrollview.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
         showPickerView(pickerFor:"VARIANT")
     }
     @IBAction func btnDoneForDismissPicker(){
+        scrollview.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         dismissPickerView()
     }
     @IBAction func btnAddToCartAction(){
@@ -130,7 +139,7 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
         }
         
         let userPin = UserDefaults.standard.getUserPin()
-        if userPin != "" {
+        if userPin == "" {
             //show popup
             let vc = PinViewController.init(nibName: "PinViewController", bundle: nil)
             vc.delegate = self

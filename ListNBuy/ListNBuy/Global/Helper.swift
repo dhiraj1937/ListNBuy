@@ -308,7 +308,12 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
             v?.removeFromSuperview();
             v=nil;
         }
-        let mainView:UIView = UIView.init(frame: CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 50, width: 100, height: 48))
+        var fm = CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 20, width: 100, height: 48)
+        if vc.view.frame.height > 600{
+            fm =  CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 50, width: 100, height: 48)
+        }
+       // let mainView:UIView = UIView.init(frame: CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 50, width: 100, height: 48))
+        let mainView:UIView = UIView.init(frame:fm)
         let btn:UIButton = UIButton.init(type: UIButton.ButtonType.custom, primaryAction: nil)
         btn.setImage(UIImage.init(named: "Wallet"), for: UIControl.State.normal)
         //btn.setTitle(amount, for: UIControl.State.normal)
@@ -342,7 +347,7 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
     func AddCartView(view:UIView) {
         if(Constant.totalItemCount>0){
             let buttonHeight: CGFloat = view.safeAreaInsets.bottom
-            if(buttonHeight==0){
+            if(buttonHeight==49){
                 let viewBanner = ViewCartBottomView.init(frame: CGRect.init(x: 0, y: Int(view.frame.size.height)-90, width: Int(view.frame.size.width), height: 40))
                 viewBanner.tag = -200;
                 view.addSubview(viewBanner);
