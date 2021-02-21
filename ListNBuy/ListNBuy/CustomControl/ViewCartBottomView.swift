@@ -35,8 +35,15 @@ class ViewCartBottomView: UIView {
     }
     
     @IBAction func btn_ClickViewCart(){
-        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "CheckOutViewController") as CheckOutViewController
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "CheckOutViewController") as CheckOutViewController
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "CheckOutViewController") as! CheckOutViewController
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
 
 }

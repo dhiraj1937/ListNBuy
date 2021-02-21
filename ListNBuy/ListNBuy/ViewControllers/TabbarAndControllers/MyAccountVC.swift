@@ -95,25 +95,54 @@ extension MyAccountVC : UITableViewDelegate,UITableViewDataSource {
         //print(dict["Title"]!)
         
         if dict["Title"] == "My Profile" {
-            let vc = KMYACCOUNTSTORYBOARD.instantiateViewController(identifier: "profileViewController") as ProfileViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            if #available(iOS 13.0, *) {
+                let vc = KMYACCOUNTSTORYBOARD.instantiateViewController(identifier: "profileViewController") as ProfileViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = KMYACCOUNTSTORYBOARD.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
             
         }else if dict["Title"] == "My Orders" {
             Constant.globalTabbar?.selectedIndex = 1
         }
         else if dict["Title"] == "Edit Address" {
-            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
-            vc.headertitle = "Edit Address"
-            self.navigationController?.pushViewController(vc, animated: true)
+            if #available(iOS 13.0, *) {
+                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
+                vc.headertitle = "Edit Address"
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "AddressListViewController") as! AddressListViewController
+                vc.headertitle = "Edit Address"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
             
         }
         else if dict["Title"] == "My Plan" {
-            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "CurrentActivePlansViewController") as CurrentActivePlansViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            if #available(iOS 13.0, *) {
+                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "CurrentActivePlansViewController") as CurrentActivePlansViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "CurrentActivePlansViewController") as! CurrentActivePlansViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
             
         }else if dict["Title"] == "My Wallet" {
-            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WalletViewController") as WalletViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            if #available(iOS 13.0, *) {
+                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WalletViewController") as WalletViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "WalletViewController") as! WalletViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
             
         }
         else if dict["Title"] == "Logout" {

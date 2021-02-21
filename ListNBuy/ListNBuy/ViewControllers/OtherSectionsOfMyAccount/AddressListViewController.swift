@@ -19,6 +19,7 @@ class AddressListViewController: UIViewController, ActionButtonDelegate {
     public var ShippingAmt:String!
     public var SuperWallet:String!
     public var SelectedAdd:String!
+    public var CouponCode:String!
     public var Wallet:String!
     public var productList:[NotAvailableProduct] = [NotAvailableProduct]()
     public var cartList:[CartDetail] = [CartDetail]()
@@ -54,13 +55,31 @@ class AddressListViewController: UIViewController, ActionButtonDelegate {
     }
     
     @IBAction func addEditAddress(){
-        let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddAddressViewController") as AddAddressViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddAddressViewController") as AddAddressViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     func getAddressList(){
         let userID = UserDefaults.standard.getUserID()
         AddressController.GetAddressList(userID: userID, vc: self)
+    }
+    
+    func sendToWallet(){
+        if #available(iOS 13.0, *) {
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WalletViewController") as WalletViewController
+            self.navigationController?.pushViewController(vc, animated: true);
+        } else {
+            // Fallback on earlier versions
+            let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "WalletViewController") as! WalletViewController
+            self.navigationController?.pushViewController(vc, animated: true);
+        }
     }
 
 }
@@ -166,16 +185,9 @@ extension AddressListViewController :
             }
         }
     }
-    func openPaymentOption(){
-        let vc = PaymentModeViewController.init(nibName: "PaymentModeViewController", bundle: nil)
-        vc.delegate = self
-        vc.amount = totalAmount
-        self.navigationController?.present(vc, animated: true, completion: nil)
-    }
-    func btnSelectedWithMode(mode:String) {
-        print("selected mode =\(mode)")
-        createOrderAPI(paymentmode:mode)
-    }
+}
+
+extension AddressListViewController {
     
     func openProductUnAvailableForSelectedArea(){
         let vc = ProductUnAvailableViewController.init(nibName: "ProductUnAvailableViewController", bundle: nil)
@@ -188,29 +200,81 @@ extension AddressListViewController :
         self.btnBack()
     }
     
+    func openPaymentOption(){
+        let vc = PaymentModeViewController.init(nibName: "PaymentModeViewController", bundle: nil)
+        vc.delegate = self
+        vc.amount = totalAmount
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    func btnSelectedWithMode(mode:String) {
+        print("selected mode =\(mode)")
+        createOrderAPI(paymentmode:mode)
+    }
+    
     func createOrderAPI(paymentmode:String){
+        
+
+        //Dhiraj ??
+        //Q1. do we needs to check superCashWalletAmount == 0 ?
+        //Q2. if superwallet has lesser amount such as 180 then we needs to do totalmount - 180 ?
+        //Q3. POD k case mai wallet amount deduct hoga ya nahi ?
+        
+        //if totalAmount is GT 1500 deduct 200 in both case Online and POD
+        var diductionsuperwallet:Double = 0.0
+        if Float(totalAmount)! > 1500 &&  Float(Constant.superCashWalletAmount) != 0.0 {
+            if Float(Constant.superCashWalletAmount)! > 200.0 {
+                diductionsuperwallet = 200.0
+            }else{
+                diductionsuperwallet = Double(Constant.superCashWalletAmount)!
+            }
+        }else{
+            diductionsuperwallet = 0.0
+        }
         let creatOrder:CreateOrder!
         if paymentmode == "POD" {
             //POD
-            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping:ShippingAmt, couponCode: "", couponAmount: "0", lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "COD", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: "0.0", diductionsuperwallet: "0.0", dDt: Date.init().description)
+            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping:ShippingAmt, couponCode: CouponCode, couponAmount: totalAmount, lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "COD", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: "0.0", diductionsuperwallet: String(diductionsuperwallet), dDt: Date.init().description)
             
         }else{
             //Online
-            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping: "", couponCode: "", couponAmount: "0", lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "ONLINE", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: "0.0", diductionsuperwallet: "0.0", dDt: Date.init().description)
+            
+            if (Float(Constant.walletCash)! < Float(totalAmount)!) {
+                // Create new Alert
+                let dialogMessage = UIAlertController(title: "Confirm", message: "Dear user you have insufficient wallet balance", preferredStyle: .alert)
+                
+                // Create button with action handler
+                let btnAdd = UIAlertAction(title: "ADD MONEY NOW", style: .default, handler: { (action) -> Void in
+                    print("ADD")
+                    self.sendToWallet()
+                 })
+                
+                let btnCancel = UIAlertAction(title: "CANCEL", style: .default, handler: { (action) -> Void in
+                    print("Cancel")
+                 })
+                
+                dialogMessage.addAction(btnAdd)
+                dialogMessage.addAction(btnCancel)
+                self.present(dialogMessage, animated: true, completion: nil)
+                return;
+            }
+            
+            let paybalAmountAfterSW:String = String(Float(totalAmount)! - Float(diductionsuperwallet))
+            
+            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping: ShippingAmt, couponCode: CouponCode, couponAmount: totalAmount, lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "ONLINE", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: paybalAmountAfterSW, diductionsuperwallet: String(diductionsuperwallet), dDt: Date.init().description)
         }
         
         if KAPPDELEGATE.isNetworkAvailable(){
             DispatchQueue.main.async {
                 HUD.show(.progress)
             }
-            let userID = UserDefaults.standard.getUserID()
+            //let userID = UserDefaults.standard.getUserID()
             
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
             let orderJsonData = try! encoder.encode(creatOrder);
             print(String(data: orderJsonData, encoding: .utf8)!)
             let orderJson = String(data: orderJsonData, encoding: .utf8)!
-            let params :[String:Any] = ["order":orderJson] //Dhiraj ??
+            let params :[String:Any] = ["order":orderJson]
             ApiManager.sharedInstance.requestPOSTURL(Constant.createOrderURL, params: params, success: {(JSON) in
                 print(JSON)
                 let msg =  JSON.dictionary?["Message"]?.stringValue
@@ -236,5 +300,19 @@ extension AddressListViewController :
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
     }
-    
 }
+/*       if ONLINE
+        1500
+        1200
+        200
+
+       if POD
+        128
+        0
+        0
+         
+       if POD
+        2000
+        200
+        1800
+*/

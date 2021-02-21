@@ -86,7 +86,8 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
         lblDesc.text = product.productDescription;
         lblProductName.text = product.name;
         if(product.variation.count>0){
-            lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[0].regularPrice.description);
+          //  lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[0].regularPrice.description);
+            lblActualRate.attributedText = NSAttributedString(string: "RS."+product.variation[0].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.foregroundColor: UIColor.red])
             //lblRate.text = "RS."+product.variation[0].memberPrice.description;
             lblRate.text = "RS."+(Constant.isPlanHidden == true ? product.variation[0].salePrice.description :product.variation[0].memberPrice.description)
         }
@@ -204,8 +205,15 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
             return
         }
         
-        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "CheckOutViewController") as CheckOutViewController
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "CheckOutViewController") as CheckOutViewController
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "CheckOutViewController") as! CheckOutViewController
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     @IBAction func btnAddToWishlistAction(){
@@ -274,7 +282,8 @@ extension ProductDetailViewController:  UIPickerViewDelegate, UIPickerViewDataSo
             selectedVariant = arrPicker[row]
             btnDropDownVariant.setTitle(selectedVariant, for: .normal)
             if(product.variation.count>0){
-                lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[row].regularPrice.description);
+               // lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[row].regularPrice.description);
+                lblActualRate.attributedText = NSAttributedString(string: "RS."+product.variation[row].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.foregroundColor: UIColor.red])
                 lblRate.text = "RS."+product.variation[row].memberPrice.description;
             }
         }

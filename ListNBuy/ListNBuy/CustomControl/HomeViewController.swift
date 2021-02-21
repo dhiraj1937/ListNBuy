@@ -72,9 +72,17 @@ class HomeViewController: UIViewController {
     
     @objc func SearchProdcut(){
         if(txtSearch.text!.count>0){
-        let vcSearch = KHOMESTORYBOARD.instantiateViewController(identifier: "SearchListViewController") as SearchListViewController
-        vcSearch.searchText = txtSearch.text;
-        self.navigationController?.pushViewController(vcSearch, animated: true);
+            if #available(iOS 13.0, *) {
+                let vcSearch = KHOMESTORYBOARD.instantiateViewController(identifier: "SearchListViewController") as SearchListViewController
+                vcSearch.searchText = txtSearch.text;
+                self.navigationController?.pushViewController(vcSearch, animated: true);
+            } else {
+                // Fallback on earlier versions
+                let vcSearch = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "SearchListViewController") as! SearchListViewController
+                vcSearch.searchText = txtSearch.text;
+                self.navigationController?.pushViewController(vcSearch, animated: true);
+            }
+        
         }
     }
     
@@ -159,9 +167,17 @@ class HomeViewController: UIViewController {
     
     @objc func btnBannerpressed(sender: UIButton!) {
         print("btnBannerpressed=\(sender.tag)")
-        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductCollectionViewController") as ProductCollectionViewController
-        vc.parentCategoryId = String(sender.tag)
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductCollectionViewController") as ProductCollectionViewController
+            vc.parentCategoryId = String(sender.tag)
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "ProductCollectionViewController") as! ProductCollectionViewController
+            vc.parentCategoryId = String(sender.tag)
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
 
     func GetHomeCategoryData(){

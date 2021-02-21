@@ -84,6 +84,7 @@ public class Constant {
 
     public static var  globalTabbar:UITabBarController?
     public static var  walletCash:String = "0.0"
+    public static var  superCashWalletAmount:String = "0.0"
     public static var  homeVC:UIViewController?;
     
     public static var  isPlanHidden = true

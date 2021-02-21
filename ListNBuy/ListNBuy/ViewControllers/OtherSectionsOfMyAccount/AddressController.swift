@@ -184,6 +184,7 @@ class AddressController: NSObject {
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                 let wallet:WalletAmount  = try! JSONDecoder().decode(WalletAmount.self, from: jsonData!)
                 Constant.walletCash = wallet.walletAmount
+                Constant.superCashWalletAmount = wallet.superCashWalletAmount
                }
                 response(Constant.walletCash);
                 HUD.flash(.progress)

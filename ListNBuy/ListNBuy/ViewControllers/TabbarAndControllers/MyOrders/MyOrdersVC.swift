@@ -68,9 +68,17 @@ class MyOrdersVC: BaseViewController {
     }
     @IBAction func btnShowOrderDetail(sender:UIButton){
         let objOrder:Orders = arrOrders[sender.tag]
-        let vc = KMYORDERSSTORYBOARD.instantiateViewController(identifier: "OrderDetailList") as OrderDetailList
-        vc.listProducts = objOrder.products
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = KMYORDERSSTORYBOARD.instantiateViewController(identifier: "OrderDetailList") as OrderDetailList
+            vc.listProducts = objOrder.products
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KMYORDERSSTORYBOARD.instantiateViewController(withIdentifier: "OrderDetailList") as! OrderDetailList
+            vc.listProducts = objOrder.products
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     func cancelOrderAPICall(){

@@ -59,9 +59,17 @@ extension SocialViewController:UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sm = listSM[indexPath.row]
         //print(sm.Link)
-        let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WebViewController") as WebViewController
-        vc.urlString = sm.Link
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "WebViewController") as WebViewController
+            vc.urlString = sm.Link
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+            vc.urlString = sm.Link
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     func getSocialList(){

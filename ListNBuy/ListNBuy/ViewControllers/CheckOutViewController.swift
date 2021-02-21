@@ -22,6 +22,7 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var lblTotalVal:UILabel!
     @IBOutlet weak var btnPayNow:UIButton!
     @IBOutlet weak var tblItemList:UITableView!
+    var couponCode = ""
     var walletJsonRes:JSON? = nil;
     var listProducts:[CartDetail] = [CartDetail]()
 
@@ -98,17 +99,35 @@ class CheckOutViewController: UIViewController {
         removeCartItemAPI(pid: cartItem.id, vid: cartItem.varID)
     }
     @IBAction func btnPayNow(sender:UIButton){
-        let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
-        vc.headertitle = "Select Delivery Address"
-        vc.totalAmount = lblTotalVal.text
-        vc.cartList = listProducts
-        if(walletJsonRes != nil){
-            vc.ShippingAmt =  walletJsonRes?.dictionary?["Shipping"]!.rawString()!
-            vc.Wallet =  walletJsonRes?.dictionary?["Wallet"]!.rawString()!
-            vc.SuperWallet =  walletJsonRes?.dictionary?["SuperWallet"]!.rawString()!
+        if #available(iOS 13.0, *) {
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddressListViewController") as AddressListViewController
+            vc.headertitle = "Select Delivery Address"
+            vc.totalAmount = lblTotalVal.text
+            vc.cartList = listProducts
+            vc.CouponCode = couponCode
+            if(walletJsonRes != nil){
+                vc.ShippingAmt =  walletJsonRes?.dictionary?["Shipping"]!.rawString()!
+                vc.Wallet =  walletJsonRes?.dictionary?["Wallet"]!.rawString()!
+                vc.SuperWallet =  walletJsonRes?.dictionary?["SuperWallet"]!.rawString()!
+            }
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "AddressListViewController") as! AddressListViewController
+            vc.headertitle = "Select Delivery Address"
+            vc.totalAmount = lblTotalVal.text
+            vc.cartList = listProducts
+            vc.CouponCode = couponCode
+            if(walletJsonRes != nil){
+                vc.ShippingAmt =  walletJsonRes?.dictionary?["Shipping"]!.rawString()!
+                vc.Wallet =  walletJsonRes?.dictionary?["Wallet"]!.rawString()!
+                vc.SuperWallet =  walletJsonRes?.dictionary?["SuperWallet"]!.rawString()!
+            }
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+       
     }
 
 }
@@ -261,7 +280,7 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                     
                     self.txtFPromoCode.isHidden = true
                     self.btnApply.isHidden = true
-                    
+                    self.couponCode = (JSON.dictionary?["Code"]!.description)!
                     self.lblApplied.text = (JSON.dictionary?["Code"]!.description)! + " Applied"
                     self.lblApplied.isHidden = false
                     

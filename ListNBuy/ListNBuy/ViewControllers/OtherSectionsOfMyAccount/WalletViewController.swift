@@ -65,8 +65,15 @@ class WalletViewController: UIViewController {
     }
     
     @IBAction func btnAddAction(){
-        let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddToWalletViewController") as AddToWalletViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "AddToWalletViewController") as AddToWalletViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "AddToWalletViewController") as! AddToWalletViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
 }
 
@@ -103,6 +110,7 @@ extension WalletViewController : UITableViewDelegate, UITableViewDataSource
                 lblCashWallet.text = "Rs " + wallet.walletAmount
                 Constant.walletCash = wallet.walletAmount
                 lblSuperCashWallet.text = "Rs " + wallet.superCashWalletAmount
+                Constant.superCashWalletAmount = wallet.superCashWalletAmount
                  HUD.flash(.progress)
                }
                else{

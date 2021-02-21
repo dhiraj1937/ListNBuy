@@ -40,8 +40,8 @@ class PaymentModeViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnONLINE_Click(){
-        self.delegate.btnSelectedWithMode(mode: "ONLINE")
         close()
+        self.delegate.btnSelectedWithMode(mode: "ONLINE")
     }
     @IBAction func btnPOD_Click(){
         self.delegate.btnSelectedWithMode(mode: "POD")

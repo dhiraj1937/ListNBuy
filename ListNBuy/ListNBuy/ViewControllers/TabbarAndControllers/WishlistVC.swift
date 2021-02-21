@@ -77,9 +77,17 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
         let product = listWish?[indexPath.row]
         print(product as Any)
         if let pid = product?["id"]{
-            let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
-            vc.productId = pid as? String
-            self.navigationController?.pushViewController(vc, animated: true)
+            if #available(iOS 13.0, *) {
+                let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
+                vc.productId = pid as? String
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
+                vc.productId = pid as? String
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+           
         }
     }
     

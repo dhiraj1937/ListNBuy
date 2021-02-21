@@ -27,43 +27,103 @@ class LeftMenuVC: UIViewController {
                 Constant.globalTabbar?.selectedIndex = 4
             }
             else if sender.tag == 2 {//Membership Plans
-                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "MembershipPlansViewController") as MembershipPlansViewController
-                vc.headertitle = "Membership Plans"
-                self.navigationController?.pushViewController(vc, animated: true)
+                if #available(iOS 13.0, *) {
+                    let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "MembershipPlansViewController") as MembershipPlansViewController
+                    vc.headertitle = "Membership Plans"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    // Fallback on earlier versions
+                    let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "MembershipPlansViewController") as! MembershipPlansViewController
+                    vc.headertitle = "Membership Plans"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
             }
             else if sender.tag == 3 {//Social Media
-                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "SocialViewController") as SocialViewController
-                vc.headertitle = "Social Media"
-                self.navigationController?.pushViewController(vc, animated: true)
+                if #available(iOS 13.0, *) {
+                    let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "SocialViewController") as SocialViewController
+                    vc.headertitle = "Social Media"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    // Fallback on earlier versions
+                    let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "SocialViewController") as! SocialViewController
+                    vc.headertitle = "Social Media"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
             }
             else if sender.tag == 4 {//Contact US
-                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "ContactUsViewController") as ContactUsViewController
-                vc.slug = "contact-us";
-                vc.headertitle = "Contact US"
-                self.navigationController?.pushViewController(vc, animated: true)
+                if #available(iOS 13.0, *) {
+                    let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "ContactUsViewController") as ContactUsViewController
+                    vc.slug = "contact-us";
+                    vc.headertitle = "Contact US"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    // Fallback on earlier versions
+                    let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "ContactUsViewController") as! ContactUsViewController
+                    vc.slug = "contact-us";
+                    vc.headertitle = "Contact US"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+               
             }
             else if sender.tag == 5 {//FAQs
-                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "FAQsViewController") as FAQsViewController
-                vc.headertitle = "FAQs"
-                self.navigationController?.pushViewController(vc, animated: true)
+                if #available(iOS 13.0, *) {
+                    let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "FAQsViewController") as FAQsViewController
+                    vc.headertitle = "FAQs"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    // Fallback on earlier versions
+                    let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "FAQsViewController") as! FAQsViewController
+                    vc.headertitle = "FAQs"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
             }
             else if sender.tag == 6 {//About US
-                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
-                vc.slug = "about-us";
-                vc.headertitle = "About Us"
-                self.navigationController?.pushViewController(vc, animated: true)
+                if #available(iOS 13.0, *) {
+                    let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+                    vc.slug = "about-us";
+                    vc.headertitle = "About Us"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    // Fallback on earlier versions
+                    let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "OtherInfoViewController") as! OtherInfoViewController
+                    vc.slug = "about-us";
+                    vc.headertitle = "About Us"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+               
             }
             else if sender.tag == 7 {
-                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
-                vc.slug = "privacy-policy";
-                vc.headertitle = "Privacy policy";
-                self.navigationController?.pushViewController(vc, animated: true)
+                if #available(iOS 13.0, *) {
+                    let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+                    vc.slug = "privacy-policy";
+                    vc.headertitle = "Privacy policy";
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    // Fallback on earlier versions
+                    let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "OtherInfoViewController") as! OtherInfoViewController
+                    vc.slug = "privacy-policy";
+                    vc.headertitle = "Privacy policy";
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
             }
             else if sender.tag == 8 {
-                let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
-                vc.slug = "terms-conditions";
-                vc.headertitle = "Terms Conditions";
-                self.navigationController?.pushViewController(vc, animated: true)
+                if #available(iOS 13.0, *) {
+                    let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+                    vc.slug = "terms-conditions";
+                    vc.headertitle = "Terms Conditions";
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    // Fallback on earlier versions
+                    let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "OtherInfoViewController") as! OtherInfoViewController
+                    vc.slug = "terms-conditions";
+                    vc.headertitle = "Terms Conditions";
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
             }
             else if sender.tag == 9 {//share
                 //no ctrl just open share

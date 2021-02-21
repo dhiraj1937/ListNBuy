@@ -158,18 +158,36 @@ extension ProductListViewController : UICollectionViewDelegate,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == collectionViewCategory {
-            let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductCollectionViewController") as ProductCollectionViewController
+            if #available(iOS 13.0, *) {
+                let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductCollectionViewController") as ProductCollectionViewController
+                let category:HomeParentCategoryModel = listCategory[indexPath.row];
+                vc.parentCategoryId = category.id
+                Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "ProductCollectionViewController") as! ProductCollectionViewController
+                let category:HomeParentCategoryModel = listCategory[indexPath.row];
+                vc.parentCategoryId = category.id
+                Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            }
             
-            let category:HomeParentCategoryModel = listCategory[indexPath.row];
-            vc.parentCategoryId = category.id
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            
             return;
         }
         
         //Product collection goes to productDetail
-        let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
-        vc.product = Constant.getProductModelFromProductSModel(prod: listProducts[indexPath.row])
-        vc.productId = listProducts[indexPath.row].id
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductDetailViewController") as ProductDetailViewController
+            vc.product = Constant.getProductModelFromProductSModel(prod: listProducts[indexPath.row])
+            vc.productId = listProducts[indexPath.row].id
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
+            vc.product = Constant.getProductModelFromProductSModel(prod: listProducts[indexPath.row])
+            vc.productId = listProducts[indexPath.row].id
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
 }
