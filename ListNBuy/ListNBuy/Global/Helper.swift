@@ -72,10 +72,19 @@ class Helper: NSObject {
                 if((JSON.dictionary?["IsSuccess"]) != false){
                     let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                     Constant.listCartProducts =  try! JSONDecoder().decode([CartDetail].self, from: jsonData!)
-                    for p in Constant.listCartProducts {
-                        Constant.totalAmount =  Constant.totalAmount + p.regularPrice;
+                    Constant.totalAmount = 0;
+                    
+                    var mrp = 0.0
+                    var quantity = 0;
+                    for item in Constant.listCartProducts {
+                        mrp = mrp + Double(item.quantity)! * (Constant.isPlanHidden == true ? Double(item.salePrice) : Double(item.memberPrice))
+                        quantity = quantity+Int(item.quantity)!;
                     }
-                    Constant.totalItemCount = Constant.listCartProducts.count;
+                    Constant.totalAmount = Double(String(format: "%.2f", mrp))!
+//                    for p in Constant.listCartProducts {
+//                        Constant.totalAmount =  Constant.totalAmount + p.regularPrice;
+//                    }
+                    Constant.totalItemCount = quantity;
                     response(true)
                 }
                 else{

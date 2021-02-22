@@ -23,6 +23,8 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var btnPayNow:UIButton!
     @IBOutlet weak var tblItemList:UITableView!
     var couponCode = ""
+    var couponAmt = "0"
+    var IsMonth = false;
     var walletJsonRes:JSON? = nil;
     var listProducts:[CartDetail] = [CartDetail]()
 
@@ -105,6 +107,8 @@ class CheckOutViewController: UIViewController {
             vc.totalAmount = lblTotalVal.text
             vc.cartList = listProducts
             vc.CouponCode = couponCode
+            vc.CouponAmt = couponAmt;
+            vc.IsMonth = IsMonth;
             if(walletJsonRes != nil){
                 vc.ShippingAmt =  walletJsonRes?.dictionary?["Shipping"]!.rawString()!
                 vc.Wallet =  walletJsonRes?.dictionary?["Wallet"]!.rawString()!
@@ -119,6 +123,7 @@ class CheckOutViewController: UIViewController {
             vc.totalAmount = lblTotalVal.text
             vc.cartList = listProducts
             vc.CouponCode = couponCode
+            vc.CouponAmt = couponAmt;
             if(walletJsonRes != nil){
                 vc.ShippingAmt =  walletJsonRes?.dictionary?["Shipping"]!.rawString()!
                 vc.Wallet =  walletJsonRes?.dictionary?["Wallet"]!.rawString()!
@@ -169,6 +174,7 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                     listProducts.removeAll()
                     listProducts =  try! JSONDecoder().decode([CartDetail].self, from: jsonData!)
             
+                    //lblDeliveryChargeVal.text =
                     if let shipping = JSON.dictionaryObject?["Shipping"]{
                         lblDeliveryChargeVal.text = (shipping as! String)
                     }
@@ -188,15 +194,21 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                     }
                     lblMRPVal.text = String(format: "%.2f", mrp)
                     tblItemList.reloadData()
-                    /*
+                    
                     if let month = JSON.dictionaryObject?["Month"]{
+                        if(month as! String=="Yes"){
+                            IsMonth = true;
+                        }
+                        else{
+                            IsMonth = false;
+                        }
                     }
                     
-                    if let wallet = JSON.dictionaryObject?["Wallet"]{
-                    }
-                    
-                    if let superWallet = JSON.dictionaryObject?["SuperWallet"]{
-                    }*/
+//                    if let wallet = JSON.dictionaryObject?["Wallet"]{
+//                    }
+//
+//                    if let superWallet = JSON.dictionaryObject?["SuperWallet"]{
+//                    }
                     
                     HUD.flash(.progress)
                 }
@@ -281,6 +293,7 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                     self.txtFPromoCode.isHidden = true
                     self.btnApply.isHidden = true
                     self.couponCode = (JSON.dictionary?["Code"]!.description)!
+                    self.couponAmt = (JSON.dictionary?["Amount"]!.description)!
                     self.lblApplied.text = (JSON.dictionary?["Code"]!.description)! + " Applied"
                     self.lblApplied.isHidden = false
                     

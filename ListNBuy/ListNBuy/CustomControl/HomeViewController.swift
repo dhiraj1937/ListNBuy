@@ -40,6 +40,8 @@ class HomeViewController: UIViewController {
             AddressController.getWalletCash(userid: userID) { (response) in
                 self.AddWalletButton(vc: self, amount: Constant.walletCash)
             }
+            AddressController.getPlanData { (response) in
+            }
         }
     }
     

@@ -20,6 +20,8 @@ class AddressListViewController: UIViewController, ActionButtonDelegate {
     public var SuperWallet:String!
     public var SelectedAdd:String!
     public var CouponCode:String!
+    public var CouponAmt:String!
+    public var IsMonth:Bool!
     public var Wallet:String!
     public var productList:[NotAvailableProduct] = [NotAvailableProduct]()
     public var cartList:[CartDetail] = [CartDetail]()
@@ -219,21 +221,22 @@ extension AddressListViewController {
         //Q2. if superwallet has lesser amount such as 180 then we needs to do totalmount - 180 ?
         //Q3. POD k case mai wallet amount deduct hoga ya nahi ?
         
-        //if totalAmount is GT 1500 deduct 200 in both case Online and POD
         var diductionsuperwallet:Double = 0.0
-        if Float(totalAmount)! > 1500 &&  Float(Constant.superCashWalletAmount) != 0.0 {
-            if Float(Constant.superCashWalletAmount)! > 200.0 {
-                diductionsuperwallet = 200.0
+        if(!IsMonth){
+            if Float(totalAmount)! > 1500 &&  Float(Constant.superCashWalletAmount) != 0.0 {
+                if Float(Constant.superCashWalletAmount)! > 200.0 {
+                    diductionsuperwallet = 200.0
+                }else{
+                    diductionsuperwallet = Double(Constant.superCashWalletAmount)!
+                }
             }else{
-                diductionsuperwallet = Double(Constant.superCashWalletAmount)!
+                diductionsuperwallet = 0.0
             }
-        }else{
-            diductionsuperwallet = 0.0
         }
         let creatOrder:CreateOrder!
         if paymentmode == "POD" {
             //POD
-            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping:ShippingAmt, couponCode: CouponCode, couponAmount: totalAmount, lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "COD", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: "0.0", diductionsuperwallet: String(diductionsuperwallet), dDt: Date.init().description)
+            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping:ShippingAmt, couponCode: CouponCode, couponAmount: CouponAmt, lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "COD", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: "0.0", diductionsuperwallet: String(diductionsuperwallet), dDt: Date.init().description)
             
         }else{
             //Online
@@ -260,7 +263,7 @@ extension AddressListViewController {
             
             let paybalAmountAfterSW:String = String(Float(totalAmount)! - Float(diductionsuperwallet))
             
-            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping: ShippingAmt, couponCode: CouponCode, couponAmount: totalAmount, lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "ONLINE", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: paybalAmountAfterSW, diductionsuperwallet: String(diductionsuperwallet), dDt: Date.init().description)
+            creatOrder = CreateOrder.init(products: cartList, shippingAddress: SelectedAdd, shipping: ShippingAmt, couponCode: CouponCode, couponAmount: CouponAmt, lat: Constant.currentLocation.coordinate.latitude.description, lng: Constant.currentLocation.coordinate.longitude.description, payMethod: "ONLINE", userID: UserDefaults.standard.getUserID(), role: UserDefaults.standard.getUserROLE(), diductionwallet: paybalAmountAfterSW, diductionsuperwallet: String(diductionsuperwallet), dDt: Date.init().description)
         }
         
         if KAPPDELEGATE.isNetworkAvailable(){
@@ -281,8 +284,19 @@ extension AddressListViewController {
                 if((JSON.dictionary?["IsSuccess"]) != false){
                     DispatchQueue.main.async {
                         HUD.flash(.progress)
-                        LPSnackbar.showSnack(title: msg!)
+                        //LPSnackbar.showSnack(title: msg!)
                         //Dhiraj ??
+                        Constant.totalAmount = 0.0;
+                        Constant.totalItemCount = 0;
+                        
+                        let dialogMessage = UIAlertController(title: "Your order has been place successfully.", message: "You will get order detail on your register email  id - Thanks", preferredStyle: .alert)
+                        
+                        // Create button with action handler
+                        let btnAdd = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                            self.navigationController?.popToRootViewController(animated: true)
+                         })
+                        dialogMessage.addAction(btnAdd)
+                        self.present(dialogMessage, animated: true, completion: nil)
                     }
                 }else {
                     HUD.flash(.progress)
