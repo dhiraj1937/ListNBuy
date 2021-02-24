@@ -1434,14 +1434,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0e-mI-mnb">
-                                        <rect key="frame" x="27.666666666666657" y="262" width="320" height="264"/>
+                                        <rect key="frame" x="27.666666666666657" y="252" width="320" height="260"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="au8-2K-3FY">
-                                                <rect key="frame" x="11" y="20" width="74" height="74"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CPhone" translatesAutoresizingMaskIntoConstraints="NO" id="au8-2K-3FY">
+                                                <rect key="frame" x="11.000000000000085" y="3" width="74" height="74"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwM-Hf-Phu">
-                                                <rect key="frame" x="107" y="42" width="204" height="30"/>
+                                                <rect key="frame" x="107.00000000000009" y="25" width="204" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="+91 9173826667"/>
@@ -1455,17 +1455,26 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                                         <color key="value" systemColor="systemPinkColor"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemOrangeColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="phoneActionWith_sender:" destination="BQg-hY-j0p" eventType="touchUpInside" id="vkr-fi-5E8"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ULo-GQ-zBF">
-                                                <rect key="frame" x="11" y="95" width="74" height="74"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CMail" translatesAutoresizingMaskIntoConstraints="NO" id="ULo-GQ-zBF">
+                                                <rect key="frame" x="11.000000000000085" y="88" width="74" height="74"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZr-DF-ICu">
-                                                <rect key="frame" x="110" y="117" width="204" height="30"/>
+                                                <rect key="frame" x="110.00000000000009" y="110" width="204" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="info@listNbuy.com"/>
@@ -1479,17 +1488,26 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                                         <color key="value" systemColor="systemPinkColor"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemOrangeColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="emailActionWith_sender:" destination="BQg-hY-j0p" eventType="touchUpInside" id="oxU-37-UGS"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="gvC-nY-EMA">
-                                                <rect key="frame" x="11" y="170" width="74" height="74"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cweb" translatesAutoresizingMaskIntoConstraints="NO" id="gvC-nY-EMA">
+                                                <rect key="frame" x="11.000000000000085" y="173" width="74" height="74"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-1C-WRt">
-                                                <rect key="frame" x="107" y="192" width="204" height="30"/>
+                                                <rect key="frame" x="107.00000000000009" y="195" width="204" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="http://www.listnbuy.com/"/>
@@ -1503,6 +1521,15 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                                         <color key="value" systemColor="systemPinkColor"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemOrangeColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="webActionWith_sender:" destination="BQg-hY-j0p" eventType="touchUpInside" id="PfC-6B-TQl"/>
@@ -1511,7 +1538,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="264" id="Fno-M7-46A"/>
+                                            <constraint firstAttribute="height" constant="260" id="Fno-M7-46A"/>
                                             <constraint firstAttribute="width" constant="320" id="wB8-pL-xfD"/>
                                         </constraints>
                                     </view>
@@ -1521,7 +1548,7 @@
                                     <constraint firstAttribute="trailing" secondItem="e6H-Cp-Irq" secondAttribute="trailing" id="0vE-Gt-m3A"/>
                                     <constraint firstAttribute="bottom" secondItem="Gic-TM-xsY" secondAttribute="bottom" id="2PY-0V-1xi"/>
                                     <constraint firstItem="BiA-w5-q2n" firstAttribute="leading" secondItem="gTo-P2-uEN" secondAttribute="trailing" constant="5" id="4EQ-6g-bnp"/>
-                                    <constraint firstItem="d0e-mI-mnb" firstAttribute="top" secondItem="xHJ-Wd-yza" secondAttribute="bottom" constant="25" id="88U-vb-TV1"/>
+                                    <constraint firstItem="d0e-mI-mnb" firstAttribute="top" secondItem="xHJ-Wd-yza" secondAttribute="bottom" constant="15" id="88U-vb-TV1"/>
                                     <constraint firstItem="xHJ-Wd-yza" firstAttribute="top" secondItem="3mQ-XX-iky" secondAttribute="bottom" constant="10" id="9su-fN-Rag"/>
                                     <constraint firstItem="e6H-Cp-Irq" firstAttribute="centerX" secondItem="3mQ-XX-iky" secondAttribute="centerX" id="BGh-l6-avu"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BiA-w5-q2n" secondAttribute="trailing" constant="20" symbolic="YES" id="KQu-PQ-TQD"/>
@@ -4078,7 +4105,10 @@
     </designables>
     <resources>
         <image name="AboutUs" width="131" height="111"/>
+        <image name="CMail" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="CPhone" width="33.333332061767578" height="33.333332061767578"/>
         <image name="ContactUs" width="131" height="111"/>
+        <image name="Cweb" width="33.333332061767578" height="33.333332061767578"/>
         <image name="FAQ" width="131" height="111"/>
         <image name="HomeMenu" width="117" height="104"/>
         <image name="LoginPassIcon" width="98" height="90"/>
