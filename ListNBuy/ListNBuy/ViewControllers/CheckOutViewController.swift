@@ -190,7 +190,7 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                     
                     var mrp = 0.0
                     for item in listProducts {
-                        mrp = mrp + Double(item.quantity)! * (Constant.isPlanHidden == true ? Double(item.salePrice) : Double(item.memberPrice))
+                        mrp = mrp + Double(item.quantity)! * (Constant.isShowingSalesPrice == true ? Double(item.salePrice) : Double(item.memberPrice))
                     }
                     lblMRPVal.text = String(format: "%.2f", mrp)
                     tblItemList.reloadData()

@@ -88,6 +88,7 @@ public class Constant {
     public static var  homeVC:UIViewController?;
     
     public static var  isPlanHidden = true
+    public static var  isShowingSalesPrice = true
     public static var  latestPlanValidThru = ""
     public static var  listPlan:[[String:Any]]?
     

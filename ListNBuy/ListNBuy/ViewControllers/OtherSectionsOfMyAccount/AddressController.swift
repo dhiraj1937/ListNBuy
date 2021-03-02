@@ -216,7 +216,7 @@ class AddressController: NSObject {
                 let msg =  JSON.dictionary?["Message"]
                 print(msg as Any)
                 if((JSON.dictionary?["IsSuccess"]) != false){
-                    var listPlan:[[String:Any]]? = (JSON.dictionaryObject!["ResponseData"]) as? [[String:Any]];
+                    let listPlan:[[String:Any]]? = (JSON.dictionaryObject!["ResponseData"]) as? [[String:Any]];
                     if listPlan!.count > 0 {
                         Constant.listPlan = listPlan
                         Constant.isPlanHidden = false
@@ -226,6 +226,19 @@ class AddressController: NSObject {
                         
                         let validthru = sortedList![0]["expiryDate"] as! String
                         Constant.latestPlanValidThru = validthru.substring(to: 10)
+                        let currentDate = Date()
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                        let myDate = dateFormatter.date(from: Constant.latestPlanValidThru)
+                        print("currentDate=\(String(describing: currentDate))")
+                        print("myDate=\(String(describing: myDate))")
+                        if currentDate.compare(myDate!) == ComparisonResult.orderedDescending {
+                            //myDate is earlier than currentDate
+                            Constant.isShowingSalesPrice = true
+                        }else{
+                            Constant.isShowingSalesPrice = false
+                        }
 
                     }
                     HUD.flash(.progress)

@@ -77,7 +77,7 @@ class Helper: NSObject {
                     var mrp = 0.0
                     var quantity = 0;
                     for item in Constant.listCartProducts {
-                        mrp = mrp + Double(item.quantity)! * (Constant.isPlanHidden == true ? Double(item.salePrice) : Double(item.memberPrice))
+                        mrp = mrp + Double(item.quantity)! * (Constant.isShowingSalesPrice == true ? Double(item.salePrice) : Double(item.memberPrice))
                         quantity = quantity+Int(item.quantity)!;
                     }
                     Constant.totalAmount = Double(String(format: "%.2f", mrp))!
@@ -333,7 +333,8 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
             btn.frame = CGRect.init(x: 30, y: 0, width: 60, height: 50)
             btn.addTarget(self, action: #selector(ShowWallet), for: UIControl.Event.touchUpInside)
             let lblAMT = UILabel.init(frame: CGRect.init(x: 60, y: 0, width: 30, height: 20))
-            lblAMT.text = amount;
+            lblAMT.text = String((amount as NSString).intValue
+                                    + (Constant.superCashWalletAmount as NSString).intValue);
             lblAMT.textColor = UIColor.white;
             lblAMT.font = UIFont.boldSystemFont(ofSize: 12)
             lblAMT.textAlignment = NSTextAlignment.center

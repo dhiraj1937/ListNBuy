@@ -89,7 +89,7 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
           //  lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[0].regularPrice.description);
             lblActualRate.attributedText = NSAttributedString(string: "RS."+product.variation[0].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.foregroundColor: UIColor.red])
             //lblRate.text = "RS."+product.variation[0].memberPrice.description;
-            lblRate.text = "RS."+(Constant.isPlanHidden == true ? product.variation[0].salePrice.description :product.variation[0].memberPrice.description)
+            lblRate.text = "RS."+(Constant.isShowingSalesPrice == true ? product.variation[0].salePrice.description :product.variation[0].memberPrice.description)
         }
         if(product.wishlist==0){
             btnAddToWishlist.isSelected = false
