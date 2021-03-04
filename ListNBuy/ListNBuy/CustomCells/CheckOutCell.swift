@@ -25,8 +25,9 @@ class CheckOutCell: UITableViewCell {
 
     public func SetData(cd:CartDetail){
         imgProduct.imageFromServerURL(urlString: cd.image)
-        //lblAmount.text = String(cd.salePrice)
-        lblAmount.text = Constant.isShowingSalesPrice == true ? String(cd.salePrice) : String(cd.memberPrice)
+        lblAmount.text = String(cd.salePrice)
+        //lblAmount.text = Constant.isShowingSalesPrice == true ? String(cd.salePrice) : String(cd.memberPrice)
+        lblAmount.text = String(cd.salePrice)
         lblTitle.text = cd.name
         lblSubTitle.text = cd.productDescription
         lblQuantity.text = cd.quantity

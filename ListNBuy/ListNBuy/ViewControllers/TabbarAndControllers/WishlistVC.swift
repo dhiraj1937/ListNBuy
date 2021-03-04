@@ -28,6 +28,10 @@ class WishlistVC: BaseViewController {
         }else {
             userid = userID
         }
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getWishlList()
     }
     
@@ -111,7 +115,8 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
                 if((JSON.dictionary?["IsSuccess"]) != false){
                     HUD.flash(.progress)
                     LPSnackbar.showSnack(title: msg!.stringValue)
-                    self.collectionView.reloadData()
+                   // self.collectionView.reloadData()
+                    self.getWishlList()
                 }
                 else{
                     HUD.flash(.progress)

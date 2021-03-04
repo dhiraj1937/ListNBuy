@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,23 +21,31 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Item |" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQN-vF-9Mm">
-                    <rect key="frame" x="5" y="20" width="95" height="38"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Item |" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQN-vF-9Mm">
+                    <rect key="frame" x="5" y="15" width="80" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="GbR-lU-Yxh"/>
+                        <constraint firstAttribute="height" constant="40" id="THR-kQ-NtU"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rs. 0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6I-P2-0sO">
-                    <rect key="frame" x="113" y="20" width="99" height="38"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs. 0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6I-P2-0sO">
+                    <rect key="frame" x="90" y="15" width="209" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="heK-JQ-df7"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvl-Us-TLF">
-                    <rect key="frame" x="315" y="23" width="93" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvl-Us-TLF">
+                    <rect key="frame" x="309" y="15" width="100" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Szn-9X-QXR"/>
+                        <constraint firstAttribute="width" constant="100" id="tDb-uZ-ZOQ"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                     <state key="normal" title="View Cart &gt;"/>
                     <connections>
@@ -46,8 +55,17 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemOrangeColor"/>
+            <constraints>
+                <constraint firstItem="lvl-Us-TLF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4bH-u9-krA"/>
+                <constraint firstItem="M6I-P2-0sO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7hy-kv-GYX"/>
+                <constraint firstItem="lvl-Us-TLF" firstAttribute="leading" secondItem="M6I-P2-0sO" secondAttribute="trailing" constant="10" id="JHk-Tv-bMR"/>
+                <constraint firstItem="LQN-vF-9Mm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="Y8V-ce-B8Q"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lvl-Us-TLF" secondAttribute="trailing" constant="5" id="b4S-BS-xSB"/>
+                <constraint firstItem="LQN-vF-9Mm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="cG9-SZ-ptk"/>
+                <constraint firstItem="M6I-P2-0sO" firstAttribute="leading" secondItem="LQN-vF-9Mm" secondAttribute="trailing" constant="5" id="omh-Yr-rsW"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-305.79710144927537" y="218.63839285714286"/>
+            <point key="canvasLocation" x="-307.5" y="217.6056338028169"/>
         </view>
     </objects>
     <resources>
