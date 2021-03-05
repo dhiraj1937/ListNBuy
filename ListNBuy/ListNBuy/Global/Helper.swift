@@ -77,13 +77,15 @@ class Helper: NSObject {
                     var mrp = 0.0
                     var quantity = 0;
                     for item in Constant.listCartProducts {
-                        mrp = mrp + Double(item.quantity)! * (Constant.isShowingSalesPrice == true ? Double(item.salePrice) : Double(item.memberPrice))
+                        //same as android
+                        //mrp = mrp + Double(item.quantity)! * (Constant.isShowingSalesPrice == true ? Double(item.salePrice) : Double(item.memberPrice))
+                        mrp = mrp + Double(item.quantity)! * Double(item.salePrice)
                         quantity = quantity+Int(item.quantity)!;
                     }
-                    Constant.totalAmount = Double(String(format: "%.2f", mrp))!
-//                    for p in Constant.listCartProducts {
-//                        Constant.totalAmount =  Constant.totalAmount + p.regularPrice;
-//                    }
+                    
+                    //same as android
+                    //Constant.totalAmount = Double(String(format: "%.2f", mrp))!
+                    Constant.totalAmount = Double(String(format: "%.0f", mrp))!
                     Constant.totalItemCount = quantity;
                     response(true)
                 }

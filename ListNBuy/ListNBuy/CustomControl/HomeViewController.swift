@@ -253,10 +253,10 @@ class HomeViewController: UIViewController {
                     viewSection.lblTitle.text = homecat.title;
                     sv.addSubview(viewSection)
                     yXs=yXs+50;
-                    
+                    print("width=\(sv.frame.size.width)");
                     //Add Products
                     let viewProduct = ProductCategoryView.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 400))
-                    viewProduct.RefreshData(_listProduct: homecat.product)
+                    viewProduct.RefreshData(_listProduct: homecat.product, wd: CGFloat(sv.frame.size.width))
                     sv.addSubview(viewProduct)
                     yXs=yXs+410;
                     
@@ -332,7 +332,7 @@ class HomeViewController: UIViewController {
                 
                 let listHomeCategory = try! JSONDecoder().decode([Product].self, from: jsonData!)
                 let viewProduct = BestSelling.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 400))
-                    viewProduct.RefreshData(_listProduct: listHomeCategory)
+                    viewProduct.RefreshData(_listProduct: listHomeCategory, wd: CGFloat(sv.frame.size.width))
                 sv.addSubview(viewProduct)
                 yXs=yXs+410;
                 let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 50))

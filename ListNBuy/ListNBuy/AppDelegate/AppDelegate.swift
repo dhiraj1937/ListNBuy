@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         if isUserLoggedIN == true {
             
                 let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
-                controller.leftViewWidth = 300;
+                controller.leftViewWidth = 250;
                 controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
                 let nav = UINavigationController.init(rootViewController:controller)
                 nav.setNavigationBarHidden(true, animated: true)

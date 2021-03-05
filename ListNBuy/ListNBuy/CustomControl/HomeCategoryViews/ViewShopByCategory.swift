@@ -64,9 +64,9 @@ class ViewShopByCategory: UIView,UICollectionViewDelegate,UICollectionViewDataSo
         let screenheight = collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        layout.itemSize = CGSize(width: 100, height: screenWidth)
+        layout.itemSize = CGSize(width: 90, height: screenWidth)
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = 5
         layout.scrollDirection = UICollectionView.ScrollDirection.horizontal;
         
         collectionView!.collectionViewLayout = layout

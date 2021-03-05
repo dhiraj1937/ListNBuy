@@ -31,7 +31,11 @@ class ViewCartBottomView: UIView {
     
     func SetData() {
         lblItems.text = Constant.totalItemCount.description+" Item";
-        lblProce.text = "Rs."+Constant.totalAmount.description;
+        //same as android
+        //lblProce.text = "Rs."+Constant.totalAmount.description;
+        let total = Int(Constant.totalAmount)
+        lblProce.text = "Rs." + String(total)
+        
     }
     
     @IBAction func btn_ClickViewCart(){

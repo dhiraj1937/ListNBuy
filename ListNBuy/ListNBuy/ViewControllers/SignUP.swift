@@ -43,7 +43,7 @@ class SignUP: UIViewController {
         
         DispatchQueue.main.async {
             let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
-            controller.leftViewWidth = 300;
+            controller.leftViewWidth = 250;
             controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
             
             self.navigationController?.pushViewController(controller, animated: true)
