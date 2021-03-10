@@ -415,6 +415,10 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         v?.removeFromSuperview()
     }
     
+    @IBAction func openCloseMenu(){
+        TabbarViewController.revealController?.rearViewRevealWidth = self.view.frame.size.width-60;
+        TabbarViewController.revealController?.revealToggle(UIButton.init())
+    }
 
 }
 

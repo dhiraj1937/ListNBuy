@@ -72,6 +72,8 @@ class HomeViewController: UIViewController {
       }
     }
     
+    
+    
     @objc func SearchProdcut(){
         if(txtSearch.text!.count>0){
             if #available(iOS 13.0, *) {

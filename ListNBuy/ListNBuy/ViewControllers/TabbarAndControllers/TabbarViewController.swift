@@ -9,9 +9,12 @@ import UIKit
 
 class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
 
+    public static var revealController:SWRevealViewController? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        TabbarViewController.revealController = self.revealViewController()
+        TabbarViewController.revealController!.panGestureRecognizer()
+        TabbarViewController.revealController!.tapGestureRecognizer()
         //let homeNVC = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "homeNVC") as! UINavigationController
         let homeNVC = HomeViewController.init(nibName: "HomeViewController", bundle: nil)
         let homeIcon = UITabBarItem(title: "Home", image: UIImage(named: "i_home.png"), selectedImage: UIImage(named: "i_home.png"))

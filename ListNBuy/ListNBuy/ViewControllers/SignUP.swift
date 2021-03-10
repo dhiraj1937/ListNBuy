@@ -42,11 +42,29 @@ class SignUP: UIViewController {
     func navigatToNext() {
         
         DispatchQueue.main.async {
-            let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
-            controller.leftViewWidth = 250;
-            controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
+//            let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
+//            controller.leftViewWidth = 250;
+//            controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
+//
+//            self.navigationController?.pushViewController(controller, animated: true)
             
-            self.navigationController?.pushViewController(controller, animated: true)
+            var menuVC:MenuViewController? = nil;
+            var tabvc:TabbarViewController? = nil;
+            if #available(iOS 13.0, *) {
+                tabvc = KMAINSTORYBOARD.instantiateViewController(identifier:"TabbarViewController") as TabbarViewController
+                menuVC = KMAINSTORYBOARD.instantiateViewController(identifier:"MenuViewController") as MenuViewController
+            } else {
+                // Fallback on earlier versions
+                tabvc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "TabbarViewController") as? TabbarViewController
+                menuVC = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+            }
+            let frontNavigation = UINavigationController.init(rootViewController: tabvc!)
+            let rearNavigation = UINavigationController.init(rootViewController: menuVC!)
+            frontNavigation.isNavigationBarHidden = true;
+            rearNavigation.isNavigationBarHidden = true;
+            let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
+            swvc.rearViewRevealWidth = self.view.frame.size.width-50
+            self.navigationController?.pushViewController(swvc, animated: true);
             
             
         }

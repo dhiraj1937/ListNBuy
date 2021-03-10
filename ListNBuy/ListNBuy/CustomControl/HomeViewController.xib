@@ -36,7 +36,7 @@
                     </constraints>
                     <state key="normal" image="menu"/>
                     <connections>
-                        <action selector="openLeftView:" destination="-1" eventType="touchUpInside" id="dOq-3T-FWZ"/>
+                        <action selector="openCloseMenu" destination="-1" eventType="touchUpInside" id="jTx-HN-qiX"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="LISTNBUY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6h7-W6-sqT">

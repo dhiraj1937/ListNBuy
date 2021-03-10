@@ -27,12 +27,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         let isUserLoggedIN = UserDefaults.standard.isLoggedIn()
         if isUserLoggedIN == true {
             
-                let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
-                controller.leftViewWidth = 250;
-                controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
-                let nav = UINavigationController.init(rootViewController:controller)
-                nav.setNavigationBarHidden(true, animated: true)
-                window?.rootViewController = nav;
+//                let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
+//                controller.leftViewWidth = 250;
+//                controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
+//                let nav = UINavigationController.init(rootViewController:controller)
+//                nav.setNavigationBarHidden(true, animated: true)
+            
+            
+            var menuVC:MenuViewController? = nil;
+            var tabvc:TabbarViewController? = nil;
+            if #available(iOS 13.0, *) {
+                tabvc = KMAINSTORYBOARD.instantiateViewController(identifier:"TabbarViewController") as TabbarViewController
+                menuVC = KMAINSTORYBOARD.instantiateViewController(identifier:"MenuViewController") as MenuViewController
+            } else {
+                // Fallback on earlier versions
+                tabvc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "TabbarViewController") as? TabbarViewController
+                menuVC = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+            }
+            let frontNavigation = UINavigationController.init(rootViewController: tabvc!)
+            let rearNavigation = UINavigationController.init(rootViewController: menuVC!)
+            frontNavigation.isNavigationBarHidden = true;
+            rearNavigation.isNavigationBarHidden = true;
+            let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
+            //swvc.rearViewRevealWidth = self.view.frame.size.width-50
+            
+            let nav = UINavigationController.init(rootViewController:swvc)
+            nav.setNavigationBarHidden(true, animated: true)
+            window?.rootViewController = nav;
             
         }
         else{

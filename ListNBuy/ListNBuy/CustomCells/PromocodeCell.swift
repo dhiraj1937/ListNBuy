@@ -7,6 +7,14 @@
 
 import UIKit
 
+public class MenuTableViewCell: UITableViewCell {
+    @IBOutlet var lblTitle:UILabel!
+    @IBOutlet var img:UIImageView!
+    public override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
+
 class PromocodeCell: UITableViewCell {
     @IBOutlet weak var lblCode:UILabel!
     @IBOutlet weak var lblDESC:UILabel!

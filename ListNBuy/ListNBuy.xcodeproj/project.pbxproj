@@ -27,6 +27,8 @@
 		180A88CC25A77A7800462CB7 /* MyOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A88C825A77A7800462CB7 /* MyOrdersVC.swift */; };
 		180A88D025A79CAB00462CB7 /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A88CF25A79CAB00462CB7 /* SignUP.swift */; };
 		180AED7625B815FB00124AED /* ViewBannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AED7525B815FB00124AED /* ViewBannerScrollView.swift */; };
+		181007C225F7FFAA0011E310 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181007C125F7FFAA0011E310 /* SWRevealViewController.m */; };
+		181007C525F8026F0011E310 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181007C425F8026F0011E310 /* MenuViewController.swift */; };
 		181A12CC25D18F4800E03075 /* ViewCartBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */; };
 		181A12CF25D18F6D00E03075 /* ViewCartBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */; };
 		181B802325D4454800E708B2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181B802225D4454800E708B2 /* LoginController.swift */; };
@@ -131,6 +133,10 @@
 		180A88C825A77A7800462CB7 /* MyOrdersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrdersVC.swift; sourceTree = "<group>"; };
 		180A88CF25A79CAB00462CB7 /* SignUP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
 		180AED7525B815FB00124AED /* ViewBannerScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBannerScrollView.swift; sourceTree = "<group>"; };
+		181007BF25F7FFAA0011E310 /* ListNBuy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ListNBuy-Bridging-Header.h"; sourceTree = "<group>"; };
+		181007C025F7FFAA0011E310 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ListNBuy/SWRevealViewController/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
+		181007C125F7FFAA0011E310 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ListNBuy/SWRevealViewController/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
+		181007C425F8026F0011E310 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewCartBottomView.xib; sourceTree = "<group>"; };
 		181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCartBottomView.swift; sourceTree = "<group>"; };
 		181B802225D4454800E708B2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -264,6 +270,8 @@
 		1823734D25B44C37009106E5 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				181007C025F7FFAA0011E310 /* SWRevealViewController.h */,
+				181007C125F7FFAA0011E310 /* SWRevealViewController.m */,
 				C37D8F3925C9B508004010EF /* WishListController.swift */,
 				C3FC90DB25DAB9CA002F2550 /* ProductUnAvailableViewController.swift */,
 				C3FC90DC25DAB9CA002F2550 /* ProductUnAvailableViewController.xib */,
@@ -279,6 +287,7 @@
 				181A12CB25D18F4800E03075 /* ViewCartBottomView.xib */,
 				181A12CE25D18F6D00E03075 /* ViewCartBottomView.swift */,
 				181B802225D4454800E708B2 /* LoginController.swift */,
+				181007BF25F7FFAA0011E310 /* ListNBuy-Bridging-Header.h */,
 			);
 			path = CustomControl;
 			sourceTree = "<group>";
@@ -334,6 +343,7 @@
 				C3F21C3225CB062E009CBBEB /* ProductListViewController.swift */,
 				C336305025CC4D26003C156D /* ProductCollectionViewController.swift */,
 				C336305325CC5C41003C156D /* CheckOutViewController.swift */,
+				181007C425F8026F0011E310 /* MenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -505,6 +515,7 @@
 				TargetAttributes = {
 					180A885125A7566F00462CB7 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -636,6 +647,7 @@
 				C37D8F3A25C9B508004010EF /* WishListController.swift in Sources */,
 				18F20CD925B5B8EF003CEF11 /* TrendingCollectionCell.swift in Sources */,
 				186E2BF225BC536F001CFEE4 /* BrandProduct.swift in Sources */,
+				181007C225F7FFAA0011E310 /* SWRevealViewController.m in Sources */,
 				C335A2E325BC75A300C4705E /* AddAddressViewController.swift in Sources */,
 				180A885A25A7566F00462CB7 /* LoginVC.swift in Sources */,
 				C3078EE525C0622200A2F3FF /* MyPlanTableViewCell.swift in Sources */,
@@ -665,6 +677,7 @@
 				C3D2570325CED1B500DE2E7A /* CheckOutCell.swift in Sources */,
 				C335A2E425BC75A300C4705E /* AddressController.swift in Sources */,
 				C3D3BF0925B9F7F5006C4AA7 /* AddToWalletViewController.swift in Sources */,
+				181007C525F8026F0011E310 /* MenuViewController.swift in Sources */,
 				C382385D25AE067100737307 /* UserModel.swift in Sources */,
 				C335A2F125BD4E3F00C4705E /* AddressTableCustomCell.swift in Sources */,
 				C335A2E925BCA0C200C4705E /* AddressListViewController.swift in Sources */,
@@ -885,15 +898,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5Q6BLC976V;
 				INFOPLIST_FILE = ListNBuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.ListNBuy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.NewsBoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NewBoomDevPro;
+				SWIFT_OBJC_BRIDGING_HEADER = "ListNBuy/CustomControl/ListNBuy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -905,15 +924,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5Q6BLC976V;
 				INFOPLIST_FILE = ListNBuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.ListNBuy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.NewsBoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NewBoomDevPro;
+				SWIFT_OBJC_BRIDGING_HEADER = "ListNBuy/CustomControl/ListNBuy-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
