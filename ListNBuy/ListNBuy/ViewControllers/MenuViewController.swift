@@ -11,16 +11,20 @@ class Menu: NSObject {
     //MARK: Properties
     var name: String
     var icon: String
+    var isSelected: Bool
     
-    init(name: String, icon: String) {
+    init(name: String, icon: String, isSelected:Bool) {
         self.icon = icon;
         self.name = name;
+        self.isSelected = isSelected;
     }
 }
 
 class MenuViewController: UIViewController {
     
     public  var menuList:[Menu] = [Menu]()
+    @IBOutlet var imgLogo : UIImageView!
+    
     @IBOutlet var tblMenu:UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +32,35 @@ class MenuViewController: UIViewController {
         SetMenu()
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        print(self.view.frame.size.width)
+        imgLogo.center = CGPoint(x: (self.view.frame.size.width-50)/2, y: imgLogo.center.y) ;
+        
+//        let ind:Int = Constant.globalTabbar!.selectedIndex
+//         if ind == 4 {
+//            menuList.forEach{$0.isSelected = false}
+//            menuList[1].isSelected = true
+//            tblMenu.reloadData()
+//         }else if ind == 0 || ind == 1 || ind == 2 || ind == 3 {
+//                menuList.forEach{$0.isSelected = false}
+//                menuList[0].isSelected = true
+//                tblMenu.reloadData()
+//         }
+    }
     
     func SetMenu(){
         menuList.removeAll()
-        menuList.append(Menu.init(name: "Home", icon: "HomeMenu"))
-        menuList.append(Menu.init(name: "My Account", icon: "MyAccount"))
-        menuList.append(Menu.init(name: "Membership Plan", icon: "MemberShip-1"))
-        menuList.append(Menu.init(name: "Social Media", icon: "SocialMedia"))
-        menuList.append(Menu.init(name: "Contact Us", icon: "ContactUs"))
-        menuList.append(Menu.init(name: "FAQs", icon: "FAQ"))
-        menuList.append(Menu.init(name: "About Us", icon: "AboutUs"))
-        menuList.append(Menu.init(name: "Privacy Policy", icon: "PrivacyPolicy"))
-        menuList.append(Menu.init(name: "Terms and Condition", icon: "TC"))
-        menuList.append(Menu.init(name: "Share", icon: "Share"))
-        menuList.append(Menu.init(name: "Ratings", icon: "Rating"))
+        menuList.append(Menu.init(name: "Home", icon: "HomeMenu", isSelected:true))
+        menuList.append(Menu.init(name: "My Account", icon: "MyAccount", isSelected:false))
+        menuList.append(Menu.init(name: "Membership Plan", icon: "MemberShip-1", isSelected:false))
+        menuList.append(Menu.init(name: "Social Media", icon: "SocialMedia", isSelected:false))
+        menuList.append(Menu.init(name: "Contact Us", icon: "ContactUs", isSelected:false))
+        menuList.append(Menu.init(name: "FAQs", icon: "FAQ", isSelected:false))
+        menuList.append(Menu.init(name: "About Us", icon: "AboutUs", isSelected:false))
+        menuList.append(Menu.init(name: "Privacy Policy", icon: "PrivacyPolicy", isSelected:false))
+        menuList.append(Menu.init(name: "Terms and Condition", icon: "TC", isSelected:false))
+        menuList.append(Menu.init(name: "Share", icon: "Share", isSelected:false))
+        menuList.append(Menu.init(name: "Ratings", icon: "Rating", isSelected:false))
         
     }
 
@@ -58,23 +77,37 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
         let menu = menuList[indexPath.row]
         cell.img.image = UIImage.init(named: menu.icon);
         cell.lblTitle.text = menu.name;
-        if(indexPath.row == 0){
-            //cell.lblTitle.textColor = Constant.appColor;
-            cell.contentView.backgroundColor = UIColor.init(hexString: "#DCDCDC");
+        if(menu.isSelected){
+            cell.img.setImageColor(color: UIColor.purple)
+            cell.lblTitle.textColor = UIColor.purple;
+            cell.viewContainer.backgroundColor = UIColor.lightGray;
+            cell.viewContainer.alpha = 0.2;
         }
         else{
+            cell.img.setImageColor(color: UIColor.darkGray);
             cell.lblTitle.textColor = UIColor.darkGray;
-            cell.contentView.backgroundColor = UIColor.clear;
+            cell.viewContainer.backgroundColor = UIColor.clear;
             cell.layer.backgroundColor = UIColor.clear.cgColor
         }
         return cell;
     }
     
+
+    func setBG(indexPath: IndexPath){
+        menuList.forEach{$0.isSelected = false}
+        menuList[indexPath.row].isSelected = true
+        tblMenu.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        setBG(indexPath: indexPath)
+        
         if(indexPath.row == 0){
-            
+            Constant.globalTabbar?.navigationController?.popToRootViewController(animated:false)
+            Constant.globalTabbar?.selectedIndex = 0
         }
         else if(indexPath.row == 1){
+            Constant.globalTabbar?.navigationController?.popToRootViewController(animated:false)
             Constant.globalTabbar?.selectedIndex = 4
         }
         else if(indexPath.row == 2){
@@ -178,7 +211,10 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
         else if(indexPath.row == 10){
             self.openAppStoreReview()
         }
-        TabbarViewController.revealController?.revealToggle(UIButton.init()) 
+        if(indexPath.row != 9 && indexPath.row != 10){
+            TabbarViewController.revealController?.revealToggle(UIButton.init())
+        }
+            
     }
     
     func openAppStoreReview() {

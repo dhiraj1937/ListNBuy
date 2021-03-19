@@ -10,6 +10,7 @@ import UIKit
 public class MenuTableViewCell: UITableViewCell {
     @IBOutlet var lblTitle:UILabel!
     @IBOutlet var img:UIImageView!
+    @IBOutlet var viewContainer:UIView!
     public override class func awakeFromNib() {
         super.awakeFromNib()
     }

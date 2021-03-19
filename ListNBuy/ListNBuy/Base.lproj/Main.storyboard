@@ -1315,7 +1315,7 @@
                                         </constraints>
                                         <state key="normal" image="menu"/>
                                         <connections>
-                                            <action selector="btnBack" destination="yho-cB-GUs" eventType="touchUpInside" id="sVL-NF-NbB"/>
+                                            <action selector="openCloseMenu" destination="yho-cB-GUs" eventType="touchUpInside" id="GcR-VU-41c"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSY-iY-5R5">
@@ -1402,7 +1402,7 @@
                                         </constraints>
                                         <state key="normal" image="menu"/>
                                         <connections>
-                                            <action selector="btnBack" destination="BQg-hY-j0p" eventType="touchUpInside" id="NTV-7f-wMo"/>
+                                            <action selector="openCloseMenu" destination="BQg-hY-j0p" eventType="touchUpInside" id="SW5-F8-zqx"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiA-w5-q2n">
@@ -1608,7 +1608,7 @@
                                 </constraints>
                                 <state key="normal" image="menu"/>
                                 <connections>
-                                    <action selector="btnBack" destination="XcF-vx-bpi" eventType="touchUpInside" id="tYQ-Vo-5TJ"/>
+                                    <action selector="openCloseMenu" destination="XcF-vx-bpi" eventType="touchUpInside" id="058-rF-bg9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social Media" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGh-bh-duP">
@@ -2663,7 +2663,7 @@
                                 </constraints>
                                 <state key="normal" image="menu"/>
                                 <connections>
-                                    <action selector="btnBack" destination="sKA-8V-dK0" eventType="touchUpInside" id="YxO-gX-6KL"/>
+                                    <action selector="openCloseMenu" destination="sKA-8V-dK0" eventType="touchUpInside" id="rTg-xP-JYf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Membership Plans" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jv4-dB-lpy">
@@ -2897,7 +2897,7 @@
                                 </constraints>
                                 <state key="normal" image="menu"/>
                                 <connections>
-                                    <action selector="btnBack" destination="yQp-l5-Pv5" eventType="touchUpInside" id="pmx-Lg-E0V"/>
+                                    <action selector="openCloseMenu" destination="yQp-l5-Pv5" eventType="touchUpInside" id="P3N-jf-huL"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fiN-fy-M01">
@@ -4147,36 +4147,43 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8bT-9x-vNi">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8bT-9x-vNi">
                                 <rect key="frame" x="0.0" y="184" width="375" height="628"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuTableViewCell" id="fr6-fb-smX" customClass="MenuTableViewCell" customModule="ListNBuy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fr6-fb-smX" id="YHc-3a-9Uk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wT1-RJ-MO1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lml-Mv-qnp">
-                                                    <rect key="frame" x="7" y="5" width="53" height="49"/>
+                                                    <rect key="frame" x="7" y="2" width="41" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3b-Nh-LVC">
-                                                    <rect key="frame" x="68" y="5" width="291" height="49"/>
+                                                    <rect key="frame" x="56" y="7" width="278" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="img" destination="Lml-Mv-qnp" id="LAK-ao-aBX"/>
                                             <outlet property="lblTitle" destination="k3b-Nh-LVC" id="6S8-Ba-UkC"/>
+                                            <outlet property="viewContainer" destination="wT1-RJ-MO1" id="4jb-Ui-tHA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -4200,6 +4207,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imgLogo" destination="WAV-Jm-1zM" id="WTS-Mn-pBw"/>
                         <outlet property="tblMenu" destination="8bT-9x-vNi" id="kCG-NH-neb"/>
                     </connections>
                 </viewController>
