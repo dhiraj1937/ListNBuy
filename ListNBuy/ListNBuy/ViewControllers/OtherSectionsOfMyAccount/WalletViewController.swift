@@ -88,7 +88,7 @@ extension WalletViewController : UITableViewDelegate, UITableViewDataSource
         let wTrans:WalletTransaction = listWTransaction[indexPath.row]
         cell.lblDate.text = wTrans.payDate
         cell.lblTrn.text = wTrans.TrnType
-        cell.lblStatus.text = wTrans.Status
+        cell.lblStatus.text = wTrans.Status == "1" ? "Success" : "Fail"
         cell.lblAmount.text = wTrans.Amount
         return cell
     }

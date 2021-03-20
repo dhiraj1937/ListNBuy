@@ -19,8 +19,17 @@ class FaqCell: UITableViewCell {
 
     public func SetData(faq:FAQModel){
         lblQues.text = faq.Title;
-        lblAns.attributedText = faq.Answer.htmlToAttributedString;
+       // lblAns.attributedText = faq.Answer.htmlToAttributedString;
+       
+
+
+        let mutableAttributedString:NSMutableAttributedString = NSMutableAttributedString.init(attributedString: faq.Answer.htmlToAttributedString!)
+        let range = NSRange(location: 0, length: mutableAttributedString.length)
+        mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: range)
+        lblAns.attributedText = mutableAttributedString
+
         imgDirection?.image = UIImage.init(named: faq.Direction)
+        imgDirection.setImageColor(color:  UIColor.init(hexString: "#C76C4A", alpha: 1))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
