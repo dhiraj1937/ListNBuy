@@ -11,7 +11,7 @@ import LPSnackbar
 import PKHUD
 import SwiftyJSON
 
-class CurrentActivePlansViewController: BaseViewController {
+class CurrentActivePlansViewController: UIViewController {
     
     @IBOutlet var tblPlan:UITableView!
 

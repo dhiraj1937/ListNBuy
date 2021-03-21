@@ -30,11 +30,12 @@ class MembershipPlansViewController: BaseViewController {
         let screenWidth = collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 25, left: 10, bottom: 5, right: 10)
-        layout.itemSize = CGSize(width: screenWidth-20, height: collectionView!.frame.size.height)
+        layout.sectionInset = UIEdgeInsets(top: 25, left: 20, bottom: 5, right: 15)
+        layout.itemSize = CGSize(width: screenWidth-60, height: collectionView!.frame.size.height)
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
+        collectionView.reloadData();
     }
 }
 extension MembershipPlansViewController:UICollectionViewDelegate,UICollectionViewDataSource {
