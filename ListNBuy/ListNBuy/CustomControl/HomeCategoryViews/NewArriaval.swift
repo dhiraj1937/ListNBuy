@@ -55,9 +55,9 @@ class NewArriaval: UIView ,UICollectionViewDelegate,UICollectionViewDataSource  
            
         }
     
-    public func RefreshData(_listProduct:[Product]){
+    public func RefreshData(_listProduct:[Product],wd:CGFloat){
         
-        let screenWidth = collectionView!.frame.size.width
+        let screenWidth = wd//collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: 200, height: 200)

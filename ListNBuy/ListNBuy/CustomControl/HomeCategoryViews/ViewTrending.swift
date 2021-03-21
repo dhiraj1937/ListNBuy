@@ -56,12 +56,12 @@ class ViewTrending: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         }
 
     
-    public func RefreshData(_listTrending:[TredningProduct]){
+    public func RefreshData(_listTrending:[TredningProduct],wd:CGFloat){
         
-        let screenWidth = collectionView!.frame.size.width
+        let screenWidth = wd//collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: screenWidth/3.0, height: screenWidth/3.0)
+        layout.itemSize = CGSize(width: screenWidth/3.0, height: 125)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0;

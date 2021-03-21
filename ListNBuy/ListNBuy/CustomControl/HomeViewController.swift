@@ -107,8 +107,14 @@ class HomeViewController: UIViewController {
                 viewBanner.clipsToBounds = true;
                 for banner in listBanner
                 {
+                    let activityIndi = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.gray)
+                    activityIndi.startAnimating()
+                    
+                    viewBanner.sv.addSubview(activityIndi)
                     let imgView:UIImageView = UIImageView.init(frame: CGRect.init(x: x, y: 0, width: Int(sv.frame.size.width), height: 200))
+                    activityIndi.frame = CGRect.init(x: (Int(imgView.frame.size.width)/2+x)-15, y: 100, width: 30, height: 30)
                     imgView.imageFromServerURL(urlString: banner.BannerImg)
+                    imgView.backgroundColor = UIColor.clear;
                     viewBanner.sv.addSubview(imgView)
                     //R0123
                     let btnDetail = UIButton.init(frame: imgView.frame)
@@ -196,7 +202,7 @@ class HomeViewController: UIViewController {
                 listHomeCategory = try! JSONDecoder().decode([HomeParentCategoryModel].self, from: jsonData!)
                 let viewBanner = ViewShopByCategory.init(frame: CGRect.init(x: 0, y: 470, width: Int(sv.frame.size.width), height: 100))
                 sv.addSubview(viewBanner)
-                viewBanner.RefreshData(_listHomeCategory: listHomeCategory);
+                viewBanner.RefreshData(_listHomeCategory: listHomeCategory, wd: sv.frame.size.width);
                }
                else{}
            }, failure: { [self] (Error) in
@@ -222,9 +228,9 @@ class HomeViewController: UIViewController {
                if((JSON.dictionary?["IsSuccess"]) != false){
                 let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                 let listtrending = try! JSONDecoder().decode([TredningProduct].self, from: jsonData!)
-                let viewBanner = ViewTrending.init(frame: CGRect.init(x: 0, y: 630, width: Int(sv.frame.size.width), height: 300))
+                let viewBanner = ViewTrending.init(frame: CGRect.init(x: 0, y: 630, width: Int(sv.frame.size.width), height: 250))
                 sv.addSubview(viewBanner)
-                viewBanner.RefreshData(_listTrending: listtrending)
+                viewBanner.RefreshData(_listTrending: listtrending, wd: sv.frame.size.width)
                 
                }else{}
            
@@ -241,7 +247,7 @@ class HomeViewController: UIViewController {
     
     func GetHomeCategoryWithProductData(){
         if KAPPDELEGATE.isNetworkAvailable(){
-        var yXs:Int = 930;
+        var yXs:Int = 880;
            ApiManager.sharedInstance.requestGETURL(Constant.getHomeParentCategoryWithProductURL+"/"+UserDefaults.standard.getUserID(), success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
@@ -295,7 +301,7 @@ class HomeViewController: UIViewController {
                 let listNewArriaval = try! JSONDecoder().decode([Product].self, from: jsonData!)
                 let viewBanner = NewArriaval.init(frame: CGRect.init(x: 0, y: yx, width: Int(sv.frame.size.width), height: 200))
                 sv.addSubview(viewBanner)
-                viewBanner.RefreshData(_listProduct: listNewArriaval)
+                viewBanner.RefreshData(_listProduct: listNewArriaval, wd: sv.frame.size.width)
                 
                 if(listHomeBanner.count>0){
                     let banner = listHomeBanner[listHomeBanner.count-1];
@@ -367,7 +373,7 @@ class HomeViewController: UIViewController {
                 let listHomeCategory = try! JSONDecoder().decode([BrandModel].self, from: jsonData!)
                 let viewBanner = BrandProduct.init(frame: CGRect.init(x: 0, y: yx, width: Int(sv.frame.size.width), height: 100))
                 sv.addSubview(viewBanner)
-                viewBanner.RefreshData(_listHomeCategory: listHomeCategory);
+                viewBanner.RefreshData(_listHomeCategory: listHomeCategory, wd: sv.frame.size.width);
                 yXs=yXs+110;
                 let viewSection = ViewSection.init(frame: CGRect.init(x: 0, y: yXs, width: Int(sv.frame.size.width), height: 50))
                 viewSection.lblTitle.text = "Best Selling";
@@ -420,7 +426,11 @@ class HomeViewController: UIViewController {
             tblSearch.reloadData();
         }
         if(listTempSearch.count>0){
-            tblSearch.frame = CGRect.init(x: searchView.frame.origin.x, y: searchView.frame.origin.y+searchView.frame.size.height+10, width: searchView.frame.size.width, height: 200)
+            var height = listTempSearch.count*44;
+            if(Int(sv.frame.size.height-100) < height){
+                height = Int(sv.frame.size.height-100);
+            }
+            tblSearch.frame = CGRect.init(x: searchView.frame.origin.x, y: searchView.frame.origin.y+searchView.frame.size.height-10, width: searchView.frame.size.width, height: CGFloat(height))
             self.view.addSubview(tblSearch);
             self.tblSearch.isHidden = false;
         }

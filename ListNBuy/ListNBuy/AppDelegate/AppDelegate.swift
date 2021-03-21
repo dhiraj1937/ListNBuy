@@ -26,14 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         IQKeyboardManager.shared.enable = true
         let isUserLoggedIN = UserDefaults.standard.isLoggedIn()
         if isUserLoggedIN == true {
-            
-//                let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
-//                controller.leftViewWidth = 250;
-//                controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
-//                let nav = UINavigationController.init(rootViewController:controller)
-//                nav.setNavigationBarHidden(true, animated: true)
-            
-            
+ 
             var menuVC:MenuViewController? = nil;
             var tabvc:TabbarViewController? = nil;
             if #available(iOS 13.0, *) {
@@ -54,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             let nav = UINavigationController.init(rootViewController:swvc)
             nav.setNavigationBarHidden(true, animated: true)
             window?.rootViewController = nav;
-            
         }
         else{
             let controller = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC

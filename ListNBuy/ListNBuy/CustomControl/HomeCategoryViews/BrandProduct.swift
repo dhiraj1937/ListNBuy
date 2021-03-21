@@ -41,7 +41,7 @@ class BrandProduct: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
             
         }
     
-    public func RefreshData(_listHomeCategory:[BrandModel]){
+    public func RefreshData(_listHomeCategory:[BrandModel],wd:CGFloat){
         
         let screenWidth = collectionView!.frame.size.height
         let screenheight = collectionView!.frame.size.width

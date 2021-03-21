@@ -58,7 +58,7 @@ class BestSelling: UIView,UICollectionViewDelegate,UICollectionViewDataSource  {
     public func RefreshData(_listProduct:[Product],wd:CGFloat){
         collectionView!.frame.size.width = wd;
         
-        let screenWidth = collectionView!.frame.size.width
+        let screenWidth = wd;//collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         //layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: screenWidth/2.0, height: 200)

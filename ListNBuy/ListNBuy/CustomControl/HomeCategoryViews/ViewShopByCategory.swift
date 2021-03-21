@@ -58,10 +58,10 @@ class ViewShopByCategory: UIView,UICollectionViewDelegate,UICollectionViewDataSo
             
         }
     
-    public func RefreshData(_listHomeCategory:[HomeParentCategoryModel]){
+    public func RefreshData(_listHomeCategory:[HomeParentCategoryModel],wd:CGFloat){
         
         let screenWidth = collectionView!.frame.size.height
-        let screenheight = collectionView!.frame.size.width
+        let screenheight = wd;//collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: 90, height: screenWidth)

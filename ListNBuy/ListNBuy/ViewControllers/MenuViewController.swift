@@ -30,6 +30,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         SetMenu()
+        imgLogo.center = CGPoint(x: (self.view.frame.size.width-50)/2, y: imgLogo.center.y) ;
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
