@@ -17,7 +17,7 @@ class SearchListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let screenWidth = collectionView!.frame.size.width
+        let screenWidth = self.view!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: screenWidth/2.0, height: 200)
