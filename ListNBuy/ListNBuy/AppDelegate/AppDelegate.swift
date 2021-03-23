@@ -12,6 +12,8 @@ import LGSideMenuController
 import FBSDKCoreKit
 import GoogleSignIn
 import CoreLocation
+import Firebase
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
 
@@ -23,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         GIDSignIn.sharedInstance().clientID = "973257019249-o8o9ebdrephr8cn10ajicdjvr7nmhtg1.apps.googleusercontent.com"
        
         // Override point for customization after application launch.
+        // Use the Firebase library to configure APIs.
+        FirebaseApp.configure()
+        
         IQKeyboardManager.shared.enable = true
         let isUserLoggedIN = UserDefaults.standard.isLoggedIn()
         if isUserLoggedIN == true {

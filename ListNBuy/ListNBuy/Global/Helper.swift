@@ -320,9 +320,9 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
             v?.removeFromSuperview();
             v=nil;
         }
-        var fm = CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 20, width: 100, height: 48)
+        var fm = CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-105, y: 25, width: 100, height: 48)
         if vc.view.frame.height > 600{
-            fm =  CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 50, width: 100, height: 48)
+            fm =  CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-105, y: 55, width: 100, height: 48)
         }
        // let mainView:UIView = UIView.init(frame: CGRect.init(x: (KAPPDELEGATE.window?.frame.size.width)!-100, y: 50, width: 100, height: 48))
         let mainView:UIView = UIView.init(frame:fm)
@@ -332,7 +332,7 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
             //btn.setTitle(amount, for: UIControl.State.normal)
             btn.titleLabel?.textColor = UIColor.white;
             btn.backgroundColor = UIColor.clear
-            btn.frame = CGRect.init(x: 30, y: 0, width: 60, height: 50)
+            btn.frame = CGRect.init(x: 35, y: 2, width: 50, height: 40)
             btn.addTarget(self, action: #selector(ShowWallet), for: UIControl.Event.touchUpInside)
             let lblAMT = UILabel.init(frame: CGRect.init(x: 60, y: 0, width: 30, height: 20))
             lblAMT.text = String((amount as NSString).intValue
