@@ -10,6 +10,8 @@ import LGSideMenuController
 import Alamofire
 import LPSnackbar
 import PKHUD
+import Firebase
+import FirebaseCrashlytics
 
 class LoginVC: UIViewController,SWRevealViewControllerDelegate {
     
@@ -31,6 +33,20 @@ class LoginVC: UIViewController,SWRevealViewControllerDelegate {
         if isUserLoggedIN == true {
             self.navigatToHome()
         }
+        Crashlytics.crashlytics().log("View loaded")
+        Crashlytics.crashlytics().setCustomValue(42, forKey: "MeaningOfLife")
+        Crashlytics.crashlytics().setCustomValue("Test value", forKey: "last_UI_action")
+        Crashlytics.crashlytics().setUserID("123456789")
+
+        let userInfo = [
+          NSLocalizedDescriptionKey: NSLocalizedString("The request failed.", comment: ""),
+          NSLocalizedFailureReasonErrorKey: NSLocalizedString("The response returned a 404.", comment: ""),
+          NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString("Does this page exist?", comment:""),
+          "ProductID": "123456",
+          "UserID": "Jane Smith"
+        ]
+        let error = NSError(domain: NSURLErrorDomain, code: -1001, userInfo: userInfo)
+        Crashlytics.crashlytics().record(error: error)
         
     }
     
@@ -41,6 +57,15 @@ class LoginVC: UIViewController,SWRevealViewControllerDelegate {
         viewOTPSection.isHidden = true
         cnstOTPSection.constant = 0
         cnstContainerView.constant = 355
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+        if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
+            statusBar.backgroundColor = UIColor.black
+        }
+        
     }
     
     @IBAction func skip(_ sender: UIButton) {

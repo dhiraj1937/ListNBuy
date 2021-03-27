@@ -53,6 +53,7 @@
 		187004B625B862BE001871B8 /* ViewSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187004B525B862BE001871B8 /* ViewSection.xib */; };
 		187004B925B86C15001871B8 /* ViewShopByCategory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187004B825B86C15001871B8 /* ViewShopByCategory.xib */; };
 		1872460D25B3604600A336D0 /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872460C25B3604600A336D0 /* FaqCell.swift */; };
+		187B5A53260B25EF0087DC30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187B5A52260B25EF0087DC30 /* GoogleService-Info.plist */; };
 		18804FAB25B757D8005BDF36 /* ViewShopByCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18804FAA25B757D8005BDF36 /* ViewShopByCategory.swift */; };
 		18895D2725AB23AE007AA0B0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18895D2625AB23AE007AA0B0 /* Alert.swift */; };
 		18895D3925AB312D007AA0B0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18895D3825AB312D007AA0B0 /* ApiManager.swift */; };
@@ -161,6 +162,7 @@
 		187004B525B862BE001871B8 /* ViewSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewSection.xib; sourceTree = "<group>"; };
 		187004B825B86C15001871B8 /* ViewShopByCategory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewShopByCategory.xib; sourceTree = "<group>"; };
 		1872460C25B3604600A336D0 /* FaqCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqCell.swift; sourceTree = "<group>"; };
+		187B5A52260B25EF0087DC30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18804FAA25B757D8005BDF36 /* ViewShopByCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewShopByCategory.swift; sourceTree = "<group>"; };
 		18895D2625AB23AE007AA0B0 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		18895D3825AB312D007AA0B0 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		180A885425A7566F00462CB7 /* ListNBuy */ = {
 			isa = PBXGroup;
 			children = (
+				187B5A52260B25EF0087DC30 /* GoogleService-Info.plist */,
 				1823734D25B44C37009106E5 /* CustomControl */,
 				18D5F66325ACBF8F007DABFF /* AppDelegate */,
 				18D5F65E25ACBE5A007DABFF /* Global */,
@@ -560,6 +563,7 @@
 				180A885F25A7567000462CB7 /* Assets.xcassets in Resources */,
 				181A12CC25D18F4800E03075 /* ViewCartBottomView.xib in Resources */,
 				18F20CD525B5B76D003CEF11 /* ShopCategoryCell.xib in Resources */,
+				187B5A53260B25EF0087DC30 /* GoogleService-Info.plist in Resources */,
 				186E2BEF25BC534D001CFEE4 /* BrandProduct.xib in Resources */,
 				187004B625B862BE001871B8 /* ViewSection.xib in Resources */,
 				180A88BD25A7770200462CB7 /* Offers.storyboard in Resources */,
@@ -929,9 +933,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.NewsBoom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.ListNBuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NewBoomDevPro;
+				PROVISIONING_PROFILE_SPECIFIER = ListnBuyDevProv;
 				SWIFT_OBJC_BRIDGING_HEADER = "ListNBuy/CustomControl/ListNBuy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -955,9 +959,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.NewsBoom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.ListNBuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NewBoomDevPro;
+				PROVISIONING_PROFILE_SPECIFIER = ListnBuyDevProv;
 				SWIFT_OBJC_BRIDGING_HEADER = "ListNBuy/CustomControl/ListNBuy-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

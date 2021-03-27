@@ -23,11 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         GIDSignIn.sharedInstance().clientID = "973257019249-o8o9ebdrephr8cn10ajicdjvr7nmhtg1.apps.googleusercontent.com"
-       
         // Override point for customization after application launch.
         // Use the Firebase library to configure APIs.
         FirebaseApp.configure()
-        
         IQKeyboardManager.shared.enable = true
         let isUserLoggedIN = UserDefaults.standard.isLoggedIn()
         if isUserLoggedIN == true {
@@ -47,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             frontNavigation.isNavigationBarHidden = true;
             rearNavigation.isNavigationBarHidden = true;
             let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
-            //swvc.rearViewRevealWidth = self.view.frame.size.width-50
-            
+        
             let nav = UINavigationController.init(rootViewController:swvc)
             nav.setNavigationBarHidden(true, animated: true)
             window?.rootViewController = nav;
@@ -59,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             nav.setNavigationBarHidden(true, animated: true)
             window?.rootViewController = nav;
         }
+        
         UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
             if (CLLocationManager.locationServicesEnabled())
             {
