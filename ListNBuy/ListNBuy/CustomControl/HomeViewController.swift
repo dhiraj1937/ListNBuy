@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     @IBOutlet var viewBanner:UIView!
     @IBOutlet var searchView:UIView!
     @IBOutlet var sv:UIScrollView!
+    @IBOutlet var btnWP:UIButton!
+    @IBOutlet var cnstButtomBtnWP:NSLayoutConstraint!
+    
     var listBanner:[Banner] = [Banner]()
     var listHomeBanner:[HomeBanner] = [HomeBanner]()
     var listSearch:[SearchModel] = [SearchModel]()
@@ -25,6 +28,7 @@ class HomeViewController: UIViewController {
     var listHomeCategory:[HomeParentCategoryModel] = [HomeParentCategoryModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.cnstButtomBtnWP.constant = 20
         GetSearchData();
         GetHomeBannerData();
         tblSearch.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
@@ -49,7 +53,10 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         Helper.getCartListAPI { (res) in
             if(res){
+                self.cnstButtomBtnWP.constant = 50
                 self.AddCartView(view: self.view)
+            }else{
+                self.cnstButtomBtnWP.constant = 20
             }
         }
     }

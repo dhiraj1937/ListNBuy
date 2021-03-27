@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ListNBuy" customModuleProvider="target">
             <connections>
+                <outlet property="btnWP" destination="grd-ic-Uey" id="1So-YY-FMg"/>
+                <outlet property="cnstButtomBtnWP" destination="UUZ-jR-QnX" id="SYp-Mj-dzh"/>
                 <outlet property="searchView" destination="wj0-0r-gQ0" id="VK8-oi-p7a"/>
                 <outlet property="sv" destination="yag-NK-5eL" id="iMC-Bd-bYl"/>
                 <outlet property="tblSearch" destination="Ddd-us-x2c" id="G5T-EB-CKv"/>

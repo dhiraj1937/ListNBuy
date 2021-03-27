@@ -31,7 +31,7 @@ class SignUP: UIViewController {
         super.viewDidLoad()
         viewOTPSection.isHidden = true
         cnstOTPSection.constant = 0
-        cnstContainerView.constant = 342
+        cnstContainerView.constant = 310//342
     }
     
     
@@ -124,7 +124,7 @@ class SignUP: UIViewController {
                     self.isHideOTPSection = false;
                     self.btnSignUpContinue.setTitle("CONTINUE", for: .normal)
                     self.viewOTPSection.isHidden = false
-                    self.cnstContainerView.constant = 420
+                    self.cnstContainerView.constant = 380//420
                     self.cnstOTPSection.constant = 78
                     if let strotp = JSON.dictionary?["OTP"]?.stringValue {
                         self.strOTP = strotp

@@ -56,7 +56,7 @@ class LoginVC: UIViewController,SWRevealViewControllerDelegate {
         txtFMobileOrEmail.text = "";
         viewOTPSection.isHidden = true
         cnstOTPSection.constant = 0
-        cnstContainerView.constant = 355
+        cnstContainerView.constant = 310//355
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -169,7 +169,7 @@ class LoginVC: UIViewController,SWRevealViewControllerDelegate {
                     self.isHideOTPSection = false;
                     self.btnRequestOTPAndContinue.setTitle("CONTINUE", for: .normal)
                     self.viewOTPSection.isHidden = false
-                    self.cnstContainerView.constant = 433
+                    self.cnstContainerView.constant = 385//433
                     self.cnstOTPSection.constant = 78
                     if let strotp = JSON.dictionary?["OTP"]?.stringValue {
                         self.strOTP = strotp
