@@ -61,10 +61,10 @@ class LoginVC: UIViewController,SWRevealViewControllerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-        if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
-            statusBar.backgroundColor = UIColor.black
-        }
+//        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+//        if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
+//            statusBar.backgroundColor = UIColor.black
+//        }
         
     }
     
@@ -75,7 +75,6 @@ class LoginVC: UIViewController,SWRevealViewControllerDelegate {
     func navigatToHome() {
         
         DispatchQueue.main.async {
-            
             var menuVC:MenuViewController? = nil;
             var tabvc:TabbarViewController? = nil;
             if #available(iOS 13.0, *) {
@@ -92,7 +91,7 @@ class LoginVC: UIViewController,SWRevealViewControllerDelegate {
             rearNavigation.isNavigationBarHidden = true;
             let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
             swvc.delegate = self;
-            swvc.rearViewRevealWidth = self.view.frame.size.width-50
+            swvc.rearViewRevealWidth = self.view.frame.size.width - self.view.frame.size.width/2
             self.navigationController?.pushViewController(swvc, animated: true);
             
             

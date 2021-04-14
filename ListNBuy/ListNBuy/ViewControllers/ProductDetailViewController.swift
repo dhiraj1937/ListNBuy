@@ -61,7 +61,7 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
         super.viewDidAppear(animated)
         Helper.getCartListAPI { (res) in
             if(res){
-                self.AddCartView(view: self.view)
+                self.AddCartViewInDetail(view: self.view)
             }
         }
     }
@@ -87,9 +87,12 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
         lblProductName.text = product.name;
         if(product.variation.count>0){
           //  lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[0].regularPrice.description);
-            lblActualRate.attributedText = NSAttributedString(string: "RS."+product.variation[0].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.foregroundColor: UIColor.red])
+            lblActualRate.attributedText = NSAttributedString(string: "RS."+product.variation[0].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.foregroundColor: UIColor.orange])
             //lblRate.text = "RS."+product.variation[0].memberPrice.description;
-            lblRate.text = "RS."+(Constant.isShowingSalesPrice == true ? product.variation[0].salePrice.description :product.variation[0].memberPrice.description)
+            let salPrice = Float(product.variation[0].salePrice.description)
+            let memberPrice = Float(product.variation[0].memberPrice.description)
+            
+            lblRate.text = "RS."+(Constant.isShowingSalesPrice == true ? String(format: "%.2f", salPrice as! CVarArg): String(format: "%.2f", memberPrice as! CVarArg))
         }
         if(product.wishlist==0){
             btnAddToWishlist.isSelected = false
@@ -283,7 +286,7 @@ extension ProductDetailViewController:  UIPickerViewDelegate, UIPickerViewDataSo
             btnDropDownVariant.setTitle(selectedVariant, for: .normal)
             if(product.variation.count>0){
                // lblActualRate.attributedText = Helper.GetStrikeTextAttribute(txt: "RS."+product.variation[row].regularPrice.description);
-                lblActualRate.attributedText = NSAttributedString(string: "RS."+product.variation[row].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.foregroundColor: UIColor.red])
+                lblActualRate.attributedText = NSAttributedString(string: "RS."+product.variation[row].regularPrice.description, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.foregroundColor: UIColor.orange])
                 lblRate.text = "RS."+product.variation[row].memberPrice.description;
             }
         }

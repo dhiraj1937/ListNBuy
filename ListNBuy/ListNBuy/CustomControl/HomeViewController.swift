@@ -1,7 +1,6 @@
 //
 //  HomeViewController.swift
 //  ListNBuy
-//
 //  Created by Apple on 18/01/21.
 //
 
@@ -26,6 +25,7 @@ class HomeViewController: UIViewController {
     var listSearch:[SearchModel] = [SearchModel]()
     var listTempSearch:[SearchModel] = [SearchModel]()
     var listHomeCategory:[HomeParentCategoryModel] = [HomeParentCategoryModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cnstButtomBtnWP.constant = 20
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
             AddressController.getWalletCash(userid: userID) { (response) in
                 self.AddWalletButton(vc: self, amount: Constant.walletCash)
             }
-            AddressController.getPlanData { (response) in
+                AddressController.getPlanData { (response) in
             }
         }
     }

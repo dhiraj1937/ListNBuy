@@ -105,16 +105,16 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="DPC-Ak-oIP"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grd-ic-Uey">
-                    <rect key="frame" x="339" y="732" width="60" height="60"/>
+                    <rect key="frame" x="349" y="782" width="50" height="50"/>
                     <color key="backgroundColor" red="0.99276465179999995" green="0.82444578410000002" blue="0.48177999259999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="gdF-tM-Gvy"/>
-                        <constraint firstAttribute="width" constant="60" id="gzA-K4-v8n"/>
+                        <constraint firstAttribute="height" constant="50" id="gdF-tM-Gvy"/>
+                        <constraint firstAttribute="width" constant="50" id="gzA-K4-v8n"/>
                     </constraints>
                     <state key="normal" image="whatsapp"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="30"/>
+                            <real key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -134,7 +134,7 @@
                 <constraint firstItem="7VV-gG-t6e" firstAttribute="leading" secondItem="aZN-oL-nwz" secondAttribute="leading" constant="10" id="Gpm-x5-S5B"/>
                 <constraint firstItem="6h7-W6-sqT" firstAttribute="leading" secondItem="7VV-gG-t6e" secondAttribute="trailing" constant="10" id="MTD-tb-p9u"/>
                 <constraint firstItem="aZN-oL-nwz" firstAttribute="trailing" secondItem="wj0-0r-gQ0" secondAttribute="trailing" constant="8" id="PBq-5i-25D"/>
-                <constraint firstItem="aZN-oL-nwz" firstAttribute="bottom" secondItem="grd-ic-Uey" secondAttribute="bottom" constant="70" id="UUZ-jR-QnX"/>
+                <constraint firstItem="aZN-oL-nwz" firstAttribute="bottom" secondItem="grd-ic-Uey" secondAttribute="bottom" constant="30" id="UUZ-jR-QnX"/>
                 <constraint firstItem="7VV-gG-t6e" firstAttribute="top" secondItem="aZN-oL-nwz" secondAttribute="top" constant="10" id="XDv-uP-n3R"/>
                 <constraint firstItem="wj0-0r-gQ0" firstAttribute="top" secondItem="bYA-sv-mRz" secondAttribute="bottom" constant="6" id="hKY-dp-VoI"/>
                 <constraint firstItem="wj0-0r-gQ0" firstAttribute="leading" secondItem="aZN-oL-nwz" secondAttribute="leading" constant="8" id="jZw-8a-z2r"/>

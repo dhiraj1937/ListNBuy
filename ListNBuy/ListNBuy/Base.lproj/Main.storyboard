@@ -1768,7 +1768,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17g-mZ-LLl">
-                                        <rect key="frame" x="143" y="120" width="182" height="27"/>
+                                        <rect key="frame" x="123" y="118" width="166" height="27"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tw8-n4-jas">
                                                 <rect key="frame" x="0.0" y="0.0" width="82" height="12"/>
@@ -1791,7 +1791,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid Through" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNn-Wk-4Xd">
-                                                <rect key="frame" x="100" y="0.0" width="82" height="12"/>
+                                                <rect key="frame" x="90" y="0.0" width="82" height="12"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="fKJ-Qb-Dnh"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="82" id="vtd-5k-8xu"/>
@@ -1801,7 +1801,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000-00-00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aft-64-AbO">
-                                                <rect key="frame" x="100" y="15" width="82" height="12"/>
+                                                <rect key="frame" x="90" y="15" width="82" height="12"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="TWR-I1-JZX"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="82" id="nZc-XH-LNa"/>
@@ -1814,13 +1814,13 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="y5J-49-NfB" firstAttribute="leading" secondItem="17g-mZ-LLl" secondAttribute="leading" id="0io-jL-gAf"/>
-                                            <constraint firstAttribute="width" constant="182" id="2Iz-bI-OZd"/>
-                                            <constraint firstAttribute="trailing" secondItem="uNn-Wk-4Xd" secondAttribute="trailing" id="CWN-pN-D8S"/>
+                                            <constraint firstAttribute="width" constant="166" id="2Iz-bI-OZd"/>
+                                            <constraint firstAttribute="trailing" secondItem="uNn-Wk-4Xd" secondAttribute="trailing" constant="-6" id="CWN-pN-D8S"/>
                                             <constraint firstAttribute="height" constant="27" id="IUl-J3-Imj"/>
                                             <constraint firstItem="uNn-Wk-4Xd" firstAttribute="top" secondItem="17g-mZ-LLl" secondAttribute="top" id="MAf-Ua-aT8"/>
                                             <constraint firstItem="tw8-n4-jas" firstAttribute="top" secondItem="17g-mZ-LLl" secondAttribute="top" id="ViG-lx-Ww4"/>
                                             <constraint firstItem="Aft-64-AbO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y5J-49-NfB" secondAttribute="trailing" constant="8" symbolic="YES" id="cb1-ba-324"/>
-                                            <constraint firstAttribute="trailing" secondItem="Aft-64-AbO" secondAttribute="trailing" id="dMF-aI-aV5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Aft-64-AbO" secondAttribute="trailing" constant="-6" id="dMF-aI-aV5"/>
                                             <constraint firstAttribute="bottom" secondItem="Aft-64-AbO" secondAttribute="bottom" id="gqF-GM-ZeG"/>
                                             <constraint firstItem="uNn-Wk-4Xd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tw8-n4-jas" secondAttribute="trailing" constant="8" symbolic="YES" id="p7t-gd-qqF"/>
                                             <constraint firstAttribute="bottom" secondItem="y5J-49-NfB" secondAttribute="bottom" id="vSf-D8-8IK"/>
@@ -1834,13 +1834,13 @@
                                     <constraint firstItem="Oqc-Sv-LYC" firstAttribute="leading" secondItem="7CE-ww-M3g" secondAttribute="trailing" constant="5" id="4RF-Af-QCh"/>
                                     <constraint firstItem="xhq-KR-9tN" firstAttribute="top" secondItem="W5l-dC-DQR" secondAttribute="top" id="Ap9-q1-eph"/>
                                     <constraint firstItem="Oqc-Sv-LYC" firstAttribute="top" secondItem="W5l-dC-DQR" secondAttribute="top" constant="15" id="BIi-g0-W2Y"/>
-                                    <constraint firstItem="17g-mZ-LLl" firstAttribute="leading" secondItem="7CE-ww-M3g" secondAttribute="trailing" constant="5" id="Bmc-Fu-duJ"/>
+                                    <constraint firstItem="17g-mZ-LLl" firstAttribute="leading" secondItem="7CE-ww-M3g" secondAttribute="trailing" constant="-15" id="Bmc-Fu-duJ"/>
                                     <constraint firstItem="7CE-ww-M3g" firstAttribute="top" secondItem="W5l-dC-DQR" secondAttribute="top" id="H2B-LY-hwm"/>
                                     <constraint firstAttribute="bottom" secondItem="Jas-Mz-WpT" secondAttribute="bottom" id="H4K-lU-dYe"/>
                                     <constraint firstItem="7CE-ww-M3g" firstAttribute="leading" secondItem="W5l-dC-DQR" secondAttribute="leading" id="Kmi-RQ-Mj0"/>
                                     <constraint firstAttribute="height" constant="150" id="PaW-ji-DZz"/>
                                     <constraint firstAttribute="trailing" secondItem="xhq-KR-9tN" secondAttribute="trailing" constant="5" id="gBo-wV-69h"/>
-                                    <constraint firstItem="17g-mZ-LLl" firstAttribute="top" secondItem="Oqc-Sv-LYC" secondAttribute="bottom" constant="5" id="h6j-ni-qgl"/>
+                                    <constraint firstItem="17g-mZ-LLl" firstAttribute="top" secondItem="Oqc-Sv-LYC" secondAttribute="bottom" constant="3" id="h6j-ni-qgl"/>
                                     <constraint firstAttribute="bottom" secondItem="7CE-ww-M3g" secondAttribute="bottom" id="w2t-HA-vcN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -2179,7 +2179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anD-DN-QB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4228" y="1447.536945812808"/>
+            <point key="canvasLocation" x="4226.25" y="1447.1830985915494"/>
         </scene>
         <!--Add To Wallet View Controller-->
         <scene sceneID="boa-YY-XYL">

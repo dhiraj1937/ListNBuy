@@ -73,21 +73,25 @@ class Helper: NSObject {
                     let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                     Constant.listCartProducts =  try! JSONDecoder().decode([CartDetail].self, from: jsonData!)
                     Constant.totalAmount = 0;
-                    
-                    var mrp = 0.0
-                    var quantity = 0;
-                    for item in Constant.listCartProducts {
+                    if(Constant.listCartProducts.count>0){
+                        var mrp = 0.0
+                        var quantity = 0;
+                        for item in Constant.listCartProducts {
+                            //same as android
+                            //mrp = mrp + Double(item.quantity)! * (Constant.isShowingSalesPrice == true ? Double(item.salePrice) : Double(item.memberPrice))
+                            mrp = mrp + Double(item.quantity)! * Double(item.salePrice)
+                            quantity = quantity+Int(item.quantity)!;
+                        }
+                        
                         //same as android
-                        //mrp = mrp + Double(item.quantity)! * (Constant.isShowingSalesPrice == true ? Double(item.salePrice) : Double(item.memberPrice))
-                        mrp = mrp + Double(item.quantity)! * Double(item.salePrice)
-                        quantity = quantity+Int(item.quantity)!;
+                        //Constant.totalAmount = Double(String(format: "%.2f", mrp))!
+                        Constant.totalAmount = Double(String(format: "%.0f", mrp))!
+                        Constant.totalItemCount = quantity;
+                        response(true)
                     }
-                    
-                    //same as android
-                    //Constant.totalAmount = Double(String(format: "%.2f", mrp))!
-                    Constant.totalAmount = Double(String(format: "%.0f", mrp))!
-                    Constant.totalItemCount = quantity;
-                    response(true)
+                    else{
+                        response(false)
+                    }
                 }
                 else{
                     response(false)
@@ -410,13 +414,31 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         }
     }
     
+    func AddCartViewInDetail(view:UIView) {
+        if(Constant.totalItemCount>0){
+            let buttonHeight: CGFloat = view.safeAreaInsets.bottom
+            if(buttonHeight==34){
+                let viewBanner = ViewCartBottomView.init(frame: CGRect.init(x: 0, y: Int(view.frame.size.height)-130, width: Int(view.frame.size.width), height: 40))
+                viewBanner.tag = -200;
+                view.addSubview(viewBanner);
+                viewBanner.SetData()
+            }
+            else{
+                let viewBanner = ViewCartBottomView.init(frame: CGRect.init(x: 0, y: Int(view.frame.size.height)-Int(90), width: Int(view.frame.size.width), height: 40))
+                viewBanner.tag = -200;
+                view.addSubview(viewBanner);
+                viewBanner.SetData()
+            }
+        }
+    }
+    
     func RemoveCart(view:UIView) {
         let v = view.viewWithTag(-200)
         v?.removeFromSuperview()
     }
     
     @IBAction func openCloseMenu(){
-        TabbarViewController.revealController?.rearViewRevealWidth = self.view.frame.size.width-60;
+        TabbarViewController.revealController?.rearViewRevealWidth = self.view.frame.size.width - (self.view.frame.size.width/3.5);
         TabbarViewController.revealController?.revealToggle(UIButton.init())
     }
 
