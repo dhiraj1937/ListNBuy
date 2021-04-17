@@ -298,7 +298,7 @@ extension AddressListViewController {
                             }
                             self.navigationController?.popToViewController(ofClass: SWRevealViewController.self, animated: true)
                             Constant.globalTabbar?.selectedIndex = 0
-                            HUD.flash(.progress)sour
+                            HUD.flash(.progress)
                         })
                         dialogMessage.addAction(btnAdd)
                         self.present(dialogMessage, animated: true, completion: nil)
