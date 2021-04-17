@@ -42,7 +42,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="LISTNBUY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6h7-W6-sqT">
-                    <rect key="frame" x="50" y="56" width="94" height="27"/>
+                    <rect key="frame" x="50" y="58" width="94" height="27"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="JJB-jU-cGv"/>
                         <constraint firstAttribute="height" constant="27" id="uWz-m5-hCR"/>
@@ -125,7 +125,7 @@
             <viewLayoutGuide key="safeArea" id="aZN-oL-nwz"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="6h7-W6-sqT" firstAttribute="top" secondItem="aZN-oL-nwz" secondAttribute="top" constant="12" id="3Kl-hZ-oAo"/>
+                <constraint firstItem="6h7-W6-sqT" firstAttribute="top" secondItem="aZN-oL-nwz" secondAttribute="top" constant="14" id="3Kl-hZ-oAo"/>
                 <constraint firstItem="bYA-sv-mRz" firstAttribute="trailing" secondItem="aZN-oL-nwz" secondAttribute="trailing" id="3VZ-g0-7nS"/>
                 <constraint firstItem="bYA-sv-mRz" firstAttribute="leading" secondItem="aZN-oL-nwz" secondAttribute="leading" id="4tW-hU-VuT"/>
                 <constraint firstItem="aZN-oL-nwz" firstAttribute="trailing" secondItem="grd-ic-Uey" secondAttribute="trailing" constant="15" id="6U8-ti-vME"/>

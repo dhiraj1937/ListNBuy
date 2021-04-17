@@ -336,7 +336,7 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
             //btn.setTitle(amount, for: UIControl.State.normal)
             btn.titleLabel?.textColor = UIColor.white;
             btn.backgroundColor = UIColor.clear
-            btn.frame = CGRect.init(x: 35, y: 2, width: 50, height: 40)
+            btn.frame = CGRect.init(x: 35, y: 0, width: 50, height: 40)
             btn.addTarget(self, action: #selector(ShowWallet), for: UIControl.Event.touchUpInside)
             let lblAMT = UILabel.init(frame: CGRect.init(x: 60, y: 0, width: 30, height: 20))
             lblAMT.text = String((amount as NSString).intValue
@@ -425,6 +425,24 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
             }
             else{
                 let viewBanner = ViewCartBottomView.init(frame: CGRect.init(x: 0, y: Int(view.frame.size.height)-Int(90), width: Int(view.frame.size.width), height: 40))
+                viewBanner.tag = -200;
+                view.addSubview(viewBanner);
+                viewBanner.SetData()
+            }
+        }
+    }
+    
+    func AddCartViewInTabDetail(view:UIView) {
+        if(Constant.totalItemCount>0){
+            let buttonHeight: CGFloat = view.safeAreaInsets.bottom
+            if(buttonHeight==83){
+                let viewBanner = ViewCartBottomView.init(frame: CGRect.init(x: 0, y: Int(view.frame.size.height)-180, width: Int(view.frame.size.width), height: 40))
+                viewBanner.tag = -200;
+                view.addSubview(viewBanner);
+                viewBanner.SetData()
+            }
+            else{
+                let viewBanner = ViewCartBottomView.init(frame: CGRect.init(x: 0, y: Int(view.frame.size.height)-Int(140), width: Int(view.frame.size.width), height: 40))
                 viewBanner.tag = -200;
                 view.addSubview(viewBanner);
                 viewBanner.SetData()
@@ -601,5 +619,11 @@ extension UINavigationController
     {
         return self.viewControllers.contains(where: { $0.isKind(of: kind) })
     }
+    
+    func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+        if let vc = viewControllers.last(where: { $0.isKind(of: ofClass) }) {
+          popToViewController(vc, animated: animated)
+        }
+      }
 }
 

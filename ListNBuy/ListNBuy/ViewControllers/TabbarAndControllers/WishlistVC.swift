@@ -45,8 +45,7 @@ class WishlistVC: BaseViewController {
         layout.minimumLineSpacing = 10
         collectionView!.collectionViewLayout = layout
     }
-
-
+    
 }
 
 extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
@@ -110,7 +109,6 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
             let params :[String:Any] = ["Id":wl_id]
             ApiManager.sharedInstance.requestPOSTURL(Constant.removeWishlistURL, params: params, success: {(JSON) in
                 //print(JSON)
-                
                 let msg =  JSON.dictionary?["Message"]
                 if((JSON.dictionary?["IsSuccess"]) != false){
                     HUD.flash(.progress)
@@ -144,6 +142,7 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
            ApiManager.sharedInstance.requestGETURL(Constant.getWishlistURL+""+userid!, success: { [self]
                (JSON) in
             let msg =  JSON.dictionary?["Message"]
+            listWish = [[String:Any]]();
             if((JSON.dictionary?["IsSuccess"]) != false){
                 listWish = (JSON.dictionaryObject!["ResponseData"]) as? [[String:Any]];
                 collectionView.reloadData()

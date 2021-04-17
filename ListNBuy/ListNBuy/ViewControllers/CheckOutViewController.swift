@@ -180,7 +180,8 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                     }
                     
                     if let total = JSON.dictionaryObject?["Total"]{
-                        lblTotalVal.text = String(total as! Double)
+                        
+                        lblTotalVal.text = String(format: "%.2f", total as! Double)
                         Constant.totalPaybalAmount = String(total as! Double)
                     }
                     

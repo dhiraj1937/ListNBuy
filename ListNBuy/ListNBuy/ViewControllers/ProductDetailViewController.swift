@@ -61,7 +61,12 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
         super.viewDidAppear(animated)
         Helper.getCartListAPI { (res) in
             if(res){
-                self.AddCartViewInDetail(view: self.view)
+                if(!Constant.IsTabPage){
+                    self.AddCartViewInDetail(view: self.view)
+                }
+                else{
+                    self.AddCartViewInTabDetail(view: self.view)
+                }
             }
         }
     }
@@ -164,7 +169,12 @@ class ProductDetailViewController: UIViewController, PinViewButtonDelegate {
                     self.RemoveCart(view: self.view)
                     Helper.getCartListAPI { (res) in
                         if(res){
-                            self.AddCartView(view: self.view)
+                            if(!Constant.IsTabPage){
+                                self.AddCartViewInDetail(view: self.view)
+                            }
+                            else{
+                                self.AddCartViewInTabDetail(view: self.view)
+                            }
                             self.changeAddToCartButton()
                         }
                     }

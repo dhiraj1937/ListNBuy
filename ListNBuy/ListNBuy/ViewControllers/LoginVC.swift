@@ -94,13 +94,6 @@ class LoginVC: UIViewController,SWRevealViewControllerDelegate {
             swvc.rearViewRevealWidth = self.view.frame.size.width - self.view.frame.size.width/2
             self.navigationController?.pushViewController(swvc, animated: true);
             
-            
-            
-//            let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LGSideMenuController") as! LGSideMenuController
-//            controller.leftViewWidth = 250;
-//            controller.leftViewPresentationStyle = LGSideMenuPresentationStyle(rawValue: 0)!
-//
-//            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
     

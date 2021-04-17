@@ -29,13 +29,19 @@ class MyOrdersVC: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getOrderByUserIdAPI()
+        let userID = UserDefaults.standard.getUserID()
+        if userID != "" {
+            getOrderByUserIdAPI()
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Helper.getCartListAPI { (res) in
-            if(res){
-                self.AddCartView(view: self.view)
+        let userID = UserDefaults.standard.getUserID()
+        if userID != "" {
+            Helper.getCartListAPI { (res) in
+                if(res){
+                    self.AddCartView(view: self.view)
+                }
             }
         }
     }
@@ -153,6 +159,9 @@ extension MyOrdersVC : UITableViewDelegate,UITableViewDataSource {
                     arrOrders =  try! JSONDecoder().decode([Orders].self, from: jsonData!)
                     tblOrders.reloadData()
                     HUD.flash(.progress)
+                    if(arrOrders.count==0){
+                        LPSnackbar.showSnack(title: "No Item in the list")
+                    }
                 }
                 else{
                     HUD.flash(.progress)

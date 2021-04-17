@@ -29,7 +29,7 @@ public class Constant {
     
     public static var currLat: Double = 0.0
     public static var currLng: Double = 0.0
-
+    public static var IsTabPage:Bool = false;
     public static var APIKey:String = "123456789123456789"
     private static var serverURL:String = "https://projects.seawindsolution.com/YOGDEV/360/Webservices"
 

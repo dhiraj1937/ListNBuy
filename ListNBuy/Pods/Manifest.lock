@@ -88,7 +88,7 @@ PODS:
   - WebBrowser (0.1.5)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 5.2)
   - FacebookCore
   - FacebookLogin
   - Firebase/Crashlytics
@@ -165,6 +165,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   WebBrowser: 0248873c77f54e2ac504ece7c2bc8eeb710b5a4f
 
-PODFILE CHECKSUM: eb72b450555b1d2de7ef74dbb560569e96502d02
+PODFILE CHECKSUM: 4150c48c08739d0afe6e218e308e195d19e4ed8c
 
 COCOAPODS: 1.9.1

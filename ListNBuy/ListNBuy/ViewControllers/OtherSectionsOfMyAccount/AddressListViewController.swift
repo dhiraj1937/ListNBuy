@@ -293,8 +293,13 @@ extension AddressListViewController {
                         
                         // Create button with action handler
                         let btnAdd = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                            self.navigationController?.popToRootViewController(animated: true)
-                         })
+                            DispatchQueue.main.async {
+                                HUD.show(.progress)
+                            }
+                            self.navigationController?.popToViewController(ofClass: SWRevealViewController.self, animated: true)
+                            Constant.globalTabbar?.selectedIndex = 0
+                            HUD.flash(.progress)sour
+                        })
                         dialogMessage.addAction(btnAdd)
                         self.present(dialogMessage, animated: true, completion: nil)
                     }

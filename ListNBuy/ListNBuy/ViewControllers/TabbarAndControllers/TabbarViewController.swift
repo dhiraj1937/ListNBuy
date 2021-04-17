@@ -48,5 +48,14 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         return true;
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Constant.IsTabPage = true;
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        Constant.IsTabPage = false;
+    }
     
 }
