@@ -62,7 +62,8 @@ class ProductCollectionViewController: UIViewController {
         DispatchQueue.main.async {
             HUD.show(.progress)
         }
-        ApiManager.sharedInstance.requestGETURL(Constant.GetProductsByCatIdURL+""+parentCategoryId, success: { [self](JSON) in
+            let userID = UserDefaults.standard.getUserID()
+        ApiManager.sharedInstance.requestGETURL(Constant.GetProductsByCatIdURL+""+parentCategoryId+"/1/"+userID, success: { [self](JSON) in
            
             let msg =  JSON.dictionary?["Message"]?.stringValue
             if((JSON.dictionary?["IsSuccess"]) != false){

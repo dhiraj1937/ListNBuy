@@ -129,6 +129,8 @@ public class Constant {
         return newProduct
     }
     
+   
+    
     static func getProductModelFromProductDetailModel(prod:ProductDetail)->Product{
         let newProduct:Product = Product.init(wishlist: prod.wishlist, id: prod.id, name: prod.name, image: prod.variation[0].subvarieant[0].image , tax: prod.tax, veg: prod.veg, isVariable: prod.isVariable, brand: prod.brand, productDescription: prod.productDescription, avgRating: prod.avgRating, variation: prod.variation[0].subvarieant)
         return newProduct

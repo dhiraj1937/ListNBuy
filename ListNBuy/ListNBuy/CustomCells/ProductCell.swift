@@ -43,4 +43,15 @@ class ProductCell: UICollectionViewCell {
         lblVaiant.text = product.variation[0].attributeName;
     }
     
+    public func SetProductsModelData(product:ProductListModel) {
+        img.imageFromServerURL(urlString: product.image)
+        lblRating.text = product.avgRating;
+        lblTitle.text = product.name;
+        //lblDisPrice.text = "Rs:"+product.variation[0].salePrice.description
+        lblDisPrice.text = Constant.isShowingSalesPrice == true ? "Rs:"+product.variation[0].salePrice.description : "Rs:"+product.variation[0].memberPrice.description
+        lblRealPrice.attributedText = Helper.GetStrikeTextAttribute(txt: "Rs:"+product.variation[0].regularPrice.description);
+        //lblRealPrice.text = "Rs:"+lblRealPrice.text!;
+        lblVaiant.text = product.variation[0].attributeName;
+    }
+    
 }

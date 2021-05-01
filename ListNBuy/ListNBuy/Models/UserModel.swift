@@ -297,6 +297,76 @@ class Product: Codable {
     }
 }
 
+class ProductListModel: Codable {
+    let wishlist: Int
+    let id, name: String
+    let image: String
+    let tax, veg, isVariable, brand: String
+    let productDescription, avgRating: String
+    let variation: [VariationModel]
+
+    enum CodingKeys: String, CodingKey {
+        case wishlist,id, name
+        case image = "Image"
+        case tax, veg, isVariable, brand
+        case productDescription = "description"
+        case avgRating = "AvgRating"
+        case variation
+    }
+
+    init(wishlist: Int, id: String, name: String, image: String, tax: String, veg: String, isVariable: String, brand: String, productDescription: String, avgRating: String, variation: [VariationModel]) {
+        self.wishlist = wishlist
+        self.id = id
+        self.name = name
+        self.image = image
+        self.tax = tax
+        self.veg = veg
+        self.isVariable = isVariable
+        self.brand = brand
+        self.productDescription = productDescription
+        self.avgRating = avgRating
+        self.variation = variation
+    }
+}
+
+// MARK: - Variation
+class VariationModel: Codable {
+    let varID, attrID, attributeName, attrId1: String
+    let attributeName1, sku: String
+    let offerTag: JSONNull?
+    let stock, pack: String
+    let image: String
+    let regularPrice: String
+    let salePrice, memberPrice: String
+
+    enum CodingKeys: String, CodingKey {
+        case varID = "varId"
+        case attrID = "attrId"
+        case attributeName, attrId1, attributeName1
+        case sku = "SKU"
+        case offerTag, stock, pack, image
+        case regularPrice = "regular_price"
+        case salePrice = "sale_price"
+        case memberPrice = "member_price"
+    }
+
+    init(varID: String, attrID: String, attributeName: String, attrId1: String, attributeName1: String, sku: String, offerTag: JSONNull?, stock: String, pack: String, image: String, regularPrice: String, salePrice: String, memberPrice: String) {
+        self.varID = varID
+        self.attrID = attrID
+        self.attributeName = attributeName
+        self.attrId1 = attrId1
+        self.attributeName1 = attributeName1
+        self.sku = sku
+        self.offerTag = offerTag
+        self.stock = stock
+        self.pack = pack
+        self.image = image
+        self.regularPrice = regularPrice
+        self.salePrice = salePrice
+        self.memberPrice = memberPrice
+    }
+}
+
 // MARK: - Variation
 class Variation: Codable {
     let varID, attrID, attributeName, attrId1: String
