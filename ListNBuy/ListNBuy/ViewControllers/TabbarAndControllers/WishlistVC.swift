@@ -114,7 +114,7 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
                     HUD.flash(.progress)
                     LPSnackbar.showSnack(title: msg!.stringValue)
                    // self.collectionView.reloadData()
-                    self.getWishlList()
+                    self.getWishlListAfterDelete()
                 }
                 else{
                     HUD.flash(.progress)
@@ -151,16 +151,52 @@ extension WishlistVC:UICollectionViewDelegate,UICollectionViewDataSource {
             else{
                 HUD.flash(.progress)
                 LPSnackbar.showSnack(title: msg!.rawValue as! String)
+                collectionView.reloadData()
                }
            }, failure: { [self] (Error) in
             DispatchQueue.main.async {
                 HUD.flash(.error)
                 LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                collectionView.reloadData()
             }
            })
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+        }
+    }
+    
+    func getWishlListAfterDelete(){
+           
+        if KAPPDELEGATE.isNetworkAvailable(){
+            DispatchQueue.main.async {
+                HUD.show(.progress)
+            }
+
+           ApiManager.sharedInstance.requestGETURL(Constant.getWishlistURL+""+userid!, success: { [self]
+               (JSON) in
+            let msg =  JSON.dictionary?["Message"]
+            listWish = [[String:Any]]();
+            if((JSON.dictionary?["IsSuccess"]) != false){
+                listWish = (JSON.dictionaryObject!["ResponseData"]) as? [[String:Any]];
+                collectionView.reloadData()
+                HUD.flash(.progress)
+            }
+            else{
+                HUD.flash(.progress)
+                //LPSnackbar.showSnack(title: msg!.rawValue as! String)
+                collectionView.reloadData()
+               }
+           }, failure: { [self] (Error) in
+            DispatchQueue.main.async {
+                HUD.flash(.error)
+                //LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                collectionView.reloadData()
+            }
+           })
+       }
+        else{
+            //LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
     }
     

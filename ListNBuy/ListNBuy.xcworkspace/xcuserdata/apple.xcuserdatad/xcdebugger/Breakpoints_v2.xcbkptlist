@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B2D2D958-5390-4ED1-B61E-3B021878FD3F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/LeftMenuVC.swift"
@@ -160,8 +160,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "SetData(product:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -381,8 +381,8 @@
             filePath = "ListNBuy/Service/ApiManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "requestPOSTURL(_:params:success:failure:)"
             landmarkType = "7">
             <Locations>
@@ -429,8 +429,8 @@
             filePath = "ListNBuy/Service/ApiManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "requestPOSTURL(_:params:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -583,7 +583,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FAE8F801-776A-440F-BDC3-8AAEBD083091"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/CustomControl/WishListController.swift"
@@ -759,7 +759,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4C56D650-AC50-4B93-8AF0-A1174BFAA4CF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddressListViewController.swift"
@@ -791,7 +791,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4256BC9D-A2F3-4C56-9AEA-61FDAD9B6A81"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/CustomControl/ProductUnAvailableViewController.swift"
@@ -807,7 +807,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5D936D2B-2916-471A-9755-358A6B14F70E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/CustomControl/ProductUnAvailableViewController.swift"
@@ -823,7 +823,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "44B80218-E338-4BD3-9F55-3E6A5E3A81B3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/CustomControl/ProductUnAvailableViewController.swift"
@@ -871,7 +871,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F8A856BB-698D-49A7-8930-4D324204636C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddressListViewController.swift"
@@ -935,7 +935,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B0E14992-2CFD-4DE8-B057-1C72A3F5D102"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddressListViewController.swift"
@@ -967,7 +967,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2EFEB1DD-ECD2-4CC7-8575-9D1763E1255F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddressListViewController.swift"
@@ -983,7 +983,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "36ADC2F9-A36D-47A8-9378-6DE3F13E6D01"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddressListViewController.swift"
@@ -999,7 +999,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "833B7675-FB04-42AD-8D2B-22EAE1EF882A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddressListViewController.swift"
@@ -1015,7 +1015,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4F8BB3DD-A907-4D75-AB3C-0ECA3E9F4EB8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddressListViewController.swift"
@@ -1175,7 +1175,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FABC4D3D-29ED-4A76-ADD0-D23D8E461E16"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddressController.swift"
@@ -1295,8 +1295,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1367,7 +1367,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3280922C-732B-464C-AD05-19A8237D0931"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/Global/Helper.swift"
@@ -1399,7 +1399,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F04AA360-A50F-42D1-BD65-BB17534EB36B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/MenuAndControllers/ContactUsViewController.swift"
@@ -1447,7 +1447,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CA303B82-D1A9-4A6E-A0F7-325FB8B948CD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/MenuAndControllers/OtherInfoViewController.swift"
@@ -1517,8 +1517,8 @@
             filePath = "ListNBuy/Service/ApiManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "requestGETURL(_:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1533,8 +1533,8 @@
             filePath = "ListNBuy/Service/ApiManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "requestGETURL(_:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1607,7 +1607,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4B82BAEA-C648-4D99-9E2E-3D9A4B36315B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/TabbarAndControllers/WishlistVC.swift"
@@ -1719,7 +1719,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2C11496F-F343-425E-88BF-80D7F5C20D79"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/ProductListViewController.swift"
@@ -1735,7 +1735,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1724D8B4-0ACF-403E-AC7D-A981338F901E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/ProductListViewController.swift"
@@ -1751,7 +1751,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CA7EEA2D-63F9-411A-8ACF-7440BAD89847"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/ViewControllers/ProductListViewController.swift"
@@ -1773,49 +1773,17 @@
             filePath = "ListNBuy/Service/ApiManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "requestGETURL(_:success:failure:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5CDFBF63-148B-46C8-9DC0-2CE32904B924 - fe08f5da831ef26a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in ListNBuy.ApiManager.requestGETURL(_: Swift.String, success: (SwiftyJSON.JSON) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
-                  moduleName = "ListNBuy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/IOS%20Projects/ListNBuyRepo/ListNBuy/ListNBuy/Service/ApiManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "301">
-               </Location>
-               <Location
-                  uuid = "5CDFBF63-148B-46C8-9DC0-2CE32904B924 - fe08f5da831ef26a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in ListNBuy.ApiManager.requestGETURL(_: Swift.String, success: (SwiftyJSON.JSON) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
-                  moduleName = "ListNBuy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/IOS%20Projects/ListNBuyRepo/ListNBuy/ListNBuy/Service/ApiManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "339">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7F8ED7EE-DFB2-4CC2-B812-A7F038633118"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/Global/Helper.swift"
@@ -1831,7 +1799,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A1D60B90-29FB-427E-9865-31D25A3B3DDC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListNBuy/Global/Helper.swift"
@@ -2015,6 +1983,229 @@
             startingLineNumber = "73"
             endingLineNumber = "73"
             landmarkName = "GetProductsByCatId()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFE2ED68-A294-47C2-AC4B-5B7D3E67986F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "getWalletPromoCodes()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FFE2ED68-A294-47C2-AC4B-5B7D3E67986F - b64fa8339f5ce62"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ListNBuy.AddToWalletViewController.getWalletPromoCodes() -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/IOS%20Projects/ListNBuyRepo/ListNBuy/ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "556">
+               </Location>
+               <Location
+                  uuid = "FFE2ED68-A294-47C2-AC4B-5B7D3E67986F - b64fa8339f5ce62"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ListNBuy.AddToWalletViewController.getWalletPromoCodes() -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/IOS%20Projects/ListNBuyRepo/ListNBuy/ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "684">
+               </Location>
+               <Location
+                  uuid = "FFE2ED68-A294-47C2-AC4B-5B7D3E67986F - d74836dbd494c162"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (SwiftyJSON.JSON) -&gt; () in ListNBuy.AddToWalletViewController.getWalletPromoCodes() -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/IOS%20Projects/ListNBuyRepo/ListNBuy/ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3684EFF-5D8B-49DF-BB36-D5A502F6F294"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B764162-2C5D-4B5A-B2C5-FB0D2F06BD9B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getWalletPromoCodes()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E995506-D7E7-40ED-BA4D-40F345B472A5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getWalletPromoCodes()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "893CEBC7-7CD0-44AA-BEAE-6701FE0E676C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/OtherSectionsOfMyAccount/AddToWalletViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "getWalletPromoCodes()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8576B5E6-8237-41EF-A103-D4F6161782F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/Service/ApiManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "requestGETURL(_:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8576B5E6-8237-41EF-A103-D4F6161782F2 - fe08f5da831ef26a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in ListNBuy.ApiManager.requestGETURL(_: Swift.String, success: (SwiftyJSON.JSON) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/IOS%20Projects/ListNBuyRepo/ListNBuy/ListNBuy/Service/ApiManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "301">
+               </Location>
+               <Location
+                  uuid = "8576B5E6-8237-41EF-A103-D4F6161782F2 - fe08f5da831ef26a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in ListNBuy.ApiManager.requestGETURL(_: Swift.String, success: (SwiftyJSON.JSON) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "ListNBuy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/IOS%20Projects/ListNBuyRepo/ListNBuy/ListNBuy/Service/ApiManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "339">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBC9B6CB-B735-4A71-A037-D09D310B129E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/MenuAndControllers/OtherInfoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "GetOtherInfoData(slug:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E718EA78-0097-4263-B6F1-E3D73301B412"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/ViewControllers/MenuAndControllers/OtherInfoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "GetOtherInfoData(slug:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24E6B902-D8BC-4E8A-9F46-9088C8D5BF3A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListNBuy/Service/ApiManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "requestGETURL(_:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

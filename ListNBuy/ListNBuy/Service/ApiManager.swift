@@ -20,6 +20,7 @@ class ApiManager: NSObject {
         let headerS: HTTPHeaders = ["x-api-key": Constant.APIKey]
         
         AF.request(strURL, method: .get, headers: headerS).responseJSON{ response in
+            
             switch response.result {
             case let .success(result):
                 success(JSON(result))

@@ -113,13 +113,13 @@ class LeftMenuVC: UIViewController {
             else if sender.tag == 8 {
                 if #available(iOS 13.0, *) {
                     let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
-                    vc.slug = "terms-conditions";
+                    vc.slug = "terms-and-conditions";
                     vc.headertitle = "Terms Conditions";
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     // Fallback on earlier versions
                     let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "OtherInfoViewController") as! OtherInfoViewController
-                    vc.slug = "terms-conditions";
+                    vc.slug = "terms-and-conditions";
                     vc.headertitle = "Terms Conditions";
                     self.navigationController?.pushViewController(vc, animated: true)
                 }

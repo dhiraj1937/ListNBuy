@@ -18,6 +18,21 @@ class BrandProduct: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         return cell;
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if #available(iOS 13.0, *) {
+            let vc = KHOMESTORYBOARD.instantiateViewController(identifier: "ProductCollectionViewController") as ProductCollectionViewController
+            vc.parentCategoryId = listHomeCategory[indexPath.row].id
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KHOMESTORYBOARD.instantiateViewController(withIdentifier: "ProductCollectionViewController") as! ProductCollectionViewController
+            vc.parentCategoryId = listHomeCategory[indexPath.row].id
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
      private var listHomeCategory:[BrandModel] = [BrandModel]()
      @IBOutlet private var collectionView:UICollectionView!
      @IBOutlet private var contentView:UIView!
@@ -37,9 +52,10 @@ class BrandProduct: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
             addSubview(contentView)
             contentView.frame = self.bounds;
             contentView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
-           
-            
         }
+    
+    
+    
     
     public func RefreshData(_listHomeCategory:[BrandModel],wd:CGFloat){
         
