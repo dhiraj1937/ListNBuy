@@ -49,7 +49,57 @@ class CheckOutViewController: UIViewController {
     }
     
     @IBAction func btnAddItemQByOne(sender:UIButton){
-        
+        let product = listProducts[sender.tag]
+        let qTY = Int(product.quantity)! + 1
+        AddRemoveItem(qty: qTY, sender: sender);
+//        let userPin = UserDefaults.standard.getUserPin()
+//        let product = listProducts[sender.tag]
+//        let userID = UserDefaults.standard.getUserID()
+//        var dic = [String:AnyObject]()
+//        dic["userId"] = userID as AnyObject
+//        dic["productId"] = product.id as AnyObject
+//        dic["variationId"] = product.varID as AnyObject
+//        let qty = Int(product.quantity)! + 1
+//        dic["quantity"] = qty as AnyObject
+//        dic["PIN"] = userPin as AnyObject
+//
+//
+//                if KAPPDELEGATE.isNetworkAvailable(){
+//                    DispatchQueue.main.async {
+//                        HUD.show(.progress)
+//                    }
+//
+//                    ApiManager.sharedInstance.requestPOSTURL(Constant.addCartURL, params: dic, success: {
+//                        (JSON) in
+//                        print("addCartURL")
+//                        print(JSON)
+//                        let msg =  JSON.dictionary?["Message"]
+//                        if((JSON.dictionary?["IsSuccess"]) != false){
+//                            DispatchQueue.main.async {
+//                                HUD.flash(.progress)
+//                                LPSnackbar.showSnack(title:msg!.description)
+//                                self.getCartListAPI()
+//                            }
+//                        }
+//                        else{
+//                            DispatchQueue.main.async {
+//                                HUD.flash(.progress)
+//                                LPSnackbar.showSnack(title: msg!.description)
+//                            }
+//                        }
+//                    }, failure: { (Error) in
+//                        DispatchQueue.main.async {
+//                            HUD.flash(.error)
+//                            LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+//                        }
+//                    })
+//                }else{
+//                    LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+//                }
+            
+    }
+    
+    func AddRemoveItem(qty:Int,sender:UIButton){
         let userPin = UserDefaults.standard.getUserPin()
         let product = listProducts[sender.tag]
         let userID = UserDefaults.standard.getUserID()
@@ -57,7 +107,7 @@ class CheckOutViewController: UIViewController {
         dic["userId"] = userID as AnyObject
         dic["productId"] = product.id as AnyObject
         dic["variationId"] = product.varID as AnyObject
-        let qty = Int(product.quantity)! + 1
+        //let qty = Int(product.quantity)! + qty
         dic["quantity"] = qty as AnyObject
         dic["PIN"] = userPin as AnyObject
         
@@ -94,11 +144,18 @@ class CheckOutViewController: UIViewController {
                 }else{
                     LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
                 }
-            
     }
+    
     @IBAction func btnRemoveItemQByOne(sender:UIButton){
         let cartItem = listProducts[sender.tag]
-        removeCartItemAPI(pid: cartItem.id, vid: cartItem.varID)
+        let qTY = Int(cartItem.quantity)! - 1
+        if(qTY > 0){
+            AddRemoveItem(qty: qTY, sender: sender);
+        }
+        else{
+            removeCartItemAPI(pid: cartItem.id, vid: cartItem.varID)
+        }
+        //removeCartItemAPI(pid: cartItem.id, vid: cartItem.varID)
     }
     @IBAction func btnPayNow(sender:UIButton){
         if #available(iOS 13.0, *) {

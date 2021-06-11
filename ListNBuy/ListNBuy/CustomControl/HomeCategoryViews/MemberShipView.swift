@@ -26,5 +26,18 @@ class MemberShipView: UIView {
             contentView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
            
         }
+    
+    @IBAction func btnGotToMemberShip(){
+        if #available(iOS 13.0, *) {
+            let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "MembershipPlansViewController") as MembershipPlansViewController
+            vc.headertitle = "Membership Plans"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "MembershipPlansViewController") as! MembershipPlansViewController
+            vc.headertitle = "Membership Plans"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 
 }

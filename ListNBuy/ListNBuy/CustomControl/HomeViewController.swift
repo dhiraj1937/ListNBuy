@@ -99,9 +99,9 @@ class HomeViewController: UIViewController {
     
     func GetBannerData(){
         if KAPPDELEGATE.isNetworkAvailable(){
-           DispatchQueue.main.async {
-                HUD.show(.progress)
-           }
+//           DispatchQueue.main.async {
+//                HUD.show(.progress)
+//           }
            ApiManager.sharedInstance.requestGETURL(Constant.getBannerURL, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
@@ -144,6 +144,7 @@ class HomeViewController: UIViewController {
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            HUD.flash(.progress)
         }
     }
     
@@ -166,10 +167,10 @@ class HomeViewController: UIViewController {
 
                     sv.addSubview(viewBanner)
                 }
-                HUD.flash(.progress)
+                //HUD.flash(.progress)
                }
                else{
-                HUD.flash(.progress)
+                //HUD.flash(.progress)
                }
                GetBannerData()
            }, failure: { [self] (Error) in
@@ -199,9 +200,9 @@ class HomeViewController: UIViewController {
 
     func GetHomeCategoryData(){
         if KAPPDELEGATE.isNetworkAvailable(){
-            DispatchQueue.main.async {
-                HUD.show(.progress)
-            }
+//            DispatchQueue.main.async {
+//                HUD.show(.progress)
+//            }
            ApiManager.sharedInstance.requestGETURL(Constant.getHomeParentCategoryURL, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
@@ -222,14 +223,15 @@ class HomeViewController: UIViewController {
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            HUD.flash(.progress)
         }
     }
     
     func GetTrendingData(){
         if KAPPDELEGATE.isNetworkAvailable(){
-            DispatchQueue.main.async {
-                HUD.show(.progress)
-            }
+//            DispatchQueue.main.async {
+//                HUD.show(.progress)
+//            }
            ApiManager.sharedInstance.requestGETURL(Constant.getRandomProductURL, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
@@ -249,6 +251,7 @@ class HomeViewController: UIViewController {
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            HUD.flash(.progress)
         }
     }
     
@@ -296,6 +299,7 @@ class HomeViewController: UIViewController {
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            HUD.flash(.progress)
         }
     }
     
@@ -318,13 +322,18 @@ class HomeViewController: UIViewController {
                     viewBanner.btnBanner.addTarget(self, action:#selector(btnBannerpressed(sender:)), for: .touchUpInside)//R3
                     sv.addSubview(viewBanner)
                 }
-                
-                let viewMember = MemberShipView.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 100))
-                sv.addSubview(viewMember)
-                
-                let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+500, width: Int(sv.frame.size.width), height: 200))
-                sv.addSubview(viewSubscription)
-                sv.contentSize = CGSize.init(width: 0, height: yx+700)
+                if(!Constant.isPlanHidden){
+                    let viewMember = MemberShipView.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 100))
+                    sv.addSubview(viewMember)
+                    let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+500, width: Int(sv.frame.size.width), height: 200))
+                    sv.addSubview(viewSubscription)
+                    sv.contentSize = CGSize.init(width: 0, height: yx+700)
+                }
+                else{
+                    let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 200))
+                    sv.addSubview(viewSubscription)
+                    sv.contentSize = CGSize.init(width: 0, height: yx+600)
+                }
                 
                }else{}
             HUD.flash(.progress)
@@ -334,6 +343,7 @@ class HomeViewController: UIViewController {
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            HUD.flash(.progress)
         }
     }
     
@@ -363,15 +373,16 @@ class HomeViewController: UIViewController {
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            HUD.flash(.progress)
         }
     }
 
     
     func GetBrandProductData(yx:Int){
         if KAPPDELEGATE.isNetworkAvailable(){
-            DispatchQueue.main.async {
-                HUD.show(.progress)
-            }
+//            DispatchQueue.main.async {
+//                HUD.show(.progress)
+//            }
             var yXs:Int = yx;
            ApiManager.sharedInstance.requestGETURL(Constant.GetBrandProductURL, success: { [self]
                (JSON) in
@@ -395,32 +406,33 @@ class HomeViewController: UIViewController {
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            HUD.flash(.progress)
         }
     }
     
     
     func GetSearchData(){
         if KAPPDELEGATE.isNetworkAvailable(){
-            DispatchQueue.main.async {
-                HUD.show(.progress)
-            }
+//            DispatchQueue.main.async {
+//                HUD.show(.progress)
+//            }
             ApiManager.sharedInstance.requestGETURL(Constant.GetAutoSearchProductListURL, success: { [self]
                (JSON) in
                if((JSON.dictionary?["IsSuccess"]) != false){
                     let jsonData =  JSON.dictionary?["ResponseData"]!.rawString()!.data(using: .utf8)
                     listSearch = try! JSONDecoder().decode([SearchModel].self, from: jsonData!)
-                    HUD.flash(.progress)
+                    //HUD.flash(.progress)
                }
                else{
-                    HUD.flash(.progress)
+                    //HUD.flash(.progress)
                }
-               GetBannerData()
+               //GetBannerData()
            }, failure: { [self] (Error) in
-               GetBannerData()
+               //GetBannerData()
            })
        }
         else{
-            LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
+            //LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
         }
     }
     

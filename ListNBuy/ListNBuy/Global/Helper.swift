@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import PKHUD
 import LPSnackbar
+import Alamofire
 
 class Helper: NSObject {
     public static func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String,txt:UITextView) {
@@ -463,20 +464,38 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
 }
 
 extension UIImageView {
-    public func imageFromServerURL(urlString: String) {
+    public func imageFromServerURL1(urlString: String) {
         self.image = nil;
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
-        URLSession.shared.dataTask(with: NSURL(string: encodedURL!)! as URL, completionHandler: { (data, response, error) -> Void in
-            if error != nil {
-                print(error)
-                return
-            }
-            DispatchQueue.main.async(execute: { () -> Void in
-                let image = UIImage(data: data!)
-                self.image = image
-            })
-            
-        }).resume()
+//        URLSession.shared.dataTask(with: NSURL(string: encodedURL!)! as URL, completionHandler: { (data, response, error) -> Void in
+//            if error != nil {
+//                print("dddd-image laoding failed")
+//                print(error)
+//                return
+//            }
+//            DispatchQueue.main.async(execute: { () -> Void in
+//                let image = UIImage(data: data!)
+//                self.image = image
+//            })
+//
+//        }).resume()
+        
+        AF.request(NSURL(string: encodedURL!)! as URL).responseData { (response) in
+                      if response.error == nil {
+                         print(response.result)
+        
+                         // Show the downloaded image:
+                         if let data = response.data {
+                            DispatchQueue.main.async(execute: { () -> Void in
+                                let image = UIImage(data: data)
+                                self.image = image
+                            })
+                         }
+                     }
+                      else{
+                        print("dddd-image laoding failed")
+                      }
+                 }
     }
       func setImageColor(color: UIColor) {
         let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
@@ -626,4 +645,28 @@ extension UINavigationController
         }
       }
 }
+
+let imageCache = NSCache<AnyObject, AnyObject>()
+extension UIImageView {
+
+    func imageFromServerURL(urlString: String)  {
+        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage{
+            self.image = imageFromCache
+            return
+        }
+
+        AF.request(urlString, method: .get).response { (responseData) in
+            if let data = responseData.data {
+               DispatchQueue.main.async {
+                if let imageToCache = UIImage(data: data){
+                    imageCache.setObject(imageToCache, forKey: urlString as AnyObject)
+                    self.image = imageToCache
+                }
+            }
+        }
+    }
+
+ }
+}
+
 

@@ -210,7 +210,6 @@ class AddressController: NSObject {
             }
             
             let userID = UserDefaults.standard.getUserID()
-            
             ApiManager.sharedInstance.requestGETURL(Constant.getUserMembershipPlan+""+userID, success: {
                 (JSON) in
                 let msg =  JSON.dictionary?["Message"]
