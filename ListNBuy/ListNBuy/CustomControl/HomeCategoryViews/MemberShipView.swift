@@ -31,12 +31,12 @@ class MemberShipView: UIView {
         if #available(iOS 13.0, *) {
             let vc = KMAINSTORYBOARD.instantiateViewController(identifier: "MembershipPlansViewController") as MembershipPlansViewController
             vc.headertitle = "Membership Plans"
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            Constant.globalTabbar?.navigationController?.pushViewController(vc, animated: true)
         } else {
             // Fallback on earlier versions
             let vc = KMAINSTORYBOARD.instantiateViewController(withIdentifier: "MembershipPlansViewController") as! MembershipPlansViewController
             vc.headertitle = "Membership Plans"
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            Constant.globalTabbar?.navigationController?.pushViewController(vc, animated: true)
         }
     }
 

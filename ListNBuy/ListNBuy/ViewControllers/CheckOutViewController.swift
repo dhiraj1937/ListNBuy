@@ -30,6 +30,7 @@ class CheckOutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnPayNow.isEnabled=false;
         getCartListAPI()
     }
     
@@ -262,13 +263,15 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                             IsMonth = false;
                         }
                     }
-                    
-//                    if let wallet = JSON.dictionaryObject?["Wallet"]{
-//                    }
-//
-//                    if let superWallet = JSON.dictionaryObject?["SuperWallet"]{
-//                    }
-                    
+                    if(listProducts.count==0){
+                        lblTotalVal.text = String(format: "%.2f", 0.0 )
+                        Constant.totalPaybalAmount = String(0.0 )
+                        btnPayNow.isEnabled=false;
+                    }
+                    else{
+                        btnPayNow.isEnabled=false;
+                    }
+        
                     HUD.flash(.progress)
                 }
                 DispatchQueue.main.async {
@@ -278,6 +281,7 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
             DispatchQueue.main.async {
                 HUD.flash(.error)
                 LPSnackbar.showSnack(title: AlertMsg.APIFailed)
+                self.btnPayNow.isEnabled=false;
             }
            })
        }

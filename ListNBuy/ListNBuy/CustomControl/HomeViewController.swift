@@ -322,7 +322,7 @@ class HomeViewController: UIViewController {
                     viewBanner.btnBanner.addTarget(self, action:#selector(btnBannerpressed(sender:)), for: .touchUpInside)//R3
                     sv.addSubview(viewBanner)
                 }
-                if(!Constant.isPlanHidden){
+                if(true){
                     let viewMember = MemberShipView.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 100))
                     sv.addSubview(viewMember)
                     let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+500, width: Int(sv.frame.size.width), height: 200))

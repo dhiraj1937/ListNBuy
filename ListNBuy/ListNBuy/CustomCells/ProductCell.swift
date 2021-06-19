@@ -21,8 +21,24 @@ class ProductCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    @IBAction func btnAddToWishlistAction(sender:UIButton){
+        WishListController.addWishlistWithVCAPI(productID: sender.tag.description, vc: Constant.GetCurrentVC()) { [self] (response) in
+            if response == "Success"{
+                sender.isSelected = true
+            }
+        }
+    }
 
     public func SetData(product:Product) {
+        btnLike.tag = Int(product.id)!;
+        print("wishlist count"+product.wishlist.description);
+        if(product.wishlist>0){
+            btnLike.isSelected=true;
+        }
+        else{
+            btnLike.isSelected=false;
+        }
         img.imageFromServerURL(urlString: product.image)
         lblRating.text = product.avgRating;
         lblTitle.text = product.name;
