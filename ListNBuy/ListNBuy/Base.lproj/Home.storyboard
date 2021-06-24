@@ -145,15 +145,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aq3-zR-Dts" userLabel="ViewMou">
                                                 <rect key="frame" x="10" y="320" width="140" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpI-vi-ZQI">
-                                                        <rect key="frame" x="0.0" y="-7.5" width="140" height="45"/>
-                                                        <fontDescription key="fontDescription" name="NotoSansMyanmar-Regular" family="Noto Sans Myanmar" pointSize="15"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpI-vi-ZQI">
+                                                        <rect key="frame" x="0.0" y="-2" width="111" height="34"/>
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="btnDropDownMouAction" destination="IJI-mA-o9v" eventType="touchUpInside" id="q37-Vq-rbV"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ttc-px-x8O">
-                                                        <rect key="frame" x="110" y="9" width="20" height="12"/>
+                                                        <rect key="frame" x="117" y="9" width="20" height="12"/>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="EeK-1h-Ku2"/>
@@ -166,10 +169,10 @@
                                                     <constraint firstItem="ttc-px-x8O" firstAttribute="centerY" secondItem="XpI-vi-ZQI" secondAttribute="centerY" id="5Dc-R7-i7S"/>
                                                     <constraint firstItem="XpI-vi-ZQI" firstAttribute="leading" secondItem="aq3-zR-Dts" secondAttribute="leading" id="DTd-Th-ALY"/>
                                                     <constraint firstAttribute="width" constant="140" id="NW7-Ed-wNH"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ttc-px-x8O" secondAttribute="trailing" constant="10" id="ZrD-OO-xKa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ttc-px-x8O" secondAttribute="trailing" constant="3" id="ZrD-OO-xKa"/>
                                                     <constraint firstAttribute="height" constant="30" id="aKW-Ip-55c"/>
                                                     <constraint firstItem="ttc-px-x8O" firstAttribute="centerY" secondItem="aq3-zR-Dts" secondAttribute="centerY" id="ghl-0W-ZL9"/>
-                                                    <constraint firstAttribute="trailing" secondItem="XpI-vi-ZQI" secondAttribute="trailing" id="saw-wX-TTA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XpI-vi-ZQI" secondAttribute="trailing" constant="29" id="saw-wX-TTA"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -195,15 +198,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnM-fb-87r" userLabel="ViewVar">
                                                 <rect key="frame" x="170" y="320" width="125" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3i-dp-RWb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="30"/>
-                                                        <fontDescription key="fontDescription" name="NotoSansMyanmar-Regular" family="Noto Sans Myanmar" pointSize="15"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3i-dp-RWb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="30"/>
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="btnDropDownVariantAction" destination="IJI-mA-o9v" eventType="touchUpInside" id="OFb-sB-aIn"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LIb-XW-W01">
-                                                        <rect key="frame" x="95" y="9" width="20" height="12"/>
+                                                        <rect key="frame" x="103" y="9" width="20" height="12"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="DL3-3H-YHT"/>
@@ -219,11 +225,11 @@
                                                     <constraint firstAttribute="height" constant="30" id="AdE-w0-7Vm"/>
                                                     <constraint firstItem="G3i-dp-RWb" firstAttribute="leading" secondItem="xnM-fb-87r" secondAttribute="leading" id="IdT-uj-unI"/>
                                                     <constraint firstAttribute="width" constant="125" id="VYI-kF-54Y"/>
-                                                    <constraint firstAttribute="trailing" secondItem="G3i-dp-RWb" secondAttribute="trailing" id="XzT-4t-weF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="G3i-dp-RWb" secondAttribute="trailing" constant="26" id="XzT-4t-weF"/>
                                                     <constraint firstAttribute="bottom" secondItem="LIb-XW-W01" secondAttribute="bottom" constant="7" id="ayX-tW-uDO"/>
                                                     <constraint firstItem="LIb-XW-W01" firstAttribute="top" secondItem="xnM-fb-87r" secondAttribute="top" constant="7" id="da1-iv-Z2h"/>
                                                     <constraint firstAttribute="bottom" secondItem="G3i-dp-RWb" secondAttribute="bottom" id="kGR-gb-FSt"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LIb-XW-W01" secondAttribute="trailing" constant="10" id="sjU-nm-WcI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LIb-XW-W01" secondAttribute="trailing" constant="2" id="sjU-nm-WcI"/>
                                                     <constraint firstItem="LIb-XW-W01" firstAttribute="centerY" secondItem="G3i-dp-RWb" secondAttribute="centerY" id="zKF-Ja-GHs"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>

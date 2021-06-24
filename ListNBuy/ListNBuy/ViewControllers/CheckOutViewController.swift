@@ -269,7 +269,7 @@ extension CheckOutViewController: UITableViewDelegate,UITableViewDataSource {
                         btnPayNow.isEnabled=false;
                     }
                     else{
-                        btnPayNow.isEnabled=false;
+                        btnPayNow.isEnabled=true;
                     }
         
                     HUD.flash(.progress)

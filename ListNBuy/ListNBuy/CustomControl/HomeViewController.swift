@@ -322,7 +322,7 @@ class HomeViewController: UIViewController {
                     viewBanner.btnBanner.addTarget(self, action:#selector(btnBannerpressed(sender:)), for: .touchUpInside)//R3
                     sv.addSubview(viewBanner)
                 }
-                if(true){
+                if(!Constant.isPlanHidden){
                     let viewMember = MemberShipView.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 100))
                     sv.addSubview(viewMember)
                     let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+500, width: Int(sv.frame.size.width), height: 200))
@@ -339,11 +339,37 @@ class HomeViewController: UIViewController {
             HUD.flash(.progress)
            }, failure: { [self] (Error) in
                 HUD.flash(.progress)
+            
+            if(!Constant.isPlanHidden){
+                let viewMember = MemberShipView.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 100))
+                sv.addSubview(viewMember)
+                let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+500, width: Int(sv.frame.size.width), height: 200))
+                sv.addSubview(viewSubscription)
+                sv.contentSize = CGSize.init(width: 0, height: yx+700)
+            }
+            else{
+                let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 200))
+                sv.addSubview(viewSubscription)
+                sv.contentSize = CGSize.init(width: 0, height: yx+600)
+            }
+            
            })
        }
         else{
             LPSnackbar.showSnack(title: AlertMsg.warningToConnectNetwork)
             HUD.flash(.progress)
+            if(!Constant.isPlanHidden){
+                let viewMember = MemberShipView.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 100))
+                sv.addSubview(viewMember)
+                let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+500, width: Int(sv.frame.size.width), height: 200))
+                sv.addSubview(viewSubscription)
+                sv.contentSize = CGSize.init(width: 0, height: yx+700)
+            }
+            else{
+                let viewSubscription = Subscription.init(frame: CGRect.init(x: 0, y: yx+400, width: Int(sv.frame.size.width), height: 200))
+                sv.addSubview(viewSubscription)
+                sv.contentSize = CGSize.init(width: 0, height: yx+600)
+            }
         }
     }
     
