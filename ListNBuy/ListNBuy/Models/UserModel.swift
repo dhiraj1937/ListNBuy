@@ -333,7 +333,7 @@ class ProductListModel: Codable {
 class VariationModel: Codable {
     let varID, attrID, attributeName, attrId1: String
     let attributeName1, sku: String
-    let offerTag: JSONNull?
+    let offerTag: String?
     let stock, pack: String
     let image: String
     let regularPrice: String
@@ -350,7 +350,7 @@ class VariationModel: Codable {
         case memberPrice = "member_price"
     }
 
-    init(varID: String, attrID: String, attributeName: String, attrId1: String, attributeName1: String, sku: String, offerTag: JSONNull?, stock: String, pack: String, image: String, regularPrice: String, salePrice: String, memberPrice: String) {
+    init(varID: String, attrID: String, attributeName: String, attrId1: String, attributeName1: String, sku: String, offerTag: String?, stock: String, pack: String, image: String, regularPrice: String, salePrice: String, memberPrice: String) {
         self.varID = varID
         self.attrID = attrID
         self.attributeName = attributeName
@@ -371,7 +371,7 @@ class VariationModel: Codable {
 class Variation: Codable {
     let varID, attrID, attributeName, attrId1: String
     let attributeName1, sku: String
-    let offerTag: JSONNull?
+    let offerTag: String
     let stock, pack: String
     let image: String
     let regularPrice: Double
@@ -388,7 +388,7 @@ class Variation: Codable {
         case memberPrice = "member_price"
     }
 
-    init(varID: String, attrID: String, attributeName: String, attrId1: String, attributeName1: String, sku: String, offerTag: JSONNull?, stock: String, pack: String, image: String, regularPrice: Double, salePrice: Double, memberPrice: Double) {
+    init(varID: String, attrID: String, attributeName: String, attrId1: String, attributeName1: String, sku: String, offerTag: String, stock: String, pack: String, image: String, regularPrice: Double, salePrice: Double, memberPrice: Double) {
         self.varID = varID
         self.attrID = attrID
         self.attributeName = attributeName
@@ -691,7 +691,7 @@ class CartDetail: Codable {
     let hSNCode,varID,attrID : String
     let attributeName,attrId1,attributeName1,pack,stock :String
     let sku :String
-    let offerTag: JSONNull?
+    let offerTag: String?
     let productDescription, avgRating: String
     let regularPrice,salePrice,memberPrice :Double
 
@@ -711,7 +711,7 @@ class CartDetail: Codable {
 
     }
     
-    init(id: String,name: String,veg: String,tax: String,image: String,quantity: String,brand: String,isVariable: String,hSNCode: String,varID: String,attrID: String,attributeName: String,attrId1: String,attributeName1: String,stock: String,pack: String,sku: String,offerTag: JSONNull?,productDescription: String,avgRating: String,regularPrice: Double,salePrice: Double,memberPrice: Double) {
+    init(id: String,name: String,veg: String,tax: String,image: String,quantity: String,brand: String,isVariable: String,hSNCode: String,varID: String,attrID: String,attributeName: String,attrId1: String,attributeName1: String,stock: String,pack: String,sku: String,offerTag: String?,productDescription: String,avgRating: String,regularPrice: Double,salePrice: Double,memberPrice: Double) {
         self.id = id
         self.name = name
         self.veg = veg
